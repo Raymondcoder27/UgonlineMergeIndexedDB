@@ -286,7 +286,52 @@ watch(
               <!-- <td>{{ transaction.till }}</td> -->
               <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
               <td class="text-left">{{ transaction.fee.toLocaleString()}}</td>
-              <td class="text-left">{{ transaction.status }}</td>
+              <td class="text-left">
+                <!-- <div class="" v-if="submissionDraft(transaction.name)"> -->
+                <!-- use transaction.status = draft -->
+                <div class="" v-if="transaction.status === 'draft'">
+                  <button
+                    class="bg-gray-100 rounded-md font-semibold text-gray-600 px-1 py-0.5 hover:underline border border-gray-300"
+                    @click="submitDraft(transaction)"
+                  >
+                    Draft
+                  </button>
+                </div>
+                <!-- <div class="" v-else-if="submissionRepay(transaction.name)"> -->
+                <!-- use transaction.status = repay -->
+                <div class="" v-if="transaction.status === 'repay'">
+                  <button
+                    class="bg-green-100 rounded-md font-semibold text-green-700 px-1 py-0.5 hover:underline border border-green-200"
+                    @click="repay(transaction)"
+                  >
+                    Repay
+                  </button>
+                </div>
+                <div class="" v-if="transaction.status === 'submitted'">
+                  <span
+                    class="bg-blue-100 rounded-md font-semibold text-blue-700 px-1 py-0.5 border border-blue-300"
+                    @click="confirm(transaction)"
+                  >
+                    Submitted
+                  </span>
+                </div>
+                <div class="" v-if="transaction.status === 'processing'">
+                  <span
+                    class="bg-amber-100 rounded-md font-semibold text-amber-700 px-1 py-0.5 border border-amber-300"
+                    @click="confirm(transaction)"
+                  >
+                    Processing
+                  </span>
+                </div>
+                <div class="" v-if="transaction.status === 'rejected'">
+                  <span
+                    class="bg-red-100 rounded-md font-semibold text-red-700 px-1 py-0.5 border border-red-300"
+                    @click="confirm(transaction)"
+                  >
+                    Rejected
+                  </span>
+                </div>
+              </td>
               <td class="text-left">{{ convertDate(transaction.date) }}</td>
               <!-- <td class="text-left"> -->
               <!-- <td class="text-black-700 text-center">
@@ -322,7 +367,7 @@ watch(
                     class="bg-gray-100 rounded-md font-semibold text-gray-600 px-1 py-0.5 hover:underline border border-gray-300"
                     @click="submitDraft(transaction)"
                   >
-                    Draft
+                    Resume
                   </button>
                 </div>
                 <!-- <div class="" v-else-if="submissionRepay(transaction.name)"> -->
@@ -340,7 +385,7 @@ watch(
                     class="bg-blue-100 rounded-md font-semibold text-blue-700 px-1 py-0.5 border border-blue-300"
                     @click="confirm(transaction)"
                   >
-                    Confirmed
+                    Resubmit
                   </span>
                 </div>
               </td>
