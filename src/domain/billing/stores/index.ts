@@ -171,6 +171,47 @@ export const useBilling = defineStore("billing", () => {
     })
   }
 
+  // pass in the requestId
+// const approveFloatRequest = (requestId: any) => {
+//   store.approveFloatRequest(requestId);
+//   store.fetchFloatRequests();
+//   balanceStore.approveFloatRequest(requestId);
+//   store.reduceFloatLedger(requestId); 
+//   console.log(`float request with id ${requestId} approved`);
+// };
+
+async function reduceFloatLedger(requestId: any) {
+  console.log("Approving float request with ID:", requestId);
+  // Simulate API call
+  // const response = await fetch(`/api/float-requests/${requestId}/approve`, {
+  //   method: "POST",
+  // });
+  // const data = await response.json();
+
+  // use request in floatledgers array id to figure out amount 
+  const floatRequest = floatRequests.value.find(
+    (request) => request.id === requestId
+  );
+  if (!floatRequest) {
+    console.error("Float request not found");
+    return;
+  }
+  floatLedgers.value.push({
+    id: floatLedgers.value.length + 1,
+    date: new Date().toISOString(),
+    description: "Branch " + floatRequest.branch,
+    amount: -floatRequest.amount,
+    balance: 300000000 - floatRequest.amount,
+  });
+}
+
+// const rejectFloatRequest = (requestId: any) => {
+//   store.rejectFloatRequest(requestId);
+//   store.fetchFloatRequests();
+//   console.log(`float request with id ${requestId} rejected`);
+// };
+
+
 
   // const approveFloatRequest = (requestId: any) => {
   //   store.approveFloatRequest(requestId);
