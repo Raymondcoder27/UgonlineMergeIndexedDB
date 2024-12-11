@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch, computed } from "vue";
-import { useBilling } from "@/domain/ledger/stores"; // Import the appropriate store
+import { useBilling } from "@/agentdomain/ledger/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import type {
   Transaction,
@@ -10,8 +10,8 @@ import type {
   FloatManagement,
 } from "./types"; // Import billing types
 import moment from "moment/moment";
-import RequestFloat from "@/domain/ledger/components/RequestFloat.vue";
-import { useBalance } from "@/domain/balance/stores";
+import RequestFloat from "@/agentdomain/ledger/components/RequestFloat.vue";
+import { useBalance } from "@/agentdomain/balance/stores";
 const balanceStore = useBalance();
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.

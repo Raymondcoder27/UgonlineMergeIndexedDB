@@ -288,10 +288,11 @@ onMounted(() => {
               <!-- Third Case: Fallback, no manager assigned -->
               <div v-else>
                 <button
-                  class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                  class="bg-red-200 rounded-sm text-xs font-semibold text-red-700 px-1.5 py-0 hover:underline"
                   @click="assignManager(branch)"
                 >
-                  Assign Manager
+                <i class="fa fa-user-plus"></i>
+                  ASSIGN MANAGER
                 </button>
               </div>
             </td>
