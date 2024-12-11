@@ -137,21 +137,21 @@ watch(
           class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
         >
           <div class="flex">
-            <select
-            v-if="filter.filter !== undefined"
-            input-type="text"
-            v-model="filter.filter[1].operand"
-            class="filter-element e-input"
-            type="text"
-            placeholder="Filter by Status"
-          >
-            <option value="" disabled selected>Filter by Status</option>
-            <option value="PENDING">PENDING</option>
-            <option value="COMPLETED">COMPLETED</option>
-            <option value="BLOCKED">BLOCKED</option>
-          </select>
             <div class="flex">
               <div class="flex items-center mr-2">
+                <select
+                  v-if="filter.filter !== undefined"
+                  input-type="text"
+                  v-model="filter.filter[1].operand"
+                  class="filter-element e-input"
+                  type="text"
+                  placeholder="Filter by Status"
+                >
+                  <option value="" disabled selected>Filter by Status</option>
+                  <option value="PENDING">PENDING</option>
+                  <option value="COMPLETED">COMPLETED</option>
+                  <option value="BLOCKED">BLOCKED</option>
+                </select>
                 <label for="date-from" class="mr-2 text-sm text-gray-600"
                   >From:</label
                 >
@@ -175,15 +175,15 @@ watch(
               </div>
             </div>
           </div>
-         <div class="">
-          <button
-            @click="modalOpen = true"
-            class="button btn-sm"
-            type="button"
-          >
-            <i class="px-1 fa-solid fa-plus"></i> Allocate Float
-          </button>
-         </div>
+          <div class="">
+            <button
+              @click="modalOpen = true"
+              class="button btn-sm"
+              type="button"
+            >
+              <i class="px-1 fa-solid fa-plus"></i> Allocate Float
+            </button>
+          </div>
         </div>
       </div>
     </div>

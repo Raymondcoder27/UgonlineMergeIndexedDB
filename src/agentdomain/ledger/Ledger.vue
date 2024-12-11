@@ -269,20 +269,19 @@ onMounted(() => {
           >
             <div class="flex">
               <div class="flex">
-                <select
-                  v-if="filter.filter"
-                  v-model="description"
-                  class="filter-element e-input"
-                  @change="fetchFloatLedgers"
-                >
-                  <option value="">All Transactions</option>
-                  <!-- <option value="Recharge">Recharge</option>
-                <option value="serviceFee">Service Fee</option> -->
-                  <option value="recharge">Recharge</option>
-                  <option value="service_fee">Service Fee</option>
-                </select>
-
                 <div class="flex items-center mr-2">
+                  <select
+                    v-if="filter.filter"
+                    v-model="description"
+                    class="filter-element e-input"
+                    @change="fetchFloatLedgers"
+                  >
+                    <option value="">All Transactions</option>
+                    <!-- <option value="Recharge">Recharge</option>
+                <option value="serviceFee">Service Fee</option> -->
+                    <option value="recharge">Recharge</option>
+                    <option value="service_fee">Service Fee</option>
+                  </select>
                   <label for="date-from" class="mr-2 text-sm text-gray-600"
                     >From:</label
                   >
