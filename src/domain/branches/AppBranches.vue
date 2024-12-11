@@ -292,7 +292,7 @@ onMounted(() => {
                   @click="assignManager(branch)"
                 >
                 <i class="fa fa-user-plus"></i>
-                  ASSIGN MANAGER
+                  Assign Manager
                 </button>
               </div>
             </td>
