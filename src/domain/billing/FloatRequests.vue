@@ -198,7 +198,36 @@ onMounted(() => {
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount.toLocaleString() }}</td>
-            <td class="text-left">{{ request.status }}</td>
+            <td class="text-left"><!-- First Case: float request approved -->
+              <div v-if="request.status === 'approved'">
+                <!-- <td> -->
+                <!-- <label> -->
+                <span
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
+                  @click="approveFloatRequest(request.id)"
+                  >
+                  <i class="fa-solid fa-check"></i>
+                  Approved</span
+                >
+                <!-- </label> -->
+                <!-- </td> -->
+              </div>
+
+              <!-- Second Case: Manager directly assigned to branch -->
+              <div v-else-if="request.status === 'rejected'">
+                <!-- <td> -->
+                <label>
+                  <span
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-700 bg-red-200 border border-red-300 hover:text-red-700 hover:bg-red-200"
+                    @click="open(request)"
+                    >
+                  <i class="fa-solid fa-times-square"></i>
+                  Rejected</span
+                  >
+                </label>
+                <!-- </td> -->
+              </div>
+            </td>
             <td class="text-right">
               <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">
