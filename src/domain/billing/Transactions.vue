@@ -131,7 +131,7 @@ onMounted(() => {
       <div class="flex-grow"></div>
       <div class="flex-grow">
         <div
-          class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+          class="grid grid-cols-7 gap-5 bg-gray-10 border border-gray-200 rounded px-2 py-3"
         >
           <input
             v-if="filter.filter !== undefined"
@@ -188,15 +188,15 @@ onMounted(() => {
           <!-- <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button> -->
-          <div class="flex space-x-2">
+          <div class="flex space-x-2 ml-10">
             <div class="flex items-center">
-              <label for="date-from" class="mr-1 text-sm text-gray-600"
+              <label for="date-from" class=" text-sm text-gray-600"
                 >From:</label
               >
               <input
                 type="date"
                 id="date-from"
-                class="border rounded-md py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="e-input filter-element"
                 v-model="filter.fromDate"
               />
             </div>
@@ -207,7 +207,7 @@ onMounted(() => {
               <input
                 type="date"
                 id="date-to"
-                class="border rounded-md py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="e-input filter-element"
                 v-model="filter.toDate"
               />
             </div>
