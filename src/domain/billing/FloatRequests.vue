@@ -6,6 +6,9 @@ import type { IGoFilter } from "@/types";
 // import { request } from "http";
 // import { useDebounce } from "@vueuse/core";
 import moment from "moment/moment";
+import { useBalance } from "@/domain/balance/stores";
+
+const balanceStore = useBalance();
 
 const store = useBilling();
 const page = ref(1);
@@ -74,10 +77,37 @@ function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
+// function submit() {
+//   const payload = {
+//     amount: form.amount,
+//     branchId: form.branchId,
+//   };
+  
+//   console.log("Submitting payload:", payload);
+
+//   loading.value = true;
+//   store.allocateFloat(payload) // API call to allocate float
+//     // .then(() => {
+//       billingStore.adjustFloatLedger(payload); // Adjust ledger
+//       balanceStore.decreaseTotalBalance(payload.amount); // Update balance
+//       // notify.success(`Float allocated to branch: ${form.branchId}`);
+//       notify.success(`Float allocated to ${form.branchId}`);
+//       emit("floatAllocated");
+//     // })
+//     // .catch((err) => {
+//       // console.error("Error allocating float:", err);
+//       // notify.error("Failed to allocate float.");
+//     // })
+//     // .finally(() => {
+//       // loading.value = false;
+//     // });
+// }
+
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
   store.approveFloatRequest(requestId);
   store.fetchFloatRequests();
+  balanceStore.decreaseTotalBalance(payload.amount);
   console.log(`float request with id ${requestId} approved`);
 };
 
@@ -176,8 +206,10 @@ onMounted(() => {
                 <!-- <label> -->
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-green-700 hover:text-green-700 hover:bg-green-200"
-                  @click="open(request)"
-                  >Approved</span
+                  @click="approveFloatRequest(request.id)"
+                  >
+                  <i class="fa-solid fa-check"></i>
+                  Approved</span
                 >
                 <!-- </label> -->
                 <!-- </td> -->
@@ -190,7 +222,9 @@ onMounted(() => {
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-red-700 hover:text-red-700 hover:bg-red-200"
                     @click="open(request)"
-                    >Rejected</span
+                    >
+                  <i class="fa-solid fa-times-square"></i>
+                  Rejected</span
                   >
                 </label>
                 <!-- </td> -->
@@ -202,13 +236,17 @@ onMounted(() => {
                 <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-700 hover:text-blue-700 hover:bg-blue-200"
                   @click="approveFloatRequest(request.id)"
-                  >Approve</span
+                  >
+                  <i class="fa-solid fa-check"></i>
+                  Approve</span
                 >
 
                 <span
                   class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-700 hover:text-red-700 hover:bg-red-200"
                   @click="rejectFloatRequest(request.id)"
-                  >Reject</span
+                  >
+                  <i class="fa-solid fa-times-square"></i>
+                  Reject</span
                 >
                 <!-- </td> -->
               </div>

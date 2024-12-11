@@ -147,7 +147,7 @@ watch(
                   type="text"
                   placeholder="Filter by Branch"
                 >
-                  <option value="" disabled selected>Filter by Status</option>
+                  <option value="" disabled selected>Filter by Branch</option>
                   <option value="Branch 1">Branch 1</option>
                   <option value="Branch 2">Branch 2</option>
                   <option value="Branch 3">Branch 3</option>

@@ -31,7 +31,7 @@ function select(tab: string) {
         <label class="text-lg mx-1">Finances</label>
       </div>
       <div class="">
-        <span class="bg-gray-50 mt-5 mr-3 text-gray-900 font-semibold rounded-md px-1 py-0.5 text-md">{{totalBalance.current.toLocaleString()}}/=</span>
+        <span class="bg-gray-50 mt-5 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md">{{totalBalance.current.toLocaleString()}}/=</span>
       </div>
     </div>
     <div class="flex pt-5">
