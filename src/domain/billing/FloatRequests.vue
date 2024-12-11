@@ -231,10 +231,10 @@ onMounted(() => {
                 <!-- <td> -->
                 <label>
                   <span
-                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-700 bg-red-200 border border-gray-300 hover:text-gray-700 hover:bg-red-200"
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-700 bg-gray-50 border border-gray-300 hover:text-gray-700 hover:bg-red-200"
                     @click="open(request)"
                     >
-                  <i class="fa-solid fa-times-square"></i>
+                  <i class="fa-solid fa-clock text-gray-500"></i>
                   Pending</span
                   >
                 </label>
@@ -247,12 +247,16 @@ onMounted(() => {
                 <!-- <td> -->
                 <!-- <label> -->
                 <span
-                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-green-700 hover:text-green-700 hover:bg-green-200"
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-700 hover:text-blue-700 hover:bg-green-200"
                   @click="approveFloatRequest(request.id)"
                   >
-                  <i class="fa-solid fa-check"></i>
+                  <!-- <i class="fa-solid fa-check"></i>
                   Approved</span
-                >
+                > -->
+                  <i class="fa-solid fa-eye"></i>
+                  View Details</span
+                > 
+                
                 <!-- </label> -->
                 <!-- </td> -->
               </div>
@@ -262,12 +266,16 @@ onMounted(() => {
                 <!-- <td> -->
                 <label>
                   <span
-                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-red-700 hover:text-red-700 hover:bg-red-200"
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-700 hover:text-blue-700 hover:bg-blue-200"
                     @click="open(request)"
                     >
-                  <i class="fa-solid fa-times-square"></i>
+                  <!-- <i class="fa-solid fa-times-square"></i>
                   Rejected</span
+                  > -->
+                  <i class="fa-solid fa-eye"></i>
+                  View Details</span
                   >
+                  
                 </label>
                 <!-- </td> -->
               </div>

@@ -81,7 +81,7 @@ async function approveFloatRequest(requestId: any) {
   }
   // console.log("Float request approved:", data);
   totalBalance.prev = totalBalance.current;
-  totalBalance.current += floatRequest.amount; // Example of updating balance
+  totalBalance.current -= floatRequest.amount; // Example of updating balance
 }
 
 
