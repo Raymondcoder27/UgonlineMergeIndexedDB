@@ -138,18 +138,18 @@ watch(
         >
           <div class="flex">
             <select
-              v-if="filter.filter !== undefined"
-              input-type="text"
-              v-model="filter.filter[2].operand"
-              class="filter-element e-input"
-              type="text"
-              placeholder="Drop down provider"
-            >
-              <option value="" disabled selected>Filter by Description</option>
-              <option value="recharge">Recharge</option>
-              <option value="floatAllocation">Float Allocation</option>
-              <!-- <option value="UMEME">UMEME</option> -->
-            </select>
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[1].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Filter by Status"
+          >
+            <option value="" disabled selected>Filter by Status</option>
+            <option value="PENDING">PENDING</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="BLOCKED">BLOCKED</option>
+          </select>
             <div class="flex">
               <div class="flex items-center mr-2">
                 <label for="date-from" class="mr-2 text-sm text-gray-600"
@@ -158,7 +158,7 @@ watch(
                 <input
                   type="date"
                   id="date-from"
-                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="filter-element e-input"
                   v-model="filter.fromDate"
                 />
               </div>
@@ -169,7 +169,7 @@ watch(
                 <input
                   type="date"
                   id="date-to"
-                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="filter-element e-input"
                   v-model="filter.toDate"
                 />
               </div>
