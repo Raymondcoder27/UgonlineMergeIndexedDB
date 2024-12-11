@@ -7,6 +7,13 @@ import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
 import FloatManagement from "@/domain/billing/FloatManagement.vue";
 import Transactions from "@/domain/billing/Transactions.vue";
 import FloatRequests from "@/domain/billing/FloatRequests.vue";
+import { useBalance } from "@/domain/balance/stores";
+
+const balanceStore = useBalance();
+
+balanceStore.fetchTotalBalance();
+
+const totalBalance = balanceStore.totalBalance;
 
 const activeTab: Ref<string> = ref("floatmanagement");
 
@@ -22,6 +29,9 @@ function select(tab: string) {
       <div class="w-full py-1">
         <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-money-bill"></i>
         <label class="text-lg mx-1">Finances</label>
+      </div>
+      <div class="">
+        <span class=" mt-5 mr-3 text-black-800 rounded-md px-1 py-0.5 text-md">{{totalBalance.current.toLocaleString()}}/=</span>
       </div>
     </div>
     <div class="flex pt-5">
