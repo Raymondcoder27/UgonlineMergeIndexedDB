@@ -77,24 +77,24 @@ const filter = reactive({
 // }
 
 async function fetchFloatLedgers() {
-    // Remove any previous 'status' filters
-    filter.filter = filter.filter.filter((f) => f.field !== "description");
+  // Remove any previous 'status' filters
+  filter.filter = filter.filter.filter((f) => f.field !== "description");
 
-    if (description.value) {
-        filter.filter.push({
-            field: "description",
-            operand: description.value,
-            operator: "EQUALS",
-        });
-    }
+  if (description.value) {
+    filter.filter.push({
+      field: "description",
+      operand: description.value,
+      operator: "EQUALS",
+    });
+  }
 
-    console.log("Filter before fetch:", filter);
+  console.log("Filter before fetch:", filter);
 
-    // Await the fetch operation
-    const response = await store.fetchTransactions(filter);
+  // Await the fetch operation
+  const response = await store.fetchTransactions(filter);
 
-    // Log the response or handle it
-    console.log("Fetched transactions:", response);
+  // Log the response or handle it
+  console.log("Fetched transactions:", response);
 }
 
 function next() {
@@ -147,7 +147,6 @@ watch(
   },
   { deep: true }
 );
-
 
 // watch(
 //   () => filter,
@@ -251,7 +250,6 @@ const computedTransactions = computed(() => {
 //   }
 // );
 
-
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
   fetchFloatLedgers();
@@ -270,21 +268,20 @@ onMounted(() => {
             class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
           >
             <div class="flex">
-              <select
-                v-if="filter.filter"
-                v-model="description"
-                class="filter-element e-input"
-                @change="fetchFloatLedgers"
-              >
-                <option value="">All Transactions</option>
-                <!-- <option value="Recharge">Recharge</option>
-                <option value="serviceFee">Service Fee</option> -->
-                <option value="recharge">Recharge</option>
-<option value="service_fee">Service Fee</option>
-
-              </select>
-
               <div class="flex">
+                <select
+                  v-if="filter.filter"
+                  v-model="description"
+                  class="filter-element e-input"
+                  @change="fetchFloatLedgers"
+                >
+                  <option value="">All Transactions</option>
+                  <!-- <option value="Recharge">Recharge</option>
+                <option value="serviceFee">Service Fee</option> -->
+                  <option value="recharge">Recharge</option>
+                  <option value="service_fee">Service Fee</option>
+                </select>
+
                 <div class="flex items-center mr-2">
                   <label for="date-from" class="mr-2 text-sm text-gray-600"
                     >From:</label
