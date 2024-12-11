@@ -108,6 +108,7 @@ const approveFloatRequest = (requestId: any) => {
   store.approveFloatRequest(requestId);
   store.fetchFloatRequests();
   balanceStore.approveFloatRequest(requestId);
+  billingStore.adjustFloatLedger(requestId); 
   console.log(`float request with id ${requestId} approved`);
 };
 
