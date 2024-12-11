@@ -380,9 +380,25 @@ watch(
                     Repay
                   </button>
                 </div>
-                <div class="" v-else>
+                <div class="" v-if="transaction.status === 'rejected'">
                   <span
-                    class="bg-blue-100 rounded-md font-semibold text-blue-700 px-1 py-0.5 border border-blue-300"
+                    class="bg-red-100 rounded-md font-semibold text-red-700 px-1 py-0.5 border border-red-300"
+                    @click="confirm(transaction)"
+                  >
+                    Resubmit
+                  </span>
+                </div>
+                <div class="" v-if="transaction.status === 'submitted'">
+                  <span
+                    class="bg-green-100 rounded-md font-semibold text-green-700 px-1 py-0.5 border border-green-300"
+                    @click="confirm(transaction)"
+                  >
+                    Submitted
+                  </span>
+                </div>
+                <div class="" v-if="transaction.status === 'processing'">
+                  <span
+                    class="bg-amber-100 rounded-md font-semibold text-amber-700 px-1 py-0.5 border border-amber-300"
                     @click="confirm(transaction)"
                   >
                     Resubmit

@@ -52,7 +52,7 @@ export const useSubmissions = defineStore("submissions", () => {
 
   const dummySubmissions: Submission[] = [
     { id: 1, trackingNumber: "TA123456",
-      service: "Name Reservation", status: "confirmed", provider: "URSB", till: "Till 001",
+      service: "Name Reservation", status: "rejected", provider: "URSB", till: "Till 001",
       fee: 25000, date: "2021-09-01" 
     },
     { id: 2, trackingNumber: "TB123457",
@@ -60,8 +60,23 @@ export const useSubmissions = defineStore("submissions", () => {
        till: "Till 002", fee: 20000, date: "2021-09-02"
       },
     { id: 3, trackingNumber: "TC123458",
-      service: "National ID registration", status: "repay", provider: "NIRA",
+      service: "National ID registration", status: "processing", provider: "NIRA",
        till: "Till 003", fee: 35000, date: "2021-09-03" },
+       {
+        id: 4, trackingNumber: "TD123459",
+        service: "Name Reservation", status: "rejected", provider: "URSB", till: "Till 001",
+        fee: 25000, date: "2021-09-01"
+       },
+       {
+        id: 5, trackingNumber: "TE123460",
+        service: "Create Postal Account", status: "processing", provider: "Posta Uganda",
+         till: "Till 002", fee: 20000, date: "2021-09-02"
+        },
+      {
+        id: 6, trackingNumber: "TF123461",
+        service: "National ID registration", status: "submitted", provider: "NIRA",
+         till: "Till 003", fee: 35000, date: "2021-09-03"
+       }
   ];
 
 
