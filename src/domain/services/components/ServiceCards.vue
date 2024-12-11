@@ -12,7 +12,7 @@ const notify = useNotificationsStore();
 // const providerStore = useProviderStore();
 
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(8);
+const limit: Ref<number> = ref(9);
 const loading: Ref<boolean> = ref(false);
 const services: Ref<any[]> = ref([]); // Will hold the paginated services
 
