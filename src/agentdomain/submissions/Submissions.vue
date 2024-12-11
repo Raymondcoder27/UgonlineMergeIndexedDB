@@ -258,7 +258,7 @@ watch(
               <!-- <th>Till</th> -->
               <!-- <th>Transaction Type</th> -->
               <th>Fee</th>
-              <!-- <th>Status</th> -->
+              <th>Status</th>
               <th>Date</th>
               <th>Actions</th>
             </tr>
@@ -285,8 +285,8 @@ watch(
               <td class="text-left">{{ transaction.provider }}</td>
               <!-- <td>{{ transaction.till }}</td> -->
               <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
-              <td class="text-left">{{ transaction.fee .toStringLocale}}</td>
-              <!-- <td class="text-left">{{ transaction.status }}</td> -->
+              <td class="text-left">{{ transaction.fee.toStringLocale()}}</td>
+              <td class="text-left">{{ transaction.status }}</td>
               <td class="text-left">{{ convertDate(transaction.date) }}</td>
               <!-- <td class="text-left"> -->
               <!-- <td class="text-black-700 text-center">
