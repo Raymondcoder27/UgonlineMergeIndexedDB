@@ -270,19 +270,6 @@ onMounted(() => {
             class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
           >
             <div class="flex">
-              <!-- <select
-                v-if="filter.filter"
-                v-model="filter.filter[0].operand"
-                input-type="text"
-                class="filter-element e-input"
-                type="text"
-                placeholder="Filter by Description"
-              >
-                <option value="">All Transactions</option>
-                <option value="recharge">Recharge</option>
-                <option value="servicefee">Service Fee</option>
-              </select> -->
-
               <select
                 v-if="filter.filter"
                 v-model="description"
@@ -305,7 +292,7 @@ onMounted(() => {
                   <input
                     type="date"
                     id="date-from"
-                    class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="filter-element e-input"
                     v-model="filter.fromDate"
                   />
                 </div>
@@ -316,7 +303,7 @@ onMounted(() => {
                   <input
                     type="date"
                     id="date-to"
-                    class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="filter-element e-input"
                     v-model="filter.toDate"
                   />
                 </div>
