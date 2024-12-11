@@ -195,7 +195,7 @@ onMounted(() => {
 
         <!-- Next Button -->
         <button
-          class="text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+          class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{
             'opacity-50 cursor-not-allowed': store.services.length < limit,
           }"
@@ -207,7 +207,7 @@ onMounted(() => {
       </div>
 
   <!-- Service Cards Section -->
-  <div class="grid grid-cols-4 gap-3 mt-3">
+  <div class="grid grid-cols-4 gap-3 mt-3 p-5">
     <!-- <div
       v-for="service in store.services"
       :key="service.id"
