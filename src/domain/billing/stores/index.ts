@@ -199,9 +199,9 @@ async function reduceFloatLedger(requestId: any) {
   floatLedgers.value.push({
     id: floatLedgers.value.length + 1,
     date: new Date().toISOString(),
-    description: "Branch " + floatRequest.branch,
+    description: floatRequest.branch,
     amount: -floatRequest.amount,
-    balance: 300000000 - floatRequest.amount,
+    // balance: 300000000 - floatRequest.amount,
   });
 }
 
@@ -256,6 +256,7 @@ async function reduceFloatLedger(requestId: any) {
     branchManagers,
     floatAllocations,
     floatRequests,
+    reduceFloatLedger,
     approveFloatRequest,
     adjustFloatLedger,
     rejectFloatRequest,
