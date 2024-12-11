@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, reactive, onMounted } from "vue";
+import { ref, watch, reactive, onMounted, computed, type Ref } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/agentdomain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
@@ -12,9 +12,11 @@ const balanceStore = useBalance();
 const store = useServicesStore();
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
-
   const page: Ref<number> = ref(1);
-    const limit: Ref<number> = ref(16);
+const limit: Ref<number> = ref(8);
+const loading: Ref<boolean> = ref(false);
+const services: Ref<any[]> = ref([]); 
+
 
 function serviceForm(id: string) {
   // Logic to open the modal or start the process
@@ -80,23 +82,40 @@ watch(
   { deep: true }
 );
 
+function fetchServices() {
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  services.value = store.services.slice(startIndex, endIndex);
+  loading.value = false;
+}
+
+
+// Go to the next page
 function next() {
   page.value += 1;
   fetchServices();
 }
 
+// Go to the previous page
 function previous() {
   page.value -= 1;
   fetchServices();
 }
 
+const paginatedServices = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return store.services.slice(start, end);  // Adjust according to your page & limit
+});
 
-function fetchServices() {
-  filter.offset = (page.value - 1) * limit.value; // Update offset
-  filter.limit = limit.value;
-  filter.page = page.value; // Ensure pagination is aligned
-  store.fetchServices(filter); // Fetch services
-}
+// function fetchServices() {
+//   filter.offset = (page.value - 1) * limit.value; // Update offset
+//   filter.limit = limit.value;
+//   filter.page = page.value; // Ensure pagination is aligned
+//   store.fetchServices(filter); // Fetch services
+// }
 
 onMounted(() => {
   balanceStore.
@@ -163,34 +182,40 @@ onMounted(() => {
   <div class="flex justify-end items-center mt-2 mb-2">
         <!-- Previous Button -->
         <button
-          class="px-1 py-0 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
           :disabled="page <= 1"
           @click="previous"
         >
-          <i class="fa-solid fa-arrow-left text-xs"></i>
+          <i class="fa-solid fa-arrow-left text-md"></i>
         </button>
 
         <!-- Page Number Display -->
-        <span class="mx-4 text-lg font-semibold text-gray-700">{{ page }}</span>
+        <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
 
         <!-- Next Button -->
         <button
-          class="px-1 py-0 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{
             'opacity-50 cursor-not-allowed': store.services.length < limit,
           }"
           :disabled="store.services.length < limit"
           @click="next"
         >
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+          <i class="fa-solid fa-arrow-right text-md"></i>
         </button>
       </div>
 
   <!-- Service Cards Section -->
   <div class="grid grid-cols-4 gap-3 mt-3">
-    <div
+    <!-- <div
       v-for="service in store.services"
+      :key="service.id"
+      @click="serviceForm(service)"
+      class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+    > -->
+    <div
+      v-for="service in paginatedServices"
       :key="service.id"
       @click="serviceForm(service)"
       class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"

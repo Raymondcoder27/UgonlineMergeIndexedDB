@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch, computed } from "vue";
-import { useBilling } from "@/agentdomain/ledger/stores"; // Import the appropriate store
+import { useBilling } from "@/domain/ledger/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import type {
   Transaction,
@@ -10,8 +10,8 @@ import type {
   FloatManagement,
 } from "./types"; // Import billing types
 import moment from "moment/moment";
-import RequestFloat from "@/agentdomain/ledger/components/RequestFloat.vue";
-import { useBalance } from "@/agentdomain/balance/stores";
+import RequestFloat from "@/domain/ledger/components/RequestFloat.vue";
+import { useBalance } from "@/domain/balance/stores";
 const balanceStore = useBalance();
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
@@ -32,7 +32,7 @@ const filter = reactive({
   ],
   filter: [
     {
-      field: "description",
+      field: "status",
       operand: "",
       operator: "CONTAINS",
     },
@@ -77,35 +77,39 @@ const filter = reactive({
 // }
 
 async function fetchFloatLedgers() {
-    // Remove any previous 'status' filters
-    filter.filter = filter.filter.filter((f) => f.field !== "description");
-
-    if (description.value) {
-        filter.filter.push({
-            field: "description",
-            operand: description.value,
-            operator: "EQUALS",
-        });
+    filter.filter = filter.filter.filter((f) => f.field !== "status");
+  
+    if (status.value) {
+      filter.filter.push({
+        field: "status",
+        operand: status.value,
+        operator: "EQUALS",
+      });
     }
-
-    console.log("Filter before fetch:", filter);
-
+  
+    console.log('Fetching Float Ledgers with filter:', filter);
+  
     // Await the fetch operation
-    const response = await store.fetchTransactions(filter);
+    const response = await store.fetchFloatLedgers(filter);
+  
+    console.log('Filtered float ledgers:', response); // Log the response
+  
+    // Update store or state accordingly
+    store.floatLedgers = response; // Ensure this triggers reactivity
+  }
 
-    // Log the response or handle it
-    console.log("Fetched transactions:", response);
-}
-
-function next() {
+  function next() {
   page.value += 1;
-  fetchTransactions();
+  filter.page = page.value;  // Make sure filter reflects the updated page
+  fetchFloatLedgers();
 }
 
 function previous() {
   page.value -= 1;
-  fetchTransactions();
+  filter.page = page.value;
+  fetchFloatLedgers();
 }
+
 
 function open() {
   modalOpen.value = true;
@@ -133,7 +137,7 @@ function convertDateTime(date: string) {
 //   store.fetchTransactions(filter);
 // }, 300);
 
-const description = ref("");
+const status = ref("");
 
 const updateFilter = useDebounceFn(() => {
   console.log("Filter updated, fetching transactions...");
@@ -141,48 +145,13 @@ const updateFilter = useDebounceFn(() => {
 }, 300);
 
 watch(
-  () => [filter.fromDate, filter.toDate, description.value],
+  () => [filter.fromDate, filter.toDate, status.value],
   () => {
     updateFilter();
   },
   { deep: true }
 );
 
-
-// watch(
-//   () => filter,
-//   () => {
-//     console.log("Filter updated:", filter);
-//     updateFilter();
-//   },
-//   { deep: true }
-// );
-
-// watch(
-//   () => filter.filter,
-//   () => updateFilter(),
-//   { deep: true }
-// );
-
-// Watch for changes in the modal state
-// watch(
-//   () => modalOpen.value,
-//   (isOpen) => {
-//     if (!isOpen) {
-//       // Handle modal close if needed
-//     }
-//   }
-// );
-
-// // Watch for changes in the filter object
-// watch(
-//   () => filter,
-//   () => {
-//     console.log("Filter updated:", filter);
-//     updateFilter();
-//   },
-//   { deep: true }
-// );
 
 // computed(() => {
 //   const initialBalance = 15000000; // From store or static reference
@@ -212,50 +181,20 @@ const computedTransactions = computed(() => {
   });
 });
 
-// watch(
-//   computedTransactions,
-//   (transactions) => {
-//     console.log("Computed transactions:", transactions);
-//   },
-//   { deep: true }
-// );
 
-// watch(
-//   () => balanceStore.totalBalance.value,
-//   (newVal, oldVal) => {
-//     console.log("Balance updated:", oldVal, "->", newVal);
-//   },
-//   { deep: true }
-// );
-
-// let description = ref("")
-// watch(
-//     () => description.value,
-//     () => {
-//       fetchFloatLedgers()
-//     },
-// );
-
-// watch(
-//   () => description.value,
-//   () => {
-//     filter.filter = filter.filter.filter((f) => f.field !== "description");
-//     if (description.value) {
-//       filter.filter.push({
-//         field: "description",
-//         operand: description.value,
-//         operator: "EQUALS",
-//       });
-//     }
-//     fetchFloatLedgers();
-//   }
-// );
-
+watch(
+  () => store.floatLedgers,
+  (newLedgers) => {
+    console.log('Updated float ledgers:', newLedgers);
+    // You can add any extra logic you want to run after the ledgers are updated
+  },
+  { deep: true }
+);
 
 // Fetch billing data (transactions, float ledgers)
-onMounted(() => {
-  fetchFloatLedgers();
-  // store.fetchFloatLedgers();
+onMounted(async () => {
+  await fetchFloatLedgers(); // Wait for the data fetch
+  console.log('Component mounted, data fetched');
 });
 </script>
 
@@ -285,16 +224,16 @@ onMounted(() => {
 
               <select
                 v-if="filter.filter"
-                v-model="description"
+                v-model="status"
                 class="filter-element e-input"
                 @change="fetchFloatLedgers"
               >
-                <option value="">All Transactions</option>
+                <option value="">--Filter by status--</option>
                 <!-- <option value="Recharge">Recharge</option>
                 <option value="serviceFee">Service Fee</option> -->
-                <option value="recharge">Recharge</option>
-<option value="service_fee">Service Fee</option>
-
+                <option value="success">SUCCESS</option>
+                <option value="pending">PENDING</option>
+                <option value="failed">FAILED</option>
               </select>
 
               <div class="flex">
@@ -341,7 +280,7 @@ onMounted(() => {
             <tr class="header-tr">
               <!-- <th class="t-header">#</th> -->
               <th class="t-header">Date</th>
-              <th class="t-header">Description</th>
+              <th class="t-header">Reason</th>
               <th class="text-right t-header">Amount</th>
               <th class="text-right first-letter:capitalize t-header">
                 Status
@@ -409,7 +348,7 @@ onMounted(() => {
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-gray-200"
                     @click="open(transaction)"
-                    >Pending</span
+                    >PENDING</span
                   >
                   <!-- </label> -->
                   <!-- </td> -->
@@ -422,7 +361,7 @@ onMounted(() => {
                     <span
                       class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                       @click="open(transaction)"
-                      >failed</span
+                      >FAILED</span
                     >
                   </label>
                   <!-- </td> -->
@@ -433,7 +372,7 @@ onMounted(() => {
                   <!-- <td> -->
                   <span
                     class="text-xs rounded-md px-1 py-0.5 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
-                    >success</span
+                    >SUCCESS</span
                   >
                 </div>
               </td>
