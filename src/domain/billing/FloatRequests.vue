@@ -107,7 +107,7 @@ function convertDateTime(date: string) {
 const approveFloatRequest = (requestId: any) => {
   store.approveFloatRequest(requestId);
   store.fetchFloatRequests();
-  balanceStore.decreaseTotalBalance(requestId);
+  balanceStore.approveFloatRequest(requestId);
   console.log(`float request with id ${requestId} approved`);
 };
 
