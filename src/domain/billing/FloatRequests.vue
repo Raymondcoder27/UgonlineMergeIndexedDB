@@ -227,6 +227,19 @@ onMounted(() => {
                 </label>
                 <!-- </td> -->
               </div>
+              <div v-else>
+                <!-- <td> -->
+                <label>
+                  <span
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-700 bg-red-200 border border-gray-300 hover:text-gray-700 hover:bg-red-200"
+                    @click="open(request)"
+                    >
+                  <i class="fa-solid fa-times-square"></i>
+                  Pending</span
+                  >
+                </label>
+                <!-- </td> -->
+              </div>
             </td>
             <td class="text-right">
               <!-- First Case: float request approved -->
