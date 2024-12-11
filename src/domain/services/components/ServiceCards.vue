@@ -109,7 +109,7 @@ onMounted(() => {
     </button>
   </div>
 
-  <div class="grid grid-cols-4 gap-3">
+  <div class="grid grid-cols-3 gap-3">
     <!-- Service Tile -->
 
     <div
@@ -123,7 +123,7 @@ onMounted(() => {
           <img :src="service.thumbnail" alt="" class="w-4 h-4 object-cover" />
         </div>
         <hr class="my-2" />
-        <div class="text-bold text-xs font-bold">
+        <div class="flex text-bold text-xs font-bold">
           {{ service.name }}
         </div>
         <div class="flex flex-grow">
