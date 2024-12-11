@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { reactive } from "vue";
 // Pinia store
 import { watchEffect } from "vue";
-
+import {useBilling} from "@/domain/billing/stores/index";
 
 
 
@@ -17,6 +17,8 @@ export const useBalance = defineStore("balance", () => {
     prev: 300000000, // Initial previous balance
     current: 300000000, // Initial current balance
   });
+
+  const billingStore = useBilling();
 
   watchEffect(() => {
     console.log("Total balance changed:", totalBalance);
@@ -48,6 +50,42 @@ export const useBalance = defineStore("balance", () => {
     totalBalance.current -= amount;
   }
 
+  // pass in the requestId
+// const approveFloatRequest = (requestId: any) => {
+//   store.approveFloatRequest(requestId);
+//   store.fetchFloatRequests();
+//   console.log(`float request with id ${requestId} approved`);
+// };
+
+// const rejectFloatRequest = (requestId: any) => {
+//   store.rejectFloatRequest(requestId);
+//   store.fetchFloatRequests();
+//   console.log(`float request with id ${requestId} rejected`);
+// };
+
+async function approveFloatRequest(requestId: any) {
+  console.log("Approving float request with ID:", requestId);
+  // Simulate API call
+  // const response = await fetch(`/api/float-requests/${requestId}/approve`, {
+  //   method: "POST",
+  // });
+  // const data = await response.json();
+
+  // use request in floatledgers array id to figure out amount 
+  const floatRequest = billingStore.floatRequests.find(
+    (request) => request.id === requestId
+  );
+  if (!floatRequest) {
+    console.error("Float request not found");
+    return;
+  }
+  // console.log("Float request approved:", data);
+  totalBalance.prev = totalBalance.current;
+  totalBalance.current += floatRequest.amount; // Example of updating balance
+}
+
+
+
     // Pinia Store (balance store)
 async function fetchTotalBalance() {
   console.log("Fetching balance...");
@@ -64,6 +102,7 @@ async function fetchTotalBalance() {
 
   return {
     totalBalance,
+    approveFloatRequest,
     fetchTotalBalance,
     increaseTotalBalance,
     decreaseTotalBalance,
