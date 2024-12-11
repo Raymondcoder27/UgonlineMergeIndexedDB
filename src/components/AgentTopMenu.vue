@@ -32,11 +32,6 @@ const topMenu: TopMenuLink[] = [
   //   label: "Customers",
   //   iconClass: "fa-solid fa-people-group",
   // },
-  {
-    name: "agent-app-ledger",
-    label: "LEDGER",
-    iconClass: "fa-solid fa-money-check",
-  },
   // {
   //   name: "app-services-details",
   //   label: "SERVICES DETAILS",
@@ -48,6 +43,11 @@ const topMenu: TopMenuLink[] = [
     label: "SUBMISSIONS",
     iconClass: "fa-solid fa-upload",
   },
+  {
+    name: "agent-app-ledger",
+    label: "LEDGER",
+    iconClass: "fa-solid fa-money-check",
+  }
 ];
 
 
