@@ -324,7 +324,7 @@ onMounted(() => {
             <tr class="header-tr">
               <!-- <th class="t-header">#</th> -->
               <th class="t-header">Date</th>
-              <th class="t-header">Description</th>
+              <th class="t-header">Type</th>
               <th class="text-right t-header">Amount</th>
               <th class="text-right first-letter:capitalize t-header">
                 Status

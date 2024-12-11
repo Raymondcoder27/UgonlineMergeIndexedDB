@@ -145,12 +145,12 @@ watch(
                   v-model="filter.filter[1].operand"
                   class="filter-element e-input"
                   type="text"
-                  placeholder="Filter by Status"
+                  placeholder="Filter by Branch"
                 >
                   <option value="" disabled selected>Filter by Status</option>
-                  <option value="PENDING">PENDING</option>
-                  <option value="COMPLETED">COMPLETED</option>
-                  <option value="BLOCKED">BLOCKED</option>
+                  <option value="Branch 1">Branch 1</option>
+                  <option value="Branch 2">Branch 2</option>
+                  <option value="Branch 3">Branch 3</option>
                 </select>
                 <label for="date-from" class="mr-2 ml-4 text-sm text-gray-600"
                   >From:</label
