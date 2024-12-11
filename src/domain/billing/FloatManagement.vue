@@ -152,7 +152,7 @@ watch(
                   <option value="COMPLETED">COMPLETED</option>
                   <option value="BLOCKED">BLOCKED</option>
                 </select>
-                <label for="date-from" class="mr-2 text-sm text-gray-600"
+                <label for="date-from" class="mr-2 ml-4 text-sm text-gray-600"
                   >From:</label
                 >
                 <input

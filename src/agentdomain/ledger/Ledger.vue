@@ -282,7 +282,7 @@ onMounted(() => {
                     <option value="recharge">Recharge</option>
                     <option value="service_fee">Service Fee</option>
                   </select>
-                  <label for="date-from" class="mr-2 text-sm text-gray-600"
+                  <label for="date-from" class="mr-2 ml-4 text-sm text-gray-600"
                     >From:</label
                   >
                   <input
