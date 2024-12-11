@@ -253,7 +253,7 @@ watch(
                 <input
                   type="date"
                   id="date-from"
-                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="filter-element e-input"
                   v-model="filter.fromDate"
                 />
               </div>
@@ -264,7 +264,7 @@ watch(
                 <input
                   type="date"
                   id="date-to"
-                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="filter-element e-input"
                   v-model="filter.toDate"
                 />
               </div>

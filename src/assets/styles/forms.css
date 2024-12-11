@@ -6,11 +6,11 @@ select:focus {
 }
 
 .form-element {
-  @apply w-full rounded-lg text-sm shadow py-2 px-2;
+  @apply w-full rounded-lg text-xs shadow py-2 px-2;
 }
 
 .filter-element {
-  @apply mx-1 rounded text-sm shadow py-1 px-2;
+  @apply mx-1 rounded text-xs shadow py-1 px-2;
 }
 
 .e-input,
