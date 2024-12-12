@@ -505,9 +505,9 @@ onMounted(() => {
           <button
             class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
             :class="{
-              'opacity-50 cursor-not-allowed': submissions.length < limit,
+              'opacity-50 cursor-not-allowed': floatLedgers.length < limit,
             }"
-            :disabled="submissions.length < limit"
+            :disabled="floatLedgers.length < limit"
             @click="next"
           >
             <i class="fa-solid fa-arrow-right"></i>
