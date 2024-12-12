@@ -34,7 +34,7 @@ function select(tab: string) {
 
 <template>
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
-    <div class="flex pt-5">
+    <div class="flex pt-1">
         <div :class="(activeTab == 'services') ? 'tab-active' : 'w-1/12 tab'" @click="select('services')">
           <div class="w-full">
             <label class="">Services</label>
@@ -96,7 +96,7 @@ function select(tab: string) {
         <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
           <div class="w-full py-1">
             <!-- <label class="p-3">Revenue</label> -->
-            <label class="p-3">Finance</label>
+            <label class="px-4">Finances</label>
         <p class="text-xl font-bold py-1">41</p>
 
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
