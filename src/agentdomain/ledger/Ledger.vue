@@ -19,7 +19,7 @@ const balanceStore = useBalance();
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchSubmissions();
+  fetchFloatLedgers();
 };
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
@@ -29,11 +29,11 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchSubmissions();
+  fetchFloatLedgers();
 };
-function fetchSubmissions() {
+function fetchFloatLedgers() {
   // store
-  //   .fetchSubmissions(page.value, limit.value)
+  //   .fetchFloatLedgers(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -56,7 +56,7 @@ const paginatedFloatLedgers = computed(() => {
 const loading: Ref<boolean> = ref(false);
 const totalRecords = computed(() => store.floatLedgers.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
-const submissions: Ref<any[]> = ref([]);
+const floatLedgers: Ref<any[]> = ref([]);
 
 
 
