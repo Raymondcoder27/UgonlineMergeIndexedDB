@@ -41,25 +41,25 @@ function select(tab: string) {
       </div>
       <div
         :class="
-          activeTab == 'transactions' ? 'w-1/12 tab-active' : 'w-1/12 tab'
+          activeTab == 'branches' ? 'w-1/12 tab-active' : 'w-1/12 tab'
         "
-        @click="select('transactions')"
+        @click="select('branches')"
       >
         Branches
       </div>
       <div
         :class="
-          activeTab == 'floatledgers' ? 'w-2/12 tab-active' : 'w-2/12 tab'
+          activeTab == 'tills' ? 'w-2/12 tab-active' : 'w-2/12 tab'
         "
-        @click="select('floatledgers')"
+        @click="select('tills')"
       >
         Tills
       </div>
       <div
         :class="
-          activeTab == 'floatrequests' ? 'w-2/12 tab-active' : 'w-2/12 tab'
+          activeTab == 'Accounts' ? 'w-2/12 tab-active' : 'w-2/12 tab'
         "
-        @click="select('floatrequests')"
+        @click="select('Accounts')"
       >
         Accounts
       </div>
