@@ -47,7 +47,7 @@ onMounted(async () => {
           <!-- <i class="fa-solid fa-concierge-bell mr-2"></i> -->
           <i class="fa-solid fa-cogs mr-2"></i>
           <span>Services</span>
-          <p class="text-lg font-bold mt-1">23</p>
+          <p class="text-xl font-bold mt-1">23</p>
         </div>
   
         <!-- Branches Tab -->
@@ -58,7 +58,7 @@ onMounted(async () => {
         >
           <i class="fa-solid fa-building mr-2"></i>
           <span>Branches</span>
-          <p class="text-lg font-bold mt-1">4</p>
+          <p class="text-xl font-bold mt-1">4</p>
         </div>
   
         <!-- Tills Tab -->
@@ -69,7 +69,7 @@ onMounted(async () => {
         >
           <i class="fa-solid fa-cash-register mr-2"></i>
           <span>Tills</span>
-          <p class="text-lg font-bold mt-1">19</p>
+          <p class="text-xl font-bold mt-1">19</p>
         </div>
   
         <!-- Users Tab -->
@@ -80,7 +80,7 @@ onMounted(async () => {
         >
           <i class="fa-solid fa-users mr-2"></i>
           <span>Users</span>
-          <p class="text-lg font-bold mt-1">2</p>
+          <p class="text-xl font-bold mt-1">2</p>
         </div>
   
         <!-- Providers Tab -->
@@ -91,7 +91,7 @@ onMounted(async () => {
         >
           <i class="fa-solid fa-handshake mr-2"></i>
           <span>Providers</span>
-          <p class="text-lg font-bold mt-1">3</p>
+          <p class="text-xl font-bold mt-1">3</p>
         </div>
   
         <!-- Revenue Tab -->
@@ -102,7 +102,7 @@ onMounted(async () => {
         >
           <i class="fa-solid fa-coins mr-2"></i>
           <span>Finances</span>
-          <p class="text-lg font-bold mt-1">41</p>
+          <p class="text-xl font-bold mt-1">41</p>
         </div>
       </div>
   
