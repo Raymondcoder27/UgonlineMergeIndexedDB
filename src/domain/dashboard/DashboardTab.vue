@@ -6,6 +6,7 @@ import Transactions from "@/domain/billing/Transactions.vue";
 import FloatRequests from "@/domain/billing/FloatRequests.vue";
 import { useBalance } from "@/domain/balance/stores";
 
+import HomeTab from "@/components/HomeTab.vue";
 // Call the fetch function on mounted
 onMounted(async () => {
   await balanceStore.fetchTotalBalance();
