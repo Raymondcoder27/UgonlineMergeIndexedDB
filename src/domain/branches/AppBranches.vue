@@ -47,10 +47,6 @@ const getManagerByBranch = (branchName) => {
 //   );
 // };
 
-onMounted(() => {
-  loading.value = true;
-  fetchBranches();
-});
 
 function fetchBranches() {
   // branchStore
@@ -165,12 +161,19 @@ const assignManagersToBranches = () => {
 };
 
 onMounted(() => {
+  loading.value = true;
+  fetchBranches();
   accountStore.fetchManagerAccounts();
   branchStore.fetchBranches();
   accountStore.fetchManagerAccounts();
   // allocateManager();
   assignManagersToBranches();
 });
+
+// onMounted(() => {
+//   loading.value = true;
+//   fetchBranches();
+// });
 </script>
 
 <template>
