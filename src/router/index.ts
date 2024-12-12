@@ -14,6 +14,8 @@ import Settings from "@/domain/settings/Settings.vue";
 import { routes as authRoutes } from "@/domain/auth/routes";
 import { useAuth } from "@/domain/auth/composables";
 import moment from "moment";
+import DashboardTab from "@/domain/dashboard/DashboardTab.vue";
+
 
 // Import the agent domain components
 import AgentLayout from "@/layouts/AgentLayout.vue";
@@ -27,7 +29,6 @@ import AgentSubmissions from "@/agentdomain/submissions/Submissions.vue";
 import AgentServicesDetails from "@/agentdomain/servicesdetails/ServicesDetails.vue";
 import AgentAppGateway from "@/agentdomain/gateway/AppGateway.vue";
 import AgentAppFinances from "@/agentdomain/finances/AppFinances.vue";
-import DashboardTab from "../domain/dashboard/DashboardTab.vue";
 
 // Merge appRoutes and appRoutes2
 const mergedRoutes: RouteRecordRaw[] = [
