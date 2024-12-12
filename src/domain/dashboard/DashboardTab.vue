@@ -93,7 +93,7 @@ function select(tab: string) {
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'providers'"></i>
           </div>
         </div>
-        <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
+        <div :class="(activeTab == 'revenue') ? 'tab-active' : 'w-1/6 tab'" @click="select('revenue')">
           <div class="w-full py-1">
             <!-- <label class="p-3">Revenue</label> -->
             <label class="px-4">Finances</label>
