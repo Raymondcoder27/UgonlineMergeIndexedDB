@@ -286,7 +286,7 @@ onMounted(() => {
               <div v-else>
                 <!-- <td> -->
                 <span
-                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-800"
+                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-950"
                   @click="approveFloatRequest(request.id)"
                   >
                   <i class="fa-solid fa-check"></i>
@@ -294,7 +294,7 @@ onMounted(() => {
                 >
 
                 <span
-                  class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-700 hover:text-white hover:bg-red-700"
+                  class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-600 hover:text-white hover:bg-red-700"
                   @click="rejectFloatRequest(request.id)"
                   >
                   <i class="fa-solid fa-times-square"></i>
