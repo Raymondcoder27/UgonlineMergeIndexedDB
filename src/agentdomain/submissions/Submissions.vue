@@ -312,7 +312,7 @@ watch(
                     class="bg-blue-100 rounded-md font-semibold text-blue-700 px-1 py-0.5 border border-blue-300"
                     @click="confirm(transaction)"
                   >
-                    View Details
+                    Submitted
                   </span>
                 </div>
                 <div class="" v-if="transaction.status === 'processing'">
@@ -398,10 +398,11 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'submitted'">
                   <span
-                    class="bg-green-100 rounded-md font-semibold text-green-700 px-1 py-0.5 border border-green-300"
+                    class="bg-green-500 rounded-md font-semibold text-green-700 px-1 py-0.5"
                     @click="confirm(transaction)"
                   >
-                    Submitted
+                  <i class="fa fa-eye"></i>
+                    View Details
                   </span>
                 </div>
                 <div class="" v-if="transaction.status === 'processing'">
