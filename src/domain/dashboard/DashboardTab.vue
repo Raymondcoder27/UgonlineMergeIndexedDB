@@ -83,7 +83,7 @@ function select(tab: string) {
         <!-- <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <UserAccounts v-if="activeTab == 'users'" /> -->
         <HomeTab v-if="activeTab == 'hometab'" />
-        
+        <UserStatistics v-if="activeTab == 'users'"/>
       </div>
     </div>
   </div>
