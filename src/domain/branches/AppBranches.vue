@@ -384,14 +384,24 @@ onMounted(() => {
       </div>
 
       <!-- Next Button -->
-      <button
+      <!-- <button
         :class="{ 'text-gray-300': page >= totalPages, 'hover:text-primary': page < totalPages }"
         :disabled="page >= totalPages"
         class="rounded-r px-4 py-2"
         @click="next"
       >
         <i class="fa-solid fa-caret-right m-2"></i>
-      </button>
+      </button> -->
+      <button
+      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{
+        'opacity-50 cursor-not-allowed': branches.length < limit
+      }"
+      :disabled="branches.length < limit"
+      @click="next"
+    >
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
 
       <!-- Jump to Page -->
       <label>Page</label>
