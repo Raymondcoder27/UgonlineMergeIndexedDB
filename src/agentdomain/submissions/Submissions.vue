@@ -390,7 +390,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'rejected'">
                   <span
-                    class="bg-red-100 rounded-md font-semibold text-red-700 px-1 py-0.5 border border-red-300"
+                    class="bg-red-500 rounded-md font-semibold text-white px-1 py-0.5"
                     @click="confirm(transaction)"
                   >
                     Resubmit
