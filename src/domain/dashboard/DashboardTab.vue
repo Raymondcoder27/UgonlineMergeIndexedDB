@@ -77,6 +77,25 @@ function select(tab: string) {
           ></i>
         </div>
       </div>
+
+      <div :class="(activeTab == 'providers') ? 'tab-active' : 'tab'" @click="select('providers')">
+          <div class="w-full py-1 my-auto">
+            <label class="p-3">Providers</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'providers'"></i>
+          </div>
+        </div>
+        <div :class="(activeTab == 'services') ? 'tab-active' : 'tab'" @click="select('services')">
+          <div class="w-full py-1">
+            <label class="p-3">Services Registry</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
+          </div>
+        </div>
+        <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
+          <div class="w-full py-1">
+            <label class="p-3">Revenue</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
+          </div>
+        </div>
     </div>
     <div class="flex flex-grow">
       <div class="w-full">
