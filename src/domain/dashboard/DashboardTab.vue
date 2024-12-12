@@ -41,7 +41,8 @@ function select(tab: string) {
           @click="select('services')"
           class="cursor-pointer flex items-center justify-center flex-grow p-2 text-sm hover:bg-gray-100"
         >
-          <i class="fa-solid fa-concierge-bell mr-2"></i>
+          <!-- <i class="fa-solid fa-concierge-bell mr-2"></i> -->
+          <i class="fa-solid fa-cogs mr-2"></i>
           <span>Services</span>
           <p class="text-lg font-bold mt-1">23</p>
         </div>
