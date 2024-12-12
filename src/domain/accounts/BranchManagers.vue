@@ -10,6 +10,43 @@ import type { IResendVerificationPayload, TAccountVerificationType } from "./typ
 import AddManager from "@/domain/accounts/components/AddManager.vue";
 import { useBranchStore } from "@/domain/branches/stores"; // Updated import
 
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchManagerAccounts();
+};
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchManagerAccounts();
+};
+function fetchManagerAccounts() {
+  // store
+  //   .fetchManagerAccounts(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
+
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  managerAccounts.value = store.managerAccounts.slice(startIndex, endIndex);
+  loading.value = false;
+}
+const paginatedBackofficeAccounts = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return store.managerAccounts.slice(start, end); // Adjust according to your page & limit
+});
+
 const branchStore = useBranchStore();
 
 const store = useAccounts();
@@ -53,7 +90,7 @@ onMounted(() => {
 function fetch() {
   filter.limit = limit.value
   filter.page = page.value
-  store.fetchmanagerAccounts(filter)
+  store.fetchManagerAccounts(filter)
 }
 function open() {
   modalOpen.value = true;
