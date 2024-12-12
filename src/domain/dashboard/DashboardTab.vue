@@ -67,7 +67,7 @@ function select(tab: string) {
         "
         @click="select('floatledgers')"
       >
-        Float Ledger
+        Tills
       </div>
       <div
         :class="
@@ -75,7 +75,7 @@ function select(tab: string) {
         "
         @click="select('floatrequests')"
       >
-        Float Requests
+        Accounts
       </div>
     </div>
     <div class="flex flex-grow">
