@@ -172,7 +172,7 @@ function logout() {
                   <p class="text-xs">{{ accountStore.profile.phone }}</p>
                 </div>
               </div>
-              <button
+              <!-- <button
                 class="px-2 border border-primary-500 text-primary-700 rounded text-xs hover:bg-primary hover:text-white"
                 @click="logout"
               >
@@ -183,7 +183,7 @@ function logout() {
                   <div></div>
                   <div></div>
                 </span>
-              </button>
+              </button> -->
             </div>
           </div>
 
