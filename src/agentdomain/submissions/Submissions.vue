@@ -48,7 +48,7 @@ const totalRecords = computed(() => store.submissions.length); // Total backoffi
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const submissions: Ref<any[]> = ref([]);
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(7);
+const limit: Ref<number> = ref(15);
 
 const notify = useNotificationsStore()
 // import type {
@@ -214,9 +214,10 @@ watch(
 
 
 <template>
-  <div class="flex flex-col min-h-[85vh]">
+  <!-- <div class="flex flex-col min-h-[85vh]"> -->
+    <div class="">
     <!-- Header -->
-    <div class="max-w-7xl mx-auto bg-white p-2">
+    <div class="max-w-7xl mx-auto bg-white p-2 flex flex-col min-h-[85vh]">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
