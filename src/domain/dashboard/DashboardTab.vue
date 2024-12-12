@@ -42,7 +42,7 @@ onMounted(async () => {
         <div
           :class="activeTab == 'services' ? 'tab-active' : 'tab'"
           @click="select('services')"
-          class="cursor-pointer flex items-center justify-center flex-grow p-2 text-sm hover:bg-gray-100"
+          class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
         >
           <!-- <i class="fa-solid fa-concierge-bell mr-2"></i> -->
           <i class="fa-solid fa-cogs mr-2"></i>

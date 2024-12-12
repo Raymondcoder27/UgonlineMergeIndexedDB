@@ -323,6 +323,14 @@ watch(
                     Processing
                   </span>
                 </div>
+                <div class="" v-if="transaction.status === 'queried'">
+                  <span
+                    class="bg-rose-100 rounded-md font-semibold text-rose-700 px-1 py-0.5 border border-rose-300"
+                    @click="confirm(transaction)"
+                  >
+                    Queried
+                  </span>
+                </div>
                 <div class="" v-if="transaction.status === 'rejected'">
                   <span
                     class="bg-red-100 rounded-md font-semibold text-red-700 px-1 py-0.5 border border-red-300"
@@ -404,6 +412,14 @@ watch(
                     Resubmit
                   </span>
                 </div>
+                <div class="" v-if="transaction.status === 'queried'">
+                  <span
+                    class="bg-rose-100 rounded-md font-semibold text-rose-700 px-1 py-0.5 border border-rose-300"
+                    @click="confirm(transaction)"
+                  >
+                  <i class="fa fa-eye"></i>
+                    View Query
+                  </span>
               </td>
 
               <!-- </td> -->
