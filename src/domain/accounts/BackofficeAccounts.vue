@@ -57,8 +57,8 @@ const paginatedBackofficeAccounts = computed(() => {
 
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
-const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(15);
+// const page: Ref<number> = ref(1);
+// const limit: Ref<number> = ref(15);
 // filter
 const filter: IGoFilter = reactive({
   limit: 100,
@@ -158,7 +158,8 @@ watch(
 </script>
 
 <template>
-  <div class="w-full shadow-lg bg-white rounded p-2 h-full">
+  <!-- <div class="w-full shadow-lg bg-white rounded p-2 h-full"> -->
+  <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col min-h-[85vh]">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
