@@ -47,9 +47,9 @@ function select(tab: string) {
     <div class="flex pt-5">
       <div
         :class="
-          activeTab == 'floatmanagement' ? 'w-2/12 tab-active' : 'w-2/12 tab'
+          activeTab == 'hometab' ? 'w-2/12 tab-active' : 'w-2/12 tab'
         "
-        @click="select('floatmanagement')"
+        @click="select('hometab')"
       >
         Float Allocation
       </div>
