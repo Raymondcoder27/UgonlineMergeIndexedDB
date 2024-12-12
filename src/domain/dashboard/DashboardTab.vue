@@ -36,58 +36,54 @@ function select(tab: string) {
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex pt-5">
       <div
-        :class="
-          activeTab == 'hometab' ? 'w-2/12 tab-active' : 'w-2/12 tab'
-        "
+        :class="activeTab == 'hometab' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('hometab')"
       >
         Services
       </div>
       <div
-        :class="
-          activeTab == 'branches' ? 'w-1/12 tab-active' : 'w-1/12 tab'
-        "
+        :class="activeTab == 'branches' ? 'w-1/12 tab-active' : 'w-1/12 tab'"
         @click="select('branches')"
       >
         Branches
       </div>
       <div
-        :class="
-          activeTab == 'tills' ? 'w-2/12 tab-active' : 'w-2/12 tab'
-        "
+        :class="activeTab == 'tills' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('tills')"
       >
         Tills
       </div>
       <div
-        :class="
-          activeTab == 'accounts' ? 'w-2/12 tab-active' : 'w-2/12 tab'
-        "
+        :class="activeTab == 'accounts' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('accounts')"
       >
         Accounts
       </div>
       <div
-        :class="
-          activeTab == 'finances' ? 'w-2/12 tab-active' : 'w-2/12 tab'
-        "
+        :class="activeTab == 'finances' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('finances')"
       >
         Finances
       </div>
-      <div :class="(activeTab == 'users') ? 'tab-active' : 'tab'" @click="select('users')">
-          <div class="w-full py-1">
-            <label class="p-3">Users</label>
-            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'users'"></i>
-          </div>
+      <div
+        :class="activeTab == 'users' ? 'tab-active' : 'tab'"
+        @click="select('users')"
+      >
+        <div class="w-full py-1">
+          <label class="p-3">Users</label>
+          <i
+            class="fa-solid fa-chart-area float-right px-2 py-1"
+            v-if="activeTab == 'users'"
+          ></i>
         </div>
+      </div>
     </div>
     <div class="flex flex-grow">
       <div class="w-full">
         <!-- <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <UserAccounts v-if="activeTab == 'users'" /> -->
         <HomeTab v-if="activeTab == 'hometab'" />
-        <UserStatistics v-if="activeTab == 'users'"/>
+        <UserStatistics v-if="activeTab == 'users'" />
       </div>
     </div>
   </div>
