@@ -366,13 +366,21 @@ onMounted(() => {
     <div class="flex gap-2 items-center">
       <!-- Previous Button -->
       <button
+      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+      :disabled="page <= 1"
+      @click="previous"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+      <!-- <button
         :class="{ 'text-gray-300': page === 1, 'hover:text-primary': page > 1 }"
         :disabled="page === 1"
         class="rounded-l px-4 py-2"
         @click="previous"
       >
         <i class="fa-solid fa-caret-left m-2"></i>
-      </button>
+      </button> -->
 
       <!-- Current Page / Total Pages -->
       <div class="py-1">
