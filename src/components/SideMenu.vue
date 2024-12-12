@@ -156,8 +156,8 @@ function logout() {
         class="relative h-full bg-white shadow-xl flex flex-col items-stretch justify-between z-10 pt-2"
       >
         <div class="flex flex-col min-h-full px-0 w-full mx-auto">
-          <div class="flex px-2 pb-5" v-if="menuOpen">
-            <!-- <div class="w-full text-center shadow py-2 rounded-lg">
+          <!-- <div class="flex px-2 pb-5" v-if="menuOpen">
+            <div class="w-full text-center shadow py-2 rounded-lg">
               <div class="flex py-1 px-2">
                 <div class="w-full text-center" v-if="accountStore.profile">
                   <i
@@ -184,8 +184,8 @@ function logout() {
                   <div></div>
                 </span>
               </button>
-            </div> -->
-          </div>
+            </div>
+          </div> -->
 
           <!-- Link Section-->
           <div class="flex flex-col flex-grow overflow-y-auto mt-1">
