@@ -375,6 +375,8 @@ watch(
                     class="bg-gray-500 rounded-md font-semibold text-white px-1 py-0.5 hover:bg-gray-600"
                     @click="submitDraft(transaction)"
                   >
+                  <!-- appropriate icon -->
+                   <i class="fa fa-play"></i>
                     Resume
                   </button>
                 </div>
@@ -393,6 +395,7 @@ watch(
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-0.5"
                     @click="confirm(transaction)"
                   >
+                  <i class="fa fa-redo"></i>
                     Resubmit
                   </span>
                 </div>
