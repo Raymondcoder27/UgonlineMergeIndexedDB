@@ -40,14 +40,14 @@ export const useBalance = defineStore("balance", () => {
 
   // Increase the total balance and update "prev"
   function increaseTotalBalance(amount: number) {
-    totalBalance.prev = totalBalance.current;
-    totalBalance.current += amount;
+    totalBalance.prevBalance = totalBalance.currentBalance;
+    totalBalance.currentBalance += amount;
   }
 
   // Decrease the total balance and update "prev"
   function decreaseTotalBalance(amount: number) {
-    totalBalance.prev = totalBalance.current;
-    totalBalance.current -= amount;
+    totalBalance.prevBalance = totalBalance.currentBalance;
+    totalBalance.currentBalance -= amount;
   }
 
   // pass in the requestId
