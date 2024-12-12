@@ -94,7 +94,7 @@ function select(tab: string) {
       <div class="w-full">
         <!-- <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <UserAccounts v-if="activeTab == 'users'" /> -->
-        <Transactions v-if="activeTab == 'transactions'" />
+        <HomeTab v-if="activeTab == 'hometab'" />
         <FloatManagement v-if="activeTab == 'floatmanagement'" />
         <FloatLedgers v-if="activeTab == 'floatledgers'" />
         <FloatRequests v-if="activeTab == 'floatrequests'" />
