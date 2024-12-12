@@ -34,7 +34,7 @@ function fetchSubmissions() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  managerAccounts.value = store.submissions.slice(startIndex, endIndex);
+  submissions.value = store.submissions.slice(startIndex, endIndex);
   loading.value = false;
 }
 const paginatedSubmissions = computed(() => {
@@ -46,7 +46,7 @@ const paginatedSubmissions = computed(() => {
 const loading: Ref<boolean> = ref(false);
 const totalRecords = computed(() => store.submissions.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
-const managerAccounts: Ref<any[]> = ref([]);
+const submissions: Ref<any[]> = ref([]);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(7);
 
@@ -517,9 +517,9 @@ watch(
           <button
             class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
             :class="{
-              'opacity-50 cursor-not-allowed': managerAccounts.length < limit,
+              'opacity-50 cursor-not-allowed': submissions.length < limit,
             }"
-            :disabled="managerAccounts.length < limit"
+            :disabled="submissions.length < limit"
             @click="next"
           >
             <i class="fa-solid fa-arrow-right"></i>
