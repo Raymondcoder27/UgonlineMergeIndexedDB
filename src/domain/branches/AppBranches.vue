@@ -392,14 +392,6 @@ onMounted(() => {
           >
             <i class="fa-solid fa-arrow-left"></i>
           </button>
-          <!-- <button
-        :class="{ 'text-gray-300': page === 1, 'hover:text-primary': page > 1 }"
-        :disabled="page === 1"
-        class="rounded-l px-4 py-2"
-        @click="previous"
-      >
-        <i class="fa-solid fa-caret-left m-2"></i>
-      </button> -->
 
           <!-- Current Page / Total Pages -->
           <div class="py-1">
