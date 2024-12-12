@@ -286,7 +286,7 @@ onMounted(() => {
               <div v-else>
                 <!-- <td> -->
                 <span
-                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-950"
+                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
                   @click="approveFloatRequest(request.id)"
                   >
                   <i class="fa-solid fa-check"></i>
