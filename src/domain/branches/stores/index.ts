@@ -12,6 +12,13 @@ export const useBranchStore = defineStore("useBranch", () => {
     { id: 2, name: "Branch 2", location: "Location 2", manager: "", status: "Inactive" },
     { id: 3, name: "Branch 3", location: "Location 3", manager: "", status: "Active" },
     { id: 4, name: "Branch 4", location: "Location 4", manager: "", status: "Inactive" },
+    { id: 5, name: "Branch 5", location: "Location 5", manager: "", status: "Active" },
+    { id: 6, name: "Branch 6", location: "Location 6", manager: "", status: "Inactive" },
+    { id: 7, name: "Branch 7", location: "Location 7", manager: "", status: "Active" },
+    { id: 8, name: "Branch 8", location: "Location 8", manager: "", status: "Inactive" },
+    { id: 9, name: "Branch 9", location: "Location 9", manager: "", status: "Active" },
+    { id: 10, name: "Branch 10", location: "Location 10", manager: "", status: "Inactive" },
+    { id: 11, name: "Branch 11", location: "Location 11", manager: "", status: "Active" },
   ];
 
   // Add new branch to the store
