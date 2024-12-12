@@ -27,6 +27,15 @@ const sideMenuOpen = ref(useStorage("sms", true));
                 <b class="bg-yellow-500 p-1">On</b>
                 <b class="rounded-r bg-primary-700 p-1">line</b>
               </span>
+              <div
+        :class="{ 'w-full': menuOpen, 'group w-auto hover:w-full': !menuOpen }"
+        class="relative bg-white flex items-center justify-between z-10 pt-2"
+      >
+      <div class="block">
+      <p class="font-semibold text-gray-500 text-xs">MWEBE RAYMOND </p>
+    <p class="font-light text-gray-500 text-xs">mwebraymond13@gmail.com</p>
+    <!-- <p class="font-semibold text-gray-500 text-xs">BALANCE: 675,000/=</p> -->
+    </div>
               </div>
             </div>
           </div>
