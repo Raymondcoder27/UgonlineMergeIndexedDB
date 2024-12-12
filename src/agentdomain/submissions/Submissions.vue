@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { onMounted, ref, reactive, watch, computed } from "vue";
+import { onMounted, ref, reactive, watch, computed, type Ref } from "vue";
 import { useSubmissions } from "@/agentdomain/submissions/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import TransactionDetails from "@/agentdomain/submissions/components/TransactionDetails.vue";
