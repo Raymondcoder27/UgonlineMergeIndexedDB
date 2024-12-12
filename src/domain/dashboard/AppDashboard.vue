@@ -87,7 +87,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="grid grid-cols-4 gap-3 py-2">
+  <div class="grid grid-cols-8 gap-3 py-2">
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">79</p> -->
