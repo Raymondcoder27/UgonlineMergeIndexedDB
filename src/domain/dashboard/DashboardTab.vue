@@ -103,6 +103,10 @@ function select(tab: string) {
         <UserAccounts v-if="activeTab == 'users'" /> -->
         <HomeTab v-if="activeTab == 'hometab'" />
         <UserStatistics v-if="activeTab == 'users'" />
+        <ProviderStatistics v-if="activeTab == 'providers'"/>
+        <ServicesStatistics v-if="activeTab == 'services'"/>
+        <GatewayStatistics v-if="activeTab == 'gateway'"/>
+        <RevenueStatistics v-if="activeTab == 'revenue'"/>
       </div>
     </div>
   </div>
