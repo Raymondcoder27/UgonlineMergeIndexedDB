@@ -37,6 +37,16 @@ const changePageSize = () => {
   page.value = 1;
   fetchBranches();
 };
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchBranches();
+};
 
 // Helper function to get manager by branch
 const getManagerByBranch = (branchName) => {
