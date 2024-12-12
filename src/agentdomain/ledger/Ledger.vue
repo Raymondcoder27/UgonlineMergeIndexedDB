@@ -14,6 +14,52 @@ import RequestFloat from "@/agentdomain/ledger/components/RequestFloat.vue";
 import { useBalance } from "@/agentdomain/balance/stores";
 const balanceStore = useBalance();
 
+
+
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchSubmissions();
+};
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchSubmissions();
+};
+function fetchSubmissions() {
+  // store
+  //   .fetchSubmissions(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
+
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  floatLedgers.value = store.floatLedgers.slice(startIndex, endIndex);
+  loading.value = false;
+}
+const paginatedFloatLedgers = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return store.floatLedgers.slice(start, end); // Adjust according to your page & limit
+});
+// const branchStore = useBranchStore();
+const loading: Ref<boolean> = ref(false);
+const totalRecords = computed(() => store.floatLedgers.length); // Total backofficeAccounts
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const submissions: Ref<any[]> = ref([]);
+
+
+
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
 const page = ref(1);
