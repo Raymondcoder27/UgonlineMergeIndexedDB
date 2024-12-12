@@ -414,7 +414,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'queried'">
                   <span
-                    class="bg-amber-600 rounded-md font-semibold text-white px-1 py-0.5 border border-amber-300"
+                    class="bg-amber-700 rounded-md font-semibold text-white px-1 py-0.5"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-eye"></i>
