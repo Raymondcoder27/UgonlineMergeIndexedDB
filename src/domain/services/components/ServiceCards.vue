@@ -85,7 +85,7 @@ onMounted(() => {
   <div class="flex justify-end items-center mb-1">
     <!-- Previous Button -->
     <button
-      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
       :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
       :disabled="page <= 1"
       @click="previous"
@@ -98,7 +98,7 @@ onMounted(() => {
 
     <!-- Next Button -->
     <button
-      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
       :class="{
         'opacity-50 cursor-not-allowed': services.length < limit
       }"
