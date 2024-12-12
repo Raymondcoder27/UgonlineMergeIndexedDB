@@ -159,6 +159,29 @@ export const useBilling = defineStore("billing", () => {
     })
   }
 
+  // pass in the requestId
+// const approveFloatRequest = (requestId: any) => {
+//   store.approveFloatRequest(requestId);
+//   store.fetchFloatRequests();
+//   balanceStore.approveFloatRequest(requestId);
+//   store.reduceFloatLedger(requestId); 
+//   store.allocateFloat(requestId);
+//   console.log(`float request with id ${requestId} approved`);
+// };
+
+// allocate float based on approved float request
+function allocateFloatFromRequest(requestId: any) {
+  const floatRequest = floatRequests.value.find((request) => request.id === requestId);
+  if (floatRequest) {
+    floatAllocations.value.push({
+      id: floatAllocations.value.length + 1,
+      dateAssigned: new Date().toISOString(),
+      amount: floatRequest.amount,
+      status: "Allocated",
+      branch: floatRequest.branch,
+    });
+  }
+
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
     floatLedgers.value.push({
