@@ -94,7 +94,7 @@ onMounted(() => {
     </button>
 
     <!-- Page Number Display -->
-    <span class="mx-4 text-lg font-semibold text-red-700">{{ page }}</span>
+    <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
 
     <!-- Next Button -->
     <button
