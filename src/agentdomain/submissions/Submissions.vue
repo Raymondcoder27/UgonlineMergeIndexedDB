@@ -6,6 +6,50 @@ import { useDebounceFn } from "@vueuse/core";
 import TransactionDetails from "@/agentdomain/submissions/components/TransactionDetails.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchManagerAccounts();
+};
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchManagerAccounts();
+};
+function fetchManagerAccounts() {
+  // store
+  //   .fetchManagerAccounts(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
+
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  managerAccounts.value = store.managerAccounts.slice(startIndex, endIndex);
+  loading.value = false;
+}
+const paginatedManagersAccounts = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return store.managerAccounts.slice(start, end); // Adjust according to your page & limit
+});
+const branchStore = useBranchStore();
+const loading: Ref<boolean> = ref(false);
+const totalRecords = computed(() => store.managerAccounts.length); // Total backofficeAccounts
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const managerAccounts: Ref<any[]> = ref([]);
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(7);
+
 const notify = useNotificationsStore()
 // import type {
 //   Submission,
