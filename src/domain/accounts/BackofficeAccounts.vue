@@ -43,7 +43,7 @@ function fetchBackofficeAccounts() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  branches.value = store.backofficeAccounts.slice(startIndex, endIndex);
+  backofficeAccounts.value = store.backofficeAccounts.slice(startIndex, endIndex);
   loading.value = false;
 }
 const paginatedBranches = computed(() => {
