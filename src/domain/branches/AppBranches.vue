@@ -25,6 +25,7 @@ const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
 const selectedBranch: Ref<string> = ref("");
+  const branches: Ref<any[]> = ref([]);
 // let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
