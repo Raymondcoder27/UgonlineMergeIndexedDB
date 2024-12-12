@@ -81,13 +81,13 @@ export const useBalance = defineStore("balance", () => {
   async function fetchTotalBalance() {
     console.log("Fetching balance...");
     const fetchedBalance = {
-      prevBalance: totalBalance.prev, // Setting previous balance to the current value
-      currentBalance: totalBalance.current, // Example of updating balance to a new value
+      prevBalance: totalBalance.prevBalance, // Setting previous balance to the current value
+      currentBalance: totalBalance.currentBalance, // Example of updating balance to a new value
     };
   
     console.log("Fetched balance:", fetchedBalance); // Debugging
-    totalBalance.prev = fetchedBalance.prev;
-    totalBalance.current = fetchedBalance.current;
+    totalBalance.prevBalance = fetchedBalance.prevBalance;
+    totalBalance.currentBalance = fetchedBalance.currentBalance;
     console.log("Updated balance in store:", totalBalance); // Debugging
   }
 
