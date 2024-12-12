@@ -317,7 +317,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'processing'">
                   <span
-                    class="bg-amber-100 rounded-md font-semibold text-amber-700 px-1 py-0.5 border border-amber-300"
+                    class="bg-yellow-100 rounded-md font-semibold text-yellow-700 px-1 py-0.5 border border-yellow-300"
                     @click="confirm(transaction)"
                   >
                     Processing
@@ -325,7 +325,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'queried'">
                   <span
-                    class="bg-rose-100 rounded-md font-semibold text-rose-700 px-1 py-0.5 border border-rose-300"
+                    class="bg-amber-200 rounded-md font-semibold text-amber-700 px-1 py-0.5 border border-amber-500"
                     @click="confirm(transaction)"
                   >
                     Queried
@@ -406,7 +406,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'processing'">
                   <span
-                    class="bg-amber-100 rounded-md font-semibold text-amber-700 px-1 py-0.5 border border-amber-300"
+                    class="bg-yellow-100 rounded-md font-semibold text-yellow-700 px-1 py-0.5 border border-yellow-300"
                     @click="confirm(transaction)"
                   >
                     Resubmit
@@ -414,12 +414,13 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'queried'">
                   <span
-                    class="bg-rose-100 rounded-md font-semibold text-rose-700 px-1 py-0.5 border border-rose-300"
+                    class="bg-amber-600 rounded-md font-semibold text-white px-1 py-0.5 border border-amber-300"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-eye"></i>
                     View Query
                   </span>
+                </div>
               </td>
 
               <!-- </td> -->

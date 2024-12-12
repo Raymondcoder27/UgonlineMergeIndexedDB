@@ -49,7 +49,7 @@ const paginatedManagersAccounts = computed(() => {
 
 const branchStore = useBranchStore();
 const loading: Ref<boolean> = ref(false);
-const totalRecords = computed(() => store.backofficeAccounts.length); // Total backofficeAccounts
+const totalRecords = computed(() => store.managerAccounts.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const managerAccounts: Ref<any[]> = ref([]);
 const store = useAccounts();
