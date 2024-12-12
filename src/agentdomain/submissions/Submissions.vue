@@ -9,7 +9,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchManagerAccounts();
+  fetchSubmissions();
 };
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
@@ -19,11 +19,11 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchManagerAccounts();
+  fetchSubmissions();
 };
-function fetchManagerAccounts() {
+function fetchSubmissions() {
   // store
-  //   .fetchManagerAccounts(page.value, limit.value)
+  //   .fetchSubmissions(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -34,17 +34,17 @@ function fetchManagerAccounts() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  managerAccounts.value = store.managerAccounts.slice(startIndex, endIndex);
+  managerAccounts.value = store.submissions.slice(startIndex, endIndex);
   loading.value = false;
 }
 const paginatedManagersAccounts = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return store.managerAccounts.slice(start, end); // Adjust according to your page & limit
+  return store.submissions.slice(start, end); // Adjust according to your page & limit
 });
 const branchStore = useBranchStore();
 const loading: Ref<boolean> = ref(false);
-const totalRecords = computed(() => store.managerAccounts.length); // Total backofficeAccounts
+const totalRecords = computed(() => store.submissions.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const managerAccounts: Ref<any[]> = ref([]);
 const page: Ref<number> = ref(1);
