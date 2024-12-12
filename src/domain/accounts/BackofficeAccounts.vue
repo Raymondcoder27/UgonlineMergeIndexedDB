@@ -13,7 +13,7 @@ const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
 // const selectedBackOfficeAccount: Ref<string> = ref("");
 const backofficeAccounts: Ref<any[]> = ref([]);
-const totalRecords = computed(() => store.backofficeAccounts.length); // Total branches
+const totalRecords = computed(() => store.backofficeAccounts.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -291,9 +291,9 @@ watch(
           <button
             class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
             :class="{
-              'opacity-50 cursor-not-allowed': branches.length < limit,
+              'opacity-50 cursor-not-allowed': backofficeAccounts.length < limit,
             }"
-            :disabled="branches.length < limit"
+            :disabled="backofficeAccounts.length < limit"
             @click="next"
           >
             <i class="fa-solid fa-arrow-right"></i>
