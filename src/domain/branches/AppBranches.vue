@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { onMounted, ref, type Ref, watch } from "vue";
+import { onMounted, ref, type Ref, watch, computed } from "vue";
 import CreateBranch from "@/domain/branches/components/CreateBranch.vue";
 import { useBranchStore } from "@/domain/branches/stores"; // Updated import
 import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
@@ -22,7 +22,7 @@ const categoryModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
 const assignManagerModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(16);
+const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
 const selectedBranch: Ref<string> = ref("");
 // let providerId = ref("");
