@@ -47,11 +47,11 @@ function fetchFloatLedgers() {
   floatLedgers.value = store.floatLedgers.slice(startIndex, endIndex);
   loading.value = false;
 }
-const paginatedFloatLedgers = computed(() => {
-  const start = (page.value - 1) * limit.value;
-  const end = start + limit.value;
-  return store.floatLedgers.slice(start, end); // Adjust according to your page & limit
-});
+// const paginatedFloatLedgers = computed(() => {
+//   const start = (page.value - 1) * limit.value;
+//   const end = start + limit.value;
+//   return store.floatLedgers.slice(start, end); // Adjust according to your page & limit
+// });
 // const branchStore = useBranchStore();
 const loading: Ref<boolean> = ref(false);
 const totalRecords = computed(() => store.floatLedgers.length); // Total backofficeAccounts
@@ -239,23 +239,42 @@ watch(
 // });
 
 // Compute running balance
-const computedTransactions = computed(() => {
-  if (store.floatLedgers.length === 0) {
-    return [];
-  }
+// const computedTransactions = computed(() => {
+//   if (store.floatLedgers.length === 0) {
+//     return [];
+//   }
 
-  // let runningBalance = balanceStore.totalBalance.current || 0;
+//   // let runningBalance = balanceStore.totalBalance.current || 0;
+//   let runningBalance = 0;
+
+//   return store.floatLedgers.map((transaction) => {
+//     runningBalance += transaction.amount;
+
+//     return {
+//       ...transaction,
+//       balance: runningBalance,
+//     };
+//   });
+// });
+
+// This is the updated computed property for paginatedFloatLedgers that works with the running balance.
+const paginatedFloatLedgersWithBalance = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  const paginatedTransactions = store.floatLedgers.slice(start, end);
+
   let runningBalance = 0;
 
-  return store.floatLedgers.map((transaction) => {
+  // Map through the paginated transactions and add the running balance
+  return paginatedTransactions.map((transaction) => {
     runningBalance += transaction.amount;
-
     return {
       ...transaction,
       balance: runningBalance,
     };
   });
 });
+
 
 // watch(
 //   computedTransactions,
@@ -389,7 +408,7 @@ onMounted(() => {
           </thead>
           <tbody>
             <tr
-              v-for="transaction in computedTransactions"
+              v-for="transaction in computedFloatLedgersWithBalance"
               :key="transaction.id"
               class="body-tr"
             >
