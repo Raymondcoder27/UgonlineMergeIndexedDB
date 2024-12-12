@@ -7,6 +7,8 @@ import { useWindowSize } from "@vueuse/core";
 const { width } = useWindowSize();
 const isMobile: ComputedRef<boolean> = computed(() => unref(width) <= 768);
 const sideMenuOpen = ref(useStorage("sms", true));
+
+const menuOpen = ref(useStorage("sms", true));
 </script>
 
 <template>
@@ -43,6 +45,7 @@ const sideMenuOpen = ref(useStorage("sms", true));
                   <b class="rounded-r bg-primary-700 p-1">line</b>
                 </span>
               </div>
+              
               <div
                 :class="{
                   'w-full': menuOpen,
