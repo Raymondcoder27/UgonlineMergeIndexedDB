@@ -50,25 +50,6 @@ function fetchFloatLedgers() {
 const paginatedFloatLedgers = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-
-  const computedTransactions = computed(() => {
-  if (store.floatLedgers.length === 0) {
-    return [];
-  }
-
-  // let runningBalance = balanceStore.totalBalance.current || 0;
-  let runningBalance = 0;
-
-  return store.floatLedgers.map((transaction) => {
-    runningBalance += transaction.amount;
-
-    return {
-      ...transaction,
-      balance: runningBalance,
-    };
-  });
-});
-
   return store.floatLedgers.slice(start, end); // Adjust according to your page & limit
 });
 // const branchStore = useBranchStore();
@@ -258,23 +239,23 @@ watch(
 // });
 
 // Compute running balance
-// const computedTransactions = computed(() => {
-//   if (store.floatLedgers.length === 0) {
-//     return [];
-//   }
+const computedTransactions = computed(() => {
+  if (store.floatLedgers.length === 0) {
+    return [];
+  }
 
-//   // let runningBalance = balanceStore.totalBalance.current || 0;
-//   let runningBalance = 0;
+  // let runningBalance = balanceStore.totalBalance.current || 0;
+  let runningBalance = 0;
 
-//   return store.floatLedgers.map((transaction) => {
-//     runningBalance += transaction.amount;
+  return store.floatLedgers.map((transaction) => {
+    runningBalance += transaction.amount;
 
-//     return {
-//       ...transaction,
-//       balance: runningBalance,
-//     };
-//   });
-// });
+    return {
+      ...transaction,
+      balance: runningBalance,
+    };
+  });
+});
 
 // watch(
 //   computedTransactions,
