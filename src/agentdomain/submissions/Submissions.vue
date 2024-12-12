@@ -413,6 +413,7 @@ watch(
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-0.5"
                     @click="confirm(transaction)"
                   >
+                  <i class="fa fa-redo"></i>
                     Resubmit
                   </span>
                 </div>
