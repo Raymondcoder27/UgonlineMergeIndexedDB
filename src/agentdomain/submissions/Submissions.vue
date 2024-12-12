@@ -214,7 +214,7 @@ watch(
 
 
 <template>
-  <div class="">
+  <div class="flex flex-col min-h-[85vh]">
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white p-2">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
@@ -306,9 +306,15 @@ watch(
             </tr>
           </thead>
           <tbody>
-            <tr
+            <!-- <tr
               class="text-left"
               v-for="(transaction, idx) in store.submissions"
+              :key="idx"
+              :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
+            > -->
+            <tr
+              class="text-left"
+              v-for="(transaction, idx) in paginatedSubmissions"
               :key="idx"
               :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
             >
