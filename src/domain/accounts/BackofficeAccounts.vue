@@ -52,9 +52,6 @@ const paginatedBackofficeAccounts = computed(() => {
   return store.backofficeAccounts.slice(start, end); // Adjust according to your page & limit
 });
 
-
-
-
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
 // const page: Ref<number> = ref(1);
