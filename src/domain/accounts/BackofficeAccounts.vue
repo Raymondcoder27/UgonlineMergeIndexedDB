@@ -159,7 +159,7 @@ watch(
 
 <template>
   <!-- <div class="w-full shadow-lg bg-white rounded p-2 h-full"> -->
-  <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col min-h-[85vh]">
+  <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col min-h-[15vh]">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
@@ -199,8 +199,10 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in store.backofficeAccounts" :key="idx">
+          <!-- <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
+            v-for="(account, idx) in store.backofficeAccounts" :key="idx"> -->
+            <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
+            v-for="(account, idx) in paginatedBackofficeAccounts" :key="idx"></tr>
 <!--            <td width="10px">{{ idx + 1 }}.</td>-->
             <td>
               <label class="font-bold py-1">
