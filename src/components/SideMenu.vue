@@ -157,7 +157,7 @@ function logout() {
       >
         <div class="flex flex-col min-h-full px-0 w-full mx-auto">
           <div class="flex px-2 pb-5" v-if="menuOpen">
-            <div class="w-full text-center shadow py-2 rounded-lg">
+            <!-- <div class="w-full text-center shadow py-2 rounded-lg">
               <div class="flex py-1 px-2">
                 <div class="w-full text-center" v-if="accountStore.profile">
                   <i
@@ -172,7 +172,7 @@ function logout() {
                   <p class="text-xs">{{ accountStore.profile.phone }}</p>
                 </div>
               </div>
-              <!-- <button
+              <button
                 class="px-2 border border-primary-500 text-primary-700 rounded text-xs hover:bg-primary hover:text-white"
                 @click="logout"
               >
@@ -183,8 +183,8 @@ function logout() {
                   <div></div>
                   <div></div>
                 </span>
-              </button> -->
-            </div>
+              </button>
+            </div> -->
           </div>
 
           <!-- Link Section-->
