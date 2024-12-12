@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { onMounted, ref, reactive, watch, computed } from "vue";
+import { onMounted, ref, reactive, watch, computed, type Ref } from "vue";
 import { useBilling } from "@/agentdomain/ledger/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import type {
@@ -47,11 +47,11 @@ function fetchFloatLedgers() {
   floatLedgers.value = store.floatLedgers.slice(startIndex, endIndex);
   loading.value = false;
 }
-const paginatedFloatLedgers = computed(() => {
-  const start = (page.value - 1) * limit.value;
-  const end = start + limit.value;
-  return store.floatLedgers.slice(start, end); // Adjust according to your page & limit
-});
+// const paginatedFloatLedgers = computed(() => {
+//   const start = (page.value - 1) * limit.value;
+//   const end = start + limit.value;
+//   return store.floatLedgers.slice(start, end); // Adjust according to your page & limit
+// });
 // const branchStore = useBranchStore();
 const loading: Ref<boolean> = ref(false);
 const totalRecords = computed(() => store.floatLedgers.length); // Total backofficeAccounts
