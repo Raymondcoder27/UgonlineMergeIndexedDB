@@ -11,7 +11,7 @@ import type { IResendVerificationPayload, TAccountVerificationType } from "./typ
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
-const selectedBranch: Ref<string> = ref("");
+// const selectedBackOfficeAccount: Ref<string> = ref("");
 const backofficeAccounts: Ref<any[]> = ref([]);
 const totalRecords = computed(() => store.backofficeAccounts.length); // Total branches
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
