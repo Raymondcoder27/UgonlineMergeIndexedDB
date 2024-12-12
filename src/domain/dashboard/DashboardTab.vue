@@ -38,7 +38,7 @@ function select(tab: string) {
         <div :class="(activeTab == 'services') ? 'tab-active' : 'w-1/12 tab'" @click="select('services')">
           <div class="w-full">
             <label class="">Services</label>
-        <p class="text-xl font-bold py-2">23</p>
+        <p class="text-xl font-bold py-1">23</p>
 
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
           </div>
@@ -48,14 +48,14 @@ function select(tab: string) {
         @click="select('branches')"
       >
         Branches
-        <p class="text-xl font-bold py-2">4</p>
+        <p class="text-xl font-bold py-1">4</p>
       </div>
       <div
         :class="activeTab == 'tills' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('tills')"
       >
         Tills
-        <p class="text-xl font-bold py-2">19</p>
+        <p class="text-xl font-bold py-1">19</p>
 
       </div>
       <!-- <div
@@ -76,7 +76,7 @@ function select(tab: string) {
       >
         <div class="w-full py-1">
           <label class="p-3">Users</label>
-        <p class="text-xl font-bold py-2">2</p>
+        <p class="text-xl font-bold py-1">2</p>
 
           <i
             class="fa-solid fa-chart-area float-right px-2 py-1"
@@ -88,7 +88,7 @@ function select(tab: string) {
       <div :class="(activeTab == 'providers') ? 'tab-active' : 'tab'" @click="select('providers')">
           <div class="w-full py-1 my-auto">
             <label class="p-3">Providers</label>
-        <p class="text-xl font-bold py-2">3</p>
+        <p class="text-xl font-bold py-1">3</p>
 
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'providers'"></i>
           </div>
@@ -97,7 +97,7 @@ function select(tab: string) {
           <div class="w-full py-1">
             <!-- <label class="p-3">Revenue</label> -->
             <label class="p-3">Finance</label>
-        <p class="text-xl font-bold py-2">41</p>
+        <p class="text-xl font-bold py-1">41</p>
 
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
           </div>
