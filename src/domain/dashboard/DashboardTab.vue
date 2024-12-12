@@ -51,7 +51,7 @@ function select(tab: string) {
         "
         @click="select('hometab')"
       >
-        Float Allocation
+        Services
       </div>
       <div
         :class="
@@ -59,7 +59,7 @@ function select(tab: string) {
         "
         @click="select('transactions')"
       >
-        Transactions
+        Branches
       </div>
       <div
         :class="
