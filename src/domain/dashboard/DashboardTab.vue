@@ -31,7 +31,7 @@ function select(tab: string) {
 <template>
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex">
-      <div class="w-full py-1">
+      <!-- <div class="w-full py-1">
         <i
           class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-money-bill"
         ></i>
@@ -43,7 +43,7 @@ function select(tab: string) {
           >{{ totalBalance.current.toLocaleString() }}/=</span
         >
       </div>
-    </div>
+    </div> -->
     <div class="flex pt-5">
       <div
         :class="
