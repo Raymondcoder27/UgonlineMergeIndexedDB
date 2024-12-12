@@ -189,7 +189,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full shadow-lg bg-white rounded p-2 min-h-[80vh]">
+  <div class="w-full shadow-lg bg-white rounded p-2 flex flex-col min-h-[90vh]">
     <div class="flex">
       <div class="w-full py-1 text-primary-700">
         <i
