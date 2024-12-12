@@ -62,8 +62,6 @@ import moment from "moment/moment";
 
 const store = useSubmissions(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
-const page = ref(1);
-const limit = ref(15);
 
 const transactionDetailsModalOpen: Ref<boolean> = ref(false);
 
