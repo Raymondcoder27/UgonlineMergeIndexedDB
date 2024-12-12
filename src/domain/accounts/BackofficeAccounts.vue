@@ -114,7 +114,7 @@ watch(
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
-        <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2">
+        <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
             class="filter-element e-input" type="text" placeholder="Search by Name" />
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
@@ -127,9 +127,11 @@ watch(
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
+         <div class="">
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button>
+         </div>
         </div>
       </div>
     </div>
