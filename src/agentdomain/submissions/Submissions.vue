@@ -109,21 +109,21 @@ onMounted(() => {
   fetchSubmissions();
 });
 
-function fetchSubmissions() {
-  filter.limit = limit.value;
-  filter.page = page.value;
+// function fetchSubmissions() {
+//   filter.limit = limit.value;
+//   filter.page = page.value;
 
-  // Add date filter if both dates are provided
-  if (filter.fromDate && filter.toDate) {
-    filter.filter.push({
-      field: "date",
-      operator: "BETWEEN",
-      operand: [filter.fromDate, filter.toDate],
-    });
-  }
+//   // Add date filter if both dates are provided
+//   if (filter.fromDate && filter.toDate) {
+//     filter.filter.push({
+//       field: "date",
+//       operator: "BETWEEN",
+//       operand: [filter.fromDate, filter.toDate],
+//     });
+//   }
 
-  store.fetchSubmissions(filter); // Fetch transactions based on filter
-}
+//   store.fetchSubmissions(filter); // Fetch transactions based on filter
+// }
 
 // Function to handle submission draft
 function submissionDraft(name: string) {
