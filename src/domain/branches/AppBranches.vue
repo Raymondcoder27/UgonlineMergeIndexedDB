@@ -335,36 +335,66 @@ onMounted(() => {
       </table>
     </div>
     <div class="flex">
-      <div class="w-full">
-        <!-- <div class="flex" v-if="limit == branchStore.branches.length || page > 1"> -->
-        <div
-          class="flex"
-          v-if="limit == (branchStore.branches?.length || 0) || page > 1"
-        >
-          <button v-if="page > 1" class="pagination-button" @click="previous">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <button v-else class="pagination-button-inert">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{
-              page
-            }}</label>
-          </div>
-          <button
-            v-if="limit == branchStore.branches.length ?? 1 - 1"
-            class="pagination-button"
-            @click="next"
-          >
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-          <button v-else class="pagination-button-inert">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
+  <div class="w-full border-t border-b border-gray-50">
+    <div class="flex gap-2 items-center">
+      <!-- Previous Button -->
+      <button
+        :class="{ 'text-gray-300': page === 1, 'hover:text-primary': page > 1 }"
+        :disabled="page === 1"
+        class="rounded-l px-4 py-2"
+        @click="previous"
+      >
+        <i class="fa-solid fa-caret-left m-2"></i>
+      </button>
+
+      <!-- Current Page / Total Pages -->
+      <div class="py-1">
+        <span class="px-2 py-1 bg-primary rounded text-white">{{ page }}</span>
+        <label class="mx-1 text-gray-400">/</label>
+        <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+          {{ totalPages }}
+        </span>
       </div>
+
+      <!-- Next Button -->
+      <button
+        :class="{ 'text-gray-300': page >= totalPages, 'hover:text-primary': page < totalPages }"
+        :disabled="page >= totalPages"
+        class="rounded-r px-4 py-2"
+        @click="next"
+      >
+        <i class="fa-solid fa-caret-right m-2"></i>
+      </button>
+
+      <!-- Jump to Page -->
+      <label>Page</label>
+      <input
+        type="number"
+        placeholder="Page"
+        class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+        v-model.number="pageInput"
+        @change="jumpToPage"
+      />
+
+      <!-- Adjust Page Size -->
+      <label>Page Size</label>
+      <input
+        type="number"
+        placeholder="Page Size"
+        class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+        v-model.number="limit"
+        @change="changePageSize"
+      />
+
+      <!-- Total Records -->
+      <span class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary">
+        Total Records: {{ totalRecords }}
+      </span>
     </div>
+  </div>
+</div>
+
+
   </div>
 
   <!-- Modal -->
