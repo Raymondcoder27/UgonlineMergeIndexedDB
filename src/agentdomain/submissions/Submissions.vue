@@ -372,7 +372,7 @@ watch(
                 <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
                   <button
-                    class="bg-gray-500 rounded-md font-semibold text-white px-1 py-0.5 hover:bg-black-800"
+                    class="bg-gray-500 rounded-md font-semibold text-white px-1 py-0.5 hover:bg-gray-600"
                     @click="submitDraft(transaction)"
                   >
                     Resume
@@ -406,7 +406,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'processing'">
                   <span
-                    class="bg-yellow-100 rounded-md font-semibold text-yellow-700 px-1 py-0.5 border border-yellow-300"
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-0.5"
                     @click="confirm(transaction)"
                   >
                     Resubmit
