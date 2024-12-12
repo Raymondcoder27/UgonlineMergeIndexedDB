@@ -122,26 +122,26 @@ const filter = reactive({
 //   filter.filter.push(dateFilter);
 // }
 
-async function fetchFloatLedgers() {
-  // Remove any previous 'status' filters
-  filter.filter = filter.filter.filter((f) => f.field !== "description");
+// async function fetchFloatLedgers() {
+//   // Remove any previous 'status' filters
+//   filter.filter = filter.filter.filter((f) => f.field !== "description");
 
-  if (description.value) {
-    filter.filter.push({
-      field: "description",
-      operand: description.value,
-      operator: "EQUALS",
-    });
-  }
+//   if (description.value) {
+//     filter.filter.push({
+//       field: "description",
+//       operand: description.value,
+//       operator: "EQUALS",
+//     });
+//   }
 
-  console.log("Filter before fetch:", filter);
+//   console.log("Filter before fetch:", filter);
 
-  // Await the fetch operation
-  const response = await store.fetchTransactions(filter);
+//   // Await the fetch operation
+//   const response = await store.fetchTransactions(filter);
 
-  // Log the response or handle it
-  console.log("Fetched transactions:", response);
-}
+//   // Log the response or handle it
+//   console.log("Fetched transactions:", response);
+// }
 
 function next() {
   page.value += 1;
