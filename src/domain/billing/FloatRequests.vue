@@ -249,14 +249,14 @@ onMounted(() => {
                 <!-- <td> -->
                 <!-- <label> -->
                 <span
-                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-700 hover:text-blue-700 hover:bg-green-200"
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
                   @click="approveFloatRequest(request.id)"
                   >
                   <!-- <i class="fa-solid fa-check"></i>
                   Approved</span
                 > -->
                   <i class="fa-solid fa-eye"></i>
-                  View Details</span
+                  Details</span
                 > 
                 
                 <!-- </label> -->
