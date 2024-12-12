@@ -159,7 +159,7 @@ watch(
 
 <template>
   <!-- <div class="w-full shadow-lg bg-white rounded p-2 h-full"> -->
-  <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col min-h-[15vh]">
+  <div class="w-full shadow-lg bg-white rounded p-2 flex flex-col min-h-[60vh]">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
@@ -202,7 +202,7 @@ watch(
           <!-- <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in store.backofficeAccounts" :key="idx"> -->
             <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in paginatedBackofficeAccounts" :key="idx"></tr>
+            v-for="(account, idx) in paginatedBackofficeAccounts" :key="idx">
 <!--            <td width="10px">{{ idx + 1 }}.</td>-->
             <td>
               <label class="font-bold py-1">
@@ -264,11 +264,8 @@ watch(
         </div>
       </div>
     </div>
-  </div>
 
-
-
-  <div class="flex text-sm mt-auto">
+    <div class="flex text-sm mt-auto">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
@@ -331,6 +328,11 @@ watch(
         </div>
       </div>
     </div>
+  </div>
+
+
+
+
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
