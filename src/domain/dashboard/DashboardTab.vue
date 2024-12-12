@@ -115,3 +115,17 @@ function select(tab: string) {
       </div>
     </div>
   </template>
+
+<style scoped>
+.tab-active{
+  @apply flex border-2 border-primary-700 rounded-r cursor-pointer bg-primary text-white font-bold;
+}
+
+.tab{
+  @apply flex border border-gray-100 rounded-r cursor-pointer;
+}
+
+.tab:hover{
+  @apply bg-primary text-white;
+}
+</style>
