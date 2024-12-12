@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
-// const totalServiceSubscriptions = ref(0);
-
-// onMounted(() => {
-//   balanceStore.fetchTotalBalance();
-//   console.log("Balance after fetching:", balanceStore.totalBalance);
-// });
-
-// const forceUpdate = ref(0);
+import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
+import FloatManagement from "@/domain/billing/FloatManagement.vue";
+import Transactions from "@/domain/billing/Transactions.vue";
+import FloatRequests from "@/domain/billing/FloatRequests.vue";
+import { useBalance } from "@/domain/balance/stores";
 
 // Call the fetch function on mounted
 onMounted(async () => {
@@ -16,16 +13,6 @@ onMounted(async () => {
   // forceUpdate.value += 1; // Trigger re-render
   console.log("Balance after fetching:", balanceStore.totalBalance);
 });
-
-// import { ref, type Ref } from "vue";
-// import BackofficeAccounts from "@/domain/accounts/BackofficeAccounts.vue";
-// import UserAccounts from "@/domain/accounts/UserAccounts.vue";
-
-import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
-import FloatManagement from "@/domain/billing/FloatManagement.vue";
-import Transactions from "@/domain/billing/Transactions.vue";
-import FloatRequests from "@/domain/billing/FloatRequests.vue";
-import { useBalance } from "@/domain/balance/stores";
 
 const balanceStore = useBalance();
 
