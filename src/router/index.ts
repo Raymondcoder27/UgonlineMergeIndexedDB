@@ -27,6 +27,7 @@ import AgentSubmissions from "@/agentdomain/submissions/Submissions.vue";
 import AgentServicesDetails from "@/agentdomain/servicesdetails/ServicesDetails.vue";
 import AgentAppGateway from "@/agentdomain/gateway/AppGateway.vue";
 import AgentAppFinances from "@/agentdomain/finances/AppFinances.vue";
+import DashboardTab from "../domain/dashboard/DashboardTab.vue";
 
 // Merge appRoutes and appRoutes2
 const mergedRoutes: RouteRecordRaw[] = [
@@ -41,7 +42,8 @@ const mergedRoutes: RouteRecordRaw[] = [
     meta: { requiresAuth: false },
     redirect: "/agent-admin/dashboard",
     children: [
-      { name: "app-dashboard", path: "/agent-admin/dashboard", component: AppDashboard },
+      // { name: "app-dashboard", path: "/agent-admin/dashboard", component: AppDashboard },
+      { name: "app-dashboard", path: "/agent-admin/dashboard", component: DashboardTab },
       { name: "app-entities", path: "/agent-admin/entities", component: AppEntities },
       { name: "app-agents", path: "/agent-admin/agents", component: AppAgents },
       { name: "app-services", path: "/agent-admin/services", component: Services },
