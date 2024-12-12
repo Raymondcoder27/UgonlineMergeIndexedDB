@@ -55,7 +55,7 @@ const managerAccounts: Ref<any[]> = ref([]);
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(15);
+const limit: Ref<number> = ref(7);
 // filter
 const filter: IGoFilter = reactive({
   limit: 100,
@@ -162,7 +162,7 @@ onMounted(() => {
 
 <template>
   <!-- <div class="w-full shadow-lg bg-white rounded p-2 h-full"> -->
-  <div class="w-full shadow-lg bg-white rounded p-2 flex flex-col min-h-[67vh]">
+  <div class="w-full shadow-lg bg-white rounded p-2 flex flex-col min-h-[66vh]">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
