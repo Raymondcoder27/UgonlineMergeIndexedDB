@@ -8,7 +8,9 @@ import { useBalance } from "@/domain/balance/stores";
 
 import HomeTab from "@/domain/dashboard/components/HomeTab.vue";
 import UserStatistics from "@/domain/analytics/views/UserStatistics.vue";
-
+import ProviderStatistics from "@/domain/analytics/views/ProviderStatistics.vue";
+import ServicesStatistics from "@/domain/analytics/views/ServicesStatistics.vue";
+import RevenueStatistics from "@/domain/analytics/views/RevenueStatistics.vue";
 // Call the fetch function on mounted
 onMounted(async () => {
   await balanceStore.fetchTotalBalance();
