@@ -217,7 +217,7 @@ watch(
   <!-- <div class="flex flex-col min-h-[85vh]"> -->
     <div class="">
     <!-- Header -->
-    <div class="max-w-7xl mx-auto bg-white p-2 flex flex-col min-h-[85vh] justify-center items-center">
+    <div class="max-w-7xl mx-auto bg-white p-2 flex flex-col min-h-[85vh]">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
@@ -498,7 +498,7 @@ watch(
         </table>
       </div>
 
-      <div class="flex text-sm mt-auto">
+      <div class="flex text-sm mt-auto justify-center items-center">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
