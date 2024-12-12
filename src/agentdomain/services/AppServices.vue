@@ -173,7 +173,7 @@ onMounted(() => {
     </div>
     <div class="font-semibold text-gray-500 text-sm mr-5">
       <!-- BALANCE: 15,000,000/= -->
-      {{ balanceStore.totalBalance.current.toLocaleString() }}/=
+      {{ balanceStore.totalBalance.currentBalance.toLocaleString() }}/=
     </div>
   </div>
 

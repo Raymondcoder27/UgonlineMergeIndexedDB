@@ -7,15 +7,15 @@ import {useBilling} from "@/domain/billing/stores/index";
 
 
 export interface TotalBalance {
-  prev: number;
-  current: number;
+  prevBalance: number;
+  currentBalance: number;
 }
 
 export const useBalance = defineStore("balance", () => {
   // Reactive state for total balance
   const totalBalance = reactive<TotalBalance>({
-    prev: 300000000, // Initial previous balance
-    current: 300000000, // Initial current balance
+    prevBalance: 300000000, // Initial previous balance
+    currentBalance: 300000000, // Initial current balance
   });
 
   const billingStore = useBilling();
@@ -28,8 +28,8 @@ export const useBalance = defineStore("balance", () => {
   // async function fetchTotalBalance() {
   //   // Simulate fetching data (replace with actual API call)
   //   const fetchedBalance = {
-  //     prev: totalBalance.current, // Setting previous balance to the current value
-  //     current: 400000000, // Example of updating balance to a new value
+  //     prevBalance: totalBalance.current, // Setting previous balance to the current value
+  //     currentBalance: 400000000, // Example of updating balance to a new value
   //   };
     
   //   // Update totalBalance reactive state
@@ -90,8 +90,8 @@ async function approveFloatRequest(requestId: any) {
 async function fetchTotalBalance() {
   console.log("Fetching balance...");
   const fetchedBalance = {
-    prev: totalBalance.prev, // Setting previous balance to the current value
-    current: totalBalance.current, // Example of updating balance to a new value
+    prevBalance: totalBalance.prev, // Setting previous balance to the current value
+    currentBalance: totalBalance.current, // Example of updating balance to a new value
   };
 
   console.log("Fetched balance:", fetchedBalance); // Debugging
