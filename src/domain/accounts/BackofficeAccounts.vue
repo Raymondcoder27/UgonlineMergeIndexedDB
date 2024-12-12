@@ -8,6 +8,53 @@ import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
 import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
 
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(8);
+const loading: Ref<boolean> = ref(false);
+const selectedBranch: Ref<string> = ref("");
+const branches: Ref<any[]> = ref([]);
+const totalRecords = computed(() => store.backofficeAccounts.length); // Total branches
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchBranches();
+};
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchBranches();
+};
+function fetchBranches() {
+  // store
+  //   .fetchBranches(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
+
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  branches.value = store.backofficeAccounts.slice(startIndex, endIndex);
+  loading.value = false;
+}
+const paginatedBranches = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return store.backofficeAccounts.slice(start, end); // Adjust according to your page & limit
+});
+
+
+
+
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
