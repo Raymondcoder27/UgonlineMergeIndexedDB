@@ -12,13 +12,6 @@ import ProviderStatistics from "@/domain/analytics/views/ProviderStatistics.vue"
 import ServicesStatistics from "@/domain/analytics/views/ServicesStatistics.vue";
 import RevenueStatistics from "@/domain/analytics/views/RevenueStatistics.vue";
 // Call the fetch function on mounted
-onMounted(async () => {
-  await balanceStore.fetchTotalBalance();
-  // console.log("Balance after fetching:", balanceStore.totalBalance); // Debugging
-  // forceUpdate.value += 1; // Trigger re-render
-  console.log("Balance after fetching:", balanceStore.totalBalance);
-});
-
 const balanceStore = useBalance();
 
 balanceStore.fetchTotalBalance();
@@ -30,6 +23,14 @@ const activeTab: Ref<string> = ref("hometab");
 function select(tab: string) {
   activeTab.value = tab;
 }
+
+onMounted(async () => {
+  await balanceStore.fetchTotalBalance();
+  // console.log("Balance after fetching:", balanceStore.totalBalance); // Debugging
+  // forceUpdate.value += 1; // Trigger re-render
+  console.log("Balance after fetching:", balanceStore.totalBalance);
+});
+
 </script>
 <template>
     <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
