@@ -30,6 +30,9 @@ const selectedBranch: Ref<string> = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
+const totalRecords = computed(() => branchStore.branches.length); // Total branches
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+
 // Helper function to get manager by branch
 const getManagerByBranch = (branchName) => {
   return accountStore.managerAccounts.find(
@@ -386,9 +389,9 @@ onMounted(() => {
       <div class="py-1">
         <span class="px-2 py-1 bg-primary rounded text-white">{{ page }}</span>
         <label class="mx-1 text-gray-400">/</label>
-        <!-- <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+        <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
           {{ totalPages }}
-        </span> -->
+        </span>
       </div>
 
       <!-- Next Button -->
