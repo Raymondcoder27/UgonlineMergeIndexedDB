@@ -181,6 +181,7 @@ function allocateFloatFromRequest(requestId: any) {
       branch: floatRequest.branch,
     });
   }
+}
 
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
@@ -290,5 +291,6 @@ async function reduceFloatLedger(requestId: any) {
     fetchBranchManagers,
     fetchFloatAllocations,
     allocateFloat,
+    allocateFloatFromRequest,
   };
 });
