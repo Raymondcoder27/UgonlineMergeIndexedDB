@@ -37,12 +37,12 @@ function fetchSubmissions() {
   managerAccounts.value = store.submissions.slice(startIndex, endIndex);
   loading.value = false;
 }
-const paginatedManagersAccounts = computed(() => {
+const paginatedSubmissions = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
   return store.submissions.slice(start, end); // Adjust according to your page & limit
 });
-const branchStore = useBranchStore();
+// const branchStore = useBranchStore();
 const loading: Ref<boolean> = ref(false);
 const totalRecords = computed(() => store.submissions.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
