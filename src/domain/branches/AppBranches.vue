@@ -76,7 +76,7 @@ function fetchBranches() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  branches.value = branchStore.services.slice(startIndex, endIndex);
+  branches.value = branchStore.branches.slice(startIndex, endIndex);
   loading.value = false;
 }
 
