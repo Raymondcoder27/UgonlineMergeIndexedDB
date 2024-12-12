@@ -372,7 +372,7 @@ watch(
                 <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
                   <button
-                    class="bg-gray-600 rounded-md font-semibold text-white px-1 py-0.5 hover:underline"
+                    class="bg-gray-500 rounded-md font-semibold text-white px-1 py-0.5 hover:bg-black-800"
                     @click="submitDraft(transaction)"
                   >
                     Resume
