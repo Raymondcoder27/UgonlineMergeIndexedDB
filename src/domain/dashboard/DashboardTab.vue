@@ -35,12 +35,12 @@ function select(tab: string) {
 <template>
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex pt-5">
-      <div
-        :class="activeTab == 'hometab' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
-        @click="select('hometab')"
-      >
-        Services
-      </div>
+        <div :class="(activeTab == 'services') ? 'tab-active' : 'tab'" @click="select('services')">
+          <div class="w-full py-1">
+            <label class="p-3">Services Registry</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
+          </div>
+        </div>
       <div
         :class="activeTab == 'branches' ? 'w-1/12 tab-active' : 'w-1/12 tab'"
         @click="select('branches')"
@@ -82,12 +82,6 @@ function select(tab: string) {
           <div class="w-full py-1 my-auto">
             <label class="p-3">Providers</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'providers'"></i>
-          </div>
-        </div>
-        <div :class="(activeTab == 'services') ? 'tab-active' : 'tab'" @click="select('services')">
-          <div class="w-full py-1">
-            <label class="p-3">Services Registry</label>
-            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
           </div>
         </div>
         <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
