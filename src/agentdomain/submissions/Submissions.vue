@@ -372,7 +372,7 @@ watch(
                 <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
                   <button
-                    class="bg-gray-500 rounded-md font-semibold text-white px-1 py-0.5 hover:bg-gray-600"
+                    class="bg-gray-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-gray-600"
                     @click="submitDraft(transaction)"
                   >
                   <!-- appropriate icon -->
@@ -384,7 +384,7 @@ watch(
                 <!-- use transaction.status = repay -->
                 <div class="" v-else-if="transaction.status === 'repay'">
                   <button
-                    class="bg-green-100 rounded-md font-semibold text-green-700 px-1 py-0.5 hover:underline border border-green-200"
+                    class="bg-green-100 rounded-md font-semibold text-green-700 px-1 py-1 hover:underline border border-green-200"
                     @click="repay(transaction)"
                   >
                     Repay
@@ -392,7 +392,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'rejected'">
                   <span
-                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-0.5"
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-redo"></i>
@@ -410,7 +410,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'processing'">
                   <span
-                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-0.5"
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-redo"></i>
@@ -419,7 +419,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'queried'">
                   <span
-                    class="bg-amber-700 rounded-md font-semibold text-white px-1 py-0.5"
+                    class="bg-amber-700 rounded-md font-semibold text-white px-1 py-1"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-eye"></i>
