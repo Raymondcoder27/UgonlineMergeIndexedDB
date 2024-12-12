@@ -379,7 +379,7 @@ onMounted(() => {
         </tbody>
       </table>
     </div>
-    <div class="flex">
+    <div class="flex text-sm">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
