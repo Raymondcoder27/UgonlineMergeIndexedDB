@@ -189,7 +189,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full shadow-lg bg-white rounded p-2">
+  <div class="w-full shadow-lg bg-white rounded p-2 min-h-[80vh]">
     <div class="flex">
       <div class="w-full py-1 text-primary-700">
         <i
@@ -380,7 +380,7 @@ onMounted(() => {
       </table>
     </div>
     <!-- <div class="flex text-sm"> -->
-    <div class="flex text-sm">
+    <div class="flex text-sm mt-auto">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
