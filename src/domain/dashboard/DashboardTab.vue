@@ -59,12 +59,12 @@ function select(tab: string) {
       >
         Accounts
       </div> -->
-      <div
+      <!-- <div
         :class="activeTab == 'finances' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('finances')"
       >
         Finances
-      </div>
+      </div> -->
       <div
         :class="activeTab == 'users' ? 'tab-active' : 'tab'"
         @click="select('users')"
