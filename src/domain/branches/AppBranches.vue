@@ -32,6 +32,11 @@ const notify = useNotificationsStore();
 
 const totalRecords = computed(() => branchStore.branches.length); // Total branches
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchBranches();
+};
 
 // Helper function to get manager by branch
 const getManagerByBranch = (branchName) => {
