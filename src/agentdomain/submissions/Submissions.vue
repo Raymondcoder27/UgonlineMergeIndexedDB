@@ -398,7 +398,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'submitted'">
                   <span
-                    class="bg-green-500 rounded-md font-semibold text-green-700 px-1 py-0.5"
+                    class="bg-green-500 rounded-md font-semibold text-white px-1 py-0.5"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-eye"></i>
