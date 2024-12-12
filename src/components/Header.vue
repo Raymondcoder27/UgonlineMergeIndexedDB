@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Logo from "@/assets/images/banner.png";
+import ProfileSection from "@/components/ProfileSection.vue";
 import { useStorage } from "@vueuse/core";
 import { computed, unref, ref } from "vue";
 import type { ComputedRef } from "vue";
@@ -42,19 +43,12 @@ const menuOpen = ref(useStorage("sms", true));
           </span>
         </div>
       </div>
-
       <!-- Right Side: Profile Information -->
-      <div class="flex items-center justify-end">
-        <div class="text-right">
-          <p class="font-semibold text-gray-500 text-xs">
-            MWEBE RAYMOND
-          </p>
-          <p class="font-light text-gray-500 text-xs">
-            mwebraymond13@gmail.com
-          </p>
-        </div>
+      <div class="flex items-center justify-end ml-auto">
+        <ProfileSection />
       </div>
     </div>
+
   </nav>
 </template>
 
