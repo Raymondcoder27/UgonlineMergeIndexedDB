@@ -181,11 +181,6 @@ onMounted(() => {
   // allocateManager();
   assignManagersToBranches();
 });
-
-// onMounted(() => {
-//   loading.value = true;
-//   fetchBranches();
-// });
 </script>
 
 <template>
