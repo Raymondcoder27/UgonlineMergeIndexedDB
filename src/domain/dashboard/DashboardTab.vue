@@ -30,20 +30,6 @@ function select(tab: string) {
 
 <template>
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
-    <!-- <div class="flex">
-      <div class="w-full py-1">
-        <i
-          class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-money-bill"
-        ></i>
-        <label class="text-lg mx-1">Finances</label>
-      </div>
-      <div class="">
-        <span
-          class="bg-gray-50 mt-5 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md"
-          >{{ totalBalance.current.toLocaleString() }}/=</span
-        >
-      </div>
-    </div> -->
     <div class="flex pt-5">
       <div
         :class="
@@ -91,9 +77,7 @@ function select(tab: string) {
         <!-- <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <UserAccounts v-if="activeTab == 'users'" /> -->
         <HomeTab v-if="activeTab == 'hometab'" />
-        <FloatManagement v-if="activeTab == 'floatmanagement'" />
-        <FloatLedgers v-if="activeTab == 'floatledgers'" />
-        <FloatRequests v-if="activeTab == 'floatrequests'" />
+        
       </div>
     </div>
   </div>
