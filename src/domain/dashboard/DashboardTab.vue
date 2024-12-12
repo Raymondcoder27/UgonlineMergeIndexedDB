@@ -51,7 +51,7 @@ function select(tab: string) {
         <p class="text-xl font-bold py-1">4</p>
       </div>
       <div
-        :class="activeTab == 'tills' ? 'w-2/12 tab-active' : 'w-2/5 tab'"
+        :class="activeTab == 'tills' ? 'w-2/12 tab-active' : 'w-1/5 tab'"
         @click="select('tills')"
       >
         Tills
@@ -71,7 +71,7 @@ function select(tab: string) {
         Finances
       </div> -->
       <div
-        :class="activeTab == 'users' ? 'tab-active' : 'tab'"
+        :class="activeTab == 'users' ? 'tab-active' : 'w-1/5 tab'"
         @click="select('users')"
       >
         <div class="w-full py-1">
@@ -85,7 +85,7 @@ function select(tab: string) {
         </div>
       </div>
 
-      <div :class="(activeTab == 'providers') ? 'tab-active' : 'tab'" @click="select('providers')">
+      <div :class="(activeTab == 'providers') ? 'tab-active' : 'w-1/5 tab'" @click="select('providers')">
           <div class="w-full py-1 my-auto">
             <label class="p-3">Providers</label>
         <p class="text-xl font-bold py-1">3</p>
