@@ -386,9 +386,9 @@ onMounted(() => {
       <div class="py-1">
         <span class="px-2 py-1 bg-primary rounded text-white">{{ page }}</span>
         <label class="mx-1 text-gray-400">/</label>
-        <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+        <!-- <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
           {{ totalPages }}
-        </span>
+        </span> -->
       </div>
 
       <!-- Next Button -->
