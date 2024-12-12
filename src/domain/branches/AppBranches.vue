@@ -49,13 +49,20 @@ onMounted(() => {
 });
 
 function fetchBranches() {
-  branchStore
-    .fetchBranches(page.value, limit.value)
-    .then(() => (loading.value = false))
-    .catch((error: ApiError) => {
-      loading.value = false;
-      notify.error(error.response.data.message);
-    });
+  // branchStore
+  //   .fetchBranches(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
+
+    loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  branches.value = branchStore.services.slice(startIndex, endIndex);
+  loading.value = false;
 }
 
 function open(branch: Branch) {
