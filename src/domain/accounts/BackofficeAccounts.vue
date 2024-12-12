@@ -18,7 +18,7 @@ const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchBranches();
+  fetchBackofficeAccounts();
 };
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
@@ -28,11 +28,11 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchBranches();
+  fetchBackofficeAccounts();
 };
-function fetchBranches() {
+function fetchBackofficeAccounts() {
   // store
-  //   .fetchBranches(page.value, limit.value)
+  //   .fetchBackofficeAccounts(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
