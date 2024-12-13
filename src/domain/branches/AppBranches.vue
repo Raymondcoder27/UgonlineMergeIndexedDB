@@ -192,7 +192,7 @@ onMounted(() => {
   assignManagersToBranches();
 
 
-  const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance'));
+  const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance') || '0');
 
 if (savedFloatManagerBalance) {
   branchManagerFloatBalance.value = savedFloatManagerBalance;
