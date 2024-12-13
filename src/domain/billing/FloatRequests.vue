@@ -143,9 +143,15 @@ function convertDateTime(date: string) {
 //     // });
 // }
 
+//     const floatRequestFromLocalStorage = JSON.parse(localStorage.getItem('branchManagerFloatBalance'));
+
+//     if (floatRequestFromLocalStorage) {
+//       branchManagerFloatBalance.value = floatRequestFromLocalStorage;
+//     }
+
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
-  billingStore.approveFloatRequest(requestId);
+  // billingStore.approveFloatRequest(requestId);
   billingStore.fetchFloatRequests();
   balanceStore.approveFloatRequest(requestId);
   billingStore.reduceFloatLedger(requestId); 
