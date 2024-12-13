@@ -143,7 +143,7 @@ function convertDateTime(date: string) {
 //     // });
 // }
 
-    const floatRequestFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage'));
+    const floatRequestFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
 
     if (floatRequestFromLocalStorage) {
       floatRequestFromLocalStorage.value = floatRequestFromLocalStorage;
