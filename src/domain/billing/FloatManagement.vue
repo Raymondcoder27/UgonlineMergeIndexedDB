@@ -243,8 +243,12 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr
+          <!-- <tr
             v-for="(assignment, idx) in billingStore.floatAllocations"
+            :key="idx"
+          > -->
+          <tr
+            v-for="(assignment, idx) in paginatedfloatAllocations"
             :key="idx"
           >
             <!-- <td>{{ idx + 1 }}</td> -->
