@@ -320,7 +320,7 @@ async function reduceFloatLedger(requestId: any) {
     const floatRequest = floatRequests.value.find((request) => request.branch === requestId);
     if (floatRequest) {
       floatRequest.status = "approved";
-      floatRequest.approvedBy = "Manager One";
+      // floatRequest.approvedBy = "Manager One";
     }
   }
 
