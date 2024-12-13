@@ -194,7 +194,7 @@ export const useBilling = defineStore("billing", () => {
 
 // allocate float based on approved float request
 function allocateFloatFromRequest(requestId: any) {
-  const floatRequest = floatRequests.value.find((request) => request.id === requestId);
+  const floatRequest = floatRequests.value.find((request) => request.branch === requestId);
   if (floatRequest) {
     floatAllocations.value.push({
       id: floatAllocations.value.length + 1,
@@ -321,13 +321,6 @@ async function reduceFloatLedger(requestId: any) {
     if (floatRequest) {
       floatRequest.status = "approved";
       floatRequest.approvedBy = "Manager One";
-    }
-    
-    //adjust the record in local storage as well
-    const floatRequestLocalStorage = floatRequestToBranchManagerLocalStorage.value.find((request) => request.branch === requestId);
-    if (floatRequestLocalStorage) {
-      floatRequestLocalStorage.status = "approved";
-      floatRequestLocalStorage.approvedBy = "Manager One";
     }
   }
 
