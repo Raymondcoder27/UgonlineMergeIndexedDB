@@ -27,7 +27,7 @@ const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchTransactions();
+  fetchFloatLedgers();
 };
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
@@ -37,11 +37,11 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchTransactions();
+  fetchFloatLedgers();
 };
-function fetchTransactions() {
+function fetchFloatLedgers() {
   // branchStore
-  //   .fetchTransactions(page.value, limit.value)
+  //   .fetchFloatLedgers(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -96,7 +96,7 @@ const filter = reactive({
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
-  fetchTransactions();
+  fetchFloatLedgers();
   billingStore.fetchFloatLedgers(); // Fetch float ledgers
   // balanceStore.fetchTotalBalance(); // Fetch total balance
   // balanceStore.increaseTotalBalance(); // Increase balance by 100
@@ -167,30 +167,30 @@ const computedLedgerWithBalance = computed(() => {
 });
 
 
-function fetchTransactions() {
-  filter.limit = limit.value;
-  filter.page = page.value;
+// function fetchFloatLedgers() {
+//   filter.limit = limit.value;
+//   filter.page = page.value;
 
-  // Add date filter if both dates are provided
-  if (filter.fromDate && filter.toDate) {
-    filter.filter.push({
-      field: "date",
-      operator: "BETWEEN",
-      operand: [filter.fromDate, filter.toDate],
-    });
-  }
+//   // Add date filter if both dates are provided
+//   if (filter.fromDate && filter.toDate) {
+//     filter.filter.push({
+//       field: "date",
+//       operator: "BETWEEN",
+//       operand: [filter.fromDate, filter.toDate],
+//     });
+//   }
 
-  store.fetchTransactions(filter); // Fetch transactions based on filter
-}
+//   store.fetchFloatLedgers(filter); // Fetch transactions based on filter
+// }
 
 function next() {
   page.value += 1;
-  fetchTransactions();
+  fetchFloatLedgers();
 }
 
 function previous() {
   page.value -= 1;
-  fetchTransactions();
+  fetchFloatLedgers();
 }
 
 function open() {
@@ -208,7 +208,7 @@ function convertDateTime(date: string) {
 // Debounced filter update function
 const updateFilter = useDebounceFn(
   () => {
-    fetchTransactions();
+    fetchFloatLedgers();
   },
   300,
   { maxWait: 5000 }
@@ -267,7 +267,7 @@ watch(
 <template>
   <div class="">
     <!-- Header -->
-    <div class="max-w-7xl mx-auto bg-white">
+    <div class="max-w-7xl mx-auto bg-white flex flex-col">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
         <div class="flex-grow">
           <div
@@ -411,6 +411,70 @@ watch(
           </tfoot> -->
         </table>
       </div>
+
+      <div class="flex text-sm mt-auto">
+      <div class="w-full border-t border-b border-gray-50">
+        <div class="flex gap-2 items-center">
+          <!-- Previous Button -->
+          <button
+            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+            :disabled="page <= 1"
+            @click="previous"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <!-- Current Page / Total Pages -->
+          <div class="py-1">
+            <span class="px-2 py-1 bg-primary rounded text-white">{{
+              page
+            }}</span>
+            <label class="mx-1 text-gray-400">/</label>
+            <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+              {{ totalPages }}
+            </span>
+          </div>
+          <button
+            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            :class="{
+              'opacity-50 cursor-not-allowed': transactions.length < limit,
+            }"
+            :disabled="transactions.length < limit"
+            @click="next"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <!-- Jump to Page -->
+          <label>Page</label>
+          <input
+            type="number"
+            placeholder="Page"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            v-model.number="pageInput"
+            @change="jumpToPage"
+          />
+
+          <!-- Adjust Page Size -->
+          <label>Page Size</label>
+          <input
+            type="number"
+            placeholder="Page Size"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            v-model.number="limit"
+            @change="changePageSize"
+          />
+
+          <!-- Total Records -->
+          <span
+            class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
+          >
+            Total Records: {{ totalRecords }}
+          </span>
+        </div>
+      </div>
+    </div>
     </div>
 
     <!-- Modal -->
