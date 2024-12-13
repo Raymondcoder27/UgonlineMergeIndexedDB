@@ -220,17 +220,17 @@ export const useServicesStore = defineStore("services", () => {
       //   // thumbnail: '/assets/coa-19c4edfc.png',
       //   // email: '
       // })
-    saveSubscribedServicesToLocalStorage();
+    saveSubscribedServicesToLocalStorage(service);
 
     } else {
       console.error(`Service with ID ${serviceId} not found for subscription.`);
     }
   }
 
-  const localStorageSubscribedServices = ref<Service[]>();
+  const localStorageSubscribedServices = ref<Service[]>([]);
 
   // Save manager to local storage
-  const saveSubscribedServicesToLocalStorage = () => {
+  const saveSubscribedServicesToLocalStorage = (service: Service) => {
     localStorage.setItem('localStorageSubscribedServices', JSON.stringify(localStorageSubscribedServices.value))
   }
   

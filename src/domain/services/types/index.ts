@@ -12,6 +12,7 @@ export type Service = {
     name: string;
     description: string;
     accessibilityTier:string;
+    thumbnail:string;
     featureId: string;
     requirements: string[];
     providerId: string
