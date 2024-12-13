@@ -143,10 +143,10 @@ function convertDateTime(date: string) {
 //     // });
 // }
 
-    const floatRequestFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
+    const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
 
-    if (floatRequestFromLocalStorage) {
-      floatRequestFromLocalStorage.value = floatRequestFromLocalStorage;
+    if (floatRequestsFromLocalStorage) {
+      floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
     }
 
 // pass in the requestId
@@ -240,9 +240,14 @@ onMounted(() => {
             v-for="(request, id) in store.floatRequests"
             :key="id"
           > -->
-          <tr
+          <!-- <tr
             class="text-right"
             v-for="(request, id) in paginatedFloatRequests"
+            :key="id"
+          > -->
+          <tr
+            class="text-right"
+            v-for="(request, id) in floatRequestsFromLocalStorage"
             :key="id"
           >
             <!-- <td>{{ idx + 1 }}</td> -->
