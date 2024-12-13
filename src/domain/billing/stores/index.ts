@@ -322,6 +322,13 @@ async function reduceFloatLedger(requestId: any) {
       floatRequest.status = "approved";
       floatRequest.approvedBy = "Manager One";
     }
+    
+    //adjust the record in local storage as well
+    const floatRequestLocalStorage = floatRequestToBranchManagerLocalStorage.value.find((request) => request.branch === requestId);
+    if (floatRequestLocalStorage) {
+      floatRequestLocalStorage.status = "approved";
+      floatRequestLocalStorage.approvedBy = "Manager One";
+    }
   }
 
   // reject float request using passed in Id and set status to rejected
