@@ -221,7 +221,7 @@ function allocateFloatFromRequest(requestId: any) {
 const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
 
 const saveFloatRequestToLocalStorage = () => {
-  localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
+  localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
 }
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
