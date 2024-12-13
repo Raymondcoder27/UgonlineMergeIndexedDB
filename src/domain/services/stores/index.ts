@@ -220,11 +220,11 @@ export const useServicesStore = defineStore("services", () => {
       //   // thumbnail: '/assets/coa-19c4edfc.png',
       //   // email: '
       // })
+    saveSubscribedServicesToLocalStorage();
 
     } else {
       console.error(`Service with ID ${serviceId} not found for subscription.`);
     }
-    saveSubscribedServicesToLocalStorage();
   }
 
   const localStorageSubscribedServices = ref<Service[]>();
