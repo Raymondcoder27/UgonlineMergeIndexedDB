@@ -196,8 +196,23 @@ function allocateFloatFromRequest(requestId: any) {
       branch: floatRequest.branch,
     });
   }
+  //save to localstorage
+  allocateFloatFromRequestToLocalStorage.value.push({
+    id: allocateFloatFromRequestToLocalStorage.value.length + 1,
+    dateAssigned: new Date().toISOString(), amount: floatRequest.amount,
+    status: "Allocated",
+    payload: floatRequest.amount,
+     status: "Allocated",
+     branchId: payload.tillId
+  })
+  saveFloatRequestToLocalStorage();
 }
 
+const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
+
+const saveFloatRequestToLocalStorage = () => {
+  localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
+}
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
     floatLedgers.value.push({
