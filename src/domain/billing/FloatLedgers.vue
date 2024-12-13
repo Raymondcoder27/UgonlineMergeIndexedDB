@@ -147,15 +147,15 @@ const computedLedgerWithBalance = computed(() => {
   // return billingStore.transactions.slice(start, end); 
 
 
-  if (store.floatLedgers.length === 0) {
-    return [];
-  }
+  // if (store.floatLedgers.length === 0) {
+  //   return [];
+  // }
 
   // Start with the balance from the store
   let runningBalance = 0;
 
   // Process transactions chronologically
-  return store.floatLedgers.map((transaction) => {
+  return billingStore.floatLedgers.map((transaction) => {
     // Adjust the running balance based on transaction amount
     runningBalance += transaction.amount;
 
