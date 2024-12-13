@@ -161,9 +161,18 @@ export const useBilling = defineStore("billing", () => {
     saveTransactionsToLocalStorage();
   }
 
+  const branchManagerFloatBalance = ref(0);
+
   const saveTransactionsToLocalStorage = () => {
     localStorage.setItem('branchManagerFloatBalance', JSON.stringify(floatAllocations.value))
   }
+
+  const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance') || '0');
+
+  if (savedFloatManagerBalance) {
+    branchManagerFloatBalance.value = savedFloatManagerBalance;
+  }
+
 
   // pass in the requestId
 // const approveFloatRequest = (requestId: any) => {
@@ -286,6 +295,7 @@ async function reduceFloatLedger(requestId: any) {
     branchManagers,
     floatAllocations,
     floatRequests,
+    branchManagerFloatBalance,
     reduceFloatLedger,
     approveFloatRequest,
     adjustFloatLedger,
