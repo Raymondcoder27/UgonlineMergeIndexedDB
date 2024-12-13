@@ -13,6 +13,7 @@ const notify = useNotificationsStore();
 const billingStore = useBilling();
 
 // State
+const loading: Ref<boolean> = ref(false);
 const modalOpen = ref(false);
 const page = ref(1);
 const limit = ref(15);
