@@ -13,6 +13,9 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
+import { useBillingStore } from "@/domain/billing/stores";
+
+const billingStore = useBillingStore();
 
 import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
@@ -172,7 +175,8 @@ const assignManagersToBranches = () => {
   });
 };
 
-const branchManagerFloatBalance = ref(0);
+// const branchManagerFloatBalance = ref(0);
+
 
 // onMounted(()=>{
 //     const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance'));
@@ -192,11 +196,7 @@ onMounted(() => {
   assignManagersToBranches();
 
 
-  const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance') || '0');
-
-if (savedFloatManagerBalance) {
-  branchManagerFloatBalance.value = savedFloatManagerBalance;
-}
+ 
 });
 </script>
 
@@ -209,7 +209,7 @@ if (savedFloatManagerBalance) {
         ></i>
         <label class="text-lg mx-1">Branches</label>
         <div>This data is coming from Local storage! Refresh and see!
-          {{ branchManagerFloatBalance }}
+          {{ billingStore.branchManagerFloatBalance }}
         </div>
       </div>
     </div>
