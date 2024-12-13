@@ -137,7 +137,7 @@ const dummyServices = ref<Service[]>([
 ]);
 
 
-    const subscribedServicesFromLocalStorage = JSON.parse(localStorage.getItem('localStorageSubscribedServices') || '{}');
+    const subscribedServicesFromLocalStorage = JSON.parse(localStorage.getItem('localStorageSubscribedServices') || '[]');
 
     if (subscribedServicesFromLocalStorage) {
       subscribedServicesFromLocalStorage.value = subscribedServicesFromLocalStorage;
