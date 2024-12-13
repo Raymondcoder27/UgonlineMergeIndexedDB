@@ -243,6 +243,12 @@ const saveFloatRequestToLocalStorage = () => {
     })
   }
 
+//   const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
+
+// const saveFloatRequestToLocalStorage = () => {
+//   localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
+// }
+
   // pass in the requestId
 // const approveFloatRequest = (requestId: any) => {
 //   store.approveFloatRequest(requestId);
