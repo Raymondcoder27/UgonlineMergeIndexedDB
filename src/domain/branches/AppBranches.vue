@@ -265,8 +265,6 @@ if (savedFloatManagerBalance) {
         </button>
       </div>
     </div>
-
-    <div>This data is coming from local storage!</div>
     <div class="flex my-1">
       <table class="table">
         <thead>
