@@ -149,11 +149,11 @@ export const useBilling = defineStore("billing", () => {
       description: "Till " + payload.tillId,
     })
       //save to localstorage
-      saveFloatRequestToLocalStorage.value.push([{payload: payload.amount, status: "Pending", tillId: payload.tillId}])
+      floatRequestToBranchManagerLocalStorage.value.push([{payload: payload.amount, status: "Pending", tillId: payload.tillId}])
       saveFloatRequestToLocalStorage();
     }
   
-    const floatRequestToBranchManagerLocalStorage = ref(0);
+    const floatRequestToBranchManagerLocalStorage = ref<FloatRequest[]>([]);
   
     const saveFloatRequestToLocalStorage = () => {
       localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestToBranchManagerLocalStorage.value))
