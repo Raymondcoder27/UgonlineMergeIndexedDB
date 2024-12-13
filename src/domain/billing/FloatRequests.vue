@@ -14,13 +14,13 @@ const store = useBilling();
 const page = ref(1);
 const loading: Ref<boolean> = ref(false);
 const limit = ref(10);
-const transactions: Ref<any[]> = ref([]);
-const totalRecords = computed(() => billingStore.floatRequests.length); // Total transactions
+const floatRequests: Ref<any[]> = ref([]);
+const totalRecords = computed(() => billingStore.floatRequests.length); // Total floatRequests
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchTransactions();
+  fetchFloatRequests();
 };
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
@@ -30,11 +30,11 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchTransactions();
+  fetchFloatRequests();
 };
-function fetchTransactions() {
+function fetchFloatRequests() {
   // branchStore
-  //   .fetchTransactions(page.value, limit.value)
+  //   .fetchFloatRequests(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -86,21 +86,21 @@ const filter: IGoFilter = reactive({
 const next = () => {
   if (store.floatRequests.length >= store.limit) {
     page.value += 1;
-    store.fetchTransactions();
+    store.fetchFloatRequests();
   }
 };
 
 const previous = () => {
   if (page.value > 1) {
     page.value -= 1;
-    store.fetchTransactions();
+    store.fetchFloatRequests();
   }
 };
 
 // Debounced filter update function
 const updateFilter = useDebounceFn(
   () => {
-    fetchTransactions();
+    fetchFloatRequests();
   },
   300,
   { maxWait: 5000 }
