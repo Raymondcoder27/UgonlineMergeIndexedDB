@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted, watch } from "vue";
+import { ref, reactive, onMounted, watch, computed } from "vue";
 import AppModal from "@/components/AppModal.vue";
 import { useBilling } from "@/domain/billing/stores";
 import { useDebounceFn } from "@vueuse/core";
@@ -17,8 +17,8 @@ const loading: Ref<boolean> = ref(false);
 const modalOpen = ref(false);
 const page = ref(1);
 const limit = ref(15);
-const floatAllocations: Ref<any[]> = ref([]);
-const totalRecords = computed(() => billingStore.transactions.length); // Total floatAllocations
+const transactions: Ref<any[]> = ref([]);
+const totalRecords = computed(() => billingStore.transactions.length); // Total transactions
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -48,13 +48,13 @@ function fetchTransactions() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  floatAllocations.value = branchStore.transactions.slice(startIndex, endIndex);
+  transactions.value = billingStore.transactions.slice(startIndex, endIndex);
   loading.value = false;
 }
-const paginatedfloatAllocations = computed(() => {
+const paginatedTransactions = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return branchStore.transactions.slice(start, end); // Adjust according to your page & limit
+  return billingStore.transactions.slice(start, end); // Adjust according to your page & limit
 });
 
 

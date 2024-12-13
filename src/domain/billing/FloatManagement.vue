@@ -48,13 +48,13 @@ function fetchFloatAllocations() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  floatAllocations.value = branchStore.floatAllocations.slice(startIndex, endIndex);
+  floatAllocations.value = billingStore.floatAllocations.slice(startIndex, endIndex);
   loading.value = false;
 }
 const paginatedfloatAllocations = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return branchStore.floatAllocations.slice(start, end); // Adjust according to your page & limit
+  return billingStore.floatAllocations.slice(start, end); // Adjust according to your page & limit
 });
 
 // filter
