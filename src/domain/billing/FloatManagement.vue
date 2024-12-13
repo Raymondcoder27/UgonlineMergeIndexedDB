@@ -170,7 +170,7 @@ watch(
         {{ transaction.description }} - {{ transaction.amount }}
       </li>
     </ul> -->
-  <div class="w-full shadow-lg bg-white rounded p-2 h-full">
+  <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div
