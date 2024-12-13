@@ -18,7 +18,7 @@ const modalOpen = ref(false);
 const page = ref(1);
 const limit = ref(15);
 const floatAllocations: Ref<any[]> = ref([]);
-const totalRecords = computed(() => billingStore.floatAllocations.length); // Total floatAllocations
+const totalRecords = computed(() => billingStore.transactions.length); // Total floatAllocations
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -48,13 +48,13 @@ function fetchFloatAllocations() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  floatAllocations.value = branchStore.floatAllocations.slice(startIndex, endIndex);
+  floatAllocations.value = branchStore.transactions.slice(startIndex, endIndex);
   loading.value = false;
 }
 const paginatedfloatAllocations = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return branchStore.floatAllocations.slice(start, end); // Adjust according to your page & limit
+  return branchStore.transactions.slice(start, end); // Adjust according to your page & limit
 });
 
 
