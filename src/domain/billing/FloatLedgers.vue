@@ -19,7 +19,47 @@ balanceStore.fetchTotalBalance(); // Decrease balance by 100
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
 const page = ref(1);
-const limit = ref(15);
+const limit = ref(10);
+const transactions: Ref<any[]> = ref([]);
+const totalRecords = computed(() => billingStore.transactions.length); // Total transactions
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchTransactions();
+};
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchTransactions();
+};
+function fetchTransactions() {
+  // branchStore
+  //   .fetchTransactions(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
+
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  transactions.value = billingStore.transactions.slice(startIndex, endIndex);
+  loading.value = false;
+}
+const paginatedTransactions = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return billingStore.transactions.slice(start, end); // Adjust according to your page & limit
+});
+
 
 // Billing-specific filter
 const filter = reactive({
