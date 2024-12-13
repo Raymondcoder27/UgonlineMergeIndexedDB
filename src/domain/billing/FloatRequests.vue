@@ -250,7 +250,7 @@ onMounted(() => {
             v-for="(request, id) in floatRequestsFromLocalStorage"
             :key="id"
           >
-            <!-- <td>{{ idx + 1 }}</td> -->
+            <td>{{ idx + 1 }}</td>
             <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
             <td class="text-left">{{ request.date }}</td>
             <!-- convertDateTime(request.createdAt) -->
