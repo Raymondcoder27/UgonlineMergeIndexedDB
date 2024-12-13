@@ -148,8 +148,16 @@ export const useBilling = defineStore("billing", () => {
       tillId: payload.tillId,
       description: "Till " + payload.tillId,
     })
-  }
-
+      //save to localstorage
+      saveFloatRequestToLocalStorage.value.push(payload.amount)
+      saveFloatRequestToLocalStorage();
+    }
+  
+    const floatRequestToBranchManagerLocalStorage = ref(0);
+  
+    const saveFloatRequestToLocalStorage = () => {
+      localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestToBranchManagerLocalStorage.value))
+    }
 
   // adjust float ledgers with float request
   function adjustFloatLedger(payload: RequestFloat) {
