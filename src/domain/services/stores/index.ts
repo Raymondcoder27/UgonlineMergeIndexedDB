@@ -224,8 +224,15 @@ export const useServicesStore = defineStore("services", () => {
     } else {
       console.error(`Service with ID ${serviceId} not found for subscription.`);
     }
+    saveSubscribedServicesToLocalStorage();
   }
-  
+
+  const localStorageSubscribedServices = ref<Service[]>();
+
+  // Save manager to local storage
+  const saveSubscribedServicesToLocalStorage = () => {
+    localStorage.setItem('localStorageSubscribedServices', JSON.stringify(localStorageSubscribedServices.value))
+  }
   
   // function unsubscribeFromService(serviceId: string) {
   //   const service = dummySubscribedServices.find((s) => s.id === serviceId);
