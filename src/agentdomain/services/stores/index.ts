@@ -136,7 +136,17 @@ const dummyServices = ref<Service[]>([
   },
 ]);
 
-const services: Ref<Service[] | undefined> = ref(dummyServices)
+
+    const subscribedServicesFromLocalStorage = JSON.parse(localStorage.getItem('s'));
+
+    if (subscribedServicesFromLocalStorage) {
+      subscribedServicesFromLocalStorage.value = savedFloatManagerBalance;
+    }
+
+// const services: Ref<Service[] | undefined> = ref(dummyServices)
+
+const services: Ref<Service[] | undefined> = ref(subscribedServicesFromLocalStorage);
+
 
 const service: Ref<Service | undefined> = ref()
 
