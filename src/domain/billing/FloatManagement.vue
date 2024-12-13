@@ -13,6 +13,7 @@ import type {
 
 const billingStore = useBilling();
 
+const loading: Ref<boolean> = ref(false);
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(15);
