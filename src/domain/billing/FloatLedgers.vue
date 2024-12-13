@@ -248,7 +248,7 @@ watch(
 );
 
 watch(
-  () => store.floatLedgers,
+  () => billingStore.floatLedgers,
   (newLedgers) => {
     console.log("Float ledgers updated:", newLedgers);
   }
