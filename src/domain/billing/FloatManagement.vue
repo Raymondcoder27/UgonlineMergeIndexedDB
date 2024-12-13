@@ -16,6 +16,45 @@ const billingStore = useBilling();
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(15);
+  const branches: Ref<any[]> = ref([]);
+const totalRecords = computed(() => branchStore.branches.length); // Total branches
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchFloatAllocations();
+};
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchFloatAllocations();
+};
+function fetchFloatAllocations() {
+  // branchStore
+  //   .fetchBranches(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
+
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  branches.value = branchStore.branches.slice(startIndex, endIndex);
+  loading.value = false;
+}
+const paginatedBranches = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return branchStore.branches.slice(start, end); // Adjust according to your page & limit
+});
 
 // filter
 const filter: IGoFilter = reactive({
