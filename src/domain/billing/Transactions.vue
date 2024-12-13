@@ -274,9 +274,15 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr
+          <!-- <tr
             class="text-left"
             v-for="(transaction, idx) in billingStore.transactions"
+            :key="idx"
+            :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
+          > -->
+          <tr
+            class="text-left"
+            v-for="(transaction, idx) in paginatedTransactions"
             :key="idx"
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
