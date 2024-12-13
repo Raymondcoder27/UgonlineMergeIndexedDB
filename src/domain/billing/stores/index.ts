@@ -195,17 +195,27 @@ function allocateFloatFromRequest(requestId: any) {
       status: "Allocated",
       branch: floatRequest.branch,
     });
+
+
+    allocateFloatFromRequestToLocalStorage.value.push({
+      id: allocateFloatFromRequestToLocalStorage.value.length + 1,
+      dateAssigned: new Date().toISOString(),
+      status: "Allocated",
+      payload: floatRequest.amount,
+       branchId: floatRequest.branch,
+    })
+    saveFloatRequestToLocalStorage();
   }
   //save to localstorage
-  allocateFloatFromRequestToLocalStorage.value.push({
-    id: allocateFloatFromRequestToLocalStorage.value.length + 1,
-    dateAssigned: new Date().toISOString(), amount: floatRequest.amount,
-    status: "Allocated",
-    payload: floatRequest.amount,
-     status: "Allocated",
-     branchId: payload.tillId
-  })
-  saveFloatRequestToLocalStorage();
+  // allocateFloatFromRequestToLocalStorage.value.push({
+  //   id: allocateFloatFromRequestToLocalStorage.value.length + 1,
+  //   dateAssigned: new Date().toISOString(),
+  //   status: "Allocated",
+  //   payload: floatRequest.amount,
+  //    status: "Allocated",
+  //    branchId: floatRequest.branch,
+  // })
+  // saveFloatRequestToLocalStorage();
 }
 
 const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
