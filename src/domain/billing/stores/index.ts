@@ -162,7 +162,7 @@ export const useBilling = defineStore("billing", () => {
   }
 
   const saveTransactionsToLocalStorage = () => {
-    localStorage.setItem('branchManagerFloatAllocation', JSON.stringify(floatAllocations.value))
+    localStorage.setItem('branchManagerFloatBalance', JSON.stringify(floatAllocations.value))
   }
 
   // pass in the requestId
