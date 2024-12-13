@@ -149,7 +149,7 @@ export const useBilling = defineStore("billing", () => {
       description: "Till " + payload.tillId,
     })
       //save to localstorage
-      saveFloatRequestToLocalStorage.value.push(payload.amount)
+      saveFloatRequestToLocalStorage.value.push([{payload: payload.amount, status: "Pending", tillId: payload.tillId}])
       saveFloatRequestToLocalStorage();
     }
   
