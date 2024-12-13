@@ -120,6 +120,8 @@ const paginatedServices = computed(() => {
 onMounted(() => {
   balanceStore.
   fetchTotalBalance();
+  fetchServices();
+  
 });
 </script>
 
