@@ -110,6 +110,13 @@ export const useAccounts = defineStore("user-management", () => {
     if (branch) {
       branch.manager = payload.managerId;
     }
+
+    saveManagerToLocalStorage();
+  }
+
+
+  const saveManagerToLocalStorage = () => {
+    localStorage.setItem('branchManagerFloatBalance', JSON.stringify(floatAllocations.value))
   }
 
   // Simulating account creation

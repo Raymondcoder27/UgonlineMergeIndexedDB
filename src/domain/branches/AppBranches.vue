@@ -13,9 +13,9 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
-import { useBillingStore } from "@/domain/billing/stores";
+import { useBilling } from "@/domain/billing/stores";
 
-const billingStore = useBillingStore();
+const billingStore = useBilling();
 
 import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
@@ -208,10 +208,6 @@ onMounted(() => {
           class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-code-branch"
         ></i>
         <label class="text-lg mx-1">Branches</label>
-        <div>This data is coming from Local storage! Refresh and see!
-          <br>
-          {{ billingStore.branchManagerFloatBalance }}
-        </div>
       </div>
     </div>
     <div class="flex justify-between my-1">
