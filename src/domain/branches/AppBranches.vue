@@ -172,14 +172,15 @@ const assignManagersToBranches = () => {
   });
 };
 
-onMounted(()=>{
-    const savedTransactions = JSON.parse(localStorage.getItem
-    ('transactions'))
+const branchManagerFloatBalance = ref(0);
 
-    if (savedTransactions) {
-      transactions.value = savedTransactions
-    }
-  })
+// onMounted(()=>{
+//     const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance'));
+
+//     if (savedFloatManagerBalance) {
+//       branchManagerFloatBalance.value = savedFloatManagerBalance;
+//     }
+//   })
 
 onMounted(() => {
   loading.value = true;
@@ -189,6 +190,13 @@ onMounted(() => {
   accountStore.fetchManagerAccounts();
   // allocateManager();
   assignManagersToBranches();
+
+
+  const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance'));
+
+if (savedFloatManagerBalance) {
+  branchManagerFloatBalance.value = savedFloatManagerBalance;
+}
 });
 </script>
 
