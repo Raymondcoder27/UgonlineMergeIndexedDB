@@ -10,7 +10,7 @@ import { useBalance } from "@/domain/balance/stores";
 
 const balanceStore = useBalance();
 
-const store = useBilling();
+const billingStore = useBilling();
 const page = ref(1);
 const loading: Ref<boolean> = ref(false);
 const limit = ref(10);
@@ -84,16 +84,16 @@ const filter: IGoFilter = reactive({
 });
 
 const next = () => {
-  if (store.floatRequests.length >= store.limit) {
+  if (billingStore.floatRequests.length >= billingStore.limit) {
     page.value += 1;
-    store.fetchFloatRequests();
+    billingStore.fetchFloatRequests();
   }
 };
 
 const previous = () => {
   if (page.value > 1) {
     page.value -= 1;
-    store.fetchFloatRequests();
+    billingStore.fetchFloatRequests();
   }
 };
 
@@ -145,22 +145,22 @@ function convertDateTime(date: string) {
 
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
-  store.approveFloatRequest(requestId);
-  store.fetchFloatRequests();
+  billingStore.approveFloatRequest(requestId);
+  billingStore.fetchFloatRequests();
   balanceStore.approveFloatRequest(requestId);
-  store.reduceFloatLedger(requestId); 
-  store.allocateFloatFromRequest(requestId);
+  billingStore.reduceFloatLedger(requestId); 
+  billingStore.allocateFloatFromRequest(requestId);
   console.log(`float request with id ${requestId} approved`);
 };
 
 const rejectFloatRequest = (requestId: any) => {
-  store.rejectFloatRequest(requestId);
-  store.fetchFloatRequests();
+  billingStore.rejectFloatRequest(requestId);
+  billingStore.fetchFloatRequests();
   console.log(`float request with id ${requestId} rejected`);
 };
 
 onMounted(() => {
-  store.fetchFloatRequests();
+  billingStore.fetchFloatRequests();
 });
 </script>
 
