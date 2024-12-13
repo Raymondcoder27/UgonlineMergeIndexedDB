@@ -43,6 +43,13 @@ export const useBilling = defineStore("billing", () => {
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
 
+  const savedFloatManagerBalance = JSON.parse(localStorage.getItem('allocateFloatFromRequestToLocalStorage') || '0');
+
+  if (savedFloatManagerBalance) {
+    branchManagerFloatBalance.value = savedFloatManagerBalance;
+  }
+
+
   // Actions to fetch data
   // async function fetchTransactions(filter: any) {
   //   // Simulate API call
