@@ -250,9 +250,9 @@ onMounted(() => {
             v-for="(request, id) in floatRequestsFromLocalStorage"
             :key="id"
           >
-            <td>{{ idx + 1 }}</td>
+            <!-- <td>{{ idx + 1 }}</td> -->
             <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
-            <td class="text-left">{{ request.date }}</td>
+            <td class="text-left">{{ request.dateRequested }}</td>
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount.toLocaleString() }}</td>
@@ -260,9 +260,16 @@ onMounted(() => {
               <div v-if="request.status === 'approved'">
                 <!-- <td> -->
                 <!-- <label> -->
-                <span
+                <!-- <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
                   @click="approveFloatRequest(request.id)"
+                  >
+                  <i class="fa-solid fa-check"></i>
+                  Approved</span
+                > -->
+                <span
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
+                  @click="approveFloatRequest(request.branch)"
                   >
                   <i class="fa-solid fa-check"></i>
                   Approved</span
