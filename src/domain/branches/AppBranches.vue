@@ -209,6 +209,7 @@ onMounted(() => {
         ></i>
         <label class="text-lg mx-1">Branches</label>
         <div>This data is coming from Local storage! Refresh and see!
+          <br>
           {{ billingStore.branchManagerFloatBalance }}
         </div>
       </div>
