@@ -15,7 +15,7 @@ const page = ref(1);
 const loading: Ref<boolean> = ref(false);
 const limit = ref(10);
 const transactions: Ref<any[]> = ref([]);
-const totalRecords = computed(() => billingStore.transactions.length); // Total transactions
+const totalRecords = computed(() => billingStore.floatRequests.length); // Total transactions
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -45,13 +45,13 @@ function fetchTransactions() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  transactions.value = billingStore.transactions.slice(startIndex, endIndex);
+  floatRequests.value = billingStore.floatRequests.slice(startIndex, endIndex);
   loading.value = false;
 }
 const paginatedFloatRequests = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return billingStore.transactions.slice(start, end); // Adjust according to your page & limit
+  return billingStore.floatRequests.slice(start, end); // Adjust according to your page & limit
 });
 
 const filter: IGoFilter = reactive({
@@ -84,7 +84,7 @@ const filter: IGoFilter = reactive({
 });
 
 const next = () => {
-  if (store.transactions.length >= store.limit) {
+  if (store.floatRequests.length >= store.limit) {
     page.value += 1;
     store.fetchTransactions();
   }
