@@ -157,9 +157,9 @@ export const useBilling = defineStore("billing", () => {
     })
       //save to localstorage
       floatRequestToBranchManagerLocalStorage.value.push([{
-        id: floatRequests.value.length + 1,
+         id: floatRequests.value.length + 1,
          dateRequested: new Date().toISOString(),
-         payload: payload.amount,
+         amount: payload.amount,
           status: "pending", 
           branchId: payload.tillId}])
       saveFloatRequestToLocalStorage();
