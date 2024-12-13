@@ -150,7 +150,7 @@ function convertDateTime(date: string) {
     }
 
 // pass in the requestId
-const approveFloatRequest = (requestId: any) => {
+const approveFloatRequest = (requestId: string) => {
   // billingStore.approveFloatRequest(requestId);
   // billingStore.fetchFloatRequests();
   balanceStore.approveFloatRequest(requestId);

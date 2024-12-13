@@ -63,7 +63,7 @@ export const useBalance = defineStore("balance", () => {
 //   console.log(`float request with id ${requestId} rejected`);
 // };
 
-async function approveFloatRequest(requestId: any) {
+async function approveFloatRequest(requestId: string) {
   console.log("Approving float request with ID:", requestId);
   // Simulate API call
   // const response = await fetch(`/api/float-requests/${requestId}/approve`, {
@@ -73,7 +73,7 @@ async function approveFloatRequest(requestId: any) {
 
   // use request in floatledgers array id to figure out amount 
   const floatRequest = billingStore.floatRequests.find(
-    (request) => request.id === requestId
+    (request) => request.branch === requestId
   );
   if (!floatRequest) {
     console.error("Float request not found");
