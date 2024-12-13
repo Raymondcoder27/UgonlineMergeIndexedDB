@@ -21,8 +21,8 @@ const loading: Ref<boolean> = ref(false);
 const modalOpen = ref(false);
 const page = ref(1);
 const limit = ref(10);
-const transactions: Ref<any[]> = ref([]);
-const totalRecords = computed(() => billingStore.transactions.length); // Total transactions
+const floatLedgers: Ref<any[]> = ref([]);
+const totalRecords = computed(() => billingStore.floatLedgers.length); // Total transactions
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -52,7 +52,7 @@ function fetchFloatLedgers() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  transactions.value = billingStore.transactions.slice(startIndex, endIndex);
+  floatLedgers.value = billingStore.floatLedgers.slice(startIndex, endIndex);
   loading.value = false;
 }
 // const paginatedFloatLedgers = computed(() => {
@@ -256,8 +256,8 @@ watch(
 
 watch(
   computedLedgerWithBalance,
-  (transactions) => {
-    console.log("Computed transactions:", transactions);
+  (floatLedgers) => {
+    console.log("Computed floatLedgers:", floatLedgers);
   },
   { deep: true }
 );
