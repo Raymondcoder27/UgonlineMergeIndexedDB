@@ -137,10 +137,10 @@ const dummyServices = ref<Service[]>([
 ]);
 
 
-    const subscribedServicesFromLocalStorage = JSON.parse(localStorage.getItem('s'));
+    const subscribedServicesFromLocalStorage = JSON.parse(localStorage.getItem('localStorageSubscribedServices') || '{}');
 
     if (subscribedServicesFromLocalStorage) {
-      subscribedServicesFromLocalStorage.value = savedFloatManagerBalance;
+      subscribedServicesFromLocalStorage.value = subscribedServicesFromLocalStorage;
     }
 
 // const services: Ref<Service[] | undefined> = ref(dummyServices)
