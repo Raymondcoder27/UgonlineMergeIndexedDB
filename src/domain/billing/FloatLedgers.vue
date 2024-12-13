@@ -55,11 +55,11 @@ function fetchTransactions() {
   transactions.value = billingStore.transactions.slice(startIndex, endIndex);
   loading.value = false;
 }
-const paginatedFloatLedgers = computed(() => {
-  const start = (page.value - 1) * limit.value;
-  const end = start + limit.value;
-  return billingStore.transactions.slice(start, end); // Adjust according to your page & limit
-});
+// const paginatedFloatLedgers = computed(() => {
+//   const start = (page.value - 1) * limit.value;
+//   const end = start + limit.value;
+//   return billingStore.transactions.slice(start, end); // Adjust according to your page & limit
+// });
 
 
 // Billing-specific filter
@@ -140,7 +140,13 @@ onMounted(() => {
 //   return transactionsWithBalances;
 // });
 
-const computedTransactions = computed(() => {
+const computedLedgerWithBalance = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  const paginatedFloatLedgers = billingStore.floatLedgers.slice(start, end);
+  // return billingStore.transactions.slice(start, end); 
+
+
   if (store.floatLedgers.length === 0) {
     return [];
   }
@@ -249,7 +255,7 @@ watch(
 );
 
 watch(
-  computedTransactions,
+  computedLedgerWithBalance,
   (transactions) => {
     console.log("Computed transactions:", transactions);
   },
@@ -344,7 +350,7 @@ watch(
             > -->
 
             <tr
-              v-for="transaction in computedTransactions"
+              v-for="transaction in computedLedgerWithBalance"
               :key="transaction.id"
               class="body-tr"
             >
