@@ -259,6 +259,13 @@ const saveFloatRequestToLocalStorage = () => {
 // };
 
 async function reduceFloatLedger(requestId: any) {
+  //  This is local storage 
+
+
+
+
+  // end of local storage
+
   console.log("Approving float request with ID:", requestId);
   // Simulate API call
   // const response = await fetch(`/api/float-requests/${requestId}/approve`, {
