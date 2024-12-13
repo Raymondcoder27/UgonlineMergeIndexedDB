@@ -63,8 +63,8 @@ export const useBalance = defineStore("balance", () => {
 //   console.log(`float request with id ${requestId} rejected`);
 // };
 
-async function approveFloatRequest(requestId: string) {
-  console.log("Approving float request with ID:", requestId);
+async function approveFloatRequest(requestId: any) {
+  console.log("Approving float request with branch:", requestId);
   // Simulate API call
   // const response = await fetch(`/api/float-requests/${requestId}/approve`, {
   //   method: "POST",
