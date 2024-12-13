@@ -16,7 +16,8 @@ const balanceStore = useBalance(); // Initialize the balance store
 
 balanceStore.fetchTotalBalance(); // Decrease balance by 100
 
-const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
+const billingStore = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
+const loading: Ref<boolean> = ref(false);
 const modalOpen = ref(false);
 const page = ref(1);
 const limit = ref(10);
@@ -54,7 +55,7 @@ function fetchTransactions() {
   transactions.value = billingStore.transactions.slice(startIndex, endIndex);
   loading.value = false;
 }
-const paginatedTransactions = computed(() => {
+const paginatedFloatLedgers = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
   return billingStore.transactions.slice(start, end); // Adjust according to your page & limit
@@ -96,7 +97,7 @@ const filter = reactive({
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
   fetchTransactions();
-  store.fetchFloatLedgers(); // Fetch float ledgers
+  billingStore.fetchFloatLedgers(); // Fetch float ledgers
   // balanceStore.fetchTotalBalance(); // Fetch total balance
   // balanceStore.increaseTotalBalance(); // Increase balance by 100
 });
