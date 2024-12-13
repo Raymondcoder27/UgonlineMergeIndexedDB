@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { useBilling } from "@/domain/billing/stores";
-import { onMounted, type Ref, ref, reactive, watch } from "vue";
+import { onMounted, type Ref, ref, reactive, watch, computed } from "vue";
 import AllocateFloat from "@/domain/billing/components/AllocateFloat.vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
@@ -16,8 +16,8 @@ const billingStore = useBilling();
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(15);
-  const branches: Ref<any[]> = ref([]);
-const totalRecords = computed(() => branchStore.branches.length); // Total branches
+  const floatAllocations: Ref<any[]> = ref([]);
+const totalRecords = computed(() => billingStore.floatAllocations.length); // Total floatAllocations
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -36,7 +36,7 @@ const jumpToPage = () => {
 };
 function fetchFloatAllocations() {
   // branchStore
-  //   .fetchBranches(page.value, limit.value)
+  //   .fetchfloatAllocations(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -47,13 +47,13 @@ function fetchFloatAllocations() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  branches.value = branchStore.branches.slice(startIndex, endIndex);
+  floatAllocations.value = branchStore.floatAllocations.slice(startIndex, endIndex);
   loading.value = false;
 }
-const paginatedBranches = computed(() => {
+const paginatedfloatAllocations = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return branchStore.branches.slice(start, end); // Adjust according to your page & limit
+  return branchStore.floatAllocations.slice(start, end); // Adjust according to your page & limit
 });
 
 // filter
