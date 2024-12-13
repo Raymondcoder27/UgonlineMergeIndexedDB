@@ -161,7 +161,8 @@ export const useBilling = defineStore("billing", () => {
          dateRequested: new Date().toISOString(),
          amount: payload.amount,
           status: "pending", 
-          branchId: payload.tillId})
+          tillId: payload.tillId
+        branchId: "Branch 1"})
       saveFloatRequestToLocalStorage();
     }
   

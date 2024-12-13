@@ -23,4 +23,5 @@ export interface FloatRequest {
 export interface RequestFloat {
     amount:number
     tillId:number
+    brandId:string
 }
