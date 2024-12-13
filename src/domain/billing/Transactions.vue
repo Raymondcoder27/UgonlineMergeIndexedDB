@@ -23,7 +23,7 @@ const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchFloatAllocations();
+  fetchTransactions();
 };
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
@@ -33,11 +33,11 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchFloatAllocations();
+  fetchTransactions();
 };
-function fetchFloatAllocations() {
+function fetchTransactions() {
   // branchStore
-  //   .fetchfloatAllocations(page.value, limit.value)
+  //   .fetchTransactions(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -159,7 +159,7 @@ watch(() => filter, updateFilter, { deep: true });
 // onMounted(() => fetch());
 onMounted(() => {
   fetch();
-  billingStore.fetchFloatAllocations(); // Fetch transactions when the component mounts
+  // billingStore.fetchTransactions(); // Fetch transactions when the component mounts
   // billingStore.fetchFloatLedgers(); // Fetch float ledgers
   billingStore.fetchTransactions;
 });
