@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useBilling } from "@/domain/billing/stores";
-import { onMounted, ref, reactive, watch } from "vue";
+import { onMounted, ref, reactive, watch, computed, type Ref } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 // import { request } from "http";
@@ -165,7 +165,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full shadow-lg bg-white rounded p-2 h-full">
+  <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
