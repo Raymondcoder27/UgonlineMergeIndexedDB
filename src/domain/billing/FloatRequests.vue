@@ -143,10 +143,10 @@ function convertDateTime(date: string) {
 //     // });
 // }
 
-//     const floatRequestFromLocalStorage = JSON.parse(localStorage.getItem('branchManagerFloatBalance'));
+//     const floatRequestFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage'));
 
 //     if (floatRequestFromLocalStorage) {
-//       branchManagerFloatBalance.value = floatRequestFromLocalStorage;
+//       floatRequestFromLocalStorage.value = floatRequestFromLocalStorage;
 //     }
 
 // pass in the requestId
