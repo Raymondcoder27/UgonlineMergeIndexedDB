@@ -172,6 +172,15 @@ const assignManagersToBranches = () => {
   });
 };
 
+onMounted(()=>{
+    const savedTransactions = JSON.parse(localStorage.getItem
+    ('transactions'))
+
+    if (savedTransactions) {
+      transactions.value = savedTransactions
+    }
+  })
+
 onMounted(() => {
   loading.value = true;
   fetchBranches();
@@ -191,6 +200,9 @@ onMounted(() => {
           class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-code-branch"
         ></i>
         <label class="text-lg mx-1">Branches</label>
+        <div>This data is coming from Local storage! Refresh and see!
+          {{ branchManagerFloatBalance }}
+        </div>
       </div>
     </div>
     <div class="flex justify-between my-1">
