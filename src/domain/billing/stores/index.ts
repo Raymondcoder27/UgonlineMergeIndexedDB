@@ -275,7 +275,7 @@ async function reduceFloatLedger(requestId: any) {
 
   // use request in floatledgers array id to figure out amount 
   const floatRequest = floatRequests.value.find(
-    (request) => request.id === requestId
+    (request) => request.branch === requestId
   );
   if (!floatRequest) {
     console.error("Float request not found");
