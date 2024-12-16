@@ -441,7 +441,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'rejected'">
                   <span
-                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1"
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-redo"></i>
@@ -450,7 +450,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'submitted'">
                   <span
-                    class="bg-green-500 rounded-md font-semibold text-white px-1 py-1"
+                    class="bg-green-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-green-700"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-eye"></i>
@@ -459,7 +459,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'processing'">
                   <span
-                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1"
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-redo"></i>
@@ -468,7 +468,7 @@ watch(
                 </div>
                 <div class="" v-if="transaction.status === 'queried'">
                   <span
-                    class="bg-amber-700 rounded-md font-semibold text-white px-1 py-1"
+                    class="bg-amber-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-amber-700"
                     @click="confirm(transaction)"
                   >
                   <i class="fa fa-eye"></i>
