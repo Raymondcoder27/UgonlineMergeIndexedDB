@@ -22,11 +22,11 @@ export const useBilling = defineStore("billing", () => {
 
   const dummyFloatLedgers: FloatLedger[] = [
     //15000000 recharge
-    { id: 1, date: "2021-09-01", description: "Recharge", amount: 15000000, balance: 15000000, status: "success" },
-    { id: 1, date: "2021-09-01", description: "Service fee", amount: -25000, balance: 5000000, status: "success" },
-    { id: 2, date: "2021-09-02", description: "Recharge", amount: 500000, balance: 5500000, status: "success" },
-    { id: 3, date: "2021-09-03", description: "Service fee", amount: -40000, balance: 5460000 , status: "pending"},
-    { id: 4, date: "2021-09-04", description: "Service fee", amount: -30000, balance: 5430000 , status: "failed"},
+    { id: 1, description: "Recharge", amount: 15000000, balance: 15000000, status: "success", date: "2021-09-01", },
+    { id: 1, description: "Service fee", amount: -25000, balance: 5000000, status: "success", date: "2021-09-01", },
+    { id: 2, description: "Recharge", amount: 500000, balance: 5500000, status: "success", date: "2021-09-02", },
+    { id: 3, description: "Service fee", amount: -40000, balance: 5460000 , status: "pending", date: "2021-09-03",},
+    { id: 4, description: "Service fee", amount: -30000, balance: 5430000 , status: "failed", date: "2021-09-04",},
   ];
 
   // dummy float requests
