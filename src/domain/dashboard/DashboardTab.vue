@@ -34,7 +34,7 @@ onMounted(async () => {
 });
 </script>
 <template>
-    <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
+    <div class="flex flex-col w-full shadow-lg bg-white rounded h-screen">
       <!-- Tabs -->
       <div class="flex border-b">
         <!-- Services Tab -->
@@ -106,7 +106,7 @@ onMounted(async () => {
       </div>
   
       <!-- Tab Content -->
-      <div class="flex flex-grow overflow-y-auto">
+      <div class="h-screen flex flex-col overflow-y-auto">
         <div class="w-full h-full">
           <HomeTab v-if="activeTab == 'hometab'" />
           <UserStatistics v-if="activeTab == 'users'" />
