@@ -143,11 +143,11 @@ function convertDateTime(date: string) {
 //     // });
 // }
 
-    const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
+    // const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
 
-    if (floatRequestsFromLocalStorage) {
-      floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
-    }
+    // if (floatRequestsFromLocalStorage) {
+    //   floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
+    // }
 
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
@@ -247,7 +247,7 @@ onMounted(() => {
           > -->
           <tr
             class="text-right"
-            v-for="(request, id) in floatRequestsFromLocalStorage"
+            v-for="(request, id) in paginatedFloatRequests"
             :key="id"
           >
             <!-- <td>{{ idx + 1 }}</td> -->
