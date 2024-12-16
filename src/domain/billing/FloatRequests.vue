@@ -252,7 +252,7 @@ onMounted(() => {
           >
             <!-- <td>{{ idx + 1 }}</td> -->
             <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
-            <td class="text-left">{{ request.dateRequested }}</td>
+            <td class="text-left">{{ request.requestDate }}</td>
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount.toLocaleString() }}</td>

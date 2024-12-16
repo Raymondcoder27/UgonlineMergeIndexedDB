@@ -194,7 +194,7 @@ export const useBilling = defineStore("billing", () => {
 
 // allocate float based on approved float request
 function allocateFloatFromRequest(requestId: any) {
-  const floatRequest = floatRequests.value.find((request) => request.branch === requestId);
+  const floatRequest = floatRequests.value.find((request) => request.id === requestId);
   if (floatRequest) {
     floatAllocations.value.push({
       id: floatAllocations.value.length + 1,
@@ -205,14 +205,14 @@ function allocateFloatFromRequest(requestId: any) {
     });
 
 
-    allocateFloatFromRequestToLocalStorage.value.push({
-      id: allocateFloatFromRequestToLocalStorage.value.length + 1,
-      dateAssigned: new Date().toISOString(),
-      status: "Allocated",
-      payload: floatRequest.amount,
-       branchId: floatRequest.branch,
-    })
-    saveFloatRequestToLocalStorage();
+    // allocateFloatFromRequestToLocalStorage.value.push({
+    //   id: allocateFloatFromRequestToLocalStorage.value.length + 1,
+    //   dateAssigned: new Date().toISOString(),
+    //   status: "Allocated",
+    //   payload: floatRequest.amount,
+    //    branchId: floatRequest.branch,
+    // })
+    // saveFloatRequestToLocalStorage();
   }
   //save to localstorage
   // allocateFloatFromRequestToLocalStorage.value.push({
@@ -226,11 +226,11 @@ function allocateFloatFromRequest(requestId: any) {
   // saveFloatRequestToLocalStorage();
 }
 
-const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
+// const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
 
-const saveFloatRequestToLocalStorage = () => {
-  localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
-}
+// const saveFloatRequestToLocalStorage = () => {
+//   localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
+// }
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
     floatLedgers.value.push({
@@ -275,7 +275,7 @@ async function reduceFloatLedger(requestId: any) {
 
   // use request in floatledgers array id to figure out amount 
   const floatRequest = floatRequests.value.find(
-    (request) => request.branch === requestId
+    (request) => request.id === requestId
   );
   if (!floatRequest) {
     console.error("Float request not found");
@@ -289,6 +289,7 @@ async function reduceFloatLedger(requestId: any) {
     // balance: 300000000 - floatRequest.amount,
   });
 }
+
 
 // const rejectFloatRequest = (requestId: any) => {
 //   store.rejectFloatRequest(requestId);
