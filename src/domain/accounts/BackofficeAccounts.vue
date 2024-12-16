@@ -248,7 +248,7 @@ watch(
       </table>
     </div>
     <div class="flex">
-      <!-- <div class="w-full">
+      <div class="w-full">
         <div class="flex" v-if="limit == store.backofficeAccounts?.length || page > 1">
           <button v-if="page > 1" class="pagination-button" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
           <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
@@ -259,8 +259,8 @@ watch(
             <i class="fa-solid fa-arrow-right"></i></button>
           <button v-else class="pagination-button" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
-      </div> -->
-      <td>
+      </div>
+      <!-- <td>
         <span
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="confirm(transaction)"
@@ -268,7 +268,7 @@ watch(
                   <i class="fa fa-redo"></i>
                     Resubmit
                   </span>
-      </td>
+      </td> -->
     </div>
 
     <div class="flex text-sm mt-auto">
