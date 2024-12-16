@@ -294,7 +294,7 @@ watch(
         <table class="table tr">
           <thead>
             <tr class="text-left">
-              <!-- <th>#</th> -->
+              <th>#</th>
               <th>Tracking Number</th>
               <th>Service</th>
               <th>Provider</th>
@@ -319,7 +319,7 @@ watch(
               :key="idx"
               :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
             >
-              <!-- <td>{{ idx + 1 }}</td> -->
+              <td>{{ idx + 1 }}</td>
               <td
                 class="rounded-md font-semibold text-red-700"
               >
