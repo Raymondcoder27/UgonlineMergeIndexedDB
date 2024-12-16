@@ -34,7 +34,8 @@ onMounted(async () => {
 });
 </script>
 <template>
-    <div class="flex flex-col w-full shadow-lg bg-white rounded h-screen">
+    <!-- <div class="flex flex-col w-full shadow-lg bg-white rounded h-screen"> -->
+      <div class="flex flex-col w-full h-screen overflow-hidden bg-white shadow-lg rounded">
       <!-- Tabs -->
       <div class="flex border-b">
         <!-- Services Tab -->
