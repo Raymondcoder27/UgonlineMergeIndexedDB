@@ -223,7 +223,7 @@ watch(
             </td> -->
             <td class="text-center">
               <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
-              <label v-else class="text-green-600 text-xs bg-green-100 border border-green-200 rounded-sm px-1 py-0.5 font-bold">ACTIVE</label>
+              <label v-else class="text-green-600 text-xs bg-green-100 border border-green-200 rounded-sm px-1 py-0.5 font-bold">Active</label>
             </td>
             <!-- <td class="text-center">
               <i v-if="account.activatedAt" class="fa-solid fa-check-square text-green-600"></i>
