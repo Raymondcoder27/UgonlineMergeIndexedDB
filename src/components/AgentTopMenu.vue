@@ -41,7 +41,8 @@ const topMenu: TopMenuLink[] = [
   {
     name: "agent-app-submissions",
     label: "Submissions",
-    iconClass: "fa-solid fa-upload",
+    // iconClass: "fa-solid fa-upload",
+    iconClass: "fa fa-paper-plane",
   },
    {
     name: "agent-app-ledger",
