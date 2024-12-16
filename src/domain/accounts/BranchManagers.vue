@@ -188,7 +188,7 @@ onMounted(() => {
       <table class="table">
         <thead>
           <tr class="header-tr">
-<!--            <th class="t-header">#</th>-->
+           <th class="t-header">#</th>
             <th class="t-header" width="30%">Names</th>
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
@@ -204,7 +204,7 @@ onMounted(() => {
             v-for="(account, idx) in store.managerAccounts" :key="idx"> -->
             <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in paginatedManagersAccounts" :key="idx">
-<!--            <td width="10px">{{ idx + 1 }}.</td>-->
+           <td width="10px">{{ idx + 1 }}.</td>
             <td>
               <label class="font-bold py-1">
                 {{ account.firstName }} {{ account.lastName }}
