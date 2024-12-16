@@ -32,7 +32,6 @@ onMounted(async () => {
   // forceUpdate.value += 1; // Trigger re-render
   console.log("Balance after fetching:", balanceStore.totalBalance);
 });
-
 </script>
 <template>
     <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
