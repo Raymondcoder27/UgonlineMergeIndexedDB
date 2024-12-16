@@ -84,7 +84,7 @@ onMounted(async () => {
         </div>
   
         <!-- Providers Tab -->
-        <div
+        <!-- <div
           :class="activeTab == 'providers' ? 'tab-active' : 'tab'"
           @click="select('providers')"
           class="cursor-pointer flex items-center justify-center flex-grow p-2 text-sm hover:bg-gray-100"
@@ -92,7 +92,7 @@ onMounted(async () => {
           <i class="fa-solid fa-handshake mr-2"></i>
           <span>Providers</span>
           <p class="text-xl font-bold mt-1">3</p>
-        </div>
+        </div> -->
   
         <!-- Revenue Tab -->
         <div
