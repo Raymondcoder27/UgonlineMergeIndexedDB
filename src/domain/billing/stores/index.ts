@@ -317,7 +317,7 @@ async function reduceFloatLedger(requestId: any) {
 
     // approve float request using passed in Id and set status to approved and modify the floatrequests array
   function approveFloatRequest(requestId: any) {
-    const floatRequest = floatRequests.value.find((request) => request.branch === requestId);
+    const floatRequest = floatRequests.value.find((request) => request.id === requestId);
     if (floatRequest) {
       floatRequest.status = "approved";
       // floatRequest.approvedBy = "Manager One";
