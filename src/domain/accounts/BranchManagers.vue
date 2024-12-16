@@ -241,15 +241,20 @@ onMounted(() => {
             <td class="text-center">{{ convertDate(account.createdAt) }}</td>
             <td class="text-right">
               <div class="flex flex-row space-x-2 w-full text-right" v-if="!account.blockedAt">
-                <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
+                <span
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
+                    @click="viewDetails(account.id)"
+                  >
+                  <i class="fa fa-eye"></i>
+                    View
+                  </span>
+                <!-- <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i>
-                <!-- <i class="text-gray-600 fa-solid fa-reply px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="open()"></i> -->
                   <i class="text-gray-600 fa-solid fa-trash px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   ></i>
                 <i v-if="account.phoneVerified && !account.activatedAt"
                   class="text-gray-600 fa-solid fa-unlock-keyhole px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="resend('change-password', account.username)" title="Change Password"></i>
+                  @click="resend('change-password', account.username)" title="Change Password"></i> -->
               </div>
             </td>
           </tr>
