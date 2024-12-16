@@ -133,7 +133,9 @@ function logout() {
         class="relative bg-white flex items-center justify-between z-10 pt-2"
       >
       <div class="block">
-      <p class="font-semibold text-gray-500 text-xs">Mwebe Raymond </p>
+        <div class="flex">
+          <p class="font-semibold text-gray-500 text-xs">Mwebe Raymond </p>
+        </div>
     <!-- <p class="font-light text-gray-500 text-xs">mwebraymond13@gmail.com</p> -->
     <!-- <p class="font-semibold text-gray-500 text-xs">BALANCE: 675,000/=</p> -->
     </div>
