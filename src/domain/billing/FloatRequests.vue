@@ -271,7 +271,7 @@ onMounted(() => {
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
                   @click="approveFloatRequest(request.id)"
                   >
-                  <i class="fa-solid fa-check"></i>
+                  <!-- <i class="fa-solid fa-check"></i> -->
                   Approved</span
                 >
                 <!-- </label> -->
@@ -286,7 +286,7 @@ onMounted(() => {
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-700 bg-red-200 border border-red-300 hover:text-red-700 hover:bg-red-200"
                     @click="open(request)"
                     >
-                  <i class="fa-solid fa-times-square"></i>
+                  <!-- <i class="fa-solid fa-times-square"></i> -->
                   Rejected</span
                   >
                 </label>
@@ -299,7 +299,7 @@ onMounted(() => {
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-700 bg-gray-50 border border-gray-300 hover:text-gray-700 hover:bg-red-200"
                     @click="open(request)"
                     >
-                  <i class="fa-solid fa-clock text-gray-500"></i>
+                  <!-- <i class="fa-solid fa-clock text-gray-500"></i> -->
                   Pending</span
                   >
                 </label>
