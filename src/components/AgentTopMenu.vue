@@ -241,7 +241,7 @@ function logout() {
               :class="
                 isRouteActive(link)
                   ? 'text-primary-700 border-l-4 border-primary-700 pl-5 bg-blue-50'
-                  : 'text-neutral-500 hover:bg-neutral-100 pl-6'
+                  : 'text-neutral-500 hover:bg-red-200 border-primary-300  pl-6'
               "
             >
               <i class="my-auto text-sm fa-fw" :class="link.iconClass"></i
