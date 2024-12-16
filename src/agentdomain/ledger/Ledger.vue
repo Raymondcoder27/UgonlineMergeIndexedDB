@@ -387,14 +387,14 @@ onMounted(() => {
         <table class="table w-full">
           <thead>
             <tr class="header-tr">
-              <!-- <th class="t-header">#</th> -->
-              <th class="t-header">Date</th>
+              <th class="t-header">#</th>
               <th class="t-header">Type</th>
               <th class="text-right t-header">Amount</th>
               <th class="text-right first-letter:capitalize t-header">
                 Status
               </th>
               <th class="text-right t-header">Balance</th>
+              <th class="t-header">Date</th>
             </tr>
           </thead>
           <thead v-if="loading">
@@ -412,12 +412,8 @@ onMounted(() => {
               :key="transaction.id"
               class="body-tr"
             >
-              <!-- <td class="text-left">{{ idx + 1 }}</td> -->
-              <td class="text-left">
-                <span class="text-xs">{{
-                  convertDateTime(transaction.createdAt)
-                }}</span>
-              </td>
+              <td class="text-left">{{ idx + 1 }}</td>
+
               <td class="text-left">
                 <label
                   class="cursor-pointer font-bold hover:text-primary-700 mx-2"
@@ -489,6 +485,11 @@ onMounted(() => {
               <td class="text-left text-gray-800">
                 <!-- <span>{{ transaction.balance.toLocaleString() }}</span> -->
                 <span>{{ transaction.balance.toLocaleString() }}</span>
+              </td>
+              <td class="text-left">
+                <span class="text-xs">{{
+                  convertDateTime(transaction.createdAt)
+                }}</span>
               </td>
             </tr>
           </tbody>
