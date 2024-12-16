@@ -175,11 +175,11 @@ export const useBilling = defineStore("billing", () => {
   //   localStorage.setItem('branchManagerFloatBalance', JSON.stringify(floatAllocations.value))
   // }
 
-  const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance') || '0');
+  // const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance') || '0');
 
-  if (savedFloatManagerBalance) {
-    branchManagerFloatBalance.value = savedFloatManagerBalance;
-  }
+  // if (savedFloatManagerBalance) {
+  //   branchManagerFloatBalance.value = savedFloatManagerBalance;
+  // }
 
 
   // pass in the requestId
