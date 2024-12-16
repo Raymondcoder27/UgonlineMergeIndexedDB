@@ -408,7 +408,7 @@ onMounted(() => {
           </thead>
           <tbody>
             <tr
-              v-for="transaction in paginatedFloatLedgersWithBalance"
+              v-for="transaction, idx in paginatedFloatLedgersWithBalance"
               :key="transaction.id"
               class="body-tr"
             >
