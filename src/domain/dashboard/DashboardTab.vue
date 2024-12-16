@@ -62,7 +62,7 @@ onMounted(async () => {
         </div>
   
         <!-- Tills Tab -->
-        <div
+        <!-- <div
           :class="activeTab == 'tills' ? 'tab-active' : 'tab'"
           @click="select('tills')"
           class="cursor-pointer flex items-center justify-center flex-grow p-2 text-sm hover:bg-gray-100"
@@ -70,7 +70,7 @@ onMounted(async () => {
           <i class="fa-solid fa-cash-register mr-2"></i>
           <span>Tills</span>
           <p class="text-xl font-bold mt-1">19</p>
-        </div>
+        </div> -->
   
         <!-- Users Tab -->
         <div
