@@ -21,7 +21,8 @@ const options:Ref<Option> = ref( {
     type: 'bar'
   },
   labels:[],
-  colors: ['#a8c226'],
+  // colors: ['#a8c226'],
+  colors: ['#b91c1c'],
   plotOptions: {
     bar: {
       horizontal: true
