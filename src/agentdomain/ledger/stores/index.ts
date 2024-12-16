@@ -43,11 +43,11 @@ export const useBilling = defineStore("billing", () => {
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
 
-  const allocateFloatFromRequestToLocalStorage = JSON.parse(localStorage.getItem('allocateFloatFromRequestToLocalStorage') || '0');
+  // const allocateFloatFromRequestToLocalStorage = JSON.parse(localStorage.getItem('allocateFloatFromRequestToLocalStorage') || '0');
 
-  if (allocateFloatFromRequestToLocalStorage) {
-    floatLedgers.value = allocateFloatFromRequestToLocalStorage;
-  }
+  // if (allocateFloatFromRequestToLocalStorage) {
+  //   floatLedgers.value = allocateFloatFromRequestToLocalStorage;
+  // }
 
 
   // Actions to fetch data
