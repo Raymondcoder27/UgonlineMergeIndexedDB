@@ -240,7 +240,7 @@ onMounted(() => {
             </td> -->
             <td class="text-center">{{ convertDate(account.createdAt) }}</td>
             <td class="text-right">
-              <div class="flex flex-row space-x-2 w-full text-right" v-if="!account.blockedAt">
+              <div class="text-center" v-if="!account.blockedAt">
                 <span
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="viewDetails(account.id)"
