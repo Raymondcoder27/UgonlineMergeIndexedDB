@@ -190,7 +190,7 @@ function logout() {
               :class="
                 isRouteActive(link)
                   ? 'text-primary-700 border-b-2 border-primary-700'
-                  : 'text-neutral-500 hover:text-red-400 hover:border-b-2'
+                  : 'text-neutral-500 hover:text-red-700 hover:border-b-2 hover:border-red-700'
               "
             >
               <i class="my-auto text-sm fa-fw" :class="link.iconClass"></i>
