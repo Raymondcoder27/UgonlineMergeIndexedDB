@@ -121,11 +121,11 @@ onMounted(async () => {
 
 <style scoped>
 .tab-active{
-  @apply flex border-2 border-primary-700 rounded-r cursor-pointer bg-primary text-white font-bold;
+  @apply flex border-2 border-primary-700 cursor-pointer bg-primary text-white font-bold;
 }
 
 .tab{
-  @apply flex border border-gray-100 rounded-r cursor-pointer;
+  @apply flex border border-gray-100 cursor-pointer;
 }
 
 .tab:hover{
