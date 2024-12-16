@@ -109,7 +109,7 @@ onMounted(async () => {
       <!-- Tab Content -->
       <div class="flex flex-grow">
         <div class="w-full">
-          <HomeTab v-if="activeTab == 'hometab'" />
+          <HomeTab v-if="activeTab == 'hometab'" class="min-h-[60vh]" />
           <UserStatistics v-if="activeTab == 'users'" />
           <ProviderStatistics v-if="activeTab == 'providers'" />
           <ServicesStatistics v-if="activeTab == 'services'" />
