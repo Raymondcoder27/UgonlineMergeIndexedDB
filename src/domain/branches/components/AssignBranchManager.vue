@@ -163,7 +163,7 @@ const filteredManagers = computed(() => {
                 :disabled="loading"
                 class="px-1 py-0.5 bg-red-700 disabled:bg-gray-300 text-white rounded-md"
               >
-              <i class="px-1 fa-solid fa-plus"></i> Assign
+              <i class="px-1 fa fa-user-plus"></i> Assign
               </button>
             </td>
           </tr>
