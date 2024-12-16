@@ -246,7 +246,7 @@ onMounted(() => {
             :key="id"
           > -->
           <tr
-            class="text-right"
+            class="text-left"
             v-for="(request, id) in paginatedFloatRequests"
             :key="id"
           >
