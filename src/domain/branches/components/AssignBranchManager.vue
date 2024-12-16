@@ -161,9 +161,9 @@ const filteredManagers = computed(() => {
               <button
                 @click="submit(user.id)"
                 :disabled="loading"
-                class="button btn-sm disabled:bg-gray-300"
+                class="px-1 py-0.5 bg-red-600 disabled:bg-gray-300"
               >
-              <i class="px-1 py-1 fa-solid fa-plus"></i> Assign
+              <i class="px-1 fa-solid fa-plus"></i> Assign
               </button>
             </td>
           </tr>
