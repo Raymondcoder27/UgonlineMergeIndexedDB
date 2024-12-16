@@ -470,7 +470,7 @@ onMounted(() => {
                     <span
                       class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                       @click="open(transaction)"
-                      >failed</span
+                      >Failed</span
                     >
                   </label>
                   <!-- </td> -->
@@ -481,7 +481,7 @@ onMounted(() => {
                   <!-- <td> -->
                   <span
                     class="text-xs rounded-md px-1 py-0.5 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
-                    >success</span
+                    >Success</span
                   >
                 </div>
               </td>
