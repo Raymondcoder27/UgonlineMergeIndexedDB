@@ -135,7 +135,7 @@ function logout() {
       <div class="flex">
       <!-- <p class="font-semibold text-gray-500 text-xs">Mwebe Raymond </p> -->
        <div class="flex">
-        <p class="font-semibold text-gray-500 text-xs">Mwebe Raymond</p>
+        <p class="font-semibold text-gray-500 text-xs">MwebeRaymond</p>
        </div>
     <!-- <p class="font-semibold text-gray-500 text-xs">BALANCE: 675,000/=</p> -->
     </div>

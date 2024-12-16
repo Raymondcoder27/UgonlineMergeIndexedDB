@@ -24,7 +24,7 @@ const accountStore = useAccountStore();
 const topMenu: TopMenuLink[] = [
   {
     name: "agent-app-services",
-    label: "SERVICES",
+    label: "Services",
     iconClass: "fa-solid fa-home",
   },
   // {
@@ -40,12 +40,12 @@ const topMenu: TopMenuLink[] = [
   //add activity log
   {
     name: "agent-app-submissions",
-    label: "SUBMISSIONS",
+    label: "Submissions",
     iconClass: "fa-solid fa-upload",
   },
    {
     name: "agent-app-ledger",
-    label: "LEDGER",
+    label: "Ledger",
     iconClass: "fa-solid fa-money-check",
   },
 ];
