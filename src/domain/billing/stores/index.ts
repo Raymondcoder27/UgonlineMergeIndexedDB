@@ -166,14 +166,14 @@ export const useBilling = defineStore("billing", () => {
       branch: payload.branchId,
     })
     //save to localstorage
-    saveTransactionsToLocalStorage();
+    // saveTransactionsToLocalStorage();
   }
 
   const branchManagerFloatBalance = ref(0);
 
-  const saveTransactionsToLocalStorage = () => {
-    localStorage.setItem('branchManagerFloatBalance', JSON.stringify(floatAllocations.value))
-  }
+  // const saveTransactionsToLocalStorage = () => {
+  //   localStorage.setItem('branchManagerFloatBalance', JSON.stringify(floatAllocations.value))
+  // }
 
   const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance') || '0');
 
