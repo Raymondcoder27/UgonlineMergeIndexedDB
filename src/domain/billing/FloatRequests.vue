@@ -313,7 +313,7 @@ onMounted(() => {
                 <!-- <label> -->
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
-                  @click="approveFloatRequest(request.branch)"
+                  @click="approveFloatRequest(request.id)"
                   >
                   <!-- <i class="fa-solid fa-check"></i>
                   Approved</span
@@ -350,7 +350,7 @@ onMounted(() => {
                 <!-- <td> -->
                 <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-800"
-                  @click="approveFloatRequest(request.branch)"
+                  @click="approveFloatRequest(request.id)"
                   >
                   <i class="fa-solid fa-check"></i>
                   Approve</span
