@@ -4,7 +4,7 @@ import { ref, type Ref } from "vue";
 // import UserAccounts from "@/domain/accounts/UserAccounts.vue";
 
 import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
-import FloatManagement from "@/domain/billing/FloatManagement.vue";
+import FloatManagement from "@/domain/billing/FloatAllocation.vue";
 import Transactions from "@/domain/billing/Transactions.vue";
 import FloatRequests from "@/domain/billing/FloatRequests.vue";
 

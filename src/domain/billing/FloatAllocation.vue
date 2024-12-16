@@ -232,7 +232,7 @@ watch(
       <table class="table">
         <thead>
           <tr class="header-tr">
-            <!-- <th class="t-header">#</th> -->
+            <th class="t-header">#</th>
             <!-- <th class="t-header" width="30%">Names</th> -->
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
@@ -251,7 +251,7 @@ watch(
             v-for="(assignment, idx) in paginatedfloatAllocations"
             :key="idx"
           >
-            <!-- <td>{{ idx + 1 }}</td> -->
+            <td>{{ idx + 1 }}</td>
             <!-- <td>
               <label class="font-bold py-1">{{
                 manager.fullName

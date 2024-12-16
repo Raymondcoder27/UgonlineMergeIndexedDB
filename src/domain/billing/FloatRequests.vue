@@ -250,7 +250,7 @@ onMounted(() => {
             v-for="(request, id) in paginatedFloatRequests"
             :key="id"
           >
-            <td>{{ idx + 1 }}</td>
+            <td>{{ id + 1 }}</td>
             <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
             <td class="text-left">{{ request.requestDate }}</td>
             <!-- convertDateTime(request.createdAt) -->
