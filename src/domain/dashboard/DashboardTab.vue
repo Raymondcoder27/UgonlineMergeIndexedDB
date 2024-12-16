@@ -111,7 +111,7 @@ onMounted(async () => {
         <div class="w-full h-full">
           <HomeTab v-if="activeTab == 'hometab'" />
           <UserStatistics v-if="activeTab == 'users'" />
-          <ProviderStatistics v-if="activeTab == 'providers'" />
+          <ProviderStatistics v-if="activeTab == 'branches'" />
           <div class="bg-white text-xs rounded-md text-center mb-2 h-[86vh]">
             <ServicesStatistics v-if="activeTab == 'services'"/>
           </div>
