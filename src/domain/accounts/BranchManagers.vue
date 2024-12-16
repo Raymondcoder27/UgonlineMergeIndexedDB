@@ -263,15 +263,15 @@ onMounted(() => {
     </div>
     <div class="flex">
       <div class="w-full">
-        <div class="flex" v-if="limit == store.managerAccounts?.length || page > 1">
-          <button v-if="page > 1" class="pagination-button" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
-          <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{page}}</label>
+        <div class="flex text-xs" v-if="limit == store.managerAccounts?.length || page > 1">
+          <button v-if="page > 1" class="pagination-button text-xs" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
+          <button v-else class="pagination-button-inert text-xs"><i class="fa-solid fa-arrow-left"></i></button>
+          <div class="w-1/12 text-center my-auto text-xs">
+            <label class="rounded text-white bg-primary-700 px-3 py-1 text-xs">{{page}}</label>
           </div>
-          <button v-if="limit == store.managerAccounts?.length - 1 || limit > store.managerAccounts?.length" class="pagination-button-inert">
-            <i class="fa-solid fa-arrow-right"></i></button>
-          <button v-else class="pagination-button" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
+          <button v-if="limit == store.managerAccounts?.length - 1 || limit > store.managerAccounts?.length" class="pagination-button-inert text-xs">
+            <i class="fa-solid fa-arrow-right text-xs"></i></button>
+          <button v-else class="pagination-button text-xs" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
     </div>
