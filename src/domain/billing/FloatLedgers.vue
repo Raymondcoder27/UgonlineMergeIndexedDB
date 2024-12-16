@@ -267,7 +267,7 @@ watch(
 <template>
   <!-- <div class=""> -->
     <!-- Header -->
-    <div class="max-w-7xl mx-auto bg-white flex flex-col">
+    <div class="max-w-7xl mx-auto bg-white flex flex-col min-h-[60vh]">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
         <div class="flex-grow">
           <div
@@ -411,7 +411,11 @@ watch(
           </tfoot> -->
         </table>
       </div>
-      <div class="flex text-sm mt-auto">
+    
+      
+    </div>
+
+    <div class="flex text-sm mt-auto">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
@@ -474,10 +478,6 @@ watch(
         </div>
       </div>
     </div>
-      
-    </div>
-
-    
 
     <!-- Modal -->
     <AppModal v-model="modalOpen" xl2>

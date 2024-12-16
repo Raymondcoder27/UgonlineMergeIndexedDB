@@ -137,15 +137,15 @@ const dummyServices = ref<Service[]>([
 ]);
 
 
-    const subscribedServicesFromLocalStorage = JSON.parse(localStorage.getItem('localStorageSubscribedServices') || '[]');
+    // const subscribedServicesFromLocalStorage = JSON.parse(localStorage.getItem('localStorageSubscribedServices') || '[]');
 
-    if (subscribedServicesFromLocalStorage) {
-      subscribedServicesFromLocalStorage.value = subscribedServicesFromLocalStorage;
-    }
+    // if (subscribedServicesFromLocalStorage) {
+    //   subscribedServicesFromLocalStorage.value = subscribedServicesFromLocalStorage;
+    // }
 
-// const services: Ref<Service[] | undefined> = ref(dummyServices)
+const services: Ref<Service[] | undefined> = ref(dummyServices)
 
-const services: Ref<Service[] | undefined> = ref(subscribedServicesFromLocalStorage);
+// const services: Ref<Service[] | undefined> = ref(subscribedServicesFromLocalStorage);
 
 
 const service: Ref<Service | undefined> = ref()
