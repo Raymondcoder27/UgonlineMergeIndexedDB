@@ -235,7 +235,7 @@ function select(tab:string){
       <div class="w-2/12 py-1">
         <div :class="(activeTab == 'providers') ? 'tab-active' : 'tab'" @click="select('providers')">
           <div class="w-full py-1 my-auto">
-            <label class="p-3">Providers</label>
+            <label class="p-3">Distribution by Provider</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'providers'"></i>
           </div>
         </div>
