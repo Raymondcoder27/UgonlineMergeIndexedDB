@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BarChart from "@/domain/dashboard/components/BarChart.vue";
+import ServicesByProvidersBarChart from "@/domain/dashboard/components/ServicesByProvidersBarChart.vue";
 // import LineChart from "@/domain/dashboard/components/LineChart.vue";
 // import PieChart from "@/domain/dashboard/components/PieChart.vue";
 
