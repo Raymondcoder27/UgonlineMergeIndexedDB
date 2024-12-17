@@ -132,7 +132,7 @@ onMounted(async () => {
   @apply flex border border-gray-10 cursor-pointer;
 } */
 .tab {
-  @apply flex items-center justify-center flex-grow mx-1 cursor-pointer bg-transparent border-b border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50;
+  @apply flex items-center justify-center flex-grow mx-0.5 cursor-pointer bg-transparent border-b border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
