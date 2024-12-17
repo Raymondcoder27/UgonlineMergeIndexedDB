@@ -127,9 +127,13 @@ onMounted(async () => {
 .tab-active{
   @apply flex border-2 border-primary-700 cursor-pointer bg-primary text-white font-bold rounded-t-md;
 }
-
+/* 
 .tab{
   @apply flex border border-gray-10 cursor-pointer;
+} */
+.tab {
+  @apply flex items-center justify-center flex-grow cursor-pointer bg-transparent border-b border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .tab:hover{
