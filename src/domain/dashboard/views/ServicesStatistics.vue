@@ -251,7 +251,7 @@ function select(tab:string){
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'gateway'"></i>
           </div>
         </div>
-        <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
+        <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
           <div class="w-full py-1">
             <label class="p-3">Revenue</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
@@ -262,7 +262,7 @@ function select(tab:string){
             <label class="p-3">Users</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'users'"></i>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="w-10/12 py-1">
         <ProviderStatistics v-if="activeTab == 'providers'"/>
