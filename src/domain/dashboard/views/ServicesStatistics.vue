@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import BarChart from "@/domain/dashboard/components/BarChart.vue";
+// import BarChart from "@/domain/dashboard/components/BarChart.vue";
 import LineChart from "@/domain/dashboard/components/LineChart.vue";
-import PieChart from "@/domain/dashboard/components/PieChart.vue";
+// import PieChart from "@/domain/dashboard/components/PieChart.vue";
 
 import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/domain/dashboard/types/chart";
@@ -218,11 +218,11 @@ function labelExtractor(data: Statistic[]) {
 
 import GatewayStatistics from "@/domain/dashboard/views/ServiceStatusPieChart.vue";
 import {type Ref, ref} from "vue";
-import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
-import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
+// import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
+// import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
 import ApplicationsLineGraph from "@/domain/dashboard/views/ApplicationsLineGraph.vue"
-import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
-import UserStatistics from "@/domain/dashboard/views/UserStatistics.vue";
+// import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
+// import UserStatistics from "@/domain/dashboard/views/UserStatistics.vue";
 
 const activeTab:Ref<string> = ref("providers")
 
@@ -278,7 +278,7 @@ function select(tab:string){
     <div class="w-full border-r border-gray-200 px-2">
       <div class="flex">
         <div class="w-full">
-          <div class="flex my-2">
+          <!-- <div class="flex my-2">
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">60</p>
               <p class="text-xs">Total Services</p>
@@ -291,7 +291,7 @@ function select(tab:string){
               <p class="text-xl font-bold py-2">10</p>
               <p class="text-xs">Inactive</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="flex">
