@@ -216,11 +216,53 @@ function labelExtractor(data: Statistic[]) {
   return labels;
 }
 </script>
+
 <template>
-<div class="flex">
+  <div class="flex px-2">
+    <div class="w-full border-r border-gray-200 px-2">
+      <div class="flex">
+        <div class="w-full">
+          <div class="flex my-2">
+            <div class="w-2/12 count">
+              <p class="text-xl font-bold py-2">60</p>
+              <p class="text-xs">Total Services</p>
+            </div>
+            <div class="w-2/12 count">
+              <p class="text-xl font-bold py-2">50</p>
+              <p class="text-xs">Active</p>
+            </div>
+            <div class="w-2/12 count">
+              <p class="text-xl font-bold py-2">10</p>
+              <p class="text-xs">Inactive</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-full">
+          <BarChart
+            title="Distribution of Services by Provider"
+            :graph-data="serviceDistributionByProvider"
+            :is-horizontal="false"
+            :labels="labelExtractor(serviceDistributionByProvider[0].data)"
+          />
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="w-full">
+          <BarChart
+            title="Distribution of Service Applications by provider"
+            :graph-data="applicationDistributionByProvider"
+            :is-horizontal="false"
+            :labels="labelExtractor(applicationDistributionByProvider[0].data)"
+          />
+        </div>
+      </div>
+      <div class="flex">
         <div class="w-full">
           <div class="flex">
-            <!-- <div class="w-full">
+            <div class="w-6/12">
               <LineChart
                 title="Distribution of Service Applications"
                 :graph-data="serviceApplicationsDistribution"
@@ -229,8 +271,8 @@ function labelExtractor(data: Statistic[]) {
                   labelExtractor(serviceApplicationsDistribution[0].data)
                 "
               />
-            </div> -->
-            <div class="w-full">
+            </div>
+            <div class="w-6/12">
               <PieChart
                 title="Distribution of Service by Status"
                 :data="[45, 35, 18]"
@@ -240,7 +282,10 @@ function labelExtractor(data: Statistic[]) {
           </div>
         </div>
       </div>
+    </div>
+  </div>
 </template>
+
 <style scoped>
 .count {
   @apply py-2 text-center border border-gray-100 rounded bg-gray-10 mx-1 shadow;
