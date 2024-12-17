@@ -232,7 +232,7 @@ function select(tab:string){
 
 <template>
   <div class="flex">
-      <div class="w-2/12 py-1">
+      <div class="w-2/12 py-1 text-xs">
         <div :class="(activeTab == 'providers') ? 'tab-active' : 'tab'" @click="select('providers')">
           <div class="w-full py-1 my-auto">
             <label class="p-3">Distribution by Provider</label>
