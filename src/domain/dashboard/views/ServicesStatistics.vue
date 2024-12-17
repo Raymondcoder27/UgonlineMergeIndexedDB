@@ -220,6 +220,7 @@ import GatewayStatistics from "@/domain/dashboard/views/ServiceStatusPieChart.vu
 import {type Ref, ref} from "vue";
 import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
 import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
+import ApplicationsLineGraph from "@/domain/dashboard/views/ApplicationsLineGraph.vue"
 import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
 import UserStatistics from "@/domain/dashboard/views/UserStatistics.vue";
 
@@ -266,6 +267,7 @@ function select(tab:string){
       </div>
       <div class="w-10/12 py-1">
         <ProviderStatistics v-if="activeTab == 'providers'"/>
+        <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
         <ApplicationsLineGraph v-if="activeTab == 'services'"/>
         <GatewayStatistics v-if="activeTab == 'serviceStatusLineGraph'"/>
         <RevenueStatistics v-if="activeTab == 'revenue'"/>
