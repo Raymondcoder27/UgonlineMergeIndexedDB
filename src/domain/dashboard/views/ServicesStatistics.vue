@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ServicesByProvidersBarChart from "@/domain/dashboard/components/ServicesByProvidersBarChart.vue";
+import ProviderStatisticsBarChart from "@/domain/dashboard/components/ProviderStatisticsBarChart.vue";
 // import LineChart from "@/domain/dashboard/components/LineChart.vue";
 // import PieChart from "@/domain/dashboard/components/PieChart.vue";
 
@@ -267,7 +267,7 @@ function select(tab:string){
         </div> -->
       </div>
       <div class="w-10/12 py-1">
-        <ProviderStatistics v-if="activeTab == 'providers'"/>
+        <ProviderStatisticsBarChart v-if="activeTab == 'providers'"/>
         <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
         <ApplicationsLineGraph v-if="activeTab == 'services'"/>
         <GatewayStatistics v-if="activeTab == 'serviceStatusPieChart'"/>
