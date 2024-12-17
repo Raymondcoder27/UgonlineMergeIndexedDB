@@ -218,6 +218,47 @@ function labelExtractor(data: Statistic[]) {
 </script>
 
 <template>
+  <div class="flex">
+      <div class="w-2/12 py-1">
+        <div :class="(activeTab == 'providers') ? 'tab-active' : 'tab'" @click="select('providers')">
+          <div class="w-full py-1 my-auto">
+            <label class="p-3">Providers</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'providers'"></i>
+          </div>
+        </div>
+        <div :class="(activeTab == 'services') ? 'tab-active' : 'tab'" @click="select('services')">
+          <div class="w-full py-1">
+            <label class="p-3">Services Registry</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
+          </div>
+        </div>
+        <div :class="(activeTab == 'gateway') ? 'tab-active' : 'tab'" @click="select('gateway')">
+          <div class="w-full py-1">
+            <label class="p-3">Gateway</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'gateway'"></i>
+          </div>
+        </div>
+        <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
+          <div class="w-full py-1">
+            <label class="p-3">Revenue</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
+          </div>
+        </div>
+        <div :class="(activeTab == 'users') ? 'tab-active' : 'tab'" @click="select('users')">
+          <div class="w-full py-1">
+            <label class="p-3">Users</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'users'"></i>
+          </div>
+        </div>
+      </div>
+      <div class="w-10/12 py-1">
+        <ProviderStatistics v-if="activeTab == 'providers'"/>
+        <ServicesStatistics v-if="activeTab == 'services'"/>
+        <GatewayStatistics v-if="activeTab == 'gateway'"/>
+        <RevenueStatistics v-if="activeTab == 'revenue'"/>
+        <UserStatistics v-if="activeTab == 'users'"/>
+      </div>
+    </div>
   <div class="flex px-2">
     <div class="w-full border-r border-gray-200 px-2">
       <div class="flex">
