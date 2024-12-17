@@ -129,7 +129,7 @@ onMounted(async () => {
 }
 
 .tab{
-  @apply flex border border-gray-50 cursor-pointer;
+  @apply flex border border-gray-10 cursor-pointer;
 }
 
 .tab:hover{
