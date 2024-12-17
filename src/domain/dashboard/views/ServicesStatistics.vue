@@ -345,7 +345,7 @@ function select(tab:string){
   @apply py-2 text-center border border-gray-100 rounded bg-gray-10 mx-1 shadow;
 }
 .tab-active{
-  @apply flex border-2 border-primary-700 rounded-r cursor-pointer bg-primary text-white font-bold;
+  @apply flex border-2 border-gray-500 rounded-r cursor-pointer bg-gray-500 text-white font-bold;
 }
 
 .tab{
@@ -353,6 +353,6 @@ function select(tab:string){
 }
 
 .tab:hover{
-  @apply bg-primary text-white;
+  @apply bg-gray-500 text-white;
 }
 </style>
