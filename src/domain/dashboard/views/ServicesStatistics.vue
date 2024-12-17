@@ -250,7 +250,7 @@ function select(tab:string){
         <div :class="(activeTab == 'serviceStatusLineGraph') ? 'tab-active' : 'tab'" @click="select('serviceStatusLineGraph')">
           <div class="w-full py-1">
             <label class="p-3">Piechart-Service by Status</label>
-            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'serviceStatusLineGraph'"></i>
+            <i class="fa-solid fa-chart-pie float-right px-2 py-1" v-if="activeTab == 'serviceStatusLineGraph'"></i>
           </div>
         </div>
         <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
