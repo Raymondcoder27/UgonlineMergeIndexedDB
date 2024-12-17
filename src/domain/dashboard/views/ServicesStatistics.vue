@@ -247,7 +247,7 @@ function select(tab:string){
         </div>
         <div :class="(activeTab == 'gateway') ? 'tab-active' : 'tab'" @click="select('gateway')">
           <div class="w-full py-1">
-            <label class="p-3">Piechart (Service by Status)</label>
+            <label class="p-3">Piechart-Service by Status</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'gateway'"></i>
           </div>
         </div>
