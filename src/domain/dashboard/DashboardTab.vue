@@ -7,10 +7,10 @@ import FloatRequests from "@/domain/billing/FloatRequests.vue";
 import { useBalance } from "@/domain/balance/stores";
 
 import HomeTab from "@/domain/dashboard/components/HomeTab.vue";
-import UserStatistics from "@/domain/analytics/views/UserStatistics.vue";
-import ProviderStatistics from "@/domain/analytics/views/ProviderStatistics.vue";
-import ServicesStatistics from "@/domain/analytics/views/ServicesStatistics.vue";
-import RevenueStatistics from "@/domain/analytics/views/RevenueStatistics.vue";
+import UserStatistics from "@/domain/dashboard/views/UserStatistics.vue";
+import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
+import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
+import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
 // Call the fetch function on mounted
 const balanceStore = useBalance();
 
