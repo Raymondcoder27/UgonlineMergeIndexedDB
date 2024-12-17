@@ -216,7 +216,7 @@ function labelExtractor(data: Statistic[]) {
   return labels;
 }
 
-import GatewayStatistics from "@/domain/dashboard/views/GatewayStatistics.vue";
+import GatewayStatistics from "@/domain/dashboard/views/ServiceStatusPieChart.vue";
 import {type Ref, ref} from "vue";
 import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
 import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
@@ -266,7 +266,7 @@ function select(tab:string){
       </div>
       <div class="w-10/12 py-1">
         <ProviderStatistics v-if="activeTab == 'providers'"/>
-        <ServicesStatistics v-if="activeTab == 'services'"/>
+        <ApplicationsLineGraph v-if="activeTab == 'services'"/>
         <GatewayStatistics v-if="activeTab == 'serviceStatusLineGraph'"/>
         <RevenueStatistics v-if="activeTab == 'revenue'"/>
         <UserStatistics v-if="activeTab == 'users'"/>
