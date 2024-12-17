@@ -132,8 +132,8 @@ onMounted(async () => {
   @apply flex border border-gray-10 cursor-pointer;
 } */
 .tab {
-  @apply flex items-center justify-center flex-grow cursor-pointer bg-transparent border-b border-red-400 text-gray-600 hover:text-gray-900 hover:bg-gray-50;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  @apply flex items-center justify-center flex-grow cursor-pointer bg-transparent border-b border-red-400 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-t-xl;
+  transition: background-color 0.1s ease, color 0.2s ease;
 }
 
 .tab:hover{
