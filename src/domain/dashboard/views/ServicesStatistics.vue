@@ -270,7 +270,7 @@ function select(tab:string){
         <ProviderStatistics v-if="activeTab == 'providers'"/>
         <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
         <ApplicationsLineGraph v-if="activeTab == 'services'"/>
-        <GatewayStatistics v-if="activeTab == 'serviceStatusLineGraph'"/>
+        <GatewayStatistics v-if="activeTab == 'serviceStatusPieChart'"/>
         <RevenueStatistics v-if="activeTab == 'revenue'"/>
         <UserStatistics v-if="activeTab == 'users'"/>
       </div>
