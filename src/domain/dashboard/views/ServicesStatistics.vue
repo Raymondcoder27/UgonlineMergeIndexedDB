@@ -215,6 +215,19 @@ function labelExtractor(data: Statistic[]) {
   }
   return labels;
 }
+
+import GatewayStatistics from "@/domain/analytics/views/GatewayStatistics.vue";
+import {type Ref, ref} from "vue";
+import ProviderStatistics from "@/domain/analytics/views/ProviderStatistics.vue";
+import ServicesStatistics from "@/domain/analytics/views/ServicesStatistics.vue";
+import RevenueStatistics from "@/domain/analytics/views/RevenueStatistics.vue";
+import UserStatistics from "@/domain/analytics/views/UserStatistics.vue";
+
+const activeTab:Ref<string> = ref("providers")
+
+function select(tab:string){
+  activeTab.value = tab
+}
 </script>
 
 <template>
