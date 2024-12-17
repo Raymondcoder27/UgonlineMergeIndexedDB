@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// import BarChart from "@/domain/dashboard/components/BarChart.vue";
-import LineChart from "@/domain/dashboard/components/LineChart.vue";
+import BarChart from "@/domain/dashboard/components/BarChart.vue";
+// import LineChart from "@/domain/dashboard/components/LineChart.vue";
 // import PieChart from "@/domain/dashboard/components/PieChart.vue";
 
 import type { Ref } from "vue";
