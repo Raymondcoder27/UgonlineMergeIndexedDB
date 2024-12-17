@@ -296,7 +296,7 @@ function select(tab:string){
       </div>
       <div class="flex">
         <div class="w-full">
-          <BarChart
+          <ServicesByProvidersBarChart
             title="Distribution of Services by Provider"
             :graph-data="serviceDistributionByProvider"
             :is-horizontal="false"
@@ -307,7 +307,7 @@ function select(tab:string){
 
       <div class="flex">
         <div class="w-full">
-          <BarChart
+          <ServicesByProvidersBarChart
             title="Distribution of Service Applications by provider"
             :graph-data="applicationDistributionByProvider"
             :is-horizontal="false"
