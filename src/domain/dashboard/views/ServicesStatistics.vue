@@ -245,7 +245,7 @@ function select(tab:string){
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
           </div>
         </div>
-        <div :class="(activeTab == 'gateway') ? 'tab-active' : 'tab'" @click="select('gateway')">
+        <div :class="(activeTab == 'gateway') ? 'tab-active' : 'tab'" @click="select('serviceStatusLineGraph')">
           <div class="w-full py-1">
             <label class="p-3">Piechart-Service by Status</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'serviceStatusLineGraph'"></i>
@@ -267,7 +267,7 @@ function select(tab:string){
       <div class="w-10/12 py-1">
         <ProviderStatistics v-if="activeTab == 'providers'"/>
         <ServicesStatistics v-if="activeTab == 'services'"/>
-        <GatewayStatistics v-if="activeTab == 'gateway'"/>
+        <GatewayStatistics v-if="activeTab == 'serviceStatusLineGraph'"/>
         <RevenueStatistics v-if="activeTab == 'revenue'"/>
         <UserStatistics v-if="activeTab == 'users'"/>
       </div>
