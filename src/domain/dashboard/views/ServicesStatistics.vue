@@ -241,7 +241,7 @@ function select(tab:string){
         </div>
         <div :class="(activeTab == 'services') ? 'tab-active' : 'tab'" @click="select('services')">
           <div class="w-full py-1">
-            <label class="p-3">Line Graph showing Service Applications</label>
+            <label class="p-3">Service Applications Line Graph</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
           </div>
         </div>
