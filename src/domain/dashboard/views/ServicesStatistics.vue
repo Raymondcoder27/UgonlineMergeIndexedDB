@@ -14,6 +14,7 @@ import ApplicationsLineGraph from "@/domain/dashboard/views/ApplicationsLineGrap
 
 // import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/domain/dashboard/types/chart";
+import ServiceStatusPieChart from "@/domain/dashboard/views/ServiceStatusPieChart.vue";
 // import { ref } from "vue";
 
 const data: Ref<Array<GraphData>> = ref([
@@ -270,7 +271,7 @@ function select(tab:string){
         <ProviderStatisticsBarChart v-if="activeTab == 'providers'"/>
         <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
         <ApplicationsLineGraph v-if="activeTab == 'services'"/>
-        <GatewayStatistics v-if="activeTab == 'serviceStatusPieChart'"/>
+        <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'"/>
         <RevenueStatistics v-if="activeTab == 'revenue'"/>
         <UserStatistics v-if="activeTab == 'users'"/>
       </div>
