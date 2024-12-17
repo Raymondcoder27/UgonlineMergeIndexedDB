@@ -296,7 +296,7 @@ function select(tab:string){
           </div> -->
         </div>
       </div>
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="w-full">
           <ServicesByProvidersBarChart
             title="Distribution of Services by Provider"
@@ -316,11 +316,11 @@ function select(tab:string){
             :labels="labelExtractor(applicationDistributionByProvider[0].data)"
           />
         </div>
-      </div>
+      </div> -->
       <div class="flex">
         <div class="w-full">
           <div class="flex">
-            <!-- <div class="w-6/12">
+            <div class="w-6/12">
               <LineChart
                 title="Distribution of Service Applications"
                 :graph-data="serviceApplicationsDistribution"
@@ -329,7 +329,7 @@ function select(tab:string){
                   labelExtractor(serviceApplicationsDistribution[0].data)
                 "
               />
-            </div> -->
+            </div>
             <div class="w-6/12">
               <PieChart
                 title="Distribution of Service by Status"
