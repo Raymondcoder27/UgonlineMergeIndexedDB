@@ -125,7 +125,7 @@ onMounted(async () => {
 
 <style scoped>
 .tab-active{
-  @apply flex border-2 border-primary-700 cursor-pointer bg-primary text-white font-bold rounded-t-md;
+  @apply flex border-2 border-primary-700 cursor-pointer bg-primary text-white font-bold rounded-t-xl;
 }
 /* 
 .tab{
@@ -137,6 +137,6 @@ onMounted(async () => {
 }
 
 .tab:hover{
-  @apply bg-gray-10 text-gray-600 rounded-t;
+  @apply bg-gray-50 text-gray-600 rounded-t-xl;
 }
 </style>
