@@ -137,6 +137,6 @@ onMounted(async () => {
 }
 
 .tab:hover{
-  @apply bg-primary text-white;
+  @apply bg-primary text-white rounded-t mx-1;
 }
 </style>
