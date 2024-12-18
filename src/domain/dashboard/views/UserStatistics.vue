@@ -8,7 +8,6 @@ import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
 const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
-    <p class="text-xl font-bold ml-2">{{ totalBackOfficeAccounts }}</p>
 
 import type {Ref} from "vue";
 import type {GraphData, Statistic} from "@/domain/analytics/types/chart";
@@ -126,7 +125,9 @@ function labelExtractor(data:Statistic[]){
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(2).toLocaleString()}}</p>
-              <p class="text-xs">Backoffice Administrators</p>
+              <!-- <p class="text-xs">Backoffice Administrators</p> -->
+    <p class="text-xl font-bold ml-2">{{ totalBackOfficeAccounts }}</p>
+
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(3).toLocaleString()}}</p>
