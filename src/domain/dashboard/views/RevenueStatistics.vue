@@ -114,8 +114,11 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xs">Pending Float Requests</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">
+              <!-- <p class="text-xl font-bold py-2">
                 {{ Number(5433328300).toLocaleString() }}
+              </p> -->
+              <p class="text-xl font-bold py-2" style="font-size: 18px">
+                {{ approvedFloatRequests }}
               </p>
               <p class="text-xs">Approved Float Requests</p>
             </div>
