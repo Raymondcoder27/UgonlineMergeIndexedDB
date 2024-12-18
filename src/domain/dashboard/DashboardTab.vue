@@ -104,7 +104,8 @@ onMounted(async () => {
         >
           <i class="fa-solid fa-users mr-2"></i>
           <span>Users</span>
-          <p class="text-xl font-bold mt-1">2</p>
+          <!-- <p class="text-xl font-bold mt-1">2</p> -->
+          <p class="text-xl font-bold">{{ totalBackOfficeAccounts }}</p>
         </div>
   
         <!-- Providers Tab -->
@@ -127,6 +128,7 @@ onMounted(async () => {
           <i class="fa-solid fa-coins mr-2"></i>
           <span>Finances</span>
           <!-- <p class="text-xl font-bold mt-1">41</p> -->
+          <p class="text-xl font-bold">{{ totalBalance.currentBalance.toLocaleString() }}/=</p>
         </div>
       </div>
   
