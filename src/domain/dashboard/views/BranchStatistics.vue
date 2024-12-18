@@ -53,8 +53,8 @@ function labelExtractor(data:Statistic[]){
               <p class="text-xs">Total Branches</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">10</p>
-              <p class="text-xs">Online Providers</p>
+              <p class="text-xl font-bold py-2">23</p>
+              <p class="text-xs">Total tills</p>
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">6</p>
