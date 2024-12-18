@@ -240,7 +240,7 @@ function select(tab: string) {
         @click="select('providers')"
       >
         <div class="w-full py-2 my-auto">
-          <label class="p-3">Distribution by Provider</label>
+          <label class="p-3 text-sm">Distribution by Provider</label>
           <i
             class="fa-solid fa-handshake float-right px-2 py-1"
             v-if="activeTab == 'providers'"
@@ -252,7 +252,7 @@ function select(tab: string) {
         @click="select('services')"
       >
         <div class="w-full py-2">
-          <label class="p-3">Service Applications Line Graph</label>
+          <label class="p-3 text-sm">Service Applications Line Graph</label>
           <i
             class="fa-solid fa-chart-area float-right px-2 py-1"
             v-if="activeTab == 'services'"
@@ -264,7 +264,7 @@ function select(tab: string) {
         @click="select('serviceStatusPieChart')"
       >
         <div class="w-full py-2">
-          <label class="p-3">Piechart-Service by Status</label>
+          <label class="p-3 text-sm">Piechart-Service by Status</label>
           <i
             class="fa-solid fa-chart-pie float-right px-2 py-1"
             v-if="activeTab == 'serviceStatusPieChart'"
