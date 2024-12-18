@@ -374,6 +374,6 @@ function select(tab: string) {
 }
 
 .tab:hover {
-  @apply bg-gray-400 text-white;
+  @apply bg-gray-400 text-white cursor-pointer;
 }
 </style>
