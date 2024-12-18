@@ -254,7 +254,7 @@ function select(tab: string) {
         <div class="w-full py-2">
           <label class="p-3">Service Applications Line Graph</label>
           <i
-            class="fa-solid fa-chart-area float-right px-2 py-1"
+            class="fa-solid fa-chart-area float-right px-1 py-1"
             v-if="activeTab == 'services'"
           ></i>
         </div>
