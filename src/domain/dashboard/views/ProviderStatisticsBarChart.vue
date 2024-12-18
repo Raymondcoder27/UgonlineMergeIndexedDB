@@ -262,7 +262,7 @@ function labelExtractor(data: Statistic[]) {
       <div class="flex">
         <div class="w-full">
           <div class="flex">
-            <div class="w-6/12">
+            <!-- <div class="w-6/12">
               <LineChart
                 title="Distribution of Service Applications"
                 :graph-data="serviceApplicationsDistribution"
@@ -278,7 +278,7 @@ function labelExtractor(data: Statistic[]) {
                 :data="[45, 35, 18]"
                 :labels="['Active', 'Inactive', 'Other']"
               />
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
