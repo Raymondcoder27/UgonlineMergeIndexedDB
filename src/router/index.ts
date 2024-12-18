@@ -4,7 +4,7 @@ import AppDashboard from "../domain/dashboard/AppDashboard.vue";
 import AppEntities from "../domain/entities/AppEntities.vue";
 import AppAgents from "../domain/agents/AppAgents.vue";
 import AppGateway from "../domain/gateway/AppGateway.vue";
-import Finances from "../domain/finances/Finances.vue";
+import Finances from "@/domain/finances/Finances.vue";
 import Services from "@/domain/services/AppServices.vue";
 import ServicesDetails from "@/domain/servicesdetails/ServicesDetails.vue";
 import Accounts from "@/domain/accounts/Accounts.vue";
