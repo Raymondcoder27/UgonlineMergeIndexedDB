@@ -10,6 +10,7 @@ const pendingFloatRequests =
   billingStore.floatRequests?.filter((request) => request.status === "pending")
     ?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
+// const failedTransactions = billingStore.transactions?
 
 import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/domain/analytics/types/chart";
@@ -85,9 +86,16 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xs">Total Transactions</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">
+              <!-- <p class="text-xl font-bold py-2">
                 {{ Number(67555600).toLocaleString() }}
+              </p> -->
+              <div v-for="failedTransactions in billingStore.transactions">
+                <span>
+                  <p class="text-xl font-bold py-2" style="font-size: 18px">
+                {{ failedTransactions }}
               </p>
+                </span>
+              </div>
               <p class="text-xs">Failed Transactions</p>
             </div>
             <div class="w-2/12 count">
