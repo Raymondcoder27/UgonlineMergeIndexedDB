@@ -272,6 +272,7 @@ function labelExtractor(data: Statistic[]) {
                 "
               />
             </div> -->
+            <div class="w-1/12"></div>
             <div class="w-10/12">
               <PieChart
                 title="Distribution of Service by Status"
