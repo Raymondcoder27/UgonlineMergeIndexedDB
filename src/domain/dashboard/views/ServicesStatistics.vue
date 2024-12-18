@@ -234,7 +234,7 @@ function select(tab: string) {
 
 <template>
   <div class="flex">
-    <div class="w-3/12 py-1 text-xs">
+    <div class="w-3/12 py-3 text-xs">
       <div
         :class="activeTab == 'providers' ? 'tab-active' : 'tab'"
         @click="select('providers')"
