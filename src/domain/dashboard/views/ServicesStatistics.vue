@@ -242,7 +242,7 @@ function select(tab: string) {
         <div class="w-full py-2 my-auto">
           <label class="p-3">Distribution by Provider</label>
           <i
-            class="fa-solid fa-handshake float-right px-2 py-3"
+            class="fa-solid fa-handshake float-right px-2 py-1"
             v-if="activeTab == 'providers'"
           ></i>
         </div>
