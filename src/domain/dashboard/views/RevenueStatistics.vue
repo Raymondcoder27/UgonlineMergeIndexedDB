@@ -9,6 +9,8 @@ billingStore.fetchFloatRequests();
 const pendingFloatRequests =
   billingStore.floatRequests?.filter((request) => request.status === "pending")
     ?.length || 0;
+const totalFloatRequests = billingStore.floatRequests?.length || 0;
+const approvedFloatRequests = billingStore.floatRequests?.filter((approvedRequest) => request.status === "approved")?.length || 0;
 
     const failedTransactions = billingStore.transactions?.filter((transaction) => transaction.status === "failed")?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
@@ -18,6 +20,7 @@ import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/domain/analytics/types/chart";
 import { ref } from "vue";
 import AreaChart from "@/domain/analytics/components/AreaChart.vue";
+import { request } from "node_modules/axios/index.d.cts";
 
 const revenueByTime: Ref<Array<GraphData>> = ref([
   {
@@ -99,7 +102,7 @@ function labelExtractor(data: Statistic[]) {
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">{{Number(6274328300).toLocaleString()}}</p> -->
               <p class="text-xl font-bold py-2" style="font-size: 18px">
-                {{ pendingFloatRequests }}
+                {{ totalFloatRequests }}
               </p>
               <p class="text-xs">Total Float Requests</p>
             </div>
