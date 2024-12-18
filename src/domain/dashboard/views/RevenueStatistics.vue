@@ -64,7 +64,7 @@ function labelExtractor(data:Statistic[]){
           <div class="flex my-2">
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(6341883900).toLocaleString()}}</p>
-              <p class="text-xs">Total Revenue</p>
+              <p class="text-xs">Total Balance</p>
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(6274328300).toLocaleString()}}</p>
