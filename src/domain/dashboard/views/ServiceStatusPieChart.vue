@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import BarChart from "@/domain/analytics/components/BarChart.vue";
-import LineChart from "@/domain/analytics/components/LineChart.vue";
-import PieChart from "@/domain/analytics/components/PieChart.vue";
+import BarChart from "@/domain/dashboard/components/BarChart.vue";
+import LineChart from "@/domain/dashboard/components/LineChart.vue";
+import PieChart from "@/domain/dashboard/components/PieChart.vue";
 
 import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/domain/analytics/types/chart";
@@ -272,7 +272,7 @@ function labelExtractor(data: Statistic[]) {
                 "
               />
             </div> -->
-            <div class="w-1/12"></div>
+            <div class="w-2/12"></div>
             <div class="w-10/12">
               <PieChart
                 title="Distribution of Service by Status"
