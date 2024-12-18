@@ -238,7 +238,7 @@ function labelExtractor(data: Statistic[]) {
           </div>
         </div>
       </div>
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="w-full">
           <BarChart
             title="Distribution of Services by Provider"
@@ -258,7 +258,7 @@ function labelExtractor(data: Statistic[]) {
             :labels="labelExtractor(applicationDistributionByProvider[0].data)"
           />
         </div>
-      </div>
+      </div> -->
       <div class="flex">
         <div class="w-full">
           <div class="flex">
