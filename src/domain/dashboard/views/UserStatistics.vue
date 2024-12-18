@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import BarChart from "@/domain/analytics/components/BarChart.vue";
 import LineChart from "@/domain/analytics/components/LineChart.vue";
 import PieChart from "@/domain/analytics/components/PieChart.vue";
@@ -9,108 +8,107 @@ const accountStore = useAccounts();
 const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
 
-import type {Ref} from "vue";
-import type {GraphData, Statistic} from "@/domain/analytics/types/chart";
-import {ref} from "vue";
+import type { Ref } from "vue";
+import type { GraphData, Statistic } from "@/domain/analytics/types/chart";
+import { ref } from "vue";
 
 const userTypeDistribution: Ref<Array<GraphData>> = ref([
   {
     data: [
       {
-        x: 'Public Users',
-        y: 60000
+        x: "Public Users",
+        y: 60000,
       },
       {
-        x: 'Backoffice Users',
-        y: 485
+        x: "Backoffice Users",
+        y: 485,
       },
       {
-        x: 'Administrator Users',
-        y: 145
-      }
-    ]
-  }
-])
+        x: "Administrator Users",
+        y: 145,
+      },
+    ],
+  },
+]);
 
 const backofficeDistributionByProvider: Ref<Array<GraphData>> = ref([
   {
     data: [
       {
-        x: 'URSB',
-        y: 40
+        x: "URSB",
+        y: 40,
       },
       {
-        x: 'NIRA',
-        y: 56
+        x: "NIRA",
+        y: 56,
       },
       {
-        x: 'Lands',
-        y: 18
+        x: "Lands",
+        y: 18,
       },
       {
-        x: 'UPF',
-        y: 15
+        x: "UPF",
+        y: 15,
       },
       {
-        x: 'Agric',
-        y: 5
+        x: "Agric",
+        y: 5,
       },
       {
-        x: 'MOFA',
-        y: 22
+        x: "MOFA",
+        y: 22,
       },
       {
-        x: 'NWSC',
-        y: 11
+        x: "NWSC",
+        y: 11,
       },
       {
-        x: 'KCCA',
-        y: 20
+        x: "KCCA",
+        y: 20,
       },
       {
-        x: 'UNRA',
-        y: 22
+        x: "UNRA",
+        y: 22,
       },
       {
-        x: 'Gender',
-        y: 12
+        x: "Gender",
+        y: 12,
       },
       {
-        x:"Posta",
-        y:34
+        x: "Posta",
+        y: 34,
       },
       {
-        x:"MOIA",
-        y:2
+        x: "MOIA",
+        y: 2,
       },
       {
-        x:"URA",
-        y:55
+        x: "URA",
+        y: 55,
       },
       {
-        x:"MAAIF",
-        y:5
+        x: "MAAIF",
+        y: 5,
       },
       {
-        x:"UMA",
-        y:3
+        x: "UMA",
+        y: 3,
       },
       {
-        x:"Public Service",
-        y:2
+        x: "Public Service",
+        y: 2,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
-function labelExtractor(data:Statistic[]){
-  let labels = []
-  for(let i = 0; i < data.length - 1; i++){
-    labels.push(data[i].x)
+function labelExtractor(data: Statistic[]) {
+  let labels = [];
+  for (let i = 0; i < data.length - 1; i++) {
+    labels.push(data[i].x);
   }
   return labels;
 }
-
 </script>
 
 <template>
@@ -120,30 +118,49 @@ function labelExtractor(data:Statistic[]){
         <div class="w-full">
           <div class="flex my-2">
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(18).toLocaleString()}}</p>
+              <p class="text-xl font-bold py-2">
+                {{ Number(18).toLocaleString() }}
+              </p>
               <p class="text-xs">Total Users</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(2).toLocaleString()}}</p>
-              <!-- <p class="text-xs">Backoffice Administrators</p> -->
-    <p class="text-xl font-bold ml-2">{{ totalBackOfficeAccounts }}</p>
-
+              <!-- <p class="text-xl font-bold py-2">{{Number(2).toLocaleString()}}</p> -->
+              <p class="text-xl font-bold ml-2">
+                {{ totalBackOfficeAccounts }}
+              </p>
+              <p class="text-xs">Backoffice Administrators</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(3).toLocaleString()}}</p>
+              <p class="text-xl font-bold py-2">
+                {{ Number(3).toLocaleString() }}
+              </p>
               <p class="text-xs">Branch Managers</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(13).toLocaleString()}}</p>
+              <p class="text-xl font-bold py-2">
+                {{ Number(13).toLocaleString() }}
+              </p>
               <p class="text-xs">Till Operators</p>
             </div>
           </div>
           <div class="flex">
             <div class="w-6/12">
-              <PieChart title="Distribution of Users by Gender" :data="[48, 52]" :labels="['Male','Female']"/>
+              <PieChart
+                title="Distribution of Users by Gender"
+                :data="[48, 52]"
+                :labels="['Male', 'Female']"
+              />
             </div>
             <div class="w-6/12">
-              <PieChart title="Distribution of Users by Roles" :data="[2, 4, 13]" :labels="['Agent Admin Backoffice','Branch Manager', 'Till Operator']"/>
+              <PieChart
+                title="Distribution of Users by Roles"
+                :data="[2, 4, 13]"
+                :labels="[
+                  'Agent Admin Backoffice',
+                  'Branch Manager',
+                  'Till Operator',
+                ]"
+              />
             </div>
           </div>
         </div>
@@ -158,13 +175,12 @@ function labelExtractor(data:Statistic[]){
           </div>
         </div>
       </div> -->
-
     </div>
   </div>
 </template>
 
 <style scoped>
-.count{
+.count {
   @apply py-2 text-center border border-gray-100 rounded bg-gray-10 mx-1 shadow;
 }
 </style>
