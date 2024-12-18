@@ -141,7 +141,7 @@ function labelExtractor(data:Statistic[]){
           </div>
         </div>
       </div>
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="w-full">
           <div class="flex">
             <div class="w-full">
@@ -150,7 +150,7 @@ function labelExtractor(data:Statistic[]){
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
