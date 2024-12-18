@@ -18,9 +18,8 @@ const totalBalance = balanceStore.totalBalance;
 const activeTab: Ref<string> = ref("floatmanagement");
 
 function select(tab: string) {
-  activeTab.value = tab
+  activeTab.value = tab;
 }
-
 </script>
 
 <template>
@@ -28,21 +27,50 @@ function select(tab: string) {
     <div class="flex">
       <div class="w-full py-1">
         <!-- <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-money-bill"></i> -->
-        <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-coins"></i>
+        <i
+          class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-coins"
+        ></i>
         <label class="text-lg mx-1">Finances</label>
       </div>
       <div class="">
-        <span class="bg-gray-50 mt-5 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md">{{totalBalance.currentBalance.toLocaleString()}}/=</span>
+        <span
+          class="bg-gray-50 mt-5 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md"
+          >{{ totalBalance.currentBalance.toLocaleString() }}/=</span
+        >
       </div>
     </div>
     <div class="flex pt-5">
-      <div :class="(activeTab == 'floatmanagement') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatmanagement')">Float Allocation
+      <div
+        :class="
+          activeTab == 'floatmanagement' ? 'w-2/12 tab-active' : 'w-2/12 tab'
+        "
+        @click="select('floatmanagement')"
+      >
+        Float Allocation
       </div>
-      <div :class="(activeTab == 'transactions') ? 'w-1/12 tab-active' : 'w-1/12 tab'" @click="select('transactions')">
-        Transactions</div>
-      <div :class="(activeTab == 'floatledgers') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatledgers')">Float Ledger
+      <div
+        :class="
+          activeTab == 'transactions' ? 'w-1/12 tab-active' : 'w-1/12 tab'
+        "
+        @click="select('transactions')"
+      >
+        Transactions
       </div>
-      <div :class="(activeTab == 'floatrequests') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatrequests')">Float Requests
+      <div
+        :class="
+          activeTab == 'floatledgers' ? 'w-2/12 tab-active' : 'w-2/12 tab'
+        "
+        @click="select('floatledgers')"
+      >
+        Float Ledger
+      </div>
+      <div
+        :class="
+          activeTab == 'floatrequests' ? 'w-2/12 tab-active' : 'w-2/12 tab'
+        "
+        @click="select('floatrequests')"
+      >
+        Float Requests
       </div>
     </div>
     <div class="flex flex-grow">
@@ -72,12 +100,11 @@ function select(tab: string) {
   @apply w-full px-1 my-2;
 }
 
-.tab{
+.tab {
   @apply cursor-pointer p-2 border-b border-gray-300 text-sm text-center;
 }
 
-.tab-active{
+.tab-active {
   @apply cursor-pointer p-2 border-b-4 border-primary-700 text-sm text-center;
 }
-
 </style>
