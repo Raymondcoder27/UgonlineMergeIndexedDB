@@ -76,16 +76,16 @@ function labelExtractor(data:Statistic[]){
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(67555600).toLocaleString()}}</p>
-              <p class="text-xs">Failed Transaction Revenue</p>
+              <p class="text-xs">Failed Transactions</p>
             </div>
-            <div class="w-2/12 count">
+            <!-- <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(5433328300).toLocaleString()}}</p>
               <p class="text-xs">NTR Revenue</p>
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(908555600).toLocaleString()}}</p>
               <p class="text-xs">Non-NTR Revenue</p>
-            </div>
+            </div> -->
           </div>
           <div class="flex">
             <div class="w-full">
