@@ -4,6 +4,12 @@ import BarChart from "@/domain/analytics/components/BarChart.vue";
 import LineChart from "@/domain/analytics/components/LineChart.vue";
 import PieChart from "@/domain/analytics/components/PieChart.vue";
 
+import { useAccounts } from "@/domain/accounts/stores";
+const accountStore = useAccounts();
+const totalBranchManagers = accountStore.managerAccounts?.length || 0;
+const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
+    <p class="text-xl font-bold ml-2">{{ totalBackOfficeAccounts }}</p>
+
 import type {Ref} from "vue";
 import type {GraphData, Statistic} from "@/domain/analytics/types/chart";
 import {ref} from "vue";
