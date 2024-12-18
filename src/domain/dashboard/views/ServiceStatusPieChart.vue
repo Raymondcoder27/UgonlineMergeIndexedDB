@@ -220,7 +220,7 @@ function labelExtractor(data: Statistic[]) {
 <template>
   <div class="flex px-2">
     <div class="w-full border-r border-gray-200 px-2">
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="w-full">
           <div class="flex my-2">
             <div class="w-2/12 count">
@@ -237,7 +237,7 @@ function labelExtractor(data: Statistic[]) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="flex">
         <div class="w-full">
           <BarChart
