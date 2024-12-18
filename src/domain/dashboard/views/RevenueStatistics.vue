@@ -1,6 +1,9 @@
 <script setup lang="ts">
 
 import PieChart from "@/domain/analytics/components/PieChart.vue";
+import { useBalance } from "@/domain/balance/stores";
+const balanceStore = useBalance();
+const totalBalance = balanceStore.totalBalance;
 
 import type {Ref} from "vue";
 import type {GraphData, Statistic} from "@/domain/analytics/types/chart";
@@ -64,7 +67,10 @@ function labelExtractor(data:Statistic[]){
           <div class="flex my-2">
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(6341883900).toLocaleString()}}</p>
-              <p class="text-xs">Balance</p>
+              <!-- <p class="text-xs">Balance</p> -->
+               <p class="text-xl font-bold ml-2">
+          {{ totalBalance.currentBalance.toLocaleString() }}/=
+        </p>
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(6274328300).toLocaleString()}}</p>
