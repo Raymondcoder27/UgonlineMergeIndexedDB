@@ -3,6 +3,13 @@
 import BarChart from "@/domain/analytics/components/BarChart.vue";
 import LineChart from "@/domain/analytics/components/LineChart.vue";
 import PieChart from "@/domain/analytics/components/PieChart.vue";
+import { useBranchStore } from "@/domain/branches/stores";
+const branchStore = useBranchStore();
+
+const totalBranches = branchStore.branches?.length || 0;
+
+
+branchStore.fetchBranches();
 
 import type {Ref} from "vue";
 import type {GraphData, Statistic} from "@/domain/analytics/types/chart";
@@ -48,12 +55,13 @@ function labelExtractor(data:Statistic[]){
         <div class="w-full">
           <div class="flex my-2">
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">16</p>
+              <!-- <p class="text-xl font-bold py-2">16</p> -->
+ <p class="text-xl font-bold py-2" style="font-size: 18px;">{{ totalBranches }}</p>
               <!-- <p class="text-xs">Total Providers</p> -->
               <p class="text-xs">Total Branches</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">23</p>
+              <p class="text-xl font-bold py-2">19</p>
               <p class="text-xs">Total tills</p>
             </div>
             <!-- <div class="w-2/12 count">
