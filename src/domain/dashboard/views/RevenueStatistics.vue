@@ -144,7 +144,7 @@ function labelExtractor(data: Statistic[]) {
           <div class="flex">
             <div class="w-full">
               <AreaChart
-                title="Revenue over time"
+                title="Finances over time"
                 :graph-data="revenueByTime"
                 :is-horizontal="false"
                 :labels="labelExtractor(revenueByTime[0].data)"
