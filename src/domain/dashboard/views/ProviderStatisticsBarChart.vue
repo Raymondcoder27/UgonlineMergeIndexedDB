@@ -233,7 +233,8 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xs">Active</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">10</p>
+              <!-- <p class="text-xl font-bold py-2">10</p> -->
+              <p class="text-xl font-bold py-2">2</p>
               <p class="text-xs">Inactive</p>
             </div>
           </div>
