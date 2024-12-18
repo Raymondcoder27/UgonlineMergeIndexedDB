@@ -115,19 +115,19 @@ function labelExtractor(data:Statistic[]){
         <div class="w-full">
           <div class="flex my-2">
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(360000).toLocaleString()}}</p>
+              <p class="text-xl font-bold py-2">{{Number(18).toLocaleString()}}</p>
               <p class="text-xs">Total Users</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(286).toLocaleString()}}</p>
+              <p class="text-xl font-bold py-2">{{Number(2).toLocaleString()}}</p>
               <p class="text-xs">Backoffice Administrators</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(45).toLocaleString()}}</p>
+              <p class="text-xl font-bold py-2">{{Number(3).toLocaleString()}}</p>
               <p class="text-xs">Branch Managers</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">{{Number(45).toLocaleString()}}</p>
+              <p class="text-xl font-bold py-2">{{Number(13).toLocaleString()}}</p>
               <p class="text-xs">Till Operators</p>
             </div>
           </div>
