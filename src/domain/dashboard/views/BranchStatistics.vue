@@ -67,7 +67,7 @@ function labelExtractor(data:Statistic[]){
           </div>
           <div class="flex">
             <div class="w-6/12">
-              <LineChart title="Distribution of Provider onboarding" :graph-data="providerOnboarding" :is-horizontal="false"
+              <LineChart title="Distribution of Till Operator onboarding" :graph-data="providerOnboarding" :is-horizontal="false"
                          :labels="labelExtractor(providerOnboarding[0].data)"/>
             </div>
             <div class="w-6/12">
