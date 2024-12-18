@@ -56,14 +56,14 @@ function labelExtractor(data:Statistic[]){
               <p class="text-xl font-bold py-2">23</p>
               <p class="text-xs">Total tills</p>
             </div>
-            <div class="w-2/12 count">
+            <!-- <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">6</p>
               <p class="text-xs">Offline Providers</p>
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">11</p>
               <p class="text-xs">Gateway Configured Providers</p>
-            </div>
+            </div> -->
           </div>
           <div class="flex">
             <div class="w-6/12">
