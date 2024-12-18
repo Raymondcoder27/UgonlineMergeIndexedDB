@@ -56,7 +56,7 @@ onMounted(async () => {
 </script>
 <template>
     <!-- <div class="flex flex-col w-full shadow-lg bg-white rounded h-screen"> -->
-      <!-- <div class="flex flex-col bg-white shadow-lg rounded p-1"> -->
+      <div class="flex flex-col bg-white shadow-lg rounded p-1">
       <!-- Tabs -->
       <div class="flex border-b">
         <!-- Services Tab -->
@@ -146,7 +146,7 @@ onMounted(async () => {
           <!-- </div> -->
         </div>
       </div>
-    <!-- </div> -->
+    </div>
   </template>
 
 <style scoped>
