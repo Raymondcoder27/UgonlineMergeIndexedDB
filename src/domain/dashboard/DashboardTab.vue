@@ -99,7 +99,7 @@ onMounted(async () => {
         @click="select('users')"
         class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
       >
-        <i class="fa-solid fa-users mr-2"></i>
+        <i class="fa-solid fa-users mr-2 py-2"></i>
         <span>Users</span>
         <!-- <p class="text-xl font-bold mt-1">2</p> -->
         <!-- <p class="text-xl font-bold ml-2">{{ totalBackOfficeAccounts }}</p> -->
