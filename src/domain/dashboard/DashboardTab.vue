@@ -14,6 +14,7 @@ import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
 import { useServicesStore } from "@/domain/services/stores";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useAccounts } from "@/domain/accounts/stores";
+import { useBilling } from "@/domain/finances/stores";
 // import { useBalance } from "@/domain/balance/stores";
 
 
