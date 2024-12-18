@@ -68,9 +68,9 @@ onMounted(async () => {
           <!-- <i class="fa-solid fa-concierge-bell mr-2"></i> -->
           <i class="fa-solid fa-cogs mr-2"></i>
           <span>Services</span>
-          <p class="text-xl font-bold mt-1">23</p>
+          <!-- <p class="text-xl font-bold mt-1">23</p> -->
         <!-- <p class="text-xs font-bold py-2" style="font-size: 18px;">{{ totalServiceSubscriptions }}</p> -->
-        <p class="text-xs font-bold py-2">{{ totalServiceSubscriptions }}</p>
+        <p class="text-sm font-bold">{{ totalServiceSubscriptions }}</p>
         </div>
   
         <!-- Branches Tab -->
