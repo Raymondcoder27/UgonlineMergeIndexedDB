@@ -262,7 +262,7 @@ function labelExtractor(data: Statistic[]) {
       <div class="flex">
         <div class="w-full">
           <div class="flex">
-            <div class="w-6/12">
+            <!-- <div class="w-6/12">
               <LineChart
                 title="Distribution of Service Applications"
                 :graph-data="serviceApplicationsDistribution"
@@ -271,8 +271,8 @@ function labelExtractor(data: Statistic[]) {
                   labelExtractor(serviceApplicationsDistribution[0].data)
                 "
               />
-            </div>
-            <div class="w-6/12">
+            </div> -->
+            <div class="w-full">
               <PieChart
                 title="Distribution of Service by Status"
                 :data="[45, 35, 18]"
