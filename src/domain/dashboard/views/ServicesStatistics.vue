@@ -347,7 +347,7 @@ function select(tab: string) {
                 "
               />
             </div>
-            <div class="w-6/12">
+            <div class="w-9/12">
               <PieChart
                 title="Distribution of Service by Status"
                 :data="[45, 35, 18]"

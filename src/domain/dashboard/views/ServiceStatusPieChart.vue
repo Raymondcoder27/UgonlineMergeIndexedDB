@@ -272,7 +272,7 @@ function labelExtractor(data: Statistic[]) {
                 "
               />
             </div> -->
-            <div class="w-8/12">
+            <div class="w-10/12">
               <PieChart
                 title="Distribution of Service by Status"
                 :data="[45, 35, 18]"
