@@ -54,7 +54,7 @@ onMounted(async () => {
         <div
           :class="activeTab == 'branches' ? 'tab-active' : 'tab'"
           @click="select('branches')"
-          class="cursor-pointer flex items-center justify-center flex-grow p-2 text-sm hover:bg-gray-100"
+          class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
         >
           <i class="fa-solid fa-building mr-2"></i>
           <span>Branches</span>
@@ -76,7 +76,7 @@ onMounted(async () => {
         <div
           :class="activeTab == 'users' ? 'tab-active' : 'tab'"
           @click="select('users')"
-          class="cursor-pointer flex items-center justify-center flex-grow p-2 text-sm hover:bg-gray-100"
+          class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
         >
           <i class="fa-solid fa-users mr-2"></i>
           <span>Users</span>
@@ -98,7 +98,7 @@ onMounted(async () => {
         <div
           :class="activeTab == 'revenue' ? 'tab-active' : 'tab'"
           @click="select('revenue')"
-          class="cursor-pointer flex items-center justify-center flex-grow p-2 text-sm hover:bg-gray-100"
+          class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
         >
           <i class="fa-solid fa-coins mr-2"></i>
           <span>Finances</span>
