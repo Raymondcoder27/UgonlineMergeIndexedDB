@@ -4,6 +4,15 @@ import PieChart from "@/domain/analytics/components/PieChart.vue";
 import { useBalance } from "@/domain/balance/stores";
 const balanceStore = useBalance();
 const totalBalance = balanceStore.totalBalance;
+import { useBilling } from "@/domain/finances/stores";
+const billingStore = useBilling();
+billingStore.fetchFloatRequests();
+const pendingFloatRequests = billingStore.floatRequests?.filter(
+  (request) => request.status === "pending"
+)?.length || 0;
+const totalTransactions = billingStore.transactions?.length || 0;
+ <p class="text-xs font-bold py-2" style="font-size: 18px;">{{ pendingFloatRequests }}</p>
+<p class="text-xs font-bold py-2" style="font-size: 18px;">{{ totalTransactions }}</p>
 
 import type {Ref} from "vue";
 import type {GraphData, Statistic} from "@/domain/analytics/types/chart";
