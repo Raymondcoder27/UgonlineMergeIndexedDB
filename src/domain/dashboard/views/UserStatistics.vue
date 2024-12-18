@@ -136,7 +136,7 @@ function labelExtractor(data:Statistic[]){
               <PieChart title="Distribution of Users by Gender" :data="[48, 52]" :labels="['Male','Female']"/>
             </div>
             <div class="w-6/12">
-              <PieChart title="Distribution of Users by Identity Documents" :data="[68, 22, 10]" :labels="['National ID','Passport', 'Refugee ID']"/>
+              <PieChart title="Distribution of Users by Roles" :data="[68, 22, 10]" :labels="['Backoffice','Branch Manager', 'Till Operator']"/>
             </div>
           </div>
         </div>
