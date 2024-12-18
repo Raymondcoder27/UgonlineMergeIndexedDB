@@ -300,7 +300,7 @@ onMounted(() => {
               >
               <i
                 @click="copyToClipboard(transaction.trackingNumber)"
-                class="fa-regular ml-4 fa-copy mx-1 hover:text-gray-800"
+                class="fa-regular fa-copy mx-1 hover:text-gray-800"
               ></i>
             </td>
             <td>{{ transaction.service }}</td>
