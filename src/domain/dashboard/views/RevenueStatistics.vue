@@ -11,6 +11,7 @@ const pendingFloatRequests =
     ?.length || 0;
 const totalFloatRequests = billingStore.floatRequests?.length || 0;
 const approvedFloatRequests = billingStore.floatRequests?.filter((approvedRequest) => approvedRequest.status === "approved")?.length || 0;
+const rejectedFloatRequests = billingStore.floatRequests?.filter((rejectedRequest) => rejectedRequest.status === "approved")?.length || 0;
 
     const failedTransactions = billingStore.transactions?.filter((transaction) => transaction.status === "failed")?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
@@ -123,8 +124,11 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xs">Approved Float Requests</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">
+              <!-- <p class="text-xl font-bold py-2">
                 {{ Number(908555600).toLocaleString() }}
+              </p> -->
+              <p class="text-xl font-bold py-2" style="font-size: 18px">
+                {{ rejectedFloatRequests }}
               </p>
               <p class="text-xs">Rejected Float Requests</p>
             </div>
