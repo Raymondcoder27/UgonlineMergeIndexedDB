@@ -3,7 +3,9 @@ import BarChart from "@/domain/analytics/components/BarChart.vue";
 import LineChart from "@/domain/analytics/components/LineChart.vue";
 import PieChart from "@/domain/analytics/components/PieChart.vue";
 
-import { useAccounts } from "@/domain/accounts/stores";
+import { useServicesStore } from "@/domain/services/stores";
+
+const servicesStore = useServicesStore();
 
 const totalServices = servicesStore.subscribedServices?.length || 0;
 
