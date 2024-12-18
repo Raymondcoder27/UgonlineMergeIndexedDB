@@ -121,7 +121,7 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xl font-bold py-2" style="font-size: 18px">
                 {{ approvedFloatRequests }}
               </p>
-              <p class="text-xs">Approved Float Requests</p>
+              <p class="text-xs">Approved <br> Float Requests</p>
             </div>
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">
