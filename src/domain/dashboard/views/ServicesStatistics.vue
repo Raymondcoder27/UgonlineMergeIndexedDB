@@ -264,7 +264,7 @@ function select(tab: string) {
         @click="select('serviceStatusPieChart')"
       >
         <div class="w-full py-2">
-          <label class="p-3">Piechart-Service by Status</label>
+          <label class="p-3">Piechart showing Service by Status</label>
           <i
             class="fa-solid fa-chart-pie float-right px-2 py-1"
             v-if="activeTab == 'serviceStatusPieChart'"
