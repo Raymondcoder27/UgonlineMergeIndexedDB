@@ -10,7 +10,7 @@ const pendingFloatRequests =
   billingStore.floatRequests?.filter((request) => request.status === "pending")
     ?.length || 0;
 const totalFloatRequests = billingStore.floatRequests?.length || 0;
-const approvedFloatRequests = billingStore.floatRequests?.filter((approvedRequest) => request.status === "approved")?.length || 0;
+const approvedFloatRequests = billingStore.floatRequests?.filter((approvedRequest) => approvedRequest.status === "approved")?.length || 0;
 
     const failedTransactions = billingStore.transactions?.filter((transaction) => transaction.status === "failed")?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
