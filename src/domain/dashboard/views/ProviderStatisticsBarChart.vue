@@ -229,7 +229,10 @@ function labelExtractor(data: Statistic[]) {
           <div class="flex my-2">
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">60</p> -->
-              <p class="text-xl font-bold py-2">8</p>
+              <!-- <p class="text-xl font-bold py-2">8</p> -->
+              <p class="text-xl font-bold py-2">
+                {{ totalServices }}
+              </p>
               <p class="text-xs">Total Services</p>
             </div>
             <div class="w-2/12 count">
