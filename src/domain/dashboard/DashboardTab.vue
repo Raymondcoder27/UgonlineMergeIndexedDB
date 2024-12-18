@@ -70,7 +70,7 @@ onMounted(async () => {
           <span>Services</span>
           <!-- <p class="text-xl font-bold mt-1">23</p> -->
         <!-- <p class="text-xs font-bold py-2" style="font-size: 18px;">{{ totalServiceSubscriptions }}</p> -->
-        <p class="text-sm font-bold">{{ totalServiceSubscriptions }}</p>
+        <p class="text-xl font-bold">{{ totalServiceSubscriptions }}</p>
         </div>
   
         <!-- Branches Tab -->
@@ -81,7 +81,8 @@ onMounted(async () => {
         >
           <i class="fa-solid fa-building mr-2"></i>
           <span>Branches</span>
-          <p class="text-xl font-bold mt-1">4</p>
+          <!-- <p class="text-xl font-bold mt-1">4</p> -->
+          <p class="text-xl font-bold">{{ totalBranches }}</p>
         </div>
   
         <!-- Tills Tab -->
