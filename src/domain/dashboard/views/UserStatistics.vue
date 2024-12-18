@@ -125,7 +125,7 @@ function labelExtractor(data: Statistic[]) {
             </div>
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">{{Number(2).toLocaleString()}}</p> -->
-              <p class="text-xl font-bold ml-2">
+              <p class="text-xl font-bold py-2">
                 {{ totalBackOfficeAccounts }}
               </p>
               <p class="text-xs">Backoffice Administrators</p>
@@ -134,7 +134,7 @@ function labelExtractor(data: Statistic[]) {
               <!-- <p class="text-xl font-bold py-2">
                 {{ Number(3).toLocaleString() }}
               </p> -->
-              <p class="text-xl font-bold ml-2">
+              <p class="text-xl font-bold py-2">
                 {{ totalBranchManagers }}
               </p>
               <p class="text-xs">Branch Managers</p>
