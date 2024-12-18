@@ -67,7 +67,7 @@ onMounted(async () => {
         <span>Services</span>
         <!-- <p class="text-xl font-bold mt-1">23</p> -->
         <!-- <p class="text-xs font-bold py-2" style="font-size: 18px;">{{ totalServiceSubscriptions }}</p> -->
-        <p class="text-xl font-bold ml-2">{{ totalServiceSubscriptions }}</p>
+        <!-- <p class="text-xl font-bold ml-2">{{ totalServiceSubscriptions }}</p> -->
       </div>
 
       <!-- Branches Tab -->
@@ -79,7 +79,7 @@ onMounted(async () => {
         <i class="fa-solid fa-building mr-2"></i>
         <span>Branches</span>
         <!-- <p class="text-xl font-bold mt-1">4</p> -->
-        <p class="text-xl font-bold ml-2">{{ totalBranches }}</p>
+        <!-- <p class="text-xl font-bold ml-2">{{ totalBranches }}</p> -->
       </div>
 
       <!-- Tills Tab -->
@@ -102,7 +102,7 @@ onMounted(async () => {
         <i class="fa-solid fa-users mr-2"></i>
         <span>Users</span>
         <!-- <p class="text-xl font-bold mt-1">2</p> -->
-        <p class="text-xl font-bold ml-2">{{ totalBackOfficeAccounts }}</p>
+        <!-- <p class="text-xl font-bold ml-2">{{ totalBackOfficeAccounts }}</p> -->
       </div>
 
       <!-- Providers Tab -->
