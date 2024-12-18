@@ -56,7 +56,7 @@ onMounted(async () => {
 </script>
 <template>
     <!-- <div class="flex flex-col w-full shadow-lg bg-white rounded h-screen"> -->
-      <div class="flex flex-col bg-white shadow-lg rounded p-1 h-[86vh]">
+      <div class="flex flex-col bg-white shadow-lg rounded p-1 h-[85vh]">
       <!-- Tabs -->
       <div class="flex border-b">
         <!-- Services Tab -->
