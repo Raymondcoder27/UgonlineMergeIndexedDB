@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { useBilling } from "@/domain/finances/stores";
 import { onMounted, type Ref, ref, reactive, watch, computed } from "vue";
-import AllocateFloat from "@/domain/billing/components/AllocateFloat.vue";
+import AllocateFloat from "@/domain/finances/components/AllocateFloat.vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 import moment from "moment";
