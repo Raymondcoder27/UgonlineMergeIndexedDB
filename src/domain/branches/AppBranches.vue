@@ -272,8 +272,8 @@ onMounted(() => {
             <!-- <th class="t-header">#</th> -->
             <th class="t-header">Name</th>
             <th class="text-left">Manager</th>
-            <th class="text-center">Date</th>
-            <!-- <th class="text-center">Actions</th> -->
+            <th class="text-left">Date</th>
+            <th class="text-right">Actions</th>
             <!-- <th class="t-header"></th> -->
           </tr>
         </thead>
@@ -376,20 +376,20 @@ onMounted(() => {
                 convertDateTime(branch.createdAt)
               }}</span>
             </td>
-            <!-- <td class="text-center">
-              <i
+            <td class="text-center">
+              <!-- <i
                 class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
                 @click="open(branch)"
-              ></i>
+              ></i> -->
               <i
                 class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
                 @click="edit(branch)"
               ></i>
-              <i
+              <!-- <i
                 class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
                 @click="deleteBranch(branch.id)"
-              ></i>
-            </td> -->
+              ></i> -->
+            </td>
           </tr>
         </tbody>
       </table>
