@@ -87,7 +87,7 @@ function labelExtractor(data:Statistic[]){
               <p class="text-xs">Non-NTR Revenue</p>
             </div>
           </div>
-          <div class="flex">
+          <div class="flex h-[50vh]">
             <div class="w-full">
               <AreaChart title="Revenue over time" :graph-data="revenueByTime" :is-horizontal="false" :labels="labelExtractor(revenueByTime[0].data)"/>
             </div>
