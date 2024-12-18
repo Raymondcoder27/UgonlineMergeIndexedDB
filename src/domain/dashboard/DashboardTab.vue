@@ -8,7 +8,7 @@ import { useBalance } from "@/domain/balance/stores";
 
 import HomeTab from "@/domain/dashboard/components/HomeTab.vue";
 import UserStatistics from "@/domain/dashboard/views/UserStatistics.vue";
-import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
+import BranchStatistics from "@/domain/dashboard/views/BranchStatistics.vue";
 import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
 import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
 import { useServicesStore } from "@/domain/services/stores";
@@ -136,7 +136,7 @@ onMounted(async () => {
       <div class="w-full h-full">
         <HomeTab v-if="activeTab == 'hometab'" />
         <UserStatistics v-if="activeTab == 'users'" />
-        <ProviderStatistics v-if="activeTab == 'branches'" />
+        <BranchStatistics v-if="activeTab == 'branches'" />
         <!-- <div class="bg-white text-xs rounded-md text-center mb-2 h-[86vh]"> -->
         <ServicesStatistics v-if="activeTab == 'services'" />
         <!-- </div> -->
