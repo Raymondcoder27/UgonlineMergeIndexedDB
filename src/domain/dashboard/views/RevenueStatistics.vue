@@ -11,7 +11,7 @@ const pendingFloatRequests =
     ?.length || 0;
 const totalFloatRequests = billingStore.floatRequests?.length || 0;
 const approvedFloatRequests = billingStore.floatRequests?.filter((approvedRequest) => approvedRequest.status === "approved")?.length || 0;
-const rejectedFloatRequests = billingStore.floatRequests?.filter((rejectedRequest) => rejectedRequest.status === "approved")?.length || 0;
+const rejectedFloatRequests = billingStore.floatRequests?.filter((rejectedRequest) => rejectedRequest.status === "rejected")?.length || 0;
 
     const failedTransactions = billingStore.transactions?.filter((transaction) => transaction.status === "failed")?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
