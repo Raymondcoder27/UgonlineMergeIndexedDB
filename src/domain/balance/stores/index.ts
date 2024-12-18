@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { reactive } from "vue";
 // Pinia store
 import { watchEffect } from "vue";
-import {useBilling} from "@/domain/billing/stores/index";
+import {useBilling} from "@/domain/finances/stores/index";
 
 
 

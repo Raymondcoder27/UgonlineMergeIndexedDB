@@ -13,7 +13,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
-import { useBilling } from "@/domain/billing/stores";
+import { useBilling } from "@/domain/finances/stores";
 
 const billingStore = useBilling();
 

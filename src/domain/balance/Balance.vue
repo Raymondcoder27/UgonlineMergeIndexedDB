@@ -3,10 +3,10 @@ import { ref, type Ref } from "vue";
 // import BackofficeAccounts from "@/domain/accounts/BackofficeAccounts.vue";
 // import UserAccounts from "@/domain/accounts/UserAccounts.vue";
 
-import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
-import FloatManagement from "@/domain/billing/FloatAllocation.vue";
-import Transactions from "@/domain/billing/Transactions.vue";
-import FloatRequests from "@/domain/billing/FloatRequests.vue";
+import FloatLedgers from "@/domain/finances/FloatLedgers.vue";
+import FloatManagement from "@/domain/finances/FloatAllocation.vue";
+import Transactions from "@/domain/finances/Transactions.vue";
+import FloatRequests from "@/domain/finances/FloatRequests.vue";
 
 const activeTab: Ref<string> = ref("floatmanagement");
 

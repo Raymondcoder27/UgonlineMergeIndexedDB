@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { useBilling } from "@/domain/billing/stores";
+import { useBilling } from "@/domain/finances/stores";
 import { onMounted, type Ref, ref, reactive, watch, computed } from "vue";
 import AllocateFloat from "@/domain/billing/components/AllocateFloat.vue";
 import { useDebounceFn } from "@vueuse/core";

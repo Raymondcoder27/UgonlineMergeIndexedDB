@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
-import { useBilling } from "@/domain/billing/stores";
+import { useBilling } from "@/domain/finances/stores";
 import { useServicesStore } from "@/domain/services/stores";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useBalance } from "@/domain/balance/stores";

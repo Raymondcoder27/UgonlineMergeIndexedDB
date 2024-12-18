@@ -4,7 +4,7 @@ import AppDashboard from "../domain/dashboard/AppDashboard.vue";
 import AppEntities from "../domain/entities/AppEntities.vue";
 import AppAgents from "../domain/agents/AppAgents.vue";
 import AppGateway from "../domain/gateway/AppGateway.vue";
-import Billing from "../domain/billing/Billing.vue";
+import Finances from "../domain/finances/Finances.vue";
 import Services from "@/domain/services/AppServices.vue";
 import ServicesDetails from "@/domain/servicesdetails/ServicesDetails.vue";
 import Accounts from "@/domain/accounts/Accounts.vue";
@@ -53,7 +53,7 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "app-configurations", path: "/agent-admin/configurations", component: Settings },
       { name: "app-reports", path: "/agent-admin/data-analytics", component: DataAnalytics },
       { name: "app-services-details", path: "/agent-admin/services-details", component: ServicesDetails },
-      { name: "app-billing", path: "/agent-admin/billing", component: Billing },
+      { name: "app-billing", path: "/agent-admin/billing", component: Finances },
       { name: "app-gateway", path: "/agent-admin/gateway", component: AppGateway },
     ],
   },

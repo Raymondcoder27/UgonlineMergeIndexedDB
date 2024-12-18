@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
-import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
-import FloatManagement from "@/domain/billing/FloatAllocation.vue";
-import Transactions from "@/domain/billing/Transactions.vue";
-import FloatRequests from "@/domain/billing/FloatRequests.vue";
+import FloatLedgers from "@/domain/finances/FloatLedgers.vue";
+import FloatManagement from "@/domain/finances/FloatAllocation.vue";
+import Transactions from "@/domain/finances/Transactions.vue";
+import FloatRequests from "@/domain/finances/FloatRequests.vue";
 import { useBalance } from "@/domain/balance/stores";
 
 import HomeTab from "@/domain/dashboard/components/HomeTab.vue";
