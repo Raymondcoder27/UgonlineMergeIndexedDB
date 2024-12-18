@@ -34,7 +34,8 @@ const sideMenu: SideMenuLink[] = [
   {
     name: "app-branches",
     label: "Branches",
-    iconClass: "fa-solid fa-code-branch",
+    // iconClass: "fa-solid fa-code-branch",
+    iconClass: "fa-solid fa-building"
   },
   // {
   //   name: "app-agents",
