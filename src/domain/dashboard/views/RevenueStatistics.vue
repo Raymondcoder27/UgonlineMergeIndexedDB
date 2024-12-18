@@ -105,7 +105,7 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xl font-bold py-2" style="font-size: 18px">
                 {{ totalFloatRequests }}
               </p>
-              <p class="text-xs">Total Float Requests</p>
+              <p class="text-xs">Total <br> Float Requests</p>
             </div>
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">{{Number(6274328300).toLocaleString()}}</p> -->
