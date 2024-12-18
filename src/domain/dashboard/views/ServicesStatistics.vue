@@ -4,13 +4,12 @@ import ProviderStatisticsBarChart from "@/domain/dashboard/views/ProviderStatist
 // import PieChart from "@/domain/dashboard/components/PieChart.vue";
 
 import GatewayStatistics from "@/domain/dashboard/views/ServiceStatusPieChart.vue";
-import {type Ref, ref} from "vue";
+import { type Ref, ref } from "vue";
 // import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
 // import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
-import ApplicationsLineGraph from "@/domain/dashboard/views/ApplicationsLineGraph.vue"
+import ApplicationsLineGraph from "@/domain/dashboard/views/ApplicationsLineGraph.vue";
 // import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
 // import UserStatistics from "@/domain/dashboard/views/UserStatistics.vue";
-
 
 // import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/domain/dashboard/types/chart";
@@ -226,35 +225,53 @@ function labelExtractor(data: Statistic[]) {
   return labels;
 }
 
-const activeTab:Ref<string> = ref("providers")
+const activeTab: Ref<string> = ref("providers");
 
-function select(tab:string){
-  activeTab.value = tab
+function select(tab: string) {
+  activeTab.value = tab;
 }
 </script>
 
 <template>
   <div class="flex">
-      <div class="w-3/12 py-1 text-xs">
-        <div :class="(activeTab == 'providers') ? 'tab-active' : 'tab'" @click="select('providers')">
-          <div class="w-full py-1 my-auto">
-            <label class="p-3">Distribution by Provider</label>
-            <i class="fa-solid fa-handshake float-right px-2 py-1" v-if="activeTab == 'providers'"></i>
-          </div>
+    <div class="w-3/12 py-1 text-xs">
+      <div
+        :class="activeTab == 'providers' ? 'tab-active' : 'tab'"
+        @click="select('providers')"
+      >
+        <div class="w-full py-1 my-auto">
+          <label class="p-3">Distribution by Provider</label>
+          <i
+            class="fa-solid fa-handshake float-right px-2 py-1"
+            v-if="activeTab == 'providers'"
+          ></i>
         </div>
-        <div :class="(activeTab == 'services') ? 'tab-active' : 'tab'" @click="select('services')">
-          <div class="w-full py-1">
-            <label class="p-3">Service Applications Line Graph</label>
-            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'services'"></i>
-          </div>
+      </div>
+      <div
+        :class="activeTab == 'services' ? 'tab-active' : 'tab'"
+        @click="select('services')"
+      >
+        <div class="w-full py-1">
+          <label class="p-3">Service Applications Line Graph</label>
+          <i
+            class="fa-solid fa-chart-area float-right px-2 py-1"
+            v-if="activeTab == 'services'"
+          ></i>
         </div>
-        <div :class="(activeTab == 'serviceStatusPieChart') ? 'tab-active' : 'tab'" @click="select('serviceStatusPieChart')">
-          <div class="w-full py-1">
-            <label class="p-3">Piechart-Service by Status</label>
-            <i class="fa-solid fa-chart-pie float-right px-2 py-1" v-if="activeTab == 'serviceStatusPieChart'"></i>
-          </div>
+      </div>
+      <div
+        :class="activeTab == 'serviceStatusPieChart' ? 'tab-active' : 'tab'"
+        @click="select('serviceStatusPieChart')"
+      >
+        <div class="w-full py-1">
+          <label class="p-3">Piechart-Service by Status</label>
+          <i
+            class="fa-solid fa-chart-pie float-right px-2 py-1"
+            v-if="activeTab == 'serviceStatusPieChart'"
+          ></i>
         </div>
-        <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
+      </div>
+      <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
           <div class="w-full py-1">
             <label class="p-3">Revenue</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
@@ -266,16 +283,16 @@ function select(tab:string){
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'users'"></i>
           </div>
         </div> -->
-      </div>
-      <div class="w-10/12 py-1">
-        <ProviderStatisticsBarChart v-if="activeTab == 'providers'"/>
-        <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
-        <ApplicationsLineGraph v-if="activeTab == 'services'"/>
-        <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'"/>
-        <RevenueStatistics v-if="activeTab == 'revenue'"/>
-        <UserStatistics v-if="activeTab == 'users'"/>
-      </div>
     </div>
+    <div class="w-10/12 py-1">
+      <ProviderStatisticsBarChart v-if="activeTab == 'providers'" />
+      <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
+      <ApplicationsLineGraph v-if="activeTab == 'services'" />
+      <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
+      <RevenueStatistics v-if="activeTab == 'revenue'" />
+      <UserStatistics v-if="activeTab == 'users'" />
+    </div>
+  </div>
   <div class="flex px-2">
     <div class="w-full border-r border-gray-200 px-2">
       <div class="flex">
@@ -348,15 +365,15 @@ function select(tab:string){
 .count {
   @apply py-2 text-center border border-gray-100 rounded bg-gray-10 mx-1 shadow;
 }
-.tab-active{
+.tab-active {
   @apply flex border-2 border-gray-500 rounded-r cursor-pointer bg-gray-500 text-white font-bold;
 }
 
-.tab{
+.tab {
   @apply flex border border-gray-100 rounded-r cursor-pointer;
 }
 
-.tab:hover{
+.tab:hover {
   @apply bg-gray-500 text-white;
 }
 </style>
