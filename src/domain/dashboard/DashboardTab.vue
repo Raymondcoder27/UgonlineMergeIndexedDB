@@ -22,7 +22,7 @@ const billingStore = useBilling();
 const servicesStore = useServicesStore();
 const accountStore = useAccounts();
 branchStore.fetchBranches();
-servicesStore.fetchSubscribedServices();
+// servicesStore.fetchSubscribedServices();
 accountStore.fetchManagerAccounts();
 accountStore.fetchBackofficeAccounts();
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
