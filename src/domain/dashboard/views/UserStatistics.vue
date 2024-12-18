@@ -131,8 +131,11 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xs">Backoffice Administrators</p>
             </div>
             <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">
+              <!-- <p class="text-xl font-bold py-2">
                 {{ Number(3).toLocaleString() }}
+              </p> -->
+              <p class="text-xl font-bold ml-2">
+                {{ totalBranchManagers }}
               </p>
               <p class="text-xs">Branch Managers</p>
             </div>
