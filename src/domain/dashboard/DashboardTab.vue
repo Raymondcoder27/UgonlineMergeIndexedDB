@@ -11,6 +11,26 @@ import UserStatistics from "@/domain/dashboard/views/UserStatistics.vue";
 import ProviderStatistics from "@/domain/dashboard/views/ProviderStatistics.vue";
 import ServicesStatistics from "@/domain/dashboard/views/ServicesStatistics.vue";
 import RevenueStatistics from "@/domain/dashboard/views/RevenueStatistics.vue";
+import { useServicesStore } from "@/domain/services/stores";
+import { useBranchStore } from "@/domain/branches/stores";
+import { useAccounts } from "@/domain/accounts/stores";
+import { useBalance } from "@/domain/balance/stores";
+
+
+const branchStore = useBranchStore();
+const billingStore = useBilling();
+const servicesStore = useServicesStore();
+const accountStore = useAccounts();
+branchStore.fetchBranches();
+servicesStore.fetchSubscribedServices();
+accountStore.fetchManagerAccounts();
+accountStore.fetchBackofficeAccounts();
+const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
+const totalTransactions = billingStore.transactions?.length || 0;
+const totalBranches = branchStore.branches?.length || 0;
+const totalBranchManagers = accountStore.managerAccounts?.length || 0;
+const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
+
 // Call the fetch function on mounted
 const balanceStore = useBalance();
 
