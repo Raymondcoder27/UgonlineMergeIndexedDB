@@ -3,6 +3,10 @@ import BarChart from "@/domain/analytics/components/BarChart.vue";
 import LineChart from "@/domain/analytics/components/LineChart.vue";
 import PieChart from "@/domain/analytics/components/PieChart.vue";
 
+import { useAccounts } from "@/domain/accounts/stores";
+
+const totalBranchManagers = accountStore.managerAccounts?.length || 0;
+
 import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/domain/analytics/types/chart";
 import { ref } from "vue";

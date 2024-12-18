@@ -125,9 +125,9 @@ onMounted(async () => {
         <i class="fa-solid fa-coins mr-2"></i>
         <span>Finances</span>
         <!-- <p class="text-xl font-bold mt-1">41</p> -->
-        <!-- <p class="text-xl font-bold ml-2">
+        <p class="text-xl font-bold ml-2">
           {{ totalBalance.currentBalance.toLocaleString() }}/=
-        </p> -->
+        </p>
       </div>
     </div>
 
