@@ -267,7 +267,7 @@ watch(
 <template>
   <!-- <div class=""> -->
     <!-- Header -->
-    <div class="max-w-7xl mx-auto bg-white flex flex-col min-h-[60vh]">
+    <div class="max-w-7xl mx-auto bg-white flex flex-col p-2 min-h-[60vh]">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
         <div class="flex-grow">
           <div
