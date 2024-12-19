@@ -429,11 +429,11 @@ watch(
                     Resume
                   </button>
                   <button
-                    class="bg-red-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-red-600"
+                    class="bg-red-700 rounded-md ml-1 font-semibold text-white px-1 py-1 hover:bg-red-600"
                     @click="submitDraft(transaction)"
                   >
                   <!-- appropriate icon -->
-                   <i class="fa fa-trash"></i>
+                   <i class="fa fa-trash text-xs"></i>
                     Delete
                   </button>
                 </div>
