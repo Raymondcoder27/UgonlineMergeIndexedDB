@@ -428,6 +428,14 @@ watch(
                    <i class="fa fa-play"></i>
                     Resume
                   </button>
+                  <button
+                    class="bg-red-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-red-600"
+                    @click="submitDraft(transaction)"
+                  >
+                  <!-- appropriate icon -->
+                   <i class="fa fa-trash"></i>
+                    Delete
+                  </button>
                 </div>
                 <!-- <div class="" v-else-if="submissionRepay(transaction.name)"> -->
                 <!-- use transaction.status = repay -->
