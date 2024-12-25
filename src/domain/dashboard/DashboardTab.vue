@@ -55,7 +55,7 @@ onMounted(async () => {
   <!-- <div class="flex flex-col w-full shadow-lg bg-white rounded h-screen"> -->
   <div class="flex flex-col bg-white shadow-lg rounded p-1 h-[86vh]">
     <!-- Tabs -->
-    <div class="flex border-b gap-1">
+    <div class="flex border-b-2 border-red-400 gap-1">
       <!-- Services Tab -->
       <div
         :class="activeTab == 'services' ? 'tab-active' : 'tab'"
@@ -157,7 +157,7 @@ onMounted(async () => {
   @apply flex border border-gray-10 cursor-pointer;
 } */
 .tab {
-  @apply flex items-center justify-center flex-grow cursor-pointer bg-transparent border-b border-red-400 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-t-xl;
+  @apply flex items-center justify-center flex-grow cursor-pointer bg-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-t-xl;
   transition: background-color 0.1s ease, color 0.2s ease;
 }
 
