@@ -21,12 +21,12 @@ const open = (service: any) => {
 
 <template>
   <div class="flex">
-    <div class="block w-2/3">
+    <div class="block w-2/3 h-[80vh]">
       <!-- Service Cards Area -->
       <ServiceCards :services="store.services" @subscribe="subscribe" />
     </div>
 
-    <div class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[86vh]">
+    <div class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[80vh]">
       <!-- Subscribed Services Area -->
       <SubscribedServices
         :subscribedServices="store.subscribedServices"
