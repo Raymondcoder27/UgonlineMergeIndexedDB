@@ -20,7 +20,7 @@ const billingStore = useBilling(); // Assuming you have a billing store that han
 const loading: Ref<boolean> = ref(false);
 const modalOpen = ref(false);
 const page = ref(1);
-const limit = ref(10);
+const limit = ref(7);
 const floatLedgers: Ref<any[]> = ref([]);
 const totalRecords = computed(() => billingStore.floatLedgers.length); // Total transactions
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
