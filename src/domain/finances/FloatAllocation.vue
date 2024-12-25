@@ -16,7 +16,7 @@ const billingStore = useBilling();
 const loading: Ref<boolean> = ref(false);
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(6);
+const limit: Ref<number> = ref(7);
   const floatAllocations: Ref<any[]> = ref([]);
 const totalRecords = computed(() => billingStore.floatAllocations.length); // Total floatAllocations
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
