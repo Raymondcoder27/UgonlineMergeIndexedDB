@@ -5,8 +5,8 @@ import SubscribedServices from "@/domain/services/components/SubscribedServices.
 
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
-const branches: Ref<any[]> = ref([]);
-const totalRecords = computed(() => branchStore.branches.length); // Total branches
+const subscribedServices: Ref<any[]> = ref([]);
+const totalRecords = computed(() => store.subscribedServices.length); // Total subscribedServices
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
