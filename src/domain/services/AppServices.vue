@@ -78,7 +78,7 @@ const open = (service: any) => {
         @unsubscribe="unsubscribeFromService"
         @open="open"
       />
-      <div class="flex text-xs mt-auto">
+      <div class="flex text-xs mt-auto my-3">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
