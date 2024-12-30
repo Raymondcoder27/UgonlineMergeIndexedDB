@@ -2,6 +2,8 @@
 import { useServicesStore } from "@/domain/services/stores";
 import ServiceCards from "@/domain/services/components/ServiceCards.vue";
 import SubscribedServices from "@/domain/services/components/SubscribedServices.vue";
+import { onMounted, ref, type Ref, watch, computed } from "vue";
+
 
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
@@ -66,8 +68,13 @@ const open = (service: any) => {
 
     <div class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[84vh]">
       <!-- Subscribed Services Area -->
-      <SubscribedServices
+      <!-- <SubscribedServices
         :subscribedServices="store.subscribedServices"
+        @unsubscribe="unsubscribeFromService"
+        @open="open"
+      /> -->
+      <SubscribedServices
+        :subscribedServices="paginatedServices"
         @unsubscribe="unsubscribeFromService"
         @open="open"
       />
