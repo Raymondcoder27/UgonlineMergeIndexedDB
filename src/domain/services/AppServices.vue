@@ -136,7 +136,7 @@ const open = (service: any) => {
           <span
             class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
           >
-            Total: {{ totalRecords }}
+            Total Services: {{ totalRecords }}
           </span>
         </div>
       </div>
