@@ -66,7 +66,7 @@ const open = (service: any) => {
       <ServiceCards :services="store.services" @subscribe="subscribe" />
     </div>
 
-    <div class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[84vh] flex flex-col">
+    <div class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[83vh] flex flex-col">
       <!-- Subscribed Services Area -->
       <!-- <SubscribedServices
         :subscribedServices="store.subscribedServices"
