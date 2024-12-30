@@ -6,7 +6,7 @@ import { onMounted, ref, type Ref, watch, computed } from "vue";
 
 
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(8);
+const limit: Ref<number> = ref(9);
 const subscribedServices: Ref<any[]> = ref([]);
 const totalRecords = computed(() => store.subscribedServices.length); // Total subscribedServices
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
