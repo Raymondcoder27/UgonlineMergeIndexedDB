@@ -3,6 +3,38 @@ import { useServicesStore } from "@/domain/services/stores";
 import ServiceCards from "@/domain/services/components/ServiceCards.vue";
 import SubscribedServices from "@/domain/services/components/SubscribedServices.vue";
 
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(8);
+const branches: Ref<any[]> = ref([]);
+const totalRecords = computed(() => branchStore.branches.length); // Total branches
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchSubscribedServices();
+};
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchSubscribedServices();
+};
+
+function next() {
+  page.value += 1;
+  fetchSubscribedServices();
+}
+
+function previous() {
+  page.value -= 1;
+  fetchSubscribedServices();
+}
+
+
 const store = useServicesStore();
 
 const subscribe = (serviceId: string) => {
