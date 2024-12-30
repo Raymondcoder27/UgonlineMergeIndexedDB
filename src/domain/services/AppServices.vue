@@ -117,7 +117,7 @@ const open = (service: any) => {
           <input
             type="number"
             placeholder="Page"
-            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-6"
             v-model.number="pageInput"
             @change="jumpToPage"
           />
@@ -127,7 +127,7 @@ const open = (service: any) => {
           <input
             type="number"
             placeholder="Page Size"
-            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-6"
             v-model.number="limit"
             @change="changePageSize"
           />
@@ -136,7 +136,7 @@ const open = (service: any) => {
           <span
             class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
           >
-            Total Records: {{ totalRecords }}
+            Total: {{ totalRecords }}
           </span>
         </div>
       </div>
