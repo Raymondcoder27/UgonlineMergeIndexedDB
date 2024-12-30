@@ -27,7 +27,7 @@ const jumpToPage = () => {
 const paginatedServices = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return branchStore.branches.slice(start, end); // Adjust according to your page & limit
+  return store.subscribedServices.slice(start, end); // Adjust according to your page & limit
 });
 
 function next() {
