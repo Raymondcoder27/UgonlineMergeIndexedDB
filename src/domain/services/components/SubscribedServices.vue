@@ -58,7 +58,7 @@ const open = (service: any) => {
           class="text-xs rounded-md p-1 font-semibold text-black-600 bg-gray-100 border border-gray-200 hover:text-red-700 hover:bg-red-200 hover:border-red-300"
           @click="unsubscribe(subscribedService.id)"
         >
-        <i class="fa-solid fa-times-square"></i>
+          <i class="fa-solid fa-times-square"></i>
           Unsubscribe
         </button>
       </div>
