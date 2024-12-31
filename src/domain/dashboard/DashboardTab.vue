@@ -132,7 +132,7 @@ onMounted(async () => {
     </div>
 
     <!-- Tab Content -->
-    <div class="h-screen flex flex-col overflow-y-auto">
+    <div class="max-h-[70vh] flex flex-col overflow-y-auto">
       <div class="w-full h-full">
         <HomeTab v-if="activeTab == 'hometab'" />
         <UserStatistics v-if="activeTab == 'users'" />
@@ -141,7 +141,7 @@ onMounted(async () => {
         <ServicesStatistics v-if="activeTab == 'services'" />
         <!-- </div> -->
         <!-- <div class="bg-white text-xs rounded-md text-center mb-2 h-[86vh]"> -->
-        <RevenueStatistics class="max-h-[70vh] overflow-y-auto" v-if="activeTab == 'revenue'" />
+        <RevenueStatistics class="" v-if="activeTab == 'revenue'" />
         <!-- </div> -->
       </div>
     </div>
