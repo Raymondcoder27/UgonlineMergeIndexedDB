@@ -132,8 +132,8 @@ onMounted(async () => {
     </div>
 
     <!-- Tab Content -->
-    <div class="max-h-[85vh] flex flex-col overflow-y-auto">
-      <div class="w-full h-full">
+    <div class="max-h-[80vh] flex flex-col overflow-y-auto">
+      <div class="">
         <HomeTab v-if="activeTab == 'hometab'" />
         <UserStatistics v-if="activeTab == 'users'" />
         <BranchStatistics v-if="activeTab == 'branches'" />
