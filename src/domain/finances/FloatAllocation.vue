@@ -17,7 +17,7 @@ const loading: Ref<boolean> = ref(false);
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(7);
-  const floatAllocations: Ref<any[]> = ref([]);
+const floatAllocations: Ref<any[]> = ref([]);
 const totalRecords = computed(() => billingStore.floatAllocations.length); // Total floatAllocations
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
@@ -48,7 +48,10 @@ function fetchFloatAllocations() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  floatAllocations.value = billingStore.floatAllocations.slice(startIndex, endIndex);
+  floatAllocations.value = billingStore.floatAllocations.slice(
+    startIndex,
+    endIndex
+  );
   loading.value = false;
 }
 const paginatedfloatAllocations = computed(() => {
@@ -247,10 +250,7 @@ watch(
             v-for="(assignment, idx) in billingStore.floatAllocations"
             :key="idx"
           > -->
-          <tr
-            v-for="(assignment, idx) in paginatedfloatAllocations"
-            :key="idx"
-          >
+          <tr v-for="(assignment, idx) in paginatedfloatAllocations" :key="idx">
             <td>{{ idx + 1 }}</td>
             <!-- <td>
               <label class="font-bold py-1">{{
