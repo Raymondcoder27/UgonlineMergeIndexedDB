@@ -57,7 +57,6 @@ const paginatedTransactions = computed(() => {
   return billingStore.transactions.slice(start, end); // Adjust according to your page & limit
 });
 
-
 // Filter setup for transactions
 const filter: IGoFilter = reactive({
   limit: 100,
@@ -231,9 +230,7 @@ onMounted(() => {
           </button> -->
           <div class="flex space-x-2 ml-10">
             <div class="flex items-center">
-              <label for="date-from" class=" text-sm text-gray-600"
-                >From:</label
-              >
+              <label for="date-from" class="text-sm text-gray-600">From:</label>
               <input
                 type="date"
                 id="date-from"
