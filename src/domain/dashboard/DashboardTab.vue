@@ -141,7 +141,7 @@ onMounted(async () => {
         <ServicesStatistics v-if="activeTab == 'services'" />
         <!-- </div> -->
         <!-- <div class="bg-white text-xs rounded-md text-center mb-2 h-[86vh]"> -->
-        <RevenueStatistics class="max-h-[70vh]" v-if="activeTab == 'revenue'" />
+        <RevenueStatistics class="max-h-[70vh] overflow-y-auto" v-if="activeTab == 'revenue'" />
         <!-- </div> -->
       </div>
     </div>
