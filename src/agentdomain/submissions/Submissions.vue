@@ -50,7 +50,7 @@ const submissions: Ref<any[]> = ref([]);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(15);
 
-const notify = useNotificationsStore()
+const notify = useNotificationsStore();
 // import type {
 //   Submission,
 //   FloatLedger,
@@ -184,7 +184,6 @@ watch(
 // Ref to track if content was copied
 const copied = ref(false);
 
-
 const copyToClipboard = async (trackingNumber: string) => {
   try {
     // You can replace this with any string you want to copy
@@ -215,67 +214,96 @@ watch(
 
 <template>
   <!-- <div class="flex flex-col min-h-[85vh]"> -->
-    <div class="">
+  <div class="">
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white p-2 flex flex-col min-h-[85vh]">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
-      <div class="flex-grow">
-        <div class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
-            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Filter by Status">
-            <option value="" disabled selected>Filter by Status</option>
-            <option value="PENDING">PENDING</option>
-            <option value="COMPLETED">COMPLETED</option>
-            <option value="BLOCKED">BLOCKED</option>
-          </select>
-          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down provider">
-            <option value="" disabled selected>Filter by Provider</option>
-            <option value="NIRA">NIRA</option>
-            <option value="URSB">URSB</option>
-            <!-- <option value="UMEME">UMEME</option> -->
-            <option value="NARO">Posta Uganda</option>
-          </select>
-            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Service">
-            <option value="" disabled selected>Filter by Service</option>
-            <option value="companyNameReservation">Company Name Reservation</option>
-            <option value="companyRegistration">Company Registration</option>
-            <option value="companyNameSearch">Company Name Search</option>
-            <option value="companyNameChange">Company Name Change</option>
-          </select>
-          <!-- <select class="filter-element e-select">
+        <div class="flex-grow">
+          <div
+            class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+          >
+            <input
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[0].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Search by Tracking Number"
+            />
+            <select
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[1].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Filter by Status"
+            >
+              <option value="" disabled selected>Filter by Status</option>
+              <option value="PENDING">PENDING</option>
+              <option value="COMPLETED">COMPLETED</option>
+              <option value="BLOCKED">BLOCKED</option>
+            </select>
+            <select
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[2].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Drop down provider"
+            >
+              <option value="" disabled selected>Filter by Provider</option>
+              <option value="NIRA">NIRA</option>
+              <option value="URSB">URSB</option>
+              <!-- <option value="UMEME">UMEME</option> -->
+              <option value="NARO">Posta Uganda</option>
+            </select>
+            <select
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[2].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Search by Service"
+            >
+              <option value="" disabled selected>Filter by Service</option>
+              <option value="companyNameReservation">
+                Company Name Reservation
+              </option>
+              <option value="companyRegistration">Company Registration</option>
+              <option value="companyNameSearch">Company Name Search</option>
+              <option value="companyNameChange">Company Name Change</option>
+            </select>
+            <!-- <select class="filter-element e-select">
             <option :value="null">- Select Status -</option>
             <option value="pending">Pending</option>
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
-          <div class="block">
-            <label for="date-from" class="mr-2 text-sm text-gray-600"
-              >From:</label
-            >
-            <input
-              type="date"
-              id="date-from"
-              class="e-input filter-element"
-              v-model="filter.fromDate"
-            />
-          </div>
-          <div class="block">
-            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
-            <input
-              type="date"
-              id="date-to"
-              class="e-input filter-element"
-              v-model="filter.toDate"
-            />
+            <div class="block">
+              <label for="date-from" class="mr-2 text-sm text-gray-600"
+                >From:</label
+              >
+              <input
+                type="date"
+                id="date-from"
+                class="e-input filter-element"
+                v-model="filter.fromDate"
+              />
+            </div>
+            <div class="block">
+              <label for="date-to" class="mr-2 text-sm text-gray-600"
+                >To:</label
+              >
+              <input
+                type="date"
+                id="date-to"
+                class="e-input filter-element"
+                v-model="filter.toDate"
+              />
+            </div>
           </div>
         </div>
-        
       </div>
-    </div>
       <!-- <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
         <div>
           <label for="date-range" class="mr-2 text-sm text-gray-600 justify-end">Date Range:</label>
@@ -320,21 +348,24 @@ watch(
               :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
             >
               <td>{{ idx + 1 }}</td>
-              <td
-                class="rounded-md font-semibold text-red-700"
-              >
-              <span @click="transactionDetails(transaction.id)" class="hover:underline">
-                {{ transaction.trackingNumber }}
-
-              </span>
+              <td class="rounded-md font-semibold text-red-700">
+                <span
+                  @click="transactionDetails(transaction.id)"
+                  class="hover:underline"
+                >
+                  {{ transaction.trackingNumber }}
+                </span>
                 <!-- make it copy to clipboard -->
-                <i @click="copyToClipboard(transaction.trackingNumber)" class="fa-regular fa-copy mx-1 ml-4 hover:text-gray-800"></i>
+                <i
+                  @click="copyToClipboard(transaction.trackingNumber)"
+                  class="fa-regular fa-copy mx-1 ml-4 hover:text-gray-800"
+                ></i>
               </td>
               <td>{{ transaction.service }}</td>
               <td class="text-left">{{ transaction.provider }}</td>
               <!-- <td>{{ transaction.till }}</td> -->
               <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
-              <td class="text-left">{{ transaction.fee.toLocaleString()}}</td>
+              <td class="text-left">{{ transaction.fee.toLocaleString() }}</td>
               <td class="text-left">
                 <!-- <div class="" v-if="submissionDraft(transaction.name)"> -->
                 <!-- use transaction.status = draft -->
@@ -424,16 +455,16 @@ watch(
                     class="bg-gray-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-gray-600"
                     @click="submitDraft(transaction)"
                   >
-                  <!-- appropriate icon -->
-                   <i class="fa fa-play"></i>
+                    <!-- appropriate icon -->
+                    <i class="fa fa-play"></i>
                     Resume
                   </button>
                   <button
                     class="bg-red-700 rounded-md ml-1 font-semibold text-white px-1 py-1 hover:bg-red-600"
                     @click="submitDraft(transaction)"
                   >
-                  <!-- appropriate icon -->
-                   <i class="fa fa-trash text-xs"></i>
+                    <!-- appropriate icon -->
+                    <i class="fa fa-trash text-xs"></i>
                     Delete
                   </button>
                 </div>
@@ -452,7 +483,7 @@ watch(
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="confirm(transaction)"
                   >
-                  <i class="fa fa-redo"></i>
+                    <i class="fa fa-redo"></i>
                     Resubmit
                   </span>
                 </div>
@@ -461,7 +492,7 @@ watch(
                     class="bg-green-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-green-700"
                     @click="confirm(transaction)"
                   >
-                  <i class="fa fa-eye"></i>
+                    <i class="fa fa-eye"></i>
                     View Details
                   </span>
                 </div>
@@ -470,7 +501,7 @@ watch(
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="confirm(transaction)"
                   >
-                  <i class="fa fa-redo"></i>
+                    <i class="fa fa-redo"></i>
                     Resubmit
                   </span>
                 </div>
@@ -479,7 +510,7 @@ watch(
                     class="bg-amber-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-amber-700"
                     @click="confirm(transaction)"
                   >
-                  <i class="fa fa-eye"></i>
+                    <i class="fa fa-eye"></i>
                     View Query
                   </span>
                 </div>
@@ -507,68 +538,68 @@ watch(
       </div>
 
       <div class="flex text-xs mt-auto justify-center items-center">
-      <div class="w-full border-t border-b border-gray-50">
-        <div class="flex gap-2 items-center">
-          <!-- Previous Button -->
-          <button
-            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
-            :disabled="page <= 1"
-            @click="previous"
-          >
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
+        <div class="w-full border-t border-b border-gray-50">
+          <div class="flex gap-2 items-center">
+            <!-- Previous Button -->
+            <button
+              class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+              :disabled="page <= 1"
+              @click="previous"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
 
-          <!-- Current Page / Total Pages -->
-          <div class="py-1">
-            <span class="px-2 py-1 bg-primary rounded text-white">{{
-              page
-            }}</span>
-            <label class="mx-1 text-gray-400">/</label>
-            <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
-              {{ totalPages }}
+            <!-- Current Page / Total Pages -->
+            <div class="py-1">
+              <span class="px-2 py-1 bg-primary rounded text-white">{{
+                page
+              }}</span>
+              <label class="mx-1 text-gray-400">/</label>
+              <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+                {{ totalPages }}
+              </span>
+            </div>
+            <button
+              class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="{
+                'opacity-50 cursor-not-allowed': submissions.length < limit,
+              }"
+              :disabled="submissions.length < limit"
+              @click="next"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Jump to Page -->
+            <label>Page</label>
+            <input
+              type="number"
+              placeholder="Page"
+              class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+              v-model.number="pageInput"
+              @change="jumpToPage"
+            />
+
+            <!-- Adjust Page Size -->
+            <label>Page Size</label>
+            <input
+              type="number"
+              placeholder="Page Size"
+              class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+              v-model.number="limit"
+              @change="changePageSize"
+            />
+
+            <!-- Total Records -->
+            <span
+              class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
+            >
+              Total Records: {{ totalRecords }}
             </span>
           </div>
-          <button
-            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            :class="{
-              'opacity-50 cursor-not-allowed': submissions.length < limit,
-            }"
-            :disabled="submissions.length < limit"
-            @click="next"
-          >
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-
-          <!-- Jump to Page -->
-          <label>Page</label>
-          <input
-            type="number"
-            placeholder="Page"
-            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
-            v-model.number="pageInput"
-            @change="jumpToPage"
-          />
-
-          <!-- Adjust Page Size -->
-          <label>Page Size</label>
-          <input
-            type="number"
-            placeholder="Page Size"
-            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
-            v-model.number="limit"
-            @change="changePageSize"
-          />
-
-          <!-- Total Records -->
-          <span
-            class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
-          >
-            Total Records: {{ totalRecords }}
-          </span>
         </div>
       </div>
-    </div>
     </div>
 
     <!-- Modal -->
