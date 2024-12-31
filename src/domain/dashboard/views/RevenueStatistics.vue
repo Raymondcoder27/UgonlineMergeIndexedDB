@@ -10,10 +10,19 @@ const pendingFloatRequests =
   billingStore.floatRequests?.filter((request) => request.status === "pending")
     ?.length || 0;
 const totalFloatRequests = billingStore.floatRequests?.length || 0;
-const approvedFloatRequests = billingStore.floatRequests?.filter((approvedRequest) => approvedRequest.status === "approved")?.length || 0;
-const rejectedFloatRequests = billingStore.floatRequests?.filter((rejectedRequest) => rejectedRequest.status === "rejected")?.length || 0;
+const approvedFloatRequests =
+  billingStore.floatRequests?.filter(
+    (approvedRequest) => approvedRequest.status === "approved"
+  )?.length || 0;
+const rejectedFloatRequests =
+  billingStore.floatRequests?.filter(
+    (rejectedRequest) => rejectedRequest.status === "rejected"
+  )?.length || 0;
 
-    const failedTransactions = billingStore.transactions?.filter((transaction) => transaction.status === "failed")?.length || 0;
+const failedTransactions =
+  billingStore.transactions?.filter(
+    (transaction) => transaction.status === "failed"
+  )?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
 // const failedTransactions = billingStore.transactions?
 
@@ -95,7 +104,7 @@ function labelExtractor(data: Statistic[]) {
               <!-- <p class="text-xl font-bold py-2">
                 {{ Number(67555600).toLocaleString() }}
               </p> -->
-                  <p class="text-xl font-bold py-2" style="font-size: 18px">
+              <p class="text-xl font-bold py-2" style="font-size: 18px">
                 {{ failedTransactions }}
               </p>
               <p class="text-xs">Failed Transactions</p>
@@ -105,14 +114,20 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xl font-bold py-2" style="font-size: 18px">
                 {{ totalFloatRequests }}
               </p>
-              <p class="text-xs">Total <br> Float Requests</p>
+              <p class="text-xs">
+                Total <br />
+                Float Requests
+              </p>
             </div>
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">{{Number(6274328300).toLocaleString()}}</p> -->
               <p class="text-xl font-bold py-2" style="font-size: 18px">
                 {{ pendingFloatRequests }}
               </p>
-              <p class="text-xs">Pending <br> Float Requests</p>
+              <p class="text-xs">
+                Pending <br />
+                Float Requests
+              </p>
             </div>
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">
@@ -121,7 +136,10 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xl font-bold py-2" style="font-size: 18px">
                 {{ approvedFloatRequests }}
               </p>
-              <p class="text-xs">Approved <br> Float Requests</p>
+              <p class="text-xs">
+                Approved <br />
+                Float Requests
+              </p>
             </div>
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">
@@ -130,7 +148,10 @@ function labelExtractor(data: Statistic[]) {
               <p class="text-xl font-bold py-2" style="font-size: 18px">
                 {{ rejectedFloatRequests }}
               </p>
-              <p class="text-xs">Rejected <br> Float Requests</p>
+              <p class="text-xs">
+                Rejected <br />
+                Float Requests
+              </p>
             </div>
             <!-- <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">{{Number(5433328300).toLocaleString()}}</p>
