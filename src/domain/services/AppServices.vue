@@ -81,7 +81,7 @@ const open = (service: any) => {
       <div class="flex text-xs mt-auto my-3">
         <!-- <div class="w-full border-t border-b border-gray-50"> -->
         <div class="w-full border-gray-50">
-          <div class="flex gap-2 items-center">
+          <div class="flex gap-2 items-center mx-4">
             <!-- Previous Button -->
             <button
               class="px-0.5 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
