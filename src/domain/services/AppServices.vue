@@ -4,7 +4,6 @@ import ServiceCards from "@/domain/services/components/ServiceCards.vue";
 import SubscribedServices from "@/domain/services/components/SubscribedServices.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
 
-
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(9);
 const subscribedServices: Ref<any[]> = ref([]);
@@ -42,7 +41,6 @@ function previous() {
   fetchSubscribedServices();
 }
 
-
 const store = useServicesStore();
 
 const subscribe = (serviceId: string) => {
@@ -66,7 +64,9 @@ const open = (service: any) => {
       <ServiceCards :services="store.services" @subscribe="subscribe" />
     </div>
 
-    <div class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[84vh] flex flex-col">
+    <div
+      class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[84vh] flex flex-col"
+    >
       <!-- Subscribed Services Area -->
       <!-- <SubscribedServices
         :subscribedServices="store.subscribedServices"
@@ -79,42 +79,43 @@ const open = (service: any) => {
         @open="open"
       />
       <div class="flex text-xs mt-auto my-3">
-      <!-- <div class="w-full border-t border-b border-gray-50"> -->
-      <div class="w-full border-gray-50">
-        <div class="flex gap-2 items-center">
-          <!-- Previous Button -->
-          <button
-            class="px-0.5 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
-            :disabled="page <= 1"
-            @click="previous"
-          >
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
+        <!-- <div class="w-full border-t border-b border-gray-50"> -->
+        <div class="w-full border-gray-50">
+          <div class="flex gap-2 items-center">
+            <!-- Previous Button -->
+            <button
+              class="px-0.5 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+              :disabled="page <= 1"
+              @click="previous"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
 
-          <!-- Current Page / Total Pages -->
-          <div class="py-1">
-            <span class="px-2 py-1 bg-primary rounded text-white">{{
-              page
-            }}</span>
-            <label class="mx-1 text-gray-400">/</label>
-            <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
-              {{ totalPages }}
-            </span>
-          </div>
-          <button
-            class="px-0.5 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            :class="{
-              'opacity-50 cursor-not-allowed': subscribedServices.length < limit,
-            }"
-            :disabled="subscribedServices.length < limit"
-            @click="next"
-          >
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
+            <!-- Current Page / Total Pages -->
+            <div class="py-1">
+              <span class="px-2 py-1 bg-primary rounded text-white">{{
+                page
+              }}</span>
+              <label class="mx-1 text-gray-400">/</label>
+              <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+                {{ totalPages }}
+              </span>
+            </div>
+            <button
+              class="px-0.5 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="{
+                'opacity-50 cursor-not-allowed':
+                  subscribedServices.length < limit,
+              }"
+              :disabled="subscribedServices.length < limit"
+              @click="next"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
 
-          <!-- Jump to Page -->
-          <!-- <label>Page</label>
+            <!-- Jump to Page -->
+            <!-- <label>Page</label>
           <input
             type="number"
             placeholder="Page"
@@ -123,8 +124,8 @@ const open = (service: any) => {
             @change="jumpToPage"
           /> -->
 
-          <!-- Adjust Page Size -->
-          <!-- <label>Page Size</label>
+            <!-- Adjust Page Size -->
+            <!-- <label>Page Size</label>
           <input
             type="number"
             placeholder="Page Size"
@@ -139,9 +140,9 @@ const open = (service: any) => {
           >
             Total Services: {{ totalRecords }}
           </span> -->
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
