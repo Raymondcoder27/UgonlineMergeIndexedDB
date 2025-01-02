@@ -73,10 +73,15 @@ function labelExtractor(data:Statistic[]){
               <p class="text-xs">Gateway Configured Providers</p>
             </div> -->
           </div>
-          <div class="flex">
-            <div class="w-6/12">
+          <div class="block">
+            <div class="flex">
+              <div class="w-6/12">
               <LineChart title="Distribution of Till Operator onboarding" :graph-data="providerOnboarding" :is-horizontal="false"
                          :labels="labelExtractor(providerOnboarding[0].data)"/>
+            </div>
+            <div class="w-6/12">
+              <PieChart title="Distribution of Till Operators by Gender" :data="[43, 57]" :labels="['Male','Female']"/>
+            </div>
             </div>
             <div class="w-6/12">
               <PieChart title="Distribution of Till Operators by Gender" :data="[43, 57]" :labels="['Male','Female']"/>
