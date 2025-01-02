@@ -7,7 +7,9 @@ import moment from "moment";
 import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
 import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
-import AddManager from "@/domain/accounts/components/AddManager.vue";
+// import AddManager from "@/domain/accounts/components/AddManager.vue";
+import EditManager from "@/domain/accounts/components/EditManager.vue";
+
 import { useBranchStore } from "@/domain/branches/stores"; // Updated import
 
 const pageInput = ref(1);
@@ -350,7 +352,7 @@ onMounted(() => {
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <AddManager @managerAccountCreated="close" @cancel="close" />
+    <EditManager @managerAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>
