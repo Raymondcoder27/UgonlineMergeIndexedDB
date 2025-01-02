@@ -9,10 +9,13 @@ import ServiceForm from "@/agentdomain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
 const serviceFormModalOpen: Ref<boolean> = ref(false);
 function serviceForm(id: string) {
+  loading.value = true
   // Logic to open the modal or start the process
   // console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
   serviceFormModalOpen.value = true;
+
+  loading.value = false
 }
 // const close = () => {
 //   serviceFormModalOpen.value = false;
@@ -38,7 +41,7 @@ const jumpToPage = () => {
   fetchSubmissions();
 };
 
-const loading: Ref<boolean> = ref(false);
+// const loading: Ref<boolean> = ref(false);
 
 function fetchSubmissions() {
   // store
