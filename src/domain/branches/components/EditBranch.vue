@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, defineEmits, onMounted, watch } from "vue";
+import { ref, reactive, defineEmits, onMounted } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 
@@ -48,7 +48,6 @@ function submit() {
   };
 
   // Simulate saving the edited branch (assuming it updates the store)
-  // You can implement the actual API call for updating a branch here
   branchStore.addBranch(payload);  // If you were adding a new branch or you can update it via another method
   loading.value = false;
 
@@ -61,110 +60,116 @@ function cancel() {
   emit("cancel");
 }
 
-// Edit or update logic for branch attributes (if needed)
-function updateField(field: string, value: string) {
-  branch.value[field] = value;
-}
-
 </script>
 
 <template>
-  <div v-if="loading" class="loading">Loading...</div>
-  
-  <div v-else>
-    <h2>Edit Branch</h2>
+  <div v-if="loading" class="bg-white py-5">
+    <p class="text-xl font-bold">Loading...</p>
+  </div>
 
-    <form @submit.prevent="submit">
-      <div>
-        <label for="name">Branch Name</label>
+  <div v-else class="bg-white py-5">
+    <p class="text-xl font-bold">Edit Branch</p>
+    <form @submit.prevent="submit" class="pt-5">
+      <!-- Branch Name -->
+      <div class="flex flex-col my-2">
+        <label for="name" class="text-neutral-600 text-xs font-bold mb-1">Branch Name</label>
         <input
-          v-model="branch.name"
           type="text"
           id="name"
+          v-model="branch.name"
+          class="form-element e-input w-full"
           required
         />
       </div>
 
-      <div>
-        <label for="location">Location</label>
+      <!-- Branch Location -->
+      <div class="flex flex-col my-2">
+        <label for="location" class="text-neutral-600 text-xs font-bold mb-1">Location</label>
         <input
-          v-model="branch.location"
           type="text"
           id="location"
+          v-model="branch.location"
+          class="form-element e-input w-full"
           required
         />
       </div>
 
-      <div>
-        <label for="manager">Manager</label>
+      <!-- Branch Manager -->
+      <div class="flex flex-col my-2">
+        <label for="manager" class="text-neutral-600 text-xs font-bold mb-1">Manager</label>
         <input
-          v-model="branch.manager"
           type="text"
           id="manager"
+          v-model="branch.manager"
+          class="form-element e-input w-full"
         />
       </div>
 
-      <div>
-        <label for="status">Status</label>
-        <select v-model="branch.status" id="status" required>
+      <!-- Branch Status -->
+      <div class="flex flex-col my-2">
+        <label for="status" class="text-neutral-600 text-xs font-bold mb-1">Status</label>
+        <select
+          v-model="branch.status"
+          id="status"
+          class="form-element e-input w-full"
+          required
+        >
           <option value="Active">Active</option>
           <option value="Inactive">Inactive</option>
         </select>
       </div>
 
-      <div class="buttons">
-        <button type="submit">Save Changes</button>
-        <button @click="cancel" type="button">Cancel</button>
+      <!-- Action Buttons -->
+      <div class="flex my-5">
+        <div class="w-6/12 px-1">
+          <button
+            type="button"
+            @click="cancel"
+            class="button-outline w-full py-2 text-sm border border-gray-300 rounded"
+          >
+            <i class="fa-solid fa-ban"></i> Cancel
+          </button>
+        </div>
+        <div class="w-6/12 px-1">
+          <button
+            type="submit"
+            class="button w-full py-2 text-sm bg-blue-500 text-white rounded"
+          >
+            <i class="fa-solid fa-save"></i> Save Changes
+          </button>
+        </div>
       </div>
     </form>
   </div>
 </template>
 
+<!-- <style scoped>
+@import "@/assets/styles/button.css";
+@import "@/assets/styles/forms.css";
+@import "@/assets/styles/ring.css";
+@import "@/assets/styles/ripple.css";
 
+.form-element {
+  @apply border rounded-md px-3 py-2 text-sm;
+}
 
-<!-- <template>
-  <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Edit Branch</p>
-    <p class="text-sm text-gray-500" v-if="form.name"> <b>{{form.name}}</b> is public good consumed and/or paid for.</p>
-    <form @submit.prevent="submit" class="pt-5">
-      <div v-for="(account, idx) in store.managerAccounts" :key="idx">
-        <div class="flex">
-          <div class="cell-full">
-            <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
-            <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
-                   required />
-            {{branch.name}}
-          </div>
-        </div>
+.e-input {
+  @apply shadow-sm border-gray-300 focus:ring-2 focus:ring-blue-500;
+}
 
-        <div class="flex">
-          <div class="cell-full">
-            <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch Manager</label>
-            <select v-model="form.providerId" class="noFocus form-element e-input w-full">
-              <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
-            </select>
-            {{ account.firstName }} {{ account.lastName }}
-          </div>
-        </div>
- 
+.button-outline {
+  @apply border border-gray-300 text-gray-700 hover:bg-gray-100;
+}
 
+.button {
+  @apply bg-blue-500 hover:bg-blue-600 text-white;
+}
 
-      <div class="flex my-2 py-5">
-        <div class="w-6/12 px-1">
-          <button class="button-outline" type="button" @click="emit('cancel')">
-            <i class="fa-solid fa-ban"></i> Cancel
-          </button>
-        </div>
-        <div class="w-6/12 px-1">
-          <button class="button" type="submit">
-            <i class="fa-solid fa-hand-pointer"></i> Submit
-          </button>
-        </div>
-      </div>
-    </div>
-    </form>
-  </div>
-</template> -->
+button {
+  @apply transition-colors duration-300;
+}
+</style> -->
+
 
 <style scoped>
 @import "@/assets/styles/button.css";
