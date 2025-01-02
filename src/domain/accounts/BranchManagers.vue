@@ -261,7 +261,7 @@ onMounted(() => {
         </tbody>
       </table>
     </div>
-    <div class="flex">
+    <!-- <div class="flex">
       <div class="w-full">
         <div class="flex text-xs" v-if="limit == store.managerAccounts?.length || page > 1">
           <button v-if="page > 1" class="pagination-button text-xs" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
@@ -274,7 +274,7 @@ onMounted(() => {
           <button v-else class="pagination-button text-xs" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="flex text-xs mt-auto">
       <div class="w-full border-t border-b border-gray-50">
