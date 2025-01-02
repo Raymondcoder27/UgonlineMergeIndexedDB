@@ -96,7 +96,25 @@ watch(
   <div class="bg-white py-5">
     <p class="text-xl font-bold"> Edit Branch</p>
     <p class="text-sm text-gray-500" v-if="form.name"> <b>{{form.name}}</b> is public good consumed and/or paid for.</p>
-    <form @submit.prevent="submit" class="pt-5">
+    <!-- <form @submit.prevent="submit" class="pt-5"> -->
+      <div v-for="(account, idx) in accountStore.managerAccounts" :key="idx">
+        <div class="flex">
+          <div class="cell-full">
+            <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
+            <!-- <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
+                   required /> -->
+            {{branch.name}}
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="cell-full">
+            <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch Manager</label>
+            <!-- <select v-model="form.providerId" class="noFocus form-element e-input w-full">
+              <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
+            </select> -->
+          </div>
+        </div>
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
@@ -109,7 +127,6 @@ watch(
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch Manager</label>
-          {{form.manager}}
           <!-- <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
           </select> -->
@@ -170,7 +187,8 @@ watch(
           </button>
         </div>
       </div>
-    </form>
+    </div>
+    <!-- </form> -->
   </div>
 </template>
 
