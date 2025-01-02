@@ -8,6 +8,7 @@ import moment from "moment/moment";
 import router from "@/router";
 import { useProviderStore } from "@/domain/entities/stores";
 import AssignBranchManager from "@/domain/branches/components/AssignBranchManager.vue";
+import EditBranch from "@/domain/branches/components/EditBranch.vue";
 // import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
@@ -485,7 +486,7 @@ onMounted(() => {
 
   <AppModal v-model="editModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
-    <EditService @cancel="close" />
+    <EditBranch @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
   <!-- /Modal -->
