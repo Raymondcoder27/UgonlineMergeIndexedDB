@@ -5,6 +5,7 @@ import { ref, computed } from "vue";
 import { useServicesStore } from "@/domain/services/stores";
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(9);
+const subscribedServices: Ref<any[]> = ref([]);
 const totalRecords = computed(() => store.subscribedServices.length); // Total subscribedServices
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
