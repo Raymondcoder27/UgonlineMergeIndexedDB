@@ -1,7 +1,7 @@
  
   <script setup lang="ts">
 import type { Ref } from "vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useServicesStore } from "@/domain/services/stores";
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(9);
@@ -83,7 +83,7 @@ const open = (service: any) => {
         class="list-none flex justify-between mx-3 py-2"
       > -->
       <div
-        v-for="(subscribedService, id) in store.paginatedServices"
+        v-for="(subscribedService, id) in paginatedServices"
         :key="id"
         class="list-none flex justify-between mx-3 py-2"
       >
