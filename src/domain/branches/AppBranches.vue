@@ -89,8 +89,9 @@ function open(branch: Branch) {
 
 // edit branch
 function edit(branch: Branch) {
-  localStorage.setItem("branch", JSON.stringify(branch));
   editModalOpen.value = true;
+  // localStorage.setItem("branch", JSON.stringify(branch));
+  console.log("Branch to edit: ", branch);
 }
 
 //configure branch
