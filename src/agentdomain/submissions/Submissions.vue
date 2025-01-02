@@ -15,9 +15,9 @@ function serviceForm(id: string) {
   // Example: modalOpen.value = true;
   serviceFormModalOpen.value = true;
 }
-const close = () => {
-  serviceFormModalOpen.value = false;
-};
+// const close = () => {
+//   serviceFormModalOpen.value = false;
+// };
 
 
 
@@ -628,6 +628,10 @@ watch(
     <AppModal v-model="transactionDetailsModalOpen" xl2>
       <TransactionDetails @transactionViewed="close" @cancel="close" />
     </AppModal>
+
+    <AppModal v-model="serviceFormModalOpen" xl2>
+    <ServiceForm @serviceSubmitted="close" @cancel="close" />
+  </AppModal>
   </div>
 </template>
 
