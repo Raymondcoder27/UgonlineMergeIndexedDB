@@ -7,6 +7,8 @@ import {useSettingsStore} from "@/domain/settings/stores";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
 import {defineEmits} from "vue";
+import { useBranchStore } from "@/domain/branches/stores";
+import { useAccounts } from "@/domain/accounts/stores";
 
 const store = useServicesStore()
 const providerStore = useProviderStore()
@@ -34,7 +36,8 @@ let form:ServiceForm = reactive({
 const emit = defineEmits(['cancel'])
 
 onMounted(() => {
-
+  store.fetchBackofficeAccounts();
+  branchStore.fetchBranches().finally(() => (loading.value = false));
   let data = JSON.parse(<string>localStorage.getItem("service"))
   form.name = data.name
   form.description = data.description
@@ -113,6 +116,7 @@ watch(
             <!-- <select v-model="form.providerId" class="noFocus form-element e-input w-full">
               <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
             </select> -->
+            {{ account.firstName }} {{ account.lastName }}
           </div>
         </div>
       <div class="flex">
