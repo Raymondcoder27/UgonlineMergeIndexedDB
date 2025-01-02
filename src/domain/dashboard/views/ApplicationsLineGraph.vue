@@ -222,7 +222,7 @@ function labelExtractor(data: Statistic[]) {
           <div class="flex">
             <div class="w-full">
               <LineChart
-                title="Distribution of Service Applications by Till"
+                title="Distribution of Service Applications over time"
                 :graph-data="serviceApplicationsDistribution"
                 :is-horizontal="false"
                 :labels="
