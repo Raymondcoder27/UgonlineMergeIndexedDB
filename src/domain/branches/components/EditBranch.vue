@@ -6,6 +6,7 @@ import {useProviderStore} from "@/domain/entities/stores";
 import {useSettingsStore} from "@/domain/settings/stores";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
+import {defineEmits} from "vue";
 
 const store = useServicesStore()
 const providerStore = useProviderStore()
@@ -93,26 +94,28 @@ watch(
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Edit Service</p>
+    <p class="text-xl font-bold"> Edit Branch</p>
     <p class="text-sm text-gray-500" v-if="form.name"> <b>{{form.name}}</b> is public good consumed and/or paid for.</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
-          <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
-                 required />
+          <!-- <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
+                 required /> -->
+          {{form.name}}
         </div>
       </div>
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Provider</label>
-          <select v-model="form.providerId" class="noFocus form-element e-input w-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch Manager</label>
+          {{form.manager}}
+          <!-- <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
-          </select>
+          </select> -->
         </div>
       </div>
-
+<!-- 
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Accessibility Tier</label>
@@ -120,7 +123,7 @@ watch(
             <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex">
         <div class="cell-full">
@@ -131,7 +134,7 @@ watch(
       </div>
 
 
-      <div class="flex my-5">
+      <!-- <div class="flex my-5">
         <div class="w-full">
           <div class="flex">
             <p class="font-bold px-1">Basic User Requirements</p>
@@ -153,7 +156,7 @@ watch(
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
