@@ -304,7 +304,7 @@ watch(
         </tbody>
       </table>
     </div>
-    <div class="flex">
+    <!-- <div class="flex">
       <div class="w-full">
         <div
           class="flex"
@@ -335,7 +335,7 @@ watch(
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="flex text-xs mt-auto">
       <div class="w-full border-t border-b border-gray-50">
