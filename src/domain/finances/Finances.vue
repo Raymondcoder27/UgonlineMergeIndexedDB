@@ -39,7 +39,7 @@ function select(tab: string) {
         <span
           class="bg-gray-50 mt-5 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md flex"
           >
-        <i class="fas fa-wallet px-1 pt-0.5"></i>
+        <i class="fas fa-wallet px-1 pt-0.5 text-red-700"></i>
 
           {{ totalBalance.currentBalance.toLocaleString() }}/=</span
         >
