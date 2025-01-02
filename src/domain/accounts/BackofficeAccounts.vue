@@ -241,9 +241,14 @@ watch(
                   @click="open()"></i>
                   <i class="text-gray-600 fa-solid fa-trash px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i> -->
-                  <span
+                  <!-- <span
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="viewDetails(account.id)"
+                  > -->
+                  <span
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
+                    @click="modalOpen = true"
+
                   >
                   <i class="fa fa-eye"></i>
                     View
