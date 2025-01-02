@@ -158,14 +158,14 @@ const open = (service: any) => {
             </button>
 
             <!-- Jump to Page -->
-            <!-- <label>Page</label>
+            <label>Page</label>
           <input
             type="number"
             placeholder="Page"
             class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-6"
             v-model.number="pageInput"
             @change="jumpToPage"
-          /> -->
+          />
 
             <!-- Adjust Page Size -->
             <!-- <label>Page Size</label>
