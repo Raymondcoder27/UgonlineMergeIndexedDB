@@ -37,6 +37,9 @@ const jumpToPage = () => {
   }
   fetchSubmissions();
 };
+
+const loading: Ref<boolean> = ref(false);
+
 function fetchSubmissions() {
   // store
   //   .fetchSubmissions(page.value, limit.value)
@@ -491,7 +494,9 @@ watch(
           </button>
         </div> -->
                     Resume
-                    <span v-if="loading" class="lds-ring">
+                     <span v-if="loading" class="lds-ring"> 
+                   <!-- <span class="lds-ring"> -->
+
               <div></div>
               <div></div>
               <div></div>
