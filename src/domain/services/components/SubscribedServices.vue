@@ -62,7 +62,7 @@ const open = (service: any) => {
   
   <template>
   <!-- <div class="flex flex-col justify-between mt-3 text-left"> -->
-  <div>
+  <div class="h-full flex flex-col">
     <div
       class="mt-3 mx-2 px-2 bg-white rounded-md flex items-center justify-between border border-gray-50 focus:ring-2 focus:ring-red-500"
     >
