@@ -243,10 +243,15 @@ onMounted(() => {
             <td class="text-center">{{ convertDate(account.createdAt) }}</td>
             <td class="text-right">
               <div class="text-center" v-if="!account.blockedAt">
-                <span
+                <!-- <span
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="viewDetails(account.id)"
-                  >
+                  > -->
+                  <span
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
+                    @click="modalOpen = true"
+
+                  ></span>
                   <i class="fa fa-eye"></i>
                     View
                   </span>
