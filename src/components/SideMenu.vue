@@ -53,11 +53,11 @@ const sideMenu: SideMenuLink[] = [
     // iconClass: "fa-solid fa-money-bill",
     iconClass: "fa-solid fa-coins"
   },
-  // {
-  //   name: "app-reports",
-  //   label: "Reports",
-  //   iconClass: "fa-solid fa-chart-line",
-  // },
+  {
+    name: "app-reports",
+    label: "Reports",
+    iconClass: "fa-solid fa-chart-line",
+  },
   // {
   //   name: "app-services-details",
   //   label: "Services Details",
