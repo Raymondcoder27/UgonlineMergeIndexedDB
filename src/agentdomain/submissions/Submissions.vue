@@ -539,7 +539,7 @@ watch(
         </table>
       </div>
 
-      <div class="flex text-xs mt-auto justify-center items-center">
+      <div v-if="showPagination" class="flex text-xs mt-auto justify-center items-center">
         <div class="w-full border-t border-b border-gray-50">
           <div class="flex gap-2 items-center">
             <!-- Previous Button -->
