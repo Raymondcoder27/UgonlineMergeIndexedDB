@@ -55,6 +55,9 @@ function fetchFloatLedgers() {
   floatLedgers.value = billingStore.floatLedgers.slice(startIndex, endIndex);
   loading.value = false;
 }
+
+const showPagination = computed(() => totalRecords.value >= limit.value);
+
 // const paginatedFloatLedgers = computed(() => {
 //   const start = (page.value - 1) * limit.value;
 //   const end = start + limit.value;
@@ -410,7 +413,8 @@ watch(
     </div>
   </div>
 
-  <div class="flex text-xs mt-auto">
+  <!-- <div class="flex text-xs mt-auto"> -->
+  <div v-if="showPagination" class="flex text-xs mt-auto">
     <div class="w-full border-t border-b border-gray-50">
       <div class="flex gap-2 items-center">
         <!-- Previous Button -->
