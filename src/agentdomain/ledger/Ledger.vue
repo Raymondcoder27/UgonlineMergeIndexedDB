@@ -63,7 +63,7 @@ const floatLedgers: Ref<any[]> = ref([]);
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
 const page = ref(1);
-const limit = ref(15);
+const limit = ref(10);
 
 // Billing-specific filter
 const filter = reactive({
