@@ -32,11 +32,16 @@ function select(tab: string) {
         ></i>
         <label class="text-lg mx-1">Finances</label>
       </div>
-      <div class="">
-        Balance
+      <div class="flex">
+        <!-- Balance -->
+        <!-- <i class="fas fa-wallet"></i> -->
+
         <span
-          class="bg-gray-50 mt-5 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md"
-          >{{ totalBalance.currentBalance.toLocaleString() }}/=</span
+          class="bg-gray-50 mt-5 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md flex"
+          >
+        <i class="fas fa-wallet px-1 pt-0.5"></i>
+
+          {{ totalBalance.currentBalance.toLocaleString() }}/=</span
         >
       </div>
     </div>
