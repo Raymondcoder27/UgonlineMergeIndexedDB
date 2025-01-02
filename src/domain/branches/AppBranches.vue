@@ -342,9 +342,18 @@ onMounted(() => {
               </div>
 
               <!-- Third Case: Fallback, no manager assigned -->
-              <div v-else>
+              <!-- <div v-else>
                 <button
                   class="bg-red-200 rounded-sm text-xs font-semibold text-red-700 px-1.5 py-1 hover:underline"
+                  @click="assignManager(branch)"
+                >
+                  <i class="fa fa-user-plus"></i>
+                  Assign Manager
+                </button>
+              </div> -->
+              <div v-else>
+                <button
+                  class="bg-red-700 rounded-md text-xs font-semibold text-white px-1.5 py-1 hover:underline"
                   @click="assignManager(branch)"
                 >
                   <i class="fa fa-user-plus"></i>
@@ -385,7 +394,7 @@ onMounted(() => {
                 @click="open(branch)"
               ></i> -->
               <span
-                class="p-1 mx-1 rounded-md text-white bg-green-600 border border-green-200 hover:text-green-700"
+                class="p-1 mx-1 rounded-md text-white bg-green-600 hover:bg-green-800"
               >
                 <i class="fa-solid fa-pen" @click="edit(branch)"></i>
                 Edit
