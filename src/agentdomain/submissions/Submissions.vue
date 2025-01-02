@@ -477,6 +477,19 @@ watch(
                   >
                     <!-- appropriate icon -->
                     <i class="fa fa-play"></i>
+<!-- 
+                    <div class="flex justify-between py-2">
+          <span></span>
+          <button class="button" type="submit">
+            Send Request
+            <span v-if="loading" class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </span>
+          </button>
+        </div> -->
                     Resume
                   </button>
                   <button
@@ -645,4 +658,5 @@ watch(
 @import "@/assets/styles/button.css";
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
+@import "@/assets/styles/loading-ring.css";
 </style>
