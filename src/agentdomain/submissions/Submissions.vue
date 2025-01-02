@@ -491,6 +491,12 @@ watch(
           </button>
         </div> -->
                     Resume
+                    <span v-if="loading" class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </span>
                   </button>
                   <button
                     class="bg-red-700 rounded-md ml-1 font-semibold text-white px-1 py-1 hover:bg-red-600"
