@@ -68,16 +68,16 @@ const open = (service: any) => {
       class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[84vh] flex flex-col"
     >
       <!-- Subscribed Services Area -->
-      <!-- <SubscribedServices
+      <SubscribedServices
         :subscribedServices="store.subscribedServices"
         @unsubscribe="unsubscribeFromService"
         @open="open"
-      /> -->
-      <SubscribedServices
+      />
+      <!-- <SubscribedServices
         :subscribedServices="paginatedServices"
         @unsubscribe="unsubscribeFromService"
         @open="open"
-      />
+      /> -->
       <div class="flex text-xs mt-auto my-3">
         <!-- <div class="w-full border-t border-b border-gray-50"> -->
         <div class="w-full border-gray-50">
