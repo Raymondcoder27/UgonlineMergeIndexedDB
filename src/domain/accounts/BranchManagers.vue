@@ -15,6 +15,8 @@ const changePageSize = () => {
   page.value = 1;
   fetchManagerAccounts();
 };
+const showPagination = computed(() => totalRecords.value >= limit.value);
+
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
     page.value = totalPages.value;
