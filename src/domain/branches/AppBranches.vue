@@ -395,7 +395,7 @@ onMounted(() => {
                 @click="open(branch)"
               ></i> -->
               <span
-                class="p-1 mx-1 rounded-md text-white bg-green-600 hover:bg-green-800"
+                class="p-1 mx-1 rounded-md text-white bg-blue-600 hover:bg-blue-800"
               >
                 <i class="fa-solid fa-pen" @click="edit(branch)"></i>
                 Edit
