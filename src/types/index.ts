@@ -78,6 +78,7 @@ export interface ManagerAccount {
   username: string;
   email: string;
   branchName: string;
+  branch: string;
   phone: string;
   role: string;
   createdAt: string;
