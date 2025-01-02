@@ -353,7 +353,7 @@ onMounted(() => {
               </div> -->
               <div v-else>
                 <button
-                  class="bg-red-700 rounded-md text-xs font-semibold text-white px-1.5 py-1 hover:underline"
+                  class="bg-red-600 rounded-md text-xs font-semibold text-white px-1.5 py-1 hover:underline"
                   @click="assignManager(branch)"
                 >
                   <i class="fa fa-user-plus"></i>
