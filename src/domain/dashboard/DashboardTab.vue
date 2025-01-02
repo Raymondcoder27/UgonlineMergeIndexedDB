@@ -55,7 +55,7 @@ onMounted(async () => {
   <!-- <div class="flex flex-col w-full shadow-lg bg-white rounded h-screen"> -->
   <div class="flex flex-col bg-white shadow-lg rounded p-1 h-[86vh]">
     <!-- Tabs -->
-    <div class="flex border-b-2 border-red-700 gap-1">
+    <div class="flex border-b-2 border-primary gap-1">
       <!-- Services Tab -->
       <div
         :class="activeTab == 'services' ? 'tab-active' : 'tab'"

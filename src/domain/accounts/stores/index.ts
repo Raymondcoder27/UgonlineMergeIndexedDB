@@ -77,7 +77,22 @@ export const useAccounts = defineStore("user-management", () => {
       id: "2", firstName: "Sarah", lastName: "Nambasa", username: "sarahnambasa.agent@example.com",
       phone: "456-789-0123", role: "admin", createdAt: "2021-04-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01", email: "sarahnambasa.agent@example.com"
-    }
+    },
+    {
+      id: "3", firstName: "Joseph", lastName: "Mugisha", username: "josephmugisha@gmail.com",
+      phone: "567-890-1234", role: "admin", createdAt: "2021-05-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-05-01", email: "josephmugisha@gmail.com",
+    },
+    {
+      id: "4", firstName: "Grace", lastName: "Nakato", username: "gracenakato@gmail.com",
+      phone: "678-901-2345", role: "admin", createdAt: "2021-06-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-06-01", email: "gracenakato@gmail.com",
+    },
+    {
+      id: "5", firstName: "Moses", lastName: "Kato", username: "katomoses@gmail.com",
+      phone: "789-012-3456", role: "admin", createdAt: "2021-07-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-07-01", email: "katomoses@gmail.com",
+    },
   ];
 
 
