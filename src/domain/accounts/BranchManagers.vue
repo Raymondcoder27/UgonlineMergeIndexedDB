@@ -250,8 +250,7 @@ onMounted(() => {
                   <span
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="modalOpen = true"
-
-                  ></span>
+                  >
                   <i class="fa fa-eye"></i>
                     View
                   </span>
