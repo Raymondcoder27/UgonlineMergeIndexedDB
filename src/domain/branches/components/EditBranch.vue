@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {onMounted, reactive, ref, type Ref, watch} from "vue";
-import {useServicesStore} from "@/domain/services/stores";
+// import {useServicesStore} from "@/domain/services/stores";
 import {useProviderStore} from "@/domain/entities/stores";
 import {useSettingsStore} from "@/domain/settings/stores";
 import {useNotificationsStore} from "@/stores/notifications";
@@ -10,20 +10,21 @@ import {defineEmits} from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useAccounts } from "@/domain/accounts/stores";
 
-const store = useServicesStore()
+const store = useAccounts()
+const branchStore = useBranchStore()
 const providerStore = useProviderStore()
 const settingsStore = useSettingsStore()
 const loading: Ref<boolean> = ref(false)
 const notify = useNotificationsStore()
 
-type ServiceForm = {
-  id:string,
-  name: string,
-  description: string,
-  requirements: string[],
-  providerId: string,
-  accessibilityTier: string,
-}
+// type ServiceForm = {
+//   id:string,
+//   name: string,
+//   description: string,
+//   requirements: string[],
+//   providerId: string,
+//   accessibilityTier: string,
+// }
 
 let form:ServiceForm = reactive({
   id:"",
