@@ -467,10 +467,14 @@ watch(
                 <!-- <div class="" v-if="submissionDraft(transaction.name)"> -->
                 <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
-                  <button
+                  <!-- <button
                     class="bg-gray-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-gray-600"
                     @click="submitDraft(transaction)"
-                  >
+                  > -->
+                  <button
+                    class="bg-gray-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-gray-600"
+                    @click="serviceForm(transaction)"
+                  ></button>
                     <!-- appropriate icon -->
                     <i class="fa fa-play"></i>
                     Resume
