@@ -32,6 +32,7 @@ export interface Account {
   firstName: string;
   lastName: string;
   middleNames: string;
+  email: string;
   role: string;
   username: string
   emailVerified: boolean
