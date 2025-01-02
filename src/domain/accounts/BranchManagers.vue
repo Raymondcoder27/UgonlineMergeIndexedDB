@@ -4,9 +4,12 @@ import { useAccounts } from "@/domain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive, computed } from "vue";
 import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
 import moment from "moment";
-import type { IGoFilter } from "@/types"
-import { useDebounceFn } from "@vueuse/core"
-import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
+import type { IGoFilter } from "@/types";
+import { useDebounceFn } from "@vueuse/core";
+import type {
+  IResendVerificationPayload,
+  TAccountVerificationType,
+} from "./types";
 // import AddManager from "@/domain/accounts/components/AddManager.vue";
 import EditManager from "@/domain/accounts/components/EditManager.vue";
 
@@ -64,40 +67,40 @@ const limit: Ref<number> = ref(7);
 const filter: IGoFilter = reactive({
   limit: 100,
   offset: 0,
-  page:0,
+  page: 0,
   sort: [
     {
       field: "firstname",
-      order: "ASC"
-    }
+      order: "ASC",
+    },
   ],
   filter: [
     {
       field: "firstname",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "username",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "phone",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
-  ]
-})
+  ],
+});
 
 onMounted(() => {
-  fetch()
-})
+  fetch();
+});
 
 function fetch() {
-  filter.limit = limit.value
-  filter.page = page.value
-  store.fetchManagerAccounts(filter)
+  filter.limit = limit.value;
+  filter.page = page.value;
+  store.fetchManagerAccounts(filter);
 }
 function open() {
   modalOpen.value = true;
@@ -109,35 +112,35 @@ function close() {
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
-  username: ""
-})
+  username: "",
+});
 const resend = (purpose: TAccountVerificationType, username: string) => {
-  if (username.length === 0) return
-  reVerifyForm.purpose = purpose
-  reVerifyForm.username = username
-  store.resendAccountVerification(reVerifyForm)
-}
+  if (username.length === 0) return;
+  reVerifyForm.purpose = purpose;
+  reVerifyForm.username = username;
+  store.resendAccountVerification(reVerifyForm);
+};
 
 const updateFilter = useDebounceFn(
   () => {
-    fetch()
+    fetch();
   },
   300,
   { maxWait: 5000 }
-)
+);
 
 function convertDate(date: string) {
-  return moment(date).format("DD-MM-YYYY")
+  return moment(date).format("DD-MM-YYYY");
 }
 
-function next(){
-  page.value += 1
-  fetch()
+function next() {
+  page.value += 1;
+  fetch();
 }
 
-function previous(){
-  page.value -= 1
-  fetch()
+function previous() {
+  page.value -= 1;
+  fetch();
 }
 
 // watch state of the modal
@@ -145,9 +148,9 @@ watch(
   () => modalOpen.value,
   (isOpen: boolean) => {
     if (!isOpen) {
-      fetch()
+      fetch();
     }
-  },
+  }
 );
 
 // watch for changes in the filter object
@@ -155,13 +158,12 @@ watch(
   () => filter,
   () => updateFilter(),
   { deep: true }
-)
+);
 
 onMounted(() => {
-  store.fetchManagerAccounts(),
-  branchStore.fetchBranches()
+  store.fetchManagerAccounts(), branchStore.fetchBranches();
   // store.fetchRoles()
-})
+});
 </script>
 
 <template>
@@ -169,13 +171,33 @@ onMounted(() => {
   <div class="w-full shadow-lg bg-white rounded p-2 flex flex-col min-h-[66vh]">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
-        <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Name" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Email Address" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Phone Number" />
+        <div
+          class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+        >
+          <input
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[0].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Name"
+          />
+          <input
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[1].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Email Address"
+          />
+          <input
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[2].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Phone Number"
+          />
           <!-- <select class="filter-element e-select">
             <option :value="null">- Select Status -</option>
             <option value="pending">Pending</option>
@@ -192,7 +214,7 @@ onMounted(() => {
       <table class="table">
         <thead>
           <tr class="header-tr">
-           <th class="t-header">#</th>
+            <th class="t-header">#</th>
             <th class="t-header" width="30%">Names</th>
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
@@ -206,30 +228,39 @@ onMounted(() => {
         <tbody>
           <!-- <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in store.managerAccounts" :key="idx"> -->
-            <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in paginatedManagersAccounts" :key="idx">
-           <td width="10px">{{ idx + 1 }}.</td>
+          <tr
+            :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
+            v-for="(account, idx) in paginatedManagersAccounts"
+            :key="idx"
+          >
+            <td width="10px">{{ idx + 1 }}.</td>
             <td>
               <label class="font-bold py-1">
                 {{ account.firstName }} {{ account.lastName }}
                 <!-- {{ account.middleNames }} -->
               </label>
-              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
+              <i
+                class="fa-solid fa-exclamation-triangle"
+                v-if="account.blockedAt"
+              ></i>
             </td>
             <td>
               <a class="underline" :href="'smtp:' + account.username">
                 {{ account.email }}
               </a>
-              <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
+              <i
+                class="fa-solid fa-exclamation-triangle text-red-600"
+                v-if="!account.emailVerified"
+              ></i>
             </td>
             <!-- <td>
               {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
                 v-if="!account.phoneVerified"></i> -->
-                <td>
-              {{ account.phone }} 
+            <td>
+              {{ account.phone }}
             </td>
             <td>
-              {{ account.branch }}  
+              {{ account.branch }}
             </td>
             <!-- <td class="text-center">
               {{ account.role }}
@@ -249,13 +280,13 @@ onMounted(() => {
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="viewDetails(account.id)"
                   > -->
-                  <span
-                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
-                    @click="modalOpen = true"
-                  >
+                <span
+                  class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
+                  @click="modalOpen = true"
+                >
                   <i class="fa fa-eye"></i>
-                    View
-                  </span>
+                  View
+                </span>
                 <!-- <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i>
                   <i class="text-gray-600 fa-solid fa-trash px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
@@ -285,7 +316,7 @@ onMounted(() => {
     </div> -->
 
     <!-- <div class="flex text-xs mt-auto"> -->
- <div v-if="showPagination" class="flex text-xs mt-auto">
+    <div v-if="showPagination" class="flex text-xs mt-auto">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
