@@ -65,7 +65,7 @@ const open = (service: any) => {
     </div>
 
     <div
-      class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[84vh] flex flex-col"
+      class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[84.5vh] flex flex-col"
     >
       <!-- Subscribed Services Area -->
       <SubscribedServices
