@@ -12,11 +12,10 @@ const balanceStore = useBalance();
 const store = useServicesStore();
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
-  const page: Ref<number> = ref(1);
+const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
-const services: Ref<any[]> = ref([]); 
-
+const services: Ref<any[]> = ref([]);
 
 function serviceForm(id: string) {
   // Logic to open the modal or start the process
@@ -35,7 +34,6 @@ watch(
   },
   { deep: true }
 );
-
 
 // filter
 const filter: IGoFilter = reactive({
@@ -91,7 +89,6 @@ function fetchServices() {
   loading.value = false;
 }
 
-
 // Go to the next page
 function next() {
   page.value += 1;
@@ -107,7 +104,7 @@ function previous() {
 const paginatedServices = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return store.services.slice(start, end);  // Adjust according to your page & limit
+  return store.services.slice(start, end); // Adjust according to your page & limit
 });
 
 // function fetchServices() {
@@ -118,10 +115,8 @@ const paginatedServices = computed(() => {
 // }
 
 onMounted(() => {
-  balanceStore.
-  fetchTotalBalance();
+  balanceStore.fetchTotalBalance();
   fetchServices();
-  
 });
 </script>
 
@@ -151,7 +146,6 @@ onMounted(() => {
       </table>
     </div> -->
 
-
   <!-- Styled Search Bar -->
   <div
     class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white"
@@ -179,34 +173,32 @@ onMounted(() => {
     </div>
   </div>
 
-
-
   <div class="flex justify-end items-center mt-2 mb-2">
-        <!-- Previous Button -->
-        <button
-          class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-          :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
-          :disabled="page <= 1"
-          @click="previous"
-        >
-          <i class="fa-solid fa-arrow-left text-md"></i>
-        </button>
+    <!-- Previous Button -->
+    <button
+      class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+      :disabled="page <= 1"
+      @click="previous"
+    >
+      <i class="fa-solid fa-arrow-left text-md"></i>
+    </button>
 
-        <!-- Page Number Display -->
-        <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
+    <!-- Page Number Display -->
+    <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
 
-        <!-- Next Button -->
-        <button
-          class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
-          :class="{
-            'opacity-50 cursor-not-allowed': store.services.length < limit,
-          }"
-          :disabled="store.services.length < limit"
-          @click="next"
-        >
-          <i class="fa-solid fa-arrow-right text-md"></i>
-        </button>
-      </div>
+    <!-- Next Button -->
+    <button
+      class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{
+        'opacity-50 cursor-not-allowed': store.services.length < limit,
+      }"
+      :disabled="store.services.length < limit"
+      @click="next"
+    >
+      <i class="fa-solid fa-arrow-right text-md"></i>
+    </button>
+  </div>
 
   <!-- Service Cards Section -->
   <div class="grid grid-cols-4 gap-3 mt-3 p-5">
