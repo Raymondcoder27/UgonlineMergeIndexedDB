@@ -173,6 +173,7 @@ watch(
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
+          
         </div>
          <div class="">
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
