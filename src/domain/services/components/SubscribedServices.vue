@@ -4,7 +4,7 @@ import type { Ref } from "vue";
 import { ref, computed } from "vue";
 import { useServicesStore } from "@/domain/services/stores";
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(9);
+const limit: Ref<number> = ref(12);
 const subscribedServices: Ref<any[]> = ref([]);
 const totalRecords = computed(() => store.subscribedServices.length); // Total subscribedServices
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
@@ -86,7 +86,7 @@ const open = (service: any) => {
       <div
         v-for="(subscribedService, id) in paginatedServices"
         :key="id"
-        class="list-none flex justify-between mx-3 py-2"
+        class="list-none flex justify-between mx-3 py-1"
       >
         <span
           class="hover:underline cursor-pointer font-semibold text-gray-700"
