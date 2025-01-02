@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch, computed, type Ref } from "vue";
 import { useBilling } from "@/agentdomain/ledger/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
@@ -12,20 +13,6 @@ import moment from "moment/moment";
 import RequestFloat from "@/agentdomain/ledger/components/RequestFloat.vue";
 import { useBalance } from "@/agentdomain/balance/stores";
 const balanceStore = useBalance();
-
-import ServiceForm from "@/agentdomain/services/components/ServiceForm.vue";
-import AppModal from "@/components/AppModal.vue";
-const serviceFormModalOpen: Ref<boolean> = ref(false);
-function serviceForm(id: string) {
-  // Logic to open the modal or start the process
-  // console.log(`Assigning manager for branch: ${branch.name}`);
-  // Example: modalOpen.value = true;
-  serviceFormModalOpen.value = true;
-}
-const close = () => {
-  serviceFormModalOpen.value = false;
-};
-
 
 
 
@@ -172,9 +159,9 @@ function open() {
   modalOpen.value = true;
 }
 
-// function close() {
-//   modalOpen.value = false;
-// }
+function close() {
+  modalOpen.value = false;
+}
 
 function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
@@ -628,12 +615,6 @@ onMounted(() => {
       <!-- Your modal content goes here -->
       <RequestFloat @floatAllocated="close" :close="close" />
     </AppModal>
-
-
-
-  <AppModal v-model="serviceFormModalOpen" xl2>
-    <ServiceForm @serviceSubmitted="close" @cancel="close" />
-  </AppModal>
   </div>
 </template>
 

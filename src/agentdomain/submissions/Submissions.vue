@@ -6,6 +6,21 @@ import { useDebounceFn } from "@vueuse/core";
 import TransactionDetails from "@/agentdomain/submissions/components/TransactionDetails.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 
+import ServiceForm from "@/agentdomain/services/components/ServiceForm.vue";
+import AppModal from "@/components/AppModal.vue";
+const serviceFormModalOpen: Ref<boolean> = ref(false);
+function serviceForm(id: string) {
+  // Logic to open the modal or start the process
+  // console.log(`Assigning manager for branch: ${branch.name}`);
+  // Example: modalOpen.value = true;
+  serviceFormModalOpen.value = true;
+}
+const close = () => {
+  serviceFormModalOpen.value = false;
+};
+
+
+
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
