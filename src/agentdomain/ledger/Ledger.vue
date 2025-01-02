@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch, computed, type Ref } from "vue";
 import { useBilling } from "@/agentdomain/ledger/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
@@ -173,9 +172,9 @@ function open() {
   modalOpen.value = true;
 }
 
-function close() {
-  modalOpen.value = false;
-}
+// function close() {
+//   modalOpen.value = false;
+// }
 
 function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
