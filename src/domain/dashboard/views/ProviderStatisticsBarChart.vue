@@ -229,7 +229,8 @@ function labelExtractor(data: Statistic[]) {
       <div class="flex">
         <div class="w-full">
           <div class="flex my-2">
-            <div class="w-2/12 count">
+            <!-- <div class="w-2/12 count"> -->
+                          <div class="count">
               <!-- <p class="text-xl font-bold py-2">60</p> -->
               <!-- <p class="text-xl font-bold py-2">8</p> -->
               <p class="text-xl font-bold py-2">
@@ -237,12 +238,14 @@ function labelExtractor(data: Statistic[]) {
               </p>
               <p class="text-xs">Total Services</p>
             </div>
-            <div class="w-2/12 count">
+            <!-- <div class="w-2/12 count"> -->
+                          <div class="count">
               <!-- <p class="text-xl font-bold py-2">50</p> -->
               <p class="text-xl font-bold py-2">7</p>
               <p class="text-xs">Active</p>
             </div>
-            <div class="w-2/12 count">
+            <!-- <div class="w-2/12 count"> -->
+                          <div class="count">
               <!-- <p class="text-xl font-bold py-2">10</p> -->
               <p class="text-xl font-bold py-2">1</p>
               <p class="text-xs">Inactive</p>
