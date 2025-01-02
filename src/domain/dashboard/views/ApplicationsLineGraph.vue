@@ -217,29 +217,27 @@ function labelExtractor(data: Statistic[]) {
 }
 </script>
 <template>
-<div class="flex">
+  <div class="flex">
+    <div class="w-full">
+      <div class="flex">
         <div class="w-full">
-          <div class="flex">
-            <div class="w-full">
-              <LineChart
-                title="Distribution of Service Applications over time"
-                :graph-data="serviceApplicationsDistribution"
-                :is-horizontal="false"
-                :labels="
-                  labelExtractor(serviceApplicationsDistribution[0].data)
-                "
-              />
-            </div>
-            <!-- <div class="w-6/12">
+          <LineChart
+            title="Distribution of Service Applications over time"
+            :graph-data="serviceApplicationsDistribution"
+            :is-horizontal="false"
+            :labels="labelExtractor(serviceApplicationsDistribution[0].data)"
+          />
+        </div>
+        <!-- <div class="w-6/12">
               <PieChart
                 title="Distribution of Service by Status"
                 :data="[45, 35, 18]"
                 :labels="['Active', 'Inactive', 'Other']"
               />
             </div> -->
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
 </template>
 <style scoped>
 .count {
