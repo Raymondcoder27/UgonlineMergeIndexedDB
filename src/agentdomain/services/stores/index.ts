@@ -162,20 +162,7 @@ export const useServicesStore = defineStore("services", () => {
       // status: "listed",
       // currentVersionId: "4",
     },
-    {
-      id: 11,
-      thumbnail: ministryThumbnail,
-      service: "Land Title Verification",
-      description: "Verify a land title",
-      // accessibilityTier: "Public",
-      // featureId: "7",
-      // requirements: ["National ID", "Passport"],
-      // providerId: "4",
-      // providerName: "Ministry of Works and Transport",
-      // createdAt: { Time: "2021-09-07", Valid: true },
-      // status: "listed",
-      // currentVersionId: "4",
-    },
+
     {
       id: 12,
       thumbnail: ministryThumbnail,
@@ -190,20 +177,7 @@ export const useServicesStore = defineStore("services", () => {
       // status: "listed",
       // currentVersionId: "4",
     },
-    {
-      id: 13,
-      thumbnail: ministryThumbnail,
-      service: "Land Title Withdrawal",
-      description: "Withdraw a land title",
-      // accessibilityTier: "Public",
-      // featureId: "7",
-      // requirements: ["National ID", "Passport"],
-      // providerId: "4",
-      // providerName: "Ministry of Works and Transport",
-      // createdAt: { Time: "2021-09-07", Valid: true },
-      // status: "listed",
-      // currentVersionId: "4",
-    },
+
   ]);
 
 
