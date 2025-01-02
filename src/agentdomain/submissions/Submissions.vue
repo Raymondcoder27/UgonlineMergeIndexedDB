@@ -473,8 +473,8 @@ watch(
                   > -->
                   <button
                     class="bg-gray-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-gray-600"
-                    @click="serviceForm(transaction)"
-                  ></button>
+                    @click="serviceForm(id)"
+                  >
                     <!-- appropriate icon -->
                     <i class="fa fa-play"></i>
                     Resume
