@@ -53,9 +53,8 @@ const subscribe = (serviceId: string) => {
 const paginatedServices = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return store.services.slice(start, end);  // Adjust according to your page & limit
+  return store.services.slice(start, end); // Adjust according to your page & limit
 });
-
 
 onMounted(() => {
   store.fetchServices(); // Fetch services from the store
@@ -66,21 +65,20 @@ onMounted(() => {
 
 <template>
   <div
-        class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-0"
-      >
-        <div
-          class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
-        >
-          <input
-            type="text"
-            placeholder="Search Services provided by Ministries, Departments and Agencies"
-            class="w-full text-sm border-none outline-none bg-white"
-          />
-          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
-        </div>
-      </div>
+    class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-0"
+  >
+    <div
+      class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+    >
+      <input
+        type="text"
+        placeholder="Search Services provided by Ministries, Departments and Agencies"
+        class="w-full text-sm border-none outline-none bg-white"
+      />
+      <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+    </div>
+  </div>
 
-  
   <!-- Pagination Controls -->
   <div class="flex justify-end items-center mb-0">
     <!-- Previous Button -->
@@ -100,7 +98,7 @@ onMounted(() => {
     <button
       class="px-1 text-sm text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
       :class="{
-        'opacity-50 cursor-not-allowed': services.length < limit
+        'opacity-50 cursor-not-allowed': services.length < limit,
       }"
       :disabled="services.length < limit"
       @click="next"
