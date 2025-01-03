@@ -73,9 +73,7 @@ const emit = defineEmits(["cancel", "branchCreated"]);
 
 onMounted(() => {
   loading.value = true;
-  store
-    .fetchBranches()
-    .finally(() => (loading.value = false));
+  store.fetchBranches().finally(() => (loading.value = false));
 });
 
 // function submit() {
@@ -113,12 +111,20 @@ function submit() {
   <div class="bg-white py-5">
     <p class="text-xl font-bold">Add Branch</p>
     <p class="text-sm text-gray-500">
-      A designated location managed by a Super Agent to provide services to agents and the public.
+      A designated location managed by a Super Agent to provide services to
+      agents and the public.
     </p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="cell-full">
-        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
-        <input type="text" v-model="form.name" class="noFocus form-element e-input w-full" required />
+        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+          >Name</label
+        >
+        <input
+          type="text"
+          v-model="form.name"
+          class="noFocus form-element e-input w-full"
+          required
+        />
       </div>
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
