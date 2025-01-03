@@ -172,7 +172,7 @@ const open = (service: any) => {
           />
 
             <!-- Adjust Page Size -->
-            <!-- <label>Page Size</label>
+            <label>Page Size</label>
           <input
             type="number"
             placeholder="Page Size"
@@ -186,7 +186,7 @@ const open = (service: any) => {
             class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
           >
             Total Services: {{ totalRecords }}
-          </span> -->
+          </span>
           </div>
         </div>
       </div>
