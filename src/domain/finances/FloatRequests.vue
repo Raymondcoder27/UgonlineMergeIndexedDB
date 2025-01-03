@@ -24,7 +24,7 @@ const changePageSize = () => {
 };
 const showPagination = computed(() => totalRecords.value >= limit.value);
 
-// const selectedApplication: Ref<ClientApplication | undefined> = ref();
+// const selectedFloatRequest: Ref<ClientApplication | undefined> = ref();
 const selectedFloatRequest: Ref<any> = ref();
 
 const modalOpen: Ref<boolean> = ref(false);
@@ -493,27 +493,27 @@ onMounted(() => {
           <tbody>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">ID</td>
-              <td class="p-1">{{ selectedApplication?.id }}</td>
+              <td class="p-1">{{ selectedFloatRequest?.id }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Tracking Number</td>
-              <td class="p-1">{{ selectedApplication?.trackingNo }}</td>
+              <td class="p-1">{{ selectedFloatRequest?.trackingNo }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Status</td>
               <td class="p-1">
                 <div class="flex">
                   <div class="w-6/12">
-                    <div :class="statusStyling(selectedApplication?.status)">
+                    <div :class="statusStyling(selectedFloatRequest?.status)">
                       <div class="w-4/12 text-center">
-                        <i :class="statusIcon(selectedApplication?.status)"></i>
+                        <i :class="statusIcon(selectedFloatRequest?.status)"></i>
                       </div>
                       <div class="w-8/12">
-                        <label v-if="selectedApplication?.status == 'SENT'">
+                        <label v-if="selectedFloatRequest?.status == 'SENT'">
                           PROCESSING
                         </label>
                         <label v-else>
-                          {{ selectedApplication?.status.replace("_", " ") }}
+                          {{ selectedFloatRequest?.status.replace("_", " ") }}
                         </label>
                       </div>
                     </div>
@@ -523,26 +523,26 @@ onMounted(() => {
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Service</td>
-              <td class="p-1">{{ selectedApplication?.serviceName }}</td>
+              <td class="p-1">{{ selectedFloatRequest?.serviceName }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Provider</td>
-              <td class="p-1">{{ selectedApplication?.providerName }}</td>
+              <td class="p-1">{{ selectedFloatRequest?.providerName }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Payment Reference</td>
-              <td class="p-1">{{ selectedApplication?.paymentInfo.payment_ref }}</td>
+              <td class="p-1">{{ selectedFloatRequest?.paymentInfo.payment_ref }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Date</td>
-              <td class="p-1">{{ convertDateTimeNullable(selectedApplication?.createdAt) }}</td>
+              <td class="p-1">{{ convertDateTimeNullable(selectedFloatRequest?.createdAt) }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Payload</td>
               <td class="p-1 bg-gray-50">
                 <div class="flex">
                   <div class="w-full  rounded">
-                    <pre>{{ selectedApplication?.data }}</pre>
+                    <pre>{{ selectedFloatRequest?.data }}</pre>
                   </div>
                 </div>
               </td>
