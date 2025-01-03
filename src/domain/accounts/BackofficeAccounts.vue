@@ -175,7 +175,7 @@ watch(
               v-if="filter.filter !== undefined"
               input-type="text"
               v-model="filter.filter[0].operand"
-              class="filter-element e-input"
+              class="filter-element e-input py-5"
               type="text"
               placeholder="Search by Name"
             />
