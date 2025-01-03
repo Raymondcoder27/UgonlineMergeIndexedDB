@@ -8,7 +8,8 @@ import type { IGoFilter } from "@/types";
 // import { useDebounce } from "@vueuse/core";
 import moment from "moment/moment";
 import { useBalance } from "@/domain/balance/stores";
-import { FloatRequest } from "@/agentdomain/ledger/types/chart";
+// import { FloatRequest } from "@/agentdomain/ledger/types/chart";
+import { FloatRequest } from "@/domain/finances/types";
 
 const balanceStore = useBalance();
 
@@ -649,3 +650,4 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
+<!-- @/agentdomain/ledger/types -->
