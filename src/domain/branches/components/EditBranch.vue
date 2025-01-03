@@ -29,7 +29,8 @@ onMounted(async () => {
   const branchId = selectedBranchId.value;  // Set this to the appropriate value
   
   // Get the branch to edit
-  const selectedBranch = branchStore.branches.value?.find(b => b.id === Number(branchId));
+  // const selectedBranch = branchStore.branches.value?.find(b => b.id === Number(branchId));
+  const selectedBranch = branchStore.branches?.find(b => b.id === Number(branchId));
   if (selectedBranch) {
     branch.value = { ...selectedBranch };  // Clone the branch to avoid mutating the store directly
   }
