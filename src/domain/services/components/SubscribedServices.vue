@@ -172,16 +172,16 @@ const open = (service: any) => {
           />
 
             <!-- Adjust Page Size -->
-            <label>Page Size</label>
-          <input
+            <!-- <label>Page Size</label> -->
+          <!-- <input
             type="number"
             placeholder="Page Size"
             class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-6"
             v-model.number="limit"
             @change="changePageSize"
-          />
+          /> -->
 
-          Total Records
+          <!-- Total Records -->
           <span
             class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
           >
