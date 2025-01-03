@@ -9,7 +9,7 @@ const notify = useNotificationsStore();
 
 const loading: Ref<boolean> = ref(false);
 const selectedBranchId: Ref<string> = ref("");  // ID of the branch to be edited
-const branch: Ref<Branch> = reactive({
+const branch: Ref<Branch | undefined> = reactive({
   id: "",
   name: "",
   location: "",
