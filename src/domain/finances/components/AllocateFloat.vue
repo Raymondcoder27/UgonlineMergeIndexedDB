@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
 // import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive, onMounted, defineEmits } from "vue";
 import { useBilling } from "@/domain/finances/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useBranchStore } from "@/domain/branches/stores"; 
+import { useBranchStore } from "@/domain/branches/stores";
 import type { AllocateFloat } from "@/types";
 import { useBalance } from "@/domain/balance/stores";
 
@@ -15,14 +14,13 @@ const billingStore = useBilling();
 // allocate float form
 const form: AllocateFloat = reactive({
   firstName: "",
-  branchId: null, 
-})
+  branchId: null,
+});
 
-
-const notify = useNotificationsStore()
+const notify = useNotificationsStore();
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel', 'floatAllocated'])
-const store = useBilling()
+const emit = defineEmits(["cancel", "floatAllocated"]);
+const store = useBilling();
 // function submit() {
 //   loading.value = true
 //   store.createAccount(form)
@@ -55,7 +53,6 @@ const store = useBilling()
 //     });
 // }
 
-
 // function submit() {
 //  let payload = {
 //     amount: form.amount,
@@ -86,43 +83,42 @@ function submit() {
     amount: form.amount,
     branchId: form.branchId,
   };
-  
+
   console.log("Submitting payload:", payload);
 
   loading.value = true;
-  store.allocateFloat(payload) // API call to allocate float
-    // .then(() => {
-      billingStore.adjustFloatLedger(payload); // Adjust ledger
-      balanceStore.decreaseTotalBalance(payload.amount); // Update balance
-      // notify.success(`Float allocated to branch: ${form.branchId}`);
-      notify.success(`Float allocated to ${form.branchId}`);
-      emit("floatAllocated");
-    // })
-    // .catch((err) => {
-      // console.error("Error allocating float:", err);
-      // notify.error("Failed to allocate float.");
-    // })
-    // .finally(() => {
-      // loading.value = false;
-    // });
+  store.allocateFloat(payload); // API call to allocate float
+  // .then(() => {
+  billingStore.adjustFloatLedger(payload); // Adjust ledger
+  balanceStore.decreaseTotalBalance(payload.amount); // Update balance
+  // notify.success(`Float allocated to branch: ${form.branchId}`);
+  notify.success(`Float allocated to ${form.branchId}`);
+  emit("floatAllocated");
+  // })
+  // .catch((err) => {
+  // console.error("Error allocating float:", err);
+  // notify.error("Failed to allocate float.");
+  // })
+  // .finally(() => {
+  // loading.value = false;
+  // });
 }
-
-
 
 onMounted(() => {
   // loading.value = true;
-  branchStore
-    .fetchBranches()
-    // .finally(() => (loading.value = false));
+  branchStore.fetchBranches();
+  // .finally(() => (loading.value = false));
 });
 </script>
 
 <template>
   <div class="bg-white py-5">
     <p class="text-xl font-bold">Allocate Float</p>
-    <p class="text-sm text-gray-500">The allocation of funds by a Super Agent to a designated branch or till to ensure liquidity for transactions and service delivery.</p>
+    <p class="text-sm text-gray-500">
+      The allocation of funds by a Super Agent to a designated branch or till to
+      ensure liquidity for transactions and service delivery.
+    </p>
     <form @submit.prevent="submit" class="pt-5">
-
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
@@ -143,7 +139,6 @@ onMounted(() => {
         </div>
       </div>
 
-      
       <div class="flex">
         <!-- <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Email Address</label>
@@ -166,7 +161,6 @@ onMounted(() => {
           </select>
         </div>
       </div> -->
-
 
       <div class="">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
@@ -203,7 +197,6 @@ onMounted(() => {
               <div></div>
               <div></div>
             </span>
-
           </button>
         </div>
       </div>
