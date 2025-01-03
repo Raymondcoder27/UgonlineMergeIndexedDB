@@ -605,7 +605,7 @@ onMounted(() => {
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Payment Reference</td>
-              <td class="p-1">{{ selectedFloatRequest?.paymentInfo.payment_ref }}</td>
+              <!-- <td class="p-1">{{ selectedFloatRequest?.paymentInfo.payment_ref }}</td> -->
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Date</td>
