@@ -475,6 +475,84 @@ onMounted(() => {
       </div>
     </div>
   </div>
+
+
+
+
+    <!-- Modal -->
+    <AppModal v-model="modalOpen" xl4>
+    <div class="flex">
+      <div class="w-full">
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">ID</td>
+              <td class="p-1">{{ selectedApplication?.id }}</td>
+            </tr>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Tracking Number</td>
+              <td class="p-1">{{ selectedApplication?.trackingNo }}</td>
+            </tr>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Status</td>
+              <td class="p-1">
+                <div class="flex">
+                  <div class="w-6/12">
+                    <div :class="statusStyling(selectedApplication?.status)">
+                      <div class="w-4/12 text-center">
+                        <i :class="statusIcon(selectedApplication?.status)"></i>
+                      </div>
+                      <div class="w-8/12">
+                        <label v-if="selectedApplication?.status == 'SENT'">
+                          PROCESSING
+                        </label>
+                        <label v-else>
+                          {{ selectedApplication?.status.replace("_", " ") }}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Service</td>
+              <td class="p-1">{{ selectedApplication?.serviceName }}</td>
+            </tr>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Provider</td>
+              <td class="p-1">{{ selectedApplication?.providerName }}</td>
+            </tr>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Payment Reference</td>
+              <td class="p-1">{{ selectedApplication?.paymentInfo.payment_ref }}</td>
+            </tr>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Date</td>
+              <td class="p-1">{{ convertDateTimeNullable(selectedApplication?.createdAt) }}</td>
+            </tr>
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Payload</td>
+              <td class="p-1 bg-gray-50">
+                <div class="flex">
+                  <div class="w-full  rounded">
+                    <pre>{{ selectedApplication?.data }}</pre>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </AppModal>
 </template>
 
 <style scoped>
