@@ -15,6 +15,7 @@ const branch: Ref<Branch> = reactive({
   location: "",
   manager: "",
   status: "",
+  createdAt: "",
 });
 
 const emit = defineEmits(["cancel"]);
