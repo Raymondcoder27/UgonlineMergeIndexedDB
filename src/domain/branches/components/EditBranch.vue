@@ -2,21 +2,30 @@
 import { ref, reactive, defineEmits, onMounted, type Ref } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import type { Branch } from "@/domain/branches/types";
+// import type { Branch } from "@/domain/branches/types";
 
 const branchStore = useBranchStore();
 const notify = useNotificationsStore();
 
 const loading: Ref<boolean> = ref(false);
 const selectedBranchId: Ref<string> = ref("");  // ID of the branch to be edited
-const branch: Ref<Branch | undefined> = reactive({
-  id: "",
-  name: "",
-  location: "",
-  manager: "",
-  status: "",
-  createdAt: "",
-});
+
+  const branch = reactive({
+    id: "",
+    name: "",
+    location: "",
+    manager: "",
+    status: "",
+    createdAt: "",
+  });
+// const branch: Ref<Branch | undefined> = reactive({
+//   id: "",
+//   name: "",
+//   location: "",
+//   manager: "",
+//   status: "",
+//   createdAt: "",
+// });
 
 const emit = defineEmits(["cancel"]);
 
