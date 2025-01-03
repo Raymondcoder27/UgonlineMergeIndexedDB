@@ -26,7 +26,7 @@ const changePageSize = () => {
 const showPagination = computed(() => totalRecords.value >= limit.value);
 
 // const selectedFloatRequest: Ref<ClientApplication | undefined> = ref();
-const selectedFloatRequest: Ref<any | undefined> = ref();
+const selectedFloatRequest: Ref<FloatRequest | undefined> = ref();
 
 const modalOpen: Ref<boolean> = ref(false);
 
