@@ -569,10 +569,10 @@ onMounted(() => {
       <p class="text-xl font-bold">Float Request Details</p>
     <div class="flex">
       <div class="w-full">
-        <table class="w-full">
+        <table class="w-12">
           <thead>
             <tr>
-              <th>Field</th>
+              <th class="w-6/12">Field</th>
               <th>Data</th>
             </tr>
           </thead>
