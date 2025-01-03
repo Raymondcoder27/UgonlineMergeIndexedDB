@@ -27,6 +27,10 @@ const showPagination = computed(() => totalRecords.value >= limit.value);
 // const selectedApplication: Ref<ClientApplication | undefined> = ref();
 const selectedFloatRequest: Ref<any> = ref();
 
+function view(application: ClientApplication) {
+  modalOpen.value = true;
+  selectedApplication.value = application;
+}
 
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
@@ -128,7 +132,7 @@ function convertDateTime(date: string) {
 //     amount: form.amount,
 //     branchId: form.branchId,
 //   };
-  
+
 //   console.log("Submitting payload:", payload);
 
 //   loading.value = true;
@@ -149,18 +153,18 @@ function convertDateTime(date: string) {
 //     // });
 // }
 
-    // const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
+// const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
 
-    // if (floatRequestsFromLocalStorage) {
-    //   floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
-    // }
+// if (floatRequestsFromLocalStorage) {
+//   floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
+// }
 
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
   billingStore.approveFloatRequest(requestId);
   // billingStore.fetchFloatRequests();
   balanceStore.approveFloatRequest(requestId);
-  billingStore.reduceFloatLedger(requestId); 
+  billingStore.reduceFloatLedger(requestId);
   billingStore.allocateFloatFromRequest(requestId);
   console.log(`float request with id ${requestId} approved`);
 };
@@ -180,24 +184,44 @@ onMounted(() => {
   <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
-        <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Service">
+        <div
+          class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+        >
+          <select
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[2].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Service"
+          >
             <option value="" disabled selected>Filter by Branch</option>
             <option value="Branch 1">Branch 1</option>
             <option value="Branch 2">Branch 2</option>
             <option value="Branch 3">Branch 3</option>
           </select>
-          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down provider">
+          <select
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[2].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Drop down provider"
+          >
             <option value="" disabled selected>Filter by Amount</option>
-            <option value="NIRA"> &lt 10,000,000 </option>
-            <option value="URSB"> &lt 10,000,000 >= </option>
+            <option value="NIRA">&lt 10,000,000</option>
+            <option value="URSB">&lt 10,000,000 >=</option>
             <!-- <option value="UMEME">UMEME</option> -->
-            <option value="NARO"> > 10,000,000 </option>
+            <option value="NARO">> 10,000,000</option>
           </select>
-          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Filter by Status">
+          <select
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[1].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Filter by Status"
+          >
             <option value="" disabled selected>Filter by Status</option>
             <option value="PENDING">PENDING</option>
             <option value="COMPLETED">APPROVED</option>
@@ -224,7 +248,6 @@ onMounted(() => {
             />
           </div>
         </div>
-        
       </div>
     </div>
     <div class="flex my-1">
@@ -262,7 +285,8 @@ onMounted(() => {
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount.toLocaleString() }}</td>
-            <td class="text-left"><!-- First Case: float request approved -->
+            <td class="text-left">
+              <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">
                 <!-- <td> -->
                 <!-- <label> -->
@@ -276,7 +300,7 @@ onMounted(() => {
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
                   @click="approveFloatRequest(request.id)"
-                  >
+                >
                   <!-- <i class="fa-solid fa-check"></i> -->
                   Approved</span
                 >
@@ -291,9 +315,9 @@ onMounted(() => {
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-700 bg-red-200 border border-red-300 hover:text-red-700 hover:bg-red-200"
                     @click="open(request)"
-                    >
-                  <!-- <i class="fa-solid fa-times-square"></i> -->
-                  Rejected</span
+                  >
+                    <!-- <i class="fa-solid fa-times-square"></i> -->
+                    Rejected</span
                   >
                 </label>
                 <!-- </td> -->
@@ -304,9 +328,9 @@ onMounted(() => {
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-700 bg-gray-50 border border-gray-300 hover:text-gray-700 hover:bg-red-200"
                     @click="open(request)"
-                    >
-                  <!-- <i class="fa-solid fa-clock text-gray-500"></i> -->
-                  Pending</span
+                  >
+                    <!-- <i class="fa-solid fa-clock text-gray-500"></i> -->
+                    Pending</span
                   >
                 </label>
                 <!-- </td> -->
@@ -320,14 +344,14 @@ onMounted(() => {
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
                   @click="approveFloatRequest(request.id)"
-                  >
+                >
                   <!-- <i class="fa-solid fa-check"></i>
                   Approved</span
                 > -->
                   <i class="fa-solid fa-eye"></i>
                   Details</span
-                > 
-                
+                >
+
                 <!-- </label> -->
                 <!-- </td> -->
               </div>
@@ -339,14 +363,13 @@ onMounted(() => {
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
                     @click="open(request)"
-                    >
-                  <!-- <i class="fa-solid fa-times-square"></i>
+                  >
+                    <!-- <i class="fa-solid fa-times-square"></i>
                   Rejected</span
                   > -->
-                  <i class="fa-solid fa-eye"></i>
-                  Details</span
+                    <i class="fa-solid fa-eye"></i>
+                    Details</span
                   >
-                  
                 </label>
                 <!-- </td> -->
               </div>
@@ -357,7 +380,7 @@ onMounted(() => {
                 <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-800"
                   @click="approveFloatRequest(request.id)"
-                  >
+                >
                   <i class="fa-solid fa-check"></i>
                   Approve</span
                 >
@@ -365,7 +388,7 @@ onMounted(() => {
                 <span
                   class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-600 hover:text-white hover:bg-red-700"
                   @click="rejectFloatRequest(request.id)"
-                  >
+                >
                   <i class="fa-solid fa-times-square"></i>
                   Reject</span
                 >
@@ -385,7 +408,7 @@ onMounted(() => {
       </table>
     </div>
     <!-- <div class="flex text-xs mt-auto"> -->
- <div v-if="showPagination" class="flex text-xs mt-auto">
+    <div v-if="showPagination" class="flex text-xs mt-auto">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
