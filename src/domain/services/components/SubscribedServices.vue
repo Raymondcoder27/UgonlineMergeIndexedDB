@@ -137,7 +137,6 @@ const open = (service: any) => {
               'opacity-50 cursor-not-allowed':
                 subscribedServices.length < limit,
             }"
-            :disabled="subscribedServices.length < limit"
             @click="next"
           >
             <i class="fa-solid fa-arrow-right"></i>
