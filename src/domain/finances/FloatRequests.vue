@@ -127,6 +127,15 @@ watch(
   { deep: true }
 );
 
+watch(
+  () => modalOpen.value,
+  (isOpen: boolean) => {
+    if (!isOpen) {
+      // do something if that's something you're interested in
+    }
+  }
+);
+
 function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
