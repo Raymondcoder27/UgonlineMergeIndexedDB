@@ -8,16 +8,16 @@ const branchStore = useBranchStore();
 const notify = useNotificationsStore();
 
 const loading: Ref<boolean> = ref(false);
-const selectedBranchId: Ref<string> = ref("");  // ID of the branch to be edited
+const selectedBranchId: Ref<string> = ref(""); // ID of the branch to be edited
 
-  const branch = reactive({
-    id: "",
-    name: "",
-    location: "",
-    manager: "",
-    status: "",
-    createdAt: "",
-  });
+const branch = reactive({
+  id: "",
+  name: "",
+  location: "",
+  manager: "",
+  status: "",
+  createdAt: "",
+});
 // const branch: Ref<Branch | undefined> = reactive({
 //   id: "",
 //   name: "",
@@ -32,18 +32,20 @@ const emit = defineEmits(["cancel"]);
 // Fetch the branch data from the store
 onMounted(async () => {
   loading.value = true;
-  
+
   // Fetch the list of branches
   await branchStore.fetchBranches({});
-  
+
   // Assuming that a selected branch ID is passed to the component (e.g., from a parent component or route)
-  const branchId = selectedBranchId.value;  // Set this to the appropriate value
-  
+  const branchId = selectedBranchId.value; // Set this to the appropriate value
+
   // Get the branch to edit
-  const selectedBranch = branchStore.branches.value?.find(b => b.id === Number(branchId));
+  const selectedBranch = branchStore.branches.value?.find(
+    (b) => b.id === Number(branchId)
+  );
   // const selectedBranch = branchStore.branches?.find(b => b.id === Number(branchId));
   if (selectedBranch) {
-    branch.value = { ...selectedBranch };  // Clone the branch to avoid mutating the store directly
+    branch.value = { ...selectedBranch }; // Clone the branch to avoid mutating the store directly
   }
 
   loading.value = false;
@@ -60,7 +62,7 @@ function submit() {
   };
 
   // Simulate saving the edited branch (assuming it updates the store)
-  branchStore.addBranch(payload);  // If you were adding a new branch or you can update it via another method
+  branchStore.addBranch(payload); // If you were adding a new branch or you can update it via another method
   loading.value = false;
 
   // Show success notification
@@ -71,7 +73,6 @@ function submit() {
 function cancel() {
   emit("cancel");
 }
-
 </script>
 
 <template>
@@ -84,7 +85,9 @@ function cancel() {
     <form @submit.prevent="submit" class="pt-5">
       <!-- Branch Name -->
       <div class="flex flex-col my-2">
-        <label for="name" class="text-neutral-600 text-xs font-bold mb-1">Branch Name</label>
+        <label for="name" class="text-neutral-600 text-xs font-bold mb-1"
+          >Branch Name</label
+        >
         <input
           type="text"
           id="name"
@@ -96,7 +99,9 @@ function cancel() {
 
       <!-- Branch Location -->
       <div class="flex flex-col my-2">
-        <label for="location" class="text-neutral-600 text-xs font-bold mb-1">Location</label>
+        <label for="location" class="text-neutral-600 text-xs font-bold mb-1"
+          >Location</label
+        >
         <input
           type="text"
           id="location"
@@ -108,7 +113,9 @@ function cancel() {
 
       <!-- Branch Manager -->
       <div class="flex flex-col my-2">
-        <label for="manager" class="text-neutral-600 text-xs font-bold mb-1">Manager</label>
+        <label for="manager" class="text-neutral-600 text-xs font-bold mb-1"
+          >Manager</label
+        >
         <input
           type="text"
           id="manager"
@@ -119,7 +126,9 @@ function cancel() {
 
       <!-- Branch Status -->
       <div class="flex flex-col my-2">
-        <label for="status" class="text-neutral-600 text-xs font-bold mb-1">Status</label>
+        <label for="status" class="text-neutral-600 text-xs font-bold mb-1"
+          >Status</label
+        >
         <select
           v-model="branch.status"
           id="status"
