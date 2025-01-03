@@ -170,12 +170,12 @@ watch(
         <div
           class="flex justify-between gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
         >
-          <div class="flex">
+          <div class="flex items-center">
             <input
               v-if="filter.filter !== undefined"
               input-type="text"
               v-model="filter.filter[0].operand"
-              class="filter-element e-input py-5"
+              class="filter-element e-input"
               type="text"
               placeholder="Search by Name"
             />
