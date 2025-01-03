@@ -199,6 +199,10 @@ function statusIcon(status?: string) {
   }
 }
 
+function convertDateTimeNullable(date?: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
+}
+
 // function submit() {
 //   const payload = {
 //     amount: form.amount,
