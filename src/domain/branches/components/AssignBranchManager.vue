@@ -24,14 +24,12 @@ const { branchId } = defineProps({
   },
 });
 
-
 const emit = defineEmits(["cancel", "managerAssigned"]);
 
 onMounted(() => {
   loading.value = true;
   store.fetchBackofficeAccounts();
   branchStore.fetchBranches().finally(() => (loading.value = false));
-
 });
 
 function submit(userId: string) {
@@ -42,13 +40,12 @@ function submit(userId: string) {
   };
   loading.value = true;
   store.assignManager(payload.userId, payload.branchId);
-  // store.assignManager(userId); 
+  // store.assignManager(userId);
   // notify.success(`User successfully ${payload.userId} assigned to branch`);
   notify.success(`User successfully assigned to branch`);
   emit("managerAssigned");
   loading.value = false;
 }
-
 
 // Search and filter functionality
 const searchQuery = ref("");
@@ -100,7 +97,6 @@ const filteredManagers = computed(() => {
     </form>
   </div> -->
 
-
   <div class="bg-white p-6 rounded-lg">
     <p class="text-xl font-bold mb-2">Assign Manager</p>
     <p class="text-sm text-gray-500 mb-4">
@@ -119,7 +115,9 @@ const filteredManagers = computed(() => {
 
     <!-- Manager Table -->
     <div class="overflow-x-auto my-1">
-      <table class="table min-w-full bg-white border border-gray-200 rounded-lg">
+      <table
+        class="table min-w-full bg-white border border-gray-200 rounded-lg"
+      >
         <thead>
           <tr class="header-tr border-b">
             <th class="px-4 py-2 text-left text-sm font-medium">Name</th>
@@ -148,13 +146,11 @@ const filteredManagers = computed(() => {
             class="text-xs body-tr border-b"
           > -->
           <tr
-            v-for="(user) in store.backofficeAccounts"
+            v-for="user in store.backofficeAccounts"
             :key="user.id"
             class="text-xs body-tr border-b"
           >
-            <td class="px-4 py-2">
-              {{ user.firstName }} {{ user.lastName }}
-            </td>
+            <td class="px-4 py-2">{{ user.firstName }} {{ user.lastName }}</td>
             <td class="px-4 py-2">{{ user.email }}</td>
             <td class="px-4 py-2">{{ user.phone }}</td>
             <td class="px-4 py-2 text-center">
@@ -163,8 +159,8 @@ const filteredManagers = computed(() => {
                 :disabled="loading"
                 class="px-1 py-0.5 flex bg-red-700 text-white rounded-md hover:underline"
               >
-              <i class="px-1 py-0.5 fa fa-user-plus"></i> 
-              Assign
+                <i class="px-1 py-0.5 fa fa-user-plus"></i>
+                Assign
               </button>
             </td>
           </tr>
