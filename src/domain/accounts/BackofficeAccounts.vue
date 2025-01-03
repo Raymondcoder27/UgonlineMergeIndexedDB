@@ -9,7 +9,7 @@ import { useDebounceFn } from "@vueuse/core"
 import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
 
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(6);
+const limit: Ref<number> = ref(5);
 const loading: Ref<boolean> = ref(false);
 // const selectedBackOfficeAccount: Ref<string> = ref("");
 const backofficeAccounts: Ref<any[]> = ref([]);
