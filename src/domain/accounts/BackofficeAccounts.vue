@@ -4,9 +4,12 @@ import { useAccounts } from "@/domain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive, computed } from "vue";
 import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
 import moment from "moment";
-import type { IGoFilter } from "@/types"
-import { useDebounceFn } from "@vueuse/core"
-import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
+import type { IGoFilter } from "@/types";
+import { useDebounceFn } from "@vueuse/core";
+import type {
+  IResendVerificationPayload,
+  TAccountVerificationType,
+} from "./types";
 
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(5);
@@ -45,7 +48,10 @@ function fetchBackofficeAccounts() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  backofficeAccounts.value = store.backofficeAccounts.slice(startIndex, endIndex);
+  backofficeAccounts.value = store.backofficeAccounts.slice(
+    startIndex,
+    endIndex
+  );
   loading.value = false;
 }
 const paginatedBackofficeAccounts = computed(() => {
@@ -62,40 +68,40 @@ const modalOpen: Ref<boolean> = ref(false);
 const filter: IGoFilter = reactive({
   limit: 100,
   offset: 0,
-  page:0,
+  page: 0,
   sort: [
     {
       field: "firstname",
-      order: "ASC"
-    }
+      order: "ASC",
+    },
   ],
   filter: [
     {
       field: "firstname",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "username",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "phone",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
-  ]
-})
+  ],
+});
 
 onMounted(() => {
-  fetch()
-})
+  fetch();
+});
 
 function fetch() {
-  filter.limit = limit.value
-  filter.page = page.value
-  store.fetchBackofficeAccounts(filter)
+  filter.limit = limit.value;
+  filter.page = page.value;
+  store.fetchBackofficeAccounts(filter);
 }
 function open() {
   modalOpen.value = true;
@@ -107,35 +113,35 @@ function close() {
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
-  username: ""
-})
+  username: "",
+});
 const resend = (purpose: TAccountVerificationType, username: string) => {
-  if (username.length === 0) return
-  reVerifyForm.purpose = purpose
-  reVerifyForm.username = username
-  store.resendAccountVerification(reVerifyForm)
-}
+  if (username.length === 0) return;
+  reVerifyForm.purpose = purpose;
+  reVerifyForm.username = username;
+  store.resendAccountVerification(reVerifyForm);
+};
 
 const updateFilter = useDebounceFn(
   () => {
-    fetch()
+    fetch();
   },
   300,
   { maxWait: 5000 }
-)
+);
 
 function convertDate(date: string) {
-  return moment(date).format("DD-MM-YYYY")
+  return moment(date).format("DD-MM-YYYY");
 }
 
-function next(){
-  page.value += 1
-  fetch()
+function next() {
+  page.value += 1;
+  fetch();
 }
 
-function previous(){
-  page.value -= 1
-  fetch()
+function previous() {
+  page.value -= 1;
+  fetch();
 }
 
 // watch state of the modal
@@ -143,9 +149,9 @@ watch(
   () => modalOpen.value,
   (isOpen: boolean) => {
     if (!isOpen) {
-      fetch()
+      fetch();
     }
-  },
+  }
 );
 
 // watch for changes in the filter object
@@ -153,7 +159,7 @@ watch(
   () => filter,
   () => updateFilter(),
   { deep: true }
-)
+);
 </script>
 
 <template>
@@ -161,26 +167,50 @@ watch(
   <div class="w-full shadow-lg bg-white rounded p-2 flex flex-col min-h-[66vh]">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
-        <div class="flex justify-between gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-        <div class="flex">
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Name" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Email Address" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Phone Number" />
-          <!-- <select class="filter-element e-select">
+        <div
+          class="flex justify-between gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+        >
+          <div class="flex">
+            <input
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[0].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Search by Name"
+            />
+            <input
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[1].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Email Address"
+            />
+            <input
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[2].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Phone Number"
+            />
+            <!-- <select class="filter-element e-select">
             <option :value="null">- Select Status -</option>
             <option value="pending">Pending</option>
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
-        </div>
-         <div class="">
-          <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-            <i class="px-1 fa-solid fa-plus"></i> Add Account
-          </button>
-         </div>
+          </div>
+          <div class="">
+            <button
+              @click="modalOpen = true"
+              class="button btn-sm my-auto"
+              type="button"
+            >
+              <i class="px-1 fa-solid fa-plus"></i> Add Account
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -189,7 +219,7 @@ watch(
       <table class="table">
         <thead>
           <tr class="header-tr">
-           <th class="t-header">#</th>
+            <th class="t-header">#</th>
             <th class="t-header" width="30%">Names</th>
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
@@ -203,32 +233,50 @@ watch(
         <tbody>
           <!-- <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in store.backofficeAccounts" :key="idx"> -->
-            <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in paginatedBackofficeAccounts" :key="idx">
-           <td width="10px">{{ idx + 1 }}.</td>
+          <tr
+            :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
+            v-for="(account, idx) in paginatedBackofficeAccounts"
+            :key="idx"
+          >
+            <td width="10px">{{ idx + 1 }}.</td>
             <td>
               <label class="font-bold py-1">
                 {{ account.firstName }} {{ account.lastName }}
                 {{ account.middleNames }}
               </label>
-              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
+              <i
+                class="fa-solid fa-exclamation-triangle"
+                v-if="account.blockedAt"
+              ></i>
             </td>
             <td>
               <a class="underline" :href="'smtp:' + account.username">
                 {{ account.email }}
               </a>
-              <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
+              <i
+                class="fa-solid fa-exclamation-triangle text-red-600"
+                v-if="!account.emailVerified"
+              ></i>
             </td>
             <td>
-              {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
-                v-if="!account.phoneVerified"></i>
+              {{ account.phone }}
+              <i
+                class="fa-solid fa-exclamation-triangle text-red-600"
+                v-if="!account.phoneVerified"
+              ></i>
             </td>
             <!-- <td class="text-center">
               {{ account.role }}
             </td> -->
             <td class="text-center">
-              <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
-              <label v-else class="text-green-600 text-xs bg-green-100 border border-green-200 rounded-sm px-1 py-0.5 font-bold">Active</label>
+              <label v-if="account.blockedAt" class="text-red-600 font-bold"
+                >BLOCKED</label
+              >
+              <label
+                v-else
+                class="text-green-600 text-xs bg-green-100 border border-green-200 rounded-sm px-1 py-0.5 font-bold"
+                >Active</label
+              >
             </td>
             <!-- <td class="text-center">
               <i v-if="account.activatedAt" class="fa-solid fa-check-square text-green-600"></i>
@@ -236,22 +284,25 @@ watch(
             </td> -->
             <td class="text-center">{{ convertDate(account.createdAt) }}</td>
             <td class="text-center">
-              <div class="flex flex-row space-x-2 w-full justify-center" v-if="!account.blockedAt">
+              <div
+                class="flex flex-row space-x-2 w-full justify-center"
+                v-if="!account.blockedAt"
+              >
                 <!-- <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i>
                   <i class="text-gray-600 fa-solid fa-trash px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i> -->
-                  <!-- <span
+                <!-- <span
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="viewDetails(account.id)"
                   > -->
-                  <span
-                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
-                    @click="modalOpen = true"
-                  >
+                <span
+                  class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
+                  @click="modalOpen = true"
+                >
                   <i class="fa fa-eye"></i>
-                    View
-                  </span>
+                  View
+                </span>
               </div>
             </td>
           </tr>
@@ -283,7 +334,7 @@ watch(
     </div>
 
     <!-- <div class="flex text-xs mt-auto"> -->
- <div v-if="showPagination" class="flex text-xs mt-auto">
+    <div v-if="showPagination" class="flex text-xs mt-auto">
       <div class="w-full border-t border-b border-gray-50">
         <div class="flex gap-2 items-center">
           <!-- Previous Button -->
@@ -309,7 +360,8 @@ watch(
           <button
             class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
             :class="{
-              'opacity-50 cursor-not-allowed': backofficeAccounts.length < limit,
+              'opacity-50 cursor-not-allowed':
+                backofficeAccounts.length < limit,
             }"
             :disabled="backofficeAccounts.length < limit"
             @click="next"
@@ -347,10 +399,6 @@ watch(
       </div>
     </div>
   </div>
-
-
-
-
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
