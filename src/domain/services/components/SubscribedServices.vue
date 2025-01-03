@@ -125,7 +125,7 @@ const open = (service: any) => {
 
     </div>
 
-    <div class="flex text-xs mt-auto my-3">
+    <div v-if="showPagination" class="flex text-xs mt-auto my-3">
         <!-- <div class="w-full border-t border-b border-gray-50"> -->
         <div class="w-full border-gray-50">
           <div class="flex gap-2 items-center mx-4">
