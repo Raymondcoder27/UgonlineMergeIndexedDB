@@ -166,7 +166,7 @@ const open = (service: any) => {
           <input
             type="number"
             placeholder="Page"
-            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-5"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-0.5 w-6"
             v-model.number="pageInput"
             @change="jumpToPage"
           />
