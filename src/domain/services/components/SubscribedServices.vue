@@ -183,7 +183,7 @@ const open = (service: any) => {
 
           <!-- Total Records -->
           <span
-            class="my-auto mx-2 bg-primary-50 px-1 py-0.5 rounded text-primary"
+            class="my-auto mx-2 mt-1 bg-primary-50 px-1 py-0.5 rounded text-primary"
           >
             Total Services: {{ totalRecords }}
           </span>
