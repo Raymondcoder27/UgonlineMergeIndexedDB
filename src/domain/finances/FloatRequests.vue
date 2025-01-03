@@ -31,9 +31,9 @@ const selectedFloatRequest: Ref<any> = ref();
 const modalOpen: Ref<boolean> = ref(false);
 
 
-function view(floatRequest: FloatRequest) {
+function view(request: FloatRequest) {
   modalOpen.value = true;
-  selectedFloatRequest.value = floatRequest;
+  selectedFloatRequest.value = request;
 }
 
 const jumpToPage = () => {
