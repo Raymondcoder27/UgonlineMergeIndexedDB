@@ -2,13 +2,14 @@
 import { ref, reactive, defineEmits, onMounted, type Ref } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
+import type { Branch } from "@/domain/branches/types";
 
 const branchStore = useBranchStore();
 const notify = useNotificationsStore();
 
 const loading: Ref<boolean> = ref(false);
 const selectedBranchId: Ref<string> = ref("");  // ID of the branch to be edited
-const branch: Ref<any> = reactive({
+const branch: Ref<Branch> = reactive({
   id: "",
   name: "",
   location: "",
