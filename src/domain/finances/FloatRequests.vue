@@ -24,6 +24,10 @@ const changePageSize = () => {
 };
 const showPagination = computed(() => totalRecords.value >= limit.value);
 
+// const selectedApplication: Ref<ClientApplication | undefined> = ref();
+const selectedFloatRequest: Ref<any> = ref();
+
+
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
     page.value = totalPages.value;
