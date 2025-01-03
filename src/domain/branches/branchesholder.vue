@@ -25,7 +25,7 @@ const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
 const selectedBranch: Ref<string> = ref("");
-  const branches: Ref<any[]> = ref([]);
+const branches: Ref<any[]> = ref([]);
 // let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
@@ -58,7 +58,7 @@ function fetchBranches() {
   //     notify.error(error.response.data.message);
   //   });
 
-    loading.value = true;
+  loading.value = true;
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
@@ -137,19 +137,17 @@ watch(
   }
 );
 
-
 // const paginatedServices = computed(() => {
 //   const start = (page.value - 1) * limit.value;
 //   const end = start + limit.value;
 //   return store.services.slice(start, end);  // Adjust according to your page & limit
 // });
 
- const paginatedBranches = computed(() => {
-   const start = (page.value - 1) * limit.value;
-   const end = start + limit.value;
-   return branchStore.branches.slice(start, end);  // Adjust according to your page & limit
- });
-
+const paginatedBranches = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return branchStore.branches.slice(start, end); // Adjust according to your page & limit
+});
 
 // Helper function to assign managers to branches
 const assignManagersToBranches = () => {
@@ -183,12 +181,12 @@ onMounted(() => {
     <div class="flex justify-between my-1">
       <div class="flex flex-col">
         <!-- <div class="grid grid-cols-5"> -->
-          <!-- <input
+        <!-- <input
             class="filter-element e-input"
             type="text"
             placeholder="Search by Name"
           /> -->
-          <!-- <select class="filter-element e-select" v-model="providerId">
+        <!-- <select class="filter-element e-select" v-model="providerId">
             <option :value="null">- Select Provider -</option>
             <option
               v-for="(provider, idx) in providerStore.providers"
@@ -198,7 +196,7 @@ onMounted(() => {
               {{ provider.name }}
             </option>
           </select> -->
-          <!-- <select class="filter-element e-select" v-model="status">
+        <!-- <select class="filter-element e-select" v-model="status">
             <option :value="null">- Select Status -</option>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
@@ -318,7 +316,7 @@ onMounted(() => {
                   class="bg-red-200 rounded-sm text-xs font-semibold text-red-700 px-1.5 py-1 hover:underline"
                   @click="assignManager(branch)"
                 >
-                <i class="fa fa-user-plus"></i>
+                  <i class="fa fa-user-plus"></i>
                   Assign Manager
                 </button>
               </div>
@@ -362,18 +360,18 @@ onMounted(() => {
       </table>
     </div>
     <div class="flex">
-  <div class="w-full border-t border-b border-gray-50">
-    <div class="flex gap-2 items-center">
-      <!-- Previous Button -->
-      <button
-      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-      :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
-      :disabled="page <= 1"
-      @click="previous"
-    >
-      <i class="fa-solid fa-arrow-left"></i>
-    </button>
-      <!-- <button
+      <div class="w-full border-t border-b border-gray-50">
+        <div class="flex gap-2 items-center">
+          <!-- Previous Button -->
+          <button
+            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+            :disabled="page <= 1"
+            @click="previous"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <!-- <button
         :class="{ 'text-gray-300': page === 1, 'hover:text-primary': page > 1 }"
         :disabled="page === 1"
         class="rounded-l px-4 py-2"
@@ -382,17 +380,19 @@ onMounted(() => {
         <i class="fa-solid fa-caret-left m-2"></i>
       </button> -->
 
-      <!-- Current Page / Total Pages -->
-      <div class="py-1">
-        <span class="px-2 py-1 bg-primary rounded text-white">{{ page }}</span>
-        <label class="mx-1 text-gray-400">/</label>
-        <!-- <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+          <!-- Current Page / Total Pages -->
+          <div class="py-1">
+            <span class="px-2 py-1 bg-primary rounded text-white">{{
+              page
+            }}</span>
+            <label class="mx-1 text-gray-400">/</label>
+            <!-- <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
           {{ totalPages }}
         </span> -->
-      </div>
+          </div>
 
-      <!-- Next Button -->
-      <!-- <button
+          <!-- Next Button -->
+          <!-- <button
         :class="{ 'text-gray-300': page >= totalPages, 'hover:text-primary': page < totalPages }"
         :disabled="page >= totalPages"
         class="rounded-r px-4 py-2"
@@ -400,46 +400,46 @@ onMounted(() => {
       >
         <i class="fa-solid fa-caret-right m-2"></i>
       </button> -->
-      <button
-      class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-      :class="{
-        'opacity-50 cursor-not-allowed': branches.length < limit
-      }"
-      :disabled="branches.length < limit"
-      @click="next"
-    >
-      <i class="fa-solid fa-arrow-right"></i>
-    </button>
+          <button
+            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            :class="{
+              'opacity-50 cursor-not-allowed': branches.length < limit,
+            }"
+            :disabled="branches.length < limit"
+            @click="next"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
 
-      <!-- Jump to Page -->
-      <label>Page</label>
-      <input
-        type="number"
-        placeholder="Page"
-        class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
-        v-model.number="pageInput"
-        @change="jumpToPage"
-      />
+          <!-- Jump to Page -->
+          <label>Page</label>
+          <input
+            type="number"
+            placeholder="Page"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            v-model.number="pageInput"
+            @change="jumpToPage"
+          />
 
-      <!-- Adjust Page Size -->
-      <label>Page Size</label>
-      <input
-        type="number"
-        placeholder="Page Size"
-        class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
-        v-model.number="limit"
-        @change="changePageSize"
-      />
+          <!-- Adjust Page Size -->
+          <label>Page Size</label>
+          <input
+            type="number"
+            placeholder="Page Size"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            v-model.number="limit"
+            @change="changePageSize"
+          />
 
-      <!-- Total Records -->
-      <span class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary">
-        Total Records: {{ totalRecords }}
-      </span>
+          <!-- Total Records -->
+          <span
+            class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
+          >
+            Total Records: {{ totalRecords }}
+          </span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
   </div>
 
   <!-- Modal -->
@@ -461,7 +461,11 @@ onMounted(() => {
   <AppModal v-model="assignManagerModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <AssignBranchManager :branchId="selectedBranch" @managerAssigned="close" @cancel="close" />
+    <AssignBranchManager
+      :branchId="selectedBranch"
+      @managerAssigned="close"
+      @cancel="close"
+    />
     <!-- That's also okay -->
   </AppModal>
 </template>
