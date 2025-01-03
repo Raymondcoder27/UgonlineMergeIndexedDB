@@ -27,9 +27,9 @@ const showPagination = computed(() => totalRecords.value >= limit.value);
 // const selectedApplication: Ref<ClientApplication | undefined> = ref();
 const selectedFloatRequest: Ref<any> = ref();
 
-function view(application: ClientApplication) {
+function view(floatRequest: any) {
   modalOpen.value = true;
-  selectedApplication.value = application;
+  selectedApplication.value = floatRequest;
 }
 
 const jumpToPage = () => {
