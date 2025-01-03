@@ -7,6 +7,7 @@ import type { IGoFilter } from "@/types";
 // import { useDebounce } from "@vueuse/core";
 import moment from "moment/moment";
 import { useBalance } from "@/domain/balance/stores";
+import { FloatRequest } from "@/agentdomain/ledger/types/chart";
 
 const balanceStore = useBalance();
 
@@ -30,7 +31,7 @@ const selectedFloatRequest: Ref<any> = ref();
 const modalOpen: Ref<boolean> = ref(false);
 
 
-function view(floatRequest: any) {
+function view(floatRequest: FloatRequest) {
   modalOpen.value = true;
   selectedFloatRequest.value = floatRequest;
 }
