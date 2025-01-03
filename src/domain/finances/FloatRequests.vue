@@ -579,9 +579,13 @@ onMounted(() => {
               <td class="p-1 font-bold">ID</td>
               <td class="p-1">{{ selectedFloatRequest?.id }}</td>
             </tr>
-            <tr class="border border-gray-50">
+            <!-- <tr class="border border-gray-50">
               <td class="p-1 font-bold">Tracking Number</td>
               <td class="p-1">{{ selectedFloatRequest?.trackingNo }}</td>
+            </tr> -->
+            <tr class="border border-gray-50">
+              <td class="p-1 font-bold">Date</td>
+              <td class="p-1">{{ selectedFloatRequest?.dateRequested }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Status</td>
@@ -605,17 +609,17 @@ onMounted(() => {
                 </div>
               </td>
             </tr>
-            <tr class="border border-gray-50">
+            <!-- <tr class="border border-gray-50">
               <td class="p-1 font-bold">Service</td>
               <td class="p-1">{{ selectedFloatRequest?.serviceName }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Provider</td>
               <td class="p-1">{{ selectedFloatRequest?.providerName }}</td>
-            </tr>
+            </tr> -->
             <tr class="border border-gray-50">
-              <td class="p-1 font-bold">Payment Reference</td>
-              <!-- <td class="p-1">{{ selectedFloatRequest?.paymentInfo.payment_ref }}</td> -->
+              <td class="p-1 font-bold">Branch</td>
+              <td class="p-1">{{ selectedFloatRequest?.branchId }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Date</td>
