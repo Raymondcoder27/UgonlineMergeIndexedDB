@@ -566,6 +566,7 @@ onMounted(() => {
 
     <!-- Modal -->
     <AppModal v-model="modalOpen" xl4>
+      <p class="text-xl font-bold">Float Request Details</p>
     <div class="flex">
       <div class="w-full">
         <table class="w-full">
