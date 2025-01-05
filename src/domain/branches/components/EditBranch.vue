@@ -26,7 +26,6 @@ const branch = reactive({
 //   status: "",
 //   createdAt: "",
 // });
-
 const emit = defineEmits(["cancel"]);
 
 // Fetch the branch data from the store
