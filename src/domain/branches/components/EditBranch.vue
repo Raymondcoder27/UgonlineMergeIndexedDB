@@ -27,7 +27,6 @@ const branch = reactive({
 //   createdAt: "",
 // });
 const emit = defineEmits(["cancel"]);
-
 // Fetch the branch data from the store
 onMounted(async () => {
   loading.value = true;
