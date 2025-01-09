@@ -227,7 +227,7 @@ watch(
 
 
 
-    <div class="flex">
+    <!-- <div class="flex">
       <div class="w-full py-1">
         <i
           class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-list"
@@ -284,11 +284,6 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <!-- <tr
-            class="body-tr"
-            v-for="(service, idx) in store.services"
-            :key="idx"
-          > -->
           <tr
             class="body-tr"
             v-for="(service, idx) in paginatedServices"
@@ -320,9 +315,9 @@ watch(
             <td class="text-center">
               <span>{{service.status}}</span>
             </td>
-            <!-- <td class="text-center">
+            <td class="text-center">
               <span class="text-xs">{{ convertDateTime(service.createdAt.Time) }}</span>
-            </td> -->
+            </td>
             <td class="text-center">
               <i class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200  hover:text-blue-700"  @click="open(service)"></i>
               <i class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"  @click="edit(service)"></i>
@@ -331,7 +326,7 @@ watch(
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
 
 
     <div class="flex justify-end items-center mt-2 mb-2">
