@@ -2,10 +2,10 @@
 import AppModal from "@/components/AppModal.vue";
 import {onMounted, type Ref, ref, watch} from "vue";
 import CreateService from "@/agentdomain/apiservices/components/CreateService.vue";
-import {useServicesStore} from "@/agentdomain/services/stores";
-import type {Service} from "@/agentdomain/services/types";
-import EditService from "@/agentdomain/services/components/EditService.vue";
-import ServiceSpecificationDetails from "@/agentdomain/services/views/ServiceSpecificationDetails.vue";
+import {useServicesStore} from "@/agentdomain/apiservices/stores";
+import type {Service} from "@/agentdomain/apiservices/types";
+import EditService from "@/agentdomain/apiservices/components/EditService.vue";
+import ServiceSpecificationDetails from "@/agentdomain/apiservices/views/ServiceSpecificationDetails.vue";
 import moment from "moment/moment";
 import router from "@/router";
 import {useProviderStore} from "@/agentdomain/providers/stores";
