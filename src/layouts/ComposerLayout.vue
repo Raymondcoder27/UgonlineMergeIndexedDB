@@ -5,7 +5,7 @@ import AgentHeader from "@/components/AgentHeader.vue";
 </script>
 
 <template>
-  <div class="flex flex-col w-screen h-screen bg-neutral-100">
+  <div class="flex flex-col w-screen h-screen bg-neutral-100 overlow-y-auto">
     <div class="flex flex-col h-full w-full">
       <!-- <OptionalHeader /> -->
       <AgentHeader />
