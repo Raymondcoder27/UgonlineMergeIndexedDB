@@ -2,6 +2,7 @@
 
 import type {FormElement, FormSection, SectionEntry,} from "@/agentdomain/composer/types/formtypes";
 import {onMounted, type Ref, ref, watch} from "vue";
+import api from "@/config/api";
 
 let formSections: Ref<Array<FormSection>> = ref([])
 
