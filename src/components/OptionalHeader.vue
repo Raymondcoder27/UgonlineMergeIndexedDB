@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Logo from "@/assets/images/banner.png";
 import ProfileSection from "@/components/ProfileSection.vue";
+import AgentTopMenu from "@/components/AgentTopMenu.vue";
 import { useStorage } from "@vueuse/core";
 import { computed, unref, ref } from "vue";
 import type { ComputedRef } from "vue";
@@ -65,7 +66,9 @@ const menuOpen = ref(useStorage("sms", true));
             <b class="rounded-r bg-primary-700 p-1">line</b>
           </span>
         </div>
+ <AgentTopMenu />
       </div>
+
       <!-- Right Side: Profile Information -->
       <div class="flex items-center justify-end ml-auto">
         <ProfileSection />
