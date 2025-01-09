@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import {onMounted, type Ref, ref, watch} from "vue";
-import CreateService from "@/agentdomain/services/components/CreateService.vue";
+import CreateService from "@/agentdomain/apiservices/components/CreateService.vue";
 import {useServicesStore} from "@/agentdomain/services/stores";
 import type {Service} from "@/agentdomain/services/types";
 import EditService from "@/agentdomain/services/components/EditService.vue";
