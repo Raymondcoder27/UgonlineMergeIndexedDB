@@ -15,6 +15,7 @@ export type Service = {
     featureId: string;
     requirements: string[];
     providerId: string
+    defaultLogo: string
     providerName: string
     createdAt: GoValueTime;
     status:string

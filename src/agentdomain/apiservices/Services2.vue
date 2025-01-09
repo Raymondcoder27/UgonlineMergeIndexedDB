@@ -13,6 +13,7 @@ import CategorySelector from "@/agentdomain/settings/components/CategorySelector
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
+import ministryThumbnail from "@/assets/images/ministry.png";
 
 const store = useServicesStore();
 const modalOpen: Ref<boolean> = ref(false);
@@ -156,7 +157,7 @@ watch(
 </script>
 
 <template>
-  <div class="shadow-lg rounded p-2">
+  <div class="rounded p-2">
     <div class="flex justify-end items-center mt-2 mb-2">
       <!-- Previous Button -->
       <button
@@ -196,13 +197,14 @@ watch(
         v-for="service in servicesWithProviders"
         :key="service.id"
         @click="open(service)"
-        class="service service-active border p-2 border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+        class="service service-active border p-2  bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
       >
         <div class="flex justify-between items-center">
           <!-- <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" /> -->
           <img v-if="service.providerLogo" :src="service.providerLogo" class="avi rounded-full" alt="thumb" />
-                    <img v-else-if="service.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/>
-                    <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i>
+                    <!-- <img v-else-if="service.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/> -->
+                    <!-- <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i> -->
+                    <img v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border" :src="ministryThumbnail">
           <p class="font-bold text-xs text-gray-700">
             {{ service.providerName }}
           </p>

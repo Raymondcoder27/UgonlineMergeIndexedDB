@@ -48,6 +48,10 @@ export const useServicesStore = defineStore("services", () => {
     })
   }
 
+
+  //define the default logo image
+  // const defaultLogo = ref("https://via.placeholder.com")
+
   const fetchServicesByProvider = async (id:string, page:number) => {
     return api.get("/registry/v1/provider/"+id+"?limit=15&page="+page).then((response:any) => {
       services.value = response.data.data
