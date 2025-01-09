@@ -17,10 +17,26 @@ onMounted(() => {
   formData = {}
 })
 
+// function submit() {
+//   alert(JSON.stringify(formData))
+//   // alert(JSON.stringify('Form submitted'))
+// }
+
+// submit to an endpoint (https://sandbox.apiclient.eposta.ug/api/box/apply)
 function submit() {
-  alert(JSON.stringify(formData))
-  // alert(JSON.stringify('Form submitted'))
+  let payload = {
+    form: formData
+  }
+  api.post('/box/apply', payload)
+      .then(() => {
+        alert('Form submitted')
+      })
+      .catch((error:any) => {
+        alert(JSON.stringify(error.response.data))
+      })
 }
+  // alert(JSON.stringify('Form submitted'))
+
 
 function onChange(variable: string, value: string) {
   Reflect.set(formData, variable, value)
