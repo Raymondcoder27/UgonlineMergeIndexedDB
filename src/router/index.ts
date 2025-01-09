@@ -29,6 +29,7 @@ import AgentSubmissions from "@/agentdomain/submissions/Submissions.vue";
 import AgentServicesDetails from "@/agentdomain/servicesdetails/ServicesDetails.vue";
 import AgentAppGateway from "@/agentdomain/gateway/AppGateway.vue";
 import AgentAppFinances from "@/agentdomain/finances/AppFinances.vue";
+import ApiServices from "@/agentdomain/apiservices/Services.vue";
 
 // Merge appRoutes and appRoutes2
 const mergedRoutes: RouteRecordRaw[] = [
@@ -75,6 +76,7 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "agent-app-finances", path: "/agent/finances", component: AgentAppFinances },
       { name: "agent-app-gateway", path: "/agent/gateway", component: AgentAppGateway },
       { name: "agent-app-submissions", path: "/agent/submissions", component: AgentSubmissions },
+      { name: "api-services", path: "/agent/api-services", component: ApiServices },
     ],
   },
   {
