@@ -196,9 +196,12 @@ watch(
     >
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
-        <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p>
+      <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p>
+
+        <!-- <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p> -->
       </div>
       <hr class="my-2" />
+      <p class="font-bold text-xs text-gray-700">{{ service.name }}</p>
       <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
       <table class="text-sm text-gray-600">
         <tbody>
