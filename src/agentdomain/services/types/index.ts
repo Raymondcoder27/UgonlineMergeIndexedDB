@@ -18,6 +18,8 @@ export type Service = {
     secondaryColor: string;
     contacts: string[];
     billing: string;
+    serviceSubscriptions: string[];
+    userManagement: string;
     accessibilityTier:string;
     featureId: string;
     requirements: string[];
