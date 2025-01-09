@@ -55,6 +55,20 @@ const paginatedServices = computed(() => {
   return store.services?.slice(start, end); // Adjust according to your page & limit
 });
 
+// Computed property to map services to their providers
+const servicesWithProviders = computed(() => {
+  return store.services.map((service) => {
+    const provider = providerStore.providers.find(
+      (p) => p.id === service.providerId // Assuming providerId links services to providers
+    );
+    return {
+      ...service,
+      providerLogo: provider?.displayLogo,
+      providerType: provider?.providerType,
+    };
+  });
+});
+
 const providerStore = useProviderStore();
 onMounted(() => {
   loading.value = true;
@@ -163,16 +177,16 @@ watch(
       class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     > -->
       <div
-        v-for="service in paginatedServices"
+        v-for="service in servicesWithProviders"
         :key="service.id"
         @click="open(service)"
         class="service service-active border p-2 border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
       >
         <div class="flex justify-between items-center">
           <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
-          <!-- <img v-if="provider.displayLogo" :src="provider.displayLogo" class="avi rounded-full" alt="thumb" />
-                    <img v-else-if="provider.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/>
-                    <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i> -->
+          <img v-if="service.displayLogo" :src="service.displayLogo" class="avi rounded-full" alt="thumb" />
+                    <img v-else-if="service.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/>
+                    <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i>
           <p class="font-bold text-xs text-gray-700">
             {{ service.providerName }}
           </p>
