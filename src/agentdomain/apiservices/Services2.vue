@@ -20,12 +20,39 @@ const categoryModalOpen: Ref<boolean> = ref(false);
 const specModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(16);
+const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false)
 const selectedService: Ref<string> = ref("")
 let providerId = ref("")
 let status = ref("")
 const notify =  useNotificationsStore()
+
+function fetchServices() {
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  services.value = store.services.slice(startIndex, endIndex);
+  loading.value = false;
+}
+
+// Go to the next page
+function next() {
+  page.value += 1;
+  fetchServices();
+}
+
+// Go to the previous page
+function previous() {
+  page.value -= 1;
+  fetchServices();
+}
+
+const paginatedServices = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return store.services.slice(start, end); // Adjust according to your page & limit
+});
 
 const providerStore = useProviderStore()
 onMounted(() => {
@@ -197,6 +224,34 @@ watch(
         </tbody>
       </table>
     </div>
+
+
+    <div class="flex justify-end items-center mt-2 mb-2">
+    <!-- Previous Button -->
+    <button
+      class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+      :disabled="page <= 1"
+      @click="previous"
+    >
+      <i class="fa-solid fa-arrow-left text-md"></i>
+    </button>
+
+    <!-- Page Number Display -->
+    <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
+
+    <!-- Next Button -->
+    <button
+      class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{
+        'opacity-50 cursor-not-allowed': store.services.length < limit,
+      }"
+      :disabled="store.services.length < limit"
+      @click="next"
+    >
+      <i class="fa-solid fa-arrow-right text-md"></i>
+    </button>
+  </div>
   </div>
 
   <!-- Modal -->
