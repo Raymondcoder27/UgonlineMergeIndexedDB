@@ -3,6 +3,7 @@
 import type {FormElement, FormSection, SectionEntry,} from "@/agentdomain/composer/types/formtypes";
 import {onMounted, type Ref, ref, watch} from "vue";
 import api from "@/config/api";
+import axios from "axios";
 
 let formSections: Ref<Array<FormSection>> = ref([])
 
@@ -18,24 +19,25 @@ onMounted(() => {
   formData = {}
 })
 
-// function submit() {
-//   alert(JSON.stringify(formData))
-//   // alert(JSON.stringify('Form submitted'))
-// }
+function submit() {
+  alert(JSON.stringify(formData))
+}
 
 // submit to an endpoint (https://sandbox.apiclient.eposta.ug/api/box/apply)
-function submit() {
-  let payload = {
-    form: formData
-  }
-  api.post('/box/apply', payload)
-      .then(() => {
-        alert('Form submitted')
-      })
-      .catch((error:any) => {
-        alert(JSON.stringify(error.response.data))
-      })
-}
+// function submit() {
+//   let payload = {
+//     form: formData
+//   }
+//   // api.post('/box/apply', payload)
+//   axios.post('https://endpoint.test', payload)
+//       .then(() => {
+//         alert('Form submitted')
+//       })
+//       .catch((error:any) => {
+//         // alert(JSON.stringify(error.response.data))
+//         alert(JSON.stringify(error))
+//       })
+// }
   // alert(JSON.stringify('Form submitted'))
 
 
