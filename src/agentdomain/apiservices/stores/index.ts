@@ -2,7 +2,7 @@
 import {ref, type Ref} from "vue";
 import {defineStore} from "pinia";
 import api from "@/config/api";
-import type {Service, ServiceResponseInterface, ServiceSpecification} from "@/domain/services/types";
+import type {Service, ServiceResponseInterface, ServiceSpecification} from "@/agentdomain/apiservices/types";
 
 export const useServicesStore = defineStore("services", () => {
   const services: Ref<Service[] | undefined> = ref()

@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import {onMounted, type Ref, ref, watch} from "vue";
-import CreateService from "@/domain/services/components/CreateService.vue";
-import {useServicesStore} from "@/domain/services/stores";
-import type {Service} from "@/domain/services/types";
-import EditService from "@/domain/services/components/EditService.vue";
-import ServiceSpecificationDetails from "@/domain/services/views/ServiceSpecificationDetails.vue";
+import CreateService from "@/agentdomain/services/components/CreateService.vue";
+import {useServicesStore} from "@/agentdomain/services/stores";
+import type {Service} from "@/agentdomain/services/types";
+import EditService from "@/agentdomain/services/components/EditService.vue";
+import ServiceSpecificationDetails from "@/agentdomain/services/views/ServiceSpecificationDetails.vue";
 import moment from "moment/moment";
 import router from "@/router";
-import {useProviderStore} from "@/domain/providers/stores";
-import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
+import {useProviderStore} from "@/agentdomain/providers/stores";
+import CategorySelector from "@/agentdomain/settings/components/CategorySelector.vue";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
@@ -185,9 +185,9 @@ watch(
             <td class="text-center">
               <span>{{service.status}}</span>
             </td>
-            <td class="text-center">
+            <!-- <td class="text-center">
               <span class="text-xs">{{ convertDateTime(service.createdAt.Time) }}</span>
-            </td>
+            </td> -->
             <td class="text-center">
               <i class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200  hover:text-blue-700"  @click="open(service)"></i>
               <i class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"  @click="edit(service)"></i>

@@ -63,7 +63,7 @@ const mergedRoutes: RouteRecordRaw[] = [
     path: "/agent",
     name: "app-home2",
     component: AgentLayout,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: true },
     redirect: "/agent/services",
     children: [
       { name: "agent-app-services", path: "/agent/services", component: AgentAppServices },

@@ -2,10 +2,10 @@
 
 import {onMounted, type Ref, ref} from "vue";
 import moment from "moment/moment";
-import {useServicesStore} from "@/domain/services/stores";
+import {useServicesStore} from "@/agentdomain/services/stores";
 import Footer from "@/components/Footer.vue";
 import {useRouter} from "vue-router";
-import ServiceSpecificationDetails from "@/domain/services/views/ServiceSpecificationDetails.vue";
+import ServiceSpecificationDetails from "@/agentdomain/services/views/ServiceSpecificationDetails.vue";
 import OptionalHeader from "@/components/OptionalHeader.vue";
 
 const store = useServicesStore()
