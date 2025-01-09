@@ -125,7 +125,7 @@ function convertDate(date:string){
                 <!-- <i @click="preview(spec.id)" class="fa-solid fa-eye text-blue-700 p-1 bg-blue-50 border border-blue-200 hover:text-primary-700"></i>
                 <i v-if="spec.status == 'DEPRECATED'" class="fa-solid fa-pen text-gray-200 mx-1 p-1 bg-gray-50 border border-gray-200 hover:text-primary-700"></i>
                 <i v-else @click="compose(spec.id, spec.providerId)" class="fa-solid fa-pen mx-1 p-1 bg-green-50 border border-green-200 text-green-700 hover:text-primary-700"></i> -->
-                <button @click="preview(spec.id)" class="bg-blue-400 text-white rounded-sm p-1 font-semibold">Fill Form</button>
+                <button @click="preview(spec.id)" class="bg-blue-500 text-white rounded p-1 font-semibold hover:bg-blue-700">Fill Form</button>
               </div>
             </td>
             <td class="text-right text-xs">
