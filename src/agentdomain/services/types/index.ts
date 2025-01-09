@@ -12,6 +12,12 @@ export type Service = {
     id: string;
     name: string;
     description: string;
+    acronym: string;
+    type: string;
+    primaryColor: string;
+    secondaryColor: string;
+    contacts: string[];
+    billing: string;
     accessibilityTier:string;
     featureId: string;
     requirements: string[];
