@@ -88,7 +88,7 @@ function convertDate(date:string){
             <th class="text-center">Status</th>
             <th class="text-center">Version</th>
             <th class="text-center">Date</th>
-            <th class="text-center"></th>
+            <th class="text-center">Action</th>
             <th class="t-header"></th>
           </tr>
           </thead>
