@@ -4,7 +4,7 @@ import FormViewer from "@/agentdomain/composer/components/FormViewer.vue";
 import type {ServiceSpecification} from "@/agentdomain/services/types";
 import {onMounted, type Ref, ref, watch} from "vue";
 import {useRouter} from "vue-router";
-import {useServicesStore} from "@/agentdomain/services/stores";
+import {useServicesStore} from "@/agentdomain/apiservices/stores";
 import type {FormSection} from "@/agentdomain/composer/types/formtypes";
 
 let form:Ref<ServiceSpecification> = ref({
