@@ -10,6 +10,7 @@ export interface ServiceResponseInterface {
 
 export type Service = {
     id: string;
+    trackingNumber: string;
     name: string;
     description: string;
     acronym: string;
