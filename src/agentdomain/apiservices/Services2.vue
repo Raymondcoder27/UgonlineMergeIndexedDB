@@ -56,18 +56,34 @@ const paginatedServices = computed(() => {
 });
 
 // Computed property to map services to their providers
+// const servicesWithProviders = computed(() => {
+//   return store.services.map((service) => {
+//     const provider = providerStore.providers.find(
+//       (p) => p.id === service.providerId 
+//     );
+//     return {
+//       ...service,
+//       providerLogo: provider?.displayLogo,
+//       providerType: provider?.providerType,
+//     };
+//   });
+// });
+
 const servicesWithProviders = computed(() => {
+  if (!store.services || !Array.isArray(store.services)) return []; // Ensure services is an array
+
   return store.services.map((service) => {
-    const provider = providerStore.providers.find(
-      (p) => p.id === service.providerId // Assuming providerId links services to providers
+    const provider = providerStore.providers?.find(
+      (p) => p.id === service.providerId
     );
     return {
       ...service,
-      providerLogo: provider?.displayLogo,
-      providerType: provider?.providerType,
+      providerLogo: provider?.displayLogo || '', // Fallback for logo
+      providerType: provider?.providerType || 'Unknown', // Fallback for type
     };
   });
 });
+
 
 const providerStore = useProviderStore();
 onMounted(() => {
@@ -184,7 +200,7 @@ watch(
       >
         <div class="flex justify-between items-center">
           <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
-          <img v-if="service.displayLogo" :src="service.displayLogo" class="avi rounded-full" alt="thumb" />
+          <img v-if="service.providerLogo" :src="service.providerLogo" class="avi rounded-full" alt="thumb" />
                     <img v-else-if="service.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/>
                     <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i>
           <p class="font-bold text-xs text-gray-700">
