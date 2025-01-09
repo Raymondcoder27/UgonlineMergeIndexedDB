@@ -216,7 +216,7 @@ onMounted(() => {
     >
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
-        <p>{{ service.providerName }}</p>
+        <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p>
       </div>
       <hr class="my-2" />
       <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
