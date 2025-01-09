@@ -20,6 +20,7 @@ import DashboardTab from "@/domain/dashboard/DashboardTab.vue";
 // Import the agent domain components
 import AgentLayout from "@/layouts/AgentLayout.vue";
 import AgentAppServices from "@/agentdomain/services/AppServices.vue";
+import AgentAppServicesDetails from "@/agentdomain/apiservices/views/ServiceDetails.vue";
 import AgentAppEntities from "@/agentdomain/entities/AppEntities.vue";
 import AgentAppAgents from "@/agentdomain/agents/AppAgents.vue";
 import AgentBranches from "@/agentdomain/branches/AppBranches.vue";
@@ -77,6 +78,7 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "agent-app-gateway", path: "/agent/gateway", component: AgentAppGateway },
       { name: "agent-app-submissions", path: "/agent/submissions", component: AgentSubmissions },
       { name: "api-services", path: "/agent/api-services", component: ApiServices },
+      { name: "service-details", path: "/service/:id", component: AgentAppServicesDetails },
     ],
   },
   {
