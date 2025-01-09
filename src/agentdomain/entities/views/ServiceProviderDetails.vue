@@ -11,6 +11,7 @@ import Footer from "@/components/Footer.vue";
 import {useRouter} from "vue-router";
 import ProviderConfiguration from "@/agentdomain/gateway/ProviderConfiguration.vue";
 import OptionalHeader from "@/components/OptionalHeader.vue";
+import AgentHeader from "@/components/AgentHeader.vue";
 
 const store = useProviderStore()
 const loading: Ref<boolean> = ref(false)
