@@ -18,6 +18,9 @@ import DashboardTab from "@/domain/dashboard/DashboardTab.vue";
 
 
 // Import the agent domain components
+import FormComposer from "@/domain/composer/FormComposer.vue";
+import FormPreview from "@/domain/composer/FormPreview.vue";
+import ComposerLayout from "@/layouts/ComposerLayout.vue";
 import AgentLayout from "@/layouts/AgentLayout.vue";
 import AgentAppServices from "@/agentdomain/services/AppServices.vue";
 import AgentAppServicesDetails from "@/agentdomain/apiservices/views/ServiceDetails.vue";
@@ -78,7 +81,7 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "agent-app-gateway", path: "/agent/gateway", component: AgentAppGateway },
       { name: "agent-app-submissions", path: "/agent/submissions", component: AgentSubmissions },
       { name: "api-services", path: "/agent/api-services", component: ApiServices },
-      { name: "service-details", path: "/service/:id", component: AgentAppServicesDetails },
+      { name: "api-service-details", path: "/service/:id", component: AgentAppServicesDetails },
     ],
   },
   {
@@ -90,6 +93,24 @@ const mergedRoutes: RouteRecordRaw[] = [
     name: "provider-details",
     path: "/provider/:id",
     component: AgentAppEntities,
+  },
+  {
+    name: "form-composer",
+    path: "/composer",
+    component: ComposerLayout,
+    meta: { requiresAuth: true },
+    children: [
+      {
+        name: "form-builder",
+        path: "/composer/service/:id/specification",
+        component: FormComposer
+      },
+      {
+        name: "form-previewer",
+        path: "/composer/service/preview/:id/specification",
+        component: FormPreview
+      },
+    ]
   },
   ...authRoutes, // Include your auth routes
 ];

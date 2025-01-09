@@ -58,7 +58,7 @@ function spec(service:Service) {
 }
 
 function open(service:Service) {
-  router.push({name:"service-details", params:{id:service.id}})
+  router.push({name:"api-service-details", params:{id:service.id}})
 }
 
 function tag(service:Service) {
