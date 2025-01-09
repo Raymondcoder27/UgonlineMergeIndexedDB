@@ -32,6 +32,8 @@ export interface Account {
   firstName: string;
   lastName: string;
   middleNames: string;
+  middleName: string;
+  idType: string;
   email: string;
   role: string;
   username: string

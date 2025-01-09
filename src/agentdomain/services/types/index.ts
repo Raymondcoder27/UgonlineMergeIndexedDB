@@ -7,6 +7,7 @@ export interface ServiceResponseInterface {
     time: number
 }
 
+
 export type Service = {
     id: string;
     name: string;
