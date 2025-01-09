@@ -170,6 +170,9 @@ watch(
       >
         <div class="flex justify-between items-center">
           <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
+          <!-- <img v-if="provider.displayLogo" :src="provider.displayLogo" class="avi rounded-full" alt="thumb" />
+                    <img v-else-if="provider.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/>
+                    <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i> -->
           <p class="font-bold text-xs text-gray-700">
             {{ service.providerName }}
           </p>
