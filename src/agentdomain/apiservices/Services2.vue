@@ -156,7 +156,7 @@ watch(
 </script>
 
 <template>
-  <div class="shadow-lg bg-white rounded p-2">
+  <div class="shadow-lg rounded p-2">
     <div class="flex justify-end items-center mt-2 mb-2">
       <!-- Previous Button -->
       <button
@@ -199,7 +199,7 @@ watch(
         class="service service-active border p-2 border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
       >
         <div class="flex justify-between items-center">
-          <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
+          <!-- <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" /> -->
           <img v-if="service.providerLogo" :src="service.providerLogo" class="avi rounded-full" alt="thumb" />
                     <img v-else-if="service.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/>
                     <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i>
@@ -212,13 +212,16 @@ watch(
         <hr class="my-2" />
         <p class="font-bold text-xs text-gray-700">{{ service.name }}</p>
         <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
-        <table class="text-sm text-gray-600">
+        <p class="font-semibold text-xs">
+         {{ service.description }}
+        </p>
+        <!-- <table class="text-sm text-gray-600">
           <tbody>
             <tr>
               <td class="font-semibold">{{ service.description }}</td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
         <!-- <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p> -->
       </div>
     </div>
