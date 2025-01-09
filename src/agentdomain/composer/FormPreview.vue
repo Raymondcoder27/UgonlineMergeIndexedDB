@@ -35,6 +35,7 @@ let formSections: Ref<Array<FormSection>> = ref([])
 const store = useServicesStore()
 const loading: Ref<boolean> = ref(false)
 let path = useRouter()
+
 onMounted(() => {
   const specId = <string>path.currentRoute.value.params.id
   loading.value = true
