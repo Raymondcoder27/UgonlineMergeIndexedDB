@@ -19,6 +19,7 @@ onMounted(() => {
 
 function submit() {
   alert(JSON.stringify(formData))
+  // alert(JSON.stringify('Form submitted'))
 }
 
 function onChange(variable: string, value: string) {
