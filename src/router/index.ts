@@ -18,8 +18,8 @@ import DashboardTab from "@/domain/dashboard/DashboardTab.vue";
 
 
 // Import the agent domain components
-import FormComposer from "@/domain/composer/FormComposer.vue";
-import FormPreview from "@/domain/composer/FormPreview.vue";
+import FormComposer from "@/agentdomain/composer/FormComposer.vue";
+import FormPreview from "@/agentdomain/composer/FormPreview.vue";
 import ComposerLayout from "@/layouts/ComposerLayout.vue";
 import AgentLayout from "@/layouts/AgentLayout.vue";
 import AgentAppServices from "@/agentdomain/services/AppServices.vue";
