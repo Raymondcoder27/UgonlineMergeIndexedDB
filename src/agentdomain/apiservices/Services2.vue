@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import {onMounted, type Ref, ref, watch, computed} from "vue";
+import { onMounted, type Ref, ref, watch, computed } from "vue";
 import CreateService from "@/agentdomain/apiservices/components/CreateService.vue";
-import {useServicesStore} from "@/agentdomain/apiservices/stores";
-import type {Service} from "@/agentdomain/apiservices/types";
+import { useServicesStore } from "@/agentdomain/apiservices/stores";
+import type { Service } from "@/agentdomain/apiservices/types";
 import EditService from "@/agentdomain/apiservices/components/EditService.vue";
 import ServiceSpecificationDetails from "@/agentdomain/apiservices/views/ServiceSpecificationDetails.vue";
 import moment from "moment/moment";
 import router from "@/router";
-import {useProviderStore} from "@/agentdomain/providers/stores";
+import { useProviderStore } from "@/agentdomain/providers/stores";
 import CategorySelector from "@/agentdomain/settings/components/CategorySelector.vue";
-import {useNotificationsStore} from "@/stores/notifications";
-import type {ApiError} from "@/types";
+import { useNotificationsStore } from "@/stores/notifications";
+import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
 
 const store = useServicesStore();
@@ -21,13 +21,12 @@ const specModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
-const loading: Ref<boolean> = ref(false)
-const selectedService: Ref<string> = ref("")
-let providerId = ref("")
-let status = ref("")
-const notify =  useNotificationsStore()
+const loading: Ref<boolean> = ref(false);
+const selectedService: Ref<string> = ref("");
+let providerId = ref("");
+let status = ref("");
+const notify = useNotificationsStore();
 const services: Ref<any[]> = ref([]);
-
 
 function fetchServices() {
   loading.value = true;
@@ -56,47 +55,49 @@ const paginatedServices = computed(() => {
   return store.services?.slice(start, end); // Adjust according to your page & limit
 });
 
-const providerStore = useProviderStore()
+const providerStore = useProviderStore();
 onMounted(() => {
-  loading.value = true
-  store.fetchServices(page.value, limit.value)
+  loading.value = true;
+  store
+    .fetchServices(page.value, limit.value)
+    .then(() => (loading.value = false))
+    .catch((error: ApiError) => {
+      loading.value = false;
+      notify.error(error.response.data.message);
+    });
+  if (providerStore.providers == undefined) {
+    providerStore
+      .fetchProviders(1, 35)
       .then(() => (loading.value = false))
-      .catch((error:ApiError) => {
-        loading.value = false
-        notify.error(error.response.data.message)
-      })
-  if(providerStore.providers == undefined){
-    providerStore.fetchProviders(1, 35)
-        .then(() => (loading.value = false))
-        .catch(() => {
-          loading.value = false
-        })
+      .catch(() => {
+        loading.value = false;
+      });
   }
-})
+});
 
-function edit(service:Service) {
-  localStorage.setItem("service", JSON.stringify(service))
+function edit(service: Service) {
+  localStorage.setItem("service", JSON.stringify(service));
   editModalOpen.value = true;
 }
 
-function spec(service:Service) {
-  selectedService.value = service.id
-  localStorage.clear()
-  localStorage.setItem("service", JSON.stringify(service))
+function spec(service: Service) {
+  selectedService.value = service.id;
+  localStorage.clear();
+  localStorage.setItem("service", JSON.stringify(service));
   specModalOpen.value = true;
 }
 
-function open(service:Service) {
-  router.push({name:"api-service-details", params:{id:service.id}})
+function open(service: Service) {
+  router.push({ name: "api-service-details", params: { id: service.id } });
 }
 
-function tag(service:Service) {
-  selectedService.value = service.id
-  categoryModalOpen.value = true
+function tag(service: Service) {
+  selectedService.value = service.id;
+  categoryModalOpen.value = true;
 }
 
-function convertDateTime(date:string){
-  return moment(date).format("DD-MM-YYYY HH:mm:ss")
+function convertDateTime(date: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
 function close() {
@@ -106,11 +107,11 @@ function close() {
 }
 
 watch(
-    () => providerId.value,
-    (id:any) => {
-      console.log(id)
-    },
-    { deep: true }
+  () => providerId.value,
+  (id: any) => {
+    console.log(id);
+  },
+  { deep: true }
 );
 
 // watch state of the modal
@@ -120,115 +121,74 @@ watch(
     if (!isOpen) {
       // do something if that's something you're interested in
     }
-  },
+  }
 );
 </script>
 
 <template>
   <div class="shadow-lg bg-white rounded p-2">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="flex justify-end items-center mt-2 mb-2">
-    <!-- Previous Button -->
-    <button
-      class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-      :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
-      :disabled="page <= 1"
-      @click="previous"
-    >
-      <i class="fa-solid fa-arrow-left text-md"></i>
-    </button>
+      <!-- Previous Button -->
+      <button
+        class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+        :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+        :disabled="page <= 1"
+        @click="previous"
+      >
+        <i class="fa-solid fa-arrow-left text-md"></i>
+      </button>
 
-    <!-- Page Number Display -->
-    <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
+      <!-- Page Number Display -->
+      <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
 
-    <!-- Next Button -->
-    <button
-      class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
-      :class="{
-        'opacity-50 cursor-not-allowed': store.services.length < limit,
-      }"
-      :disabled="store.services.length < limit"
-      @click="next"
-    >
-      <i class="fa-solid fa-arrow-right text-md"></i>
-    </button>
-  </div>
+      <!-- Next Button -->
+      <button
+        class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+        :class="{
+          'opacity-50 cursor-not-allowed': services?.length < limit,
+        }"
+        :disabled="services.length < limit"
+        @click="next"
+      >
+        <i class="fa-solid fa-arrow-right text-md"></i>
+      </button>
+    </div>
 
-  <!-- Service Cards Section -->
-  <div class="grid grid-cols-4 gap-3 mt-3 p-5">
-    <!-- <div
+    <!-- Service Cards Section -->
+    <div class="grid grid-cols-4 gap-3 mt-3 p-5">
+      <!-- <div
       v-for="service in store.services"
       :key="service.id"
       @click="serviceForm(service)"
       class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     > -->
-    <div
-      v-for="service in paginatedServices"
-      :key="service.id"
-      @click="open(service)"
-      class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
-    >
-      <div class="flex justify-between items-center">
-        <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
-      <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p>
+      <div
+        v-for="service in paginatedServices"
+        :key="service.id"
+        @click="open(service)"
+        class="service service-active border p-2 border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+      >
+        <div class="flex justify-between items-center">
+          <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
+          <p class="font-bold text-xs text-gray-700">
+            {{ service.providerName }}
+          </p>
 
-        <!-- <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p> -->
+          <!-- <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p> -->
+        </div>
+        <hr class="my-2" />
+        <p class="font-bold text-xs text-gray-700">{{ service.name }}</p>
+        <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+        <table class="text-sm text-gray-600">
+          <tbody>
+            <tr>
+              <td class="font-semibold">{{ service.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p> -->
       </div>
-      <hr class="my-2" />
-      <p class="font-bold text-xs text-gray-700">{{ service.name }}</p>
-      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
-      <table class="text-sm text-gray-600">
-        <tbody>
-          <tr>
-            <td class="font-semibold">{{ service.description }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p> -->
     </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- <div class="flex">
       <div class="w-full py-1">
@@ -330,33 +290,32 @@ watch(
         </tbody>
       </table>
     </div> -->
-
   </div>
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <CreateService @cancel="close"/>
+    <CreateService @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 
   <AppModal v-model="categoryModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <CategorySelector :service-id="selectedService" @cancel="close"/>
+    <CategorySelector :service-id="selectedService" @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 
   <AppModal v-model="specModalOpen" xl6>
     <!-- Put here whatever makes you smile -->
-    <ServiceSpecificationDetails :id="selectedService"/>
+    <ServiceSpecificationDetails :id="selectedService" />
     <!-- That's also okay -->
   </AppModal>
 
   <AppModal v-model="editModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
-    <EditService  @cancel="close"/>
+    <EditService @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
   <!-- /Modal -->
