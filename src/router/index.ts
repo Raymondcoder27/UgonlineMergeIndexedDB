@@ -33,7 +33,9 @@ import AgentSubmissions from "@/agentdomain/submissions/Submissions.vue";
 import AgentServicesDetails from "@/agentdomain/servicesdetails/ServicesDetails.vue";
 import AgentAppGateway from "@/agentdomain/gateway/AppGateway.vue";
 import AgentAppFinances from "@/agentdomain/finances/AppFinances.vue";
-import ApiServices from "@/agentdomain/apiservices/Services.vue";
+// import ApiServices from "@/agentdomain/apiservices/Services.vue";
+import ApiServices from "@/agentdomain/apiservices/Services2.vue";
+
 
 // Merge appRoutes and appRoutes2
 const mergedRoutes: RouteRecordRaw[] = [
