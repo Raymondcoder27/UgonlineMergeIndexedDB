@@ -14,6 +14,8 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
 import ministryThumbnail from "@/assets/images/ministry.png";
+import ursbThumbnail from '@/assets/images/ursb.png';
+
 
 const store = useServicesStore();
 const modalOpen: Ref<boolean> = ref(false);
@@ -203,6 +205,7 @@ watch(
           <!-- <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" /> -->
           <img v-if="service.providerLogo" :src="service.providerLogo" class="avi rounded-full" alt="thumb" />
                     <!-- <img v-else-if="service.providerType == 'GOVERNMENT'" class="avi rounded-full" :src="coa"/> -->
+                    <img v-else-if="service.providerName === 'Uganda Registration Services Bureau'" :src="ursbThumbnail"/>
                     <!-- <i v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border border-blue-300"></i> -->
                     <img v-else class="fa-solid fa-bank rounded-full w-6 h-6 cursor-pointer border" :src="ministryThumbnail">
           <p class="font-bold text-xs text-gray-700">
