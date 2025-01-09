@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import {onMounted, type Ref, ref, watch} from "vue";
+import {onMounted, type Ref, ref, watch, computed} from "vue";
 import CreateService from "@/agentdomain/apiservices/components/CreateService.vue";
 import {useServicesStore} from "@/agentdomain/apiservices/stores";
 import type {Service} from "@/agentdomain/apiservices/types";
@@ -26,6 +26,8 @@ const selectedService: Ref<string> = ref("")
 let providerId = ref("")
 let status = ref("")
 const notify =  useNotificationsStore()
+const services: Ref<any[]> = ref([]);
+
 
 function fetchServices() {
   loading.value = true;
@@ -51,7 +53,7 @@ function previous() {
 const paginatedServices = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return store.services.slice(start, end); // Adjust according to your page & limit
+  return store.services?.slice(start, end); // Adjust according to your page & limit
 });
 
 const providerStore = useProviderStore()
@@ -124,6 +126,107 @@ watch(
 
 <template>
   <div class="shadow-lg bg-white rounded p-2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="flex justify-end items-center mt-2 mb-2">
+    <!-- Previous Button -->
+    <button
+      class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+      :disabled="page <= 1"
+      @click="previous"
+    >
+      <i class="fa-solid fa-arrow-left text-md"></i>
+    </button>
+
+    <!-- Page Number Display -->
+    <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
+
+    <!-- Next Button -->
+    <button
+      class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{
+        'opacity-50 cursor-not-allowed': store.services.length < limit,
+      }"
+      :disabled="store.services.length < limit"
+      @click="next"
+    >
+      <i class="fa-solid fa-arrow-right text-md"></i>
+    </button>
+  </div>
+
+  <!-- Service Cards Section -->
+  <div class="grid grid-cols-4 gap-3 mt-3 p-5">
+    <!-- <div
+      v-for="service in store.services"
+      :key="service.id"
+      @click="serviceForm(service)"
+      class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+    > -->
+    <div
+      v-for="service in paginatedServices"
+      :key="service.id"
+      @click="open(service)"
+      class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+    >
+      <div class="flex justify-between items-center">
+        <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
+        <p class="font-bold text-xs text-gray-700">{{ service.providerName }}</p>
+      </div>
+      <hr class="my-2" />
+      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+      <table class="text-sm text-gray-600">
+        <tbody>
+          <tr>
+            <td class="font-semibold">{{ service.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p> -->
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="flex">
       <div class="w-full py-1">
         <i
@@ -181,9 +284,14 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr
+          <!-- <tr
             class="body-tr"
             v-for="(service, idx) in store.services"
+            :key="idx"
+          > -->
+          <tr
+            class="body-tr"
+            v-for="(service, idx) in paginatedServices"
             :key="idx"
           >
             <td width="10px">{{ idx + 1 }}.</td>
@@ -244,9 +352,9 @@ watch(
     <button
       class="mr-5 text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
       :class="{
-        'opacity-50 cursor-not-allowed': store.services.length < limit,
+        'opacity-50 cursor-not-allowed': store.services?.length < limit,
       }"
-      :disabled="store.services.length < limit"
+      :disabled="store.services?.length < limit"
       @click="next"
     >
       <i class="fa-solid fa-arrow-right text-md"></i>
