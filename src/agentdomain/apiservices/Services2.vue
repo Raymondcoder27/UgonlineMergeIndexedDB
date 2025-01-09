@@ -96,7 +96,7 @@ watch(
 </script>
 
 <template>
-  <div class="min-h-[50vh] shadow-lg bg-white rounded p-2">
+  <div class="shadow-lg bg-white rounded p-2">
     <div class="flex">
       <div class="w-full py-1">
         <i
