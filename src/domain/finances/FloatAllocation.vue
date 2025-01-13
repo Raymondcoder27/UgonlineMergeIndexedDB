@@ -64,7 +64,6 @@ const paginatedfloatAllocations = computed(() => {
 
 const showPagination = computed(() => totalRecords.value >= limit.value);
 
-
 // filter
 const filter: IGoFilter = reactive({
   limit: 100,
