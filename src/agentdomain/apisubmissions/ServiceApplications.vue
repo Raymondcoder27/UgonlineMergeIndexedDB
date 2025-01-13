@@ -393,14 +393,14 @@ watch(
                 </span>
               </div>
               <div class="" v-if="application.status === 'SENT'">
-                  <span
-                    class="bg-green-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-green-700"
-                    @click="confirm(application)"
-                  >
-                    <i class="fa fa-eye"></i>
-                    View Details
-                  </span>
-                </div>
+                <span
+                  class="bg-green-500 rounded-md font-semibold text-white px-1 py-1 hover:bg-green-700"
+                  @click="confirm(application)"
+                >
+                  <i class="fa fa-eye"></i>
+                  View Details
+                </span>
+              </div>
             </td>
           </tr>
           <tr>
