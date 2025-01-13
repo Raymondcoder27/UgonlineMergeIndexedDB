@@ -1,67 +1,66 @@
 <script setup lang="ts">
-
 import FormViewer from "@/agentdomain/composer/components/FormViewer.vue";
-import type {ServiceSpecification} from "@/agentdomain/services/types";
-import {onMounted, type Ref, ref, watch} from "vue";
-import {useRouter} from "vue-router";
-import {useServicesStore} from "@/agentdomain/apiservices/stores";
-import type {FormSection} from "@/agentdomain/composer/types/formtypes";
+import type { ServiceSpecification } from "@/agentdomain/services/types";
+import { onMounted, type Ref, ref, watch } from "vue";
+import { useRouter } from "vue-router";
+import { useServicesStore } from "@/agentdomain/apiservices/stores";
+import type { FormSection } from "@/agentdomain/composer/types/formtypes";
 
-let form:Ref<ServiceSpecification> = ref({
+let form: Ref<ServiceSpecification> = ref({
   id: "",
-  providerId:"",
-  serviceId:"",
+  providerId: "",
+  serviceId: "",
   feature: {
-    String:"",
-    Valid:false
+    String: "",
+    Valid: false,
   },
-  status:"",
-  submitEndpoint:"",
+  status: "",
+  submitEndpoint: "",
   data: {
     form: {
-      sections : []
-    }
+      sections: [],
+    },
   },
-  version:"",
-  createdAt:"",
+  version: "",
+  createdAt: "",
   requestType: {
-    String:"",
-    Valid:false
+    String: "",
+    Valid: false,
   },
-  activityStatus:"",
-})
+  activityStatus: "",
+});
 
-let formSections: Ref<Array<FormSection>> = ref([])
-const store = useServicesStore()
-const loading: Ref<boolean> = ref(false)
-let path = useRouter()
+let formSections: Ref<Array<FormSection>> = ref([]);
+const store = useServicesStore();
+const loading: Ref<boolean> = ref(false);
+let path = useRouter();
 
 onMounted(() => {
-  const specId = <string>path.currentRoute.value.params.id
-  loading.value = true
-  store.findServiceSpec(specId)
-      .then(() => (loading.value = false))
-      .catch(() => {
-        loading.value = false
-      })
-})
+  const specId = <string>path.currentRoute.value.params.id;
+  loading.value = true;
+  store
+    .findServiceSpec(specId)
+    .then(() => (loading.value = false))
+    .catch(() => {
+      loading.value = false;
+    });
+});
 
 watch(
-    () => store.serviceSpecification,
-    (data:any) => {
-      form.value.id = data?.id ?? ""
-      form.value.providerId = data?.providerId ?? ""
-      form.value.serviceId = data?.serviceId ?? ""
+  () => store.serviceSpecification,
+  (data: any) => {
+    form.value.id = data?.id ?? "";
+    form.value.providerId = data?.providerId ?? "";
+    form.value.serviceId = data?.serviceId ?? "";
 
-      form.value.submitEndpoint = data?.submitEndpoint ?? ""
-      form.value.requestType = data?.requestType  ?? {String :"", Valid: false}
-      form.value.status = data?.status ?? ""
-      form.value.activityStatus = data?.activityStatus  ?? ""
-      formSections.value = data?.data.form.sections
-    },
-    { deep: true }
+    form.value.submitEndpoint = data?.submitEndpoint ?? "";
+    form.value.requestType = data?.requestType ?? { String: "", Valid: false };
+    form.value.status = data?.status ?? "";
+    form.value.activityStatus = data?.activityStatus ?? "";
+    formSections.value = data?.data.form.sections;
+  },
+  { deep: true }
 );
-
 </script>
 
 <template>
@@ -70,23 +69,29 @@ watch(
       <div class="flex" v-if="form">
         <div class="w-11/12">
           <p class="p-1 rounded bg-white border border-gray-200 text-xs my-1">
-            <i class="fa-solid fa-earth"></i> {{form.submitEndpoint}}</p>
+            <i class="fa-solid fa-earth"></i> {{ form.submitEndpoint }}
+          </p>
         </div>
         <div class="w-1/12">
-          <p class="p-1 rounded bg-white border border-gray-200 text-xs my-1 ml-1 text-center hover:text-white hover:bg-primary-700">
+          <p
+            class="p-1 rounded bg-white border border-gray-200 text-xs my-1 ml-1 text-center hover:text-white hover:bg-primary-700"
+          >
             <i class="fa-solid fa-upload"></i>
           </p>
         </div>
       </div>
-      <div class="flex" >
+      <div class="flex">
         <div class="w-full">
-          <FormViewer name="Form Preview" :form="formSections"/>
+          <FormViewer name="Form Preview" :form="formSections" />
         </div>
       </div>
     </div>
     <div class="w-6/12 mx-auto text-center" v-else>
       <span class="lds-ring mx-1" v-if="loading">
-        <div></div><div></div><div></div><div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </span>
     </div>
   </div>
