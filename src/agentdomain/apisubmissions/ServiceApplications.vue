@@ -351,14 +351,14 @@ watch(
             </td> -->
             <td>
               <div class="" v-if="application.status === 'rejected'">
-                  <span
-                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
-                    @click="confirm(application)"
-                  >
-                    <i class="fa fa-redo"></i>
-                    Resubmit
-                  </span>
-                </div>
+                <span
+                  class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
+                  @click="confirm(application)"
+                >
+                  <i class="fa fa-redo"></i>
+                  Resubmit
+                </span>
+              </div>
             </td>
           </tr>
           <tr>
