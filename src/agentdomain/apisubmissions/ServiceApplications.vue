@@ -32,7 +32,8 @@ const submissions: Ref<any[]> = ref([]);
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchSubmissions();
+  // fetchSubmissions();
+  fetchApplications();
 };
 const showPagination = computed(() => totalRecords.value >= limit.value);
 
