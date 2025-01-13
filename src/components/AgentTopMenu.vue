@@ -50,7 +50,7 @@ const topMenu: TopMenuLink[] = [
     label: "Api Submissions",
     // iconClass: "fa-solid fa-upload",
     // iconClass: "fa fa-paper-plane",
-    iconClass: "fa fa-upload",
+    iconClass: "fa fa-check-circle",
   },
   {
     name: "agent-app-ledger",
