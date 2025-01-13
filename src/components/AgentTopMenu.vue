@@ -31,7 +31,7 @@ const topMenu: TopMenuLink[] = [
     name: "api-services",
     label: "Services",
     iconClass: "fa-solid fa-list",
-  }
+  },
   // {
   //   name: "app-services-details",
   //   label: "SERVICES DETAILS",
