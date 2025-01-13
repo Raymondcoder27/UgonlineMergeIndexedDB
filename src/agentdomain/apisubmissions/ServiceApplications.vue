@@ -359,9 +359,18 @@ watch(
               >
                 <p>{{ application.status }}</p>
               </div>
-              <div
+              <!-- <div
                 v-if="
                   application.status === 'REJECTED' ||
+                  application.status === 'PAYMENT_FAILED'
+                "
+                class="pill-danger text-center"
+              >
+                <p>{{ application.status }}</p>
+              </div> -->
+              <div
+                v-if="
+                  application.status === 'FAILED' ||
                   application.status === 'PAYMENT_FAILED'
                 "
                 class="pill-danger text-center"
