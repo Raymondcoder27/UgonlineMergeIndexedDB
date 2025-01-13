@@ -1,34 +1,33 @@
 <script setup lang="ts">
-
-import {onMounted, type Ref, ref} from "vue";
+import { onMounted, type Ref, ref } from "vue";
 import moment from "moment/moment";
-import {useServicesStore} from "@/agentdomain/services/stores";
+import { useServicesStore } from "@/agentdomain/services/stores";
 import Footer from "@/components/Footer.vue";
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 import ServiceSpecificationDetails from "@/agentdomain/services/views/ServiceSpecificationDetails.vue";
 // import OptionalHeader from "@/components/OptionalHeader.vue";
 import AgentHeader from "@/components/AgentHeader.vue";
 // import Header from "@/components/Header.vue";
 
-const store = useServicesStore()
-const loading: Ref<boolean> = ref(false)
-let serviceId: Ref<string> = ref("")
+const store = useServicesStore();
+const loading: Ref<boolean> = ref(false);
+let serviceId: Ref<string> = ref("");
 onMounted(() => {
-  let path = useRouter()
-  serviceId.value = <string>path.currentRoute.value.params.id
-  loading.value = true
-  store.findService(serviceId.value)
-      .then(() => (loading.value = false))
-      .catch((error:any) => {
-        loading.value = false
-        alert(JSON.stringify(error))
-      })
-})
+  let path = useRouter();
+  serviceId.value = <string>path.currentRoute.value.params.id;
+  loading.value = true;
+  store
+    .findService(serviceId.value)
+    .then(() => (loading.value = false))
+    .catch((error: any) => {
+      loading.value = false;
+      alert(JSON.stringify(error));
+    });
+});
 
-function convertDate(date:string){
-  return moment(date).format("DD-MM-YYYY")
+function convertDate(date: string) {
+  return moment(date).format("DD-MM-YYYY");
 }
-
 </script>
 
 <template>
@@ -44,35 +43,58 @@ function convertDate(date:string){
               <div class="flex">
                 <div class="w-10/12 mx-auto text-center">
                   <span class="lds-ring mx-1" v-if="loading">
-                    <div></div><div></div><div></div><div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                   </span>
                 </div>
               </div>
               <div class="flex">
-                <div class="w-10/12 mx-auto bg-white rounded p-5" v-if="store.service">
+                <div
+                  class="w-10/12 mx-auto bg-white rounded p-5"
+                  v-if="store.service"
+                >
                   <div class="flex">
                     <div class="w-1/12 text-center">
-                      <i class="fa-solid fa-list rounded-full bg-gray-500 p-5 text-white" style="font-size: 40px;"></i>
+                      <i
+                        class="fa-solid fa-list rounded-full bg-gray-500 p-5 text-white"
+                        style="font-size: 40px"
+                      ></i>
                     </div>
                     <div class="w-11/12 my-auto">
-                      <p class="font-bold text-xl capitalize">{{store.service.name}}</p>
-                      <span class="bg-gray-200 rounded px-2 py-1 text-sm">{{store.service.status}}</span>
-                      <p class="text-sm">{{store.service.description}}</p>
+                      <p class="font-bold text-xl capitalize">
+                        {{ store.service.name }}
+                      </p>
+                      <span class="bg-gray-200 rounded px-2 py-1 text-sm">{{
+                        store.service.status
+                      }}</span>
+                      <p class="text-sm">{{ store.service.description }}</p>
                     </div>
                   </div>
                   <div class="flex">
                     <div class="w-1/12 text-center"></div>
                     <div class="w-11/12 my-auto">
                       <p class="text-sm font-bold">Service Requirements</p>
-                      <p class="text-sm" v-for="(requirement, idx) in store.service.requirements" :key="idx">
-                        - {{requirement}}
+                      <p
+                        class="text-sm"
+                        v-for="(requirement, idx) in store.service.requirements"
+                        :key="idx"
+                      >
+                        - {{ requirement }}
                       </p>
-                      <p class="text-sm italic text-gray-500">Created On: {{convertDate(store.service.createdAt.Time)}}</p>
+                      <p class="text-sm italic text-gray-500">
+                        Created On:
+                        {{ convertDate(store.service.createdAt.Time) }}
+                      </p>
                     </div>
                   </div>
                   <div class="flex">
                     <div class="w-full">
-                      <ServiceSpecificationDetails v-if="serviceId" :id="serviceId"/>
+                      <ServiceSpecificationDetails
+                        v-if="serviceId"
+                        :id="serviceId"
+                      />
                     </div>
                   </div>
                 </div>
@@ -103,11 +125,11 @@ function convertDate(date:string){
   @apply w-full px-1 my-2;
 }
 
-.tab{
+.tab {
   @apply cursor-pointer p-2 border-b border-gray-300 text-sm text-center;
 }
 
-.tab-active{
+.tab-active {
   @apply cursor-pointer p-2 border-b-4 border-primary-700 text-sm text-center;
 }
 </style>
