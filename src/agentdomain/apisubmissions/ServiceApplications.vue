@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { useApplications } from "@/agentdomain/apisubmissions/stores";
-import { onMounted, type Ref, ref, watch } from "vue";
+import { onMounted, type Ref, ref, watch, computed } from "vue";
 import moment from "moment";
 import { useProviderStore } from "@/agentdomain/providers/stores";
 import { useServicesStore } from "@/agentdomain/services/stores";
@@ -25,9 +25,6 @@ let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
-
-
-const showPagination = computed(() => totalRecords.value >= limit.value);
 
 const pageInput = ref(1);
 const changePageSize = () => {
