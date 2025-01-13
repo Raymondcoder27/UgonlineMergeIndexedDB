@@ -374,7 +374,7 @@ watch(
               <i class="fa-solid fa-eye px-1" @click="open()"></i>
             </td> -->
             <td>
-              <div class="" v-if="application.status === 'REJECTED'">
+              <div class="" v-if="application.status === 'FAILED'">
                 <span
                   class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                   @click="confirm(application)"
