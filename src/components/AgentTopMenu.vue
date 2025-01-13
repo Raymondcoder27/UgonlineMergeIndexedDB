@@ -22,16 +22,16 @@ const route = useRoute();
 const router = useRouter();
 const accountStore = useAccountStore();
 const topMenu: TopMenuLink[] = [
-  {
-    name: "agent-app-services",
-    label: "Services",
-    iconClass: "fa-solid fa-home",
-  },
   // {
-  //   name: "app-entities",
-  //   label: "Customers",
-  //   iconClass: "fa-solid fa-people-group",
+  //   name: "agent-app-services",
+  //   label: "Services",
+  //   iconClass: "fa-solid fa-home",
   // },
+   {
+    name: "api-services",
+    label: "Services",
+    iconClass: "fa-solid fa-list",
+  }
   // {
   //   name: "app-services-details",
   //   label: "SERVICES DETAILS",
@@ -50,12 +50,12 @@ const topMenu: TopMenuLink[] = [
     name: "agent-app-ledger",
     label: "Ledger",
     iconClass: "fa-solid fa-money-check",
-  },
-   {
-    name: "api-services",
-    label: "Api Services",
-    iconClass: "fa-solid fa-list",
   }
+  //  {
+  //   name: "api-services",
+  //   label: "Services",
+  //   iconClass: "fa-solid fa-list",
+  // }
 ];
 
 
