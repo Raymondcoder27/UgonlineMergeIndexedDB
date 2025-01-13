@@ -35,6 +35,7 @@ import AgentAppGateway from "@/agentdomain/gateway/AppGateway.vue";
 import AgentAppFinances from "@/agentdomain/finances/AppFinances.vue";
 // import ApiServices from "@/agentdomain/apiservices/Services.vue";
 import ApiServices from "@/agentdomain/apiservices/Services2.vue";
+import ApiSubmissions from "@/agentdomain/apisubmissions/ServiceApplications.vue";
 
 
 // Merge appRoutes and appRoutes2
