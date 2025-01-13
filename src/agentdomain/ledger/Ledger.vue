@@ -396,7 +396,7 @@ onMounted(() => {
                 Status
               </th>
               <th class="text-right t-header">Balance</th>
-              <th class="t-header">Date</th>
+              <th class="t-right">Date</th>
             </tr>
           </thead>
           <thead v-if="loading">
@@ -486,7 +486,7 @@ onMounted(() => {
                 <!-- <span>{{ transaction.balance.toLocaleString() }}</span> -->
                 <span>{{ transaction.balance.toLocaleString() }}</span>
               </td>
-              <td class="text-left">
+              <td class="text-right">
                 <span class="text-xs">{{
                   convertDateTime(transaction.createdAt)
                 }}</span>
