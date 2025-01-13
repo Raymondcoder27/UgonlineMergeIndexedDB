@@ -1,82 +1,80 @@
 <script setup lang="ts">
-import {onMounted, reactive, ref, type Ref, watch} from "vue";
-import {useServicesStore} from "@/agentdomain/services/stores";
-import {useProviderStore} from "@/agentdomain/entities/stores";
-import {useSettingsStore} from "@/agentdomain/settings/stores";
-import {useNotificationsStore} from "@/stores/notifications";
-import type {ApiError} from "@/types";
+import { onMounted, reactive, ref, type Ref, watch } from "vue";
+import { useServicesStore } from "@/agentdomain/services/stores";
+import { useProviderStore } from "@/agentdomain/entities/stores";
+import { useSettingsStore } from "@/agentdomain/settings/stores";
+import { useNotificationsStore } from "@/stores/notifications";
+import type { ApiError } from "@/types";
 
-const store = useServicesStore()
-const providerStore = useProviderStore()
-const settingsStore = useSettingsStore()
-const loading: Ref<boolean> = ref(false)
-const notify = useNotificationsStore()
+const store = useServicesStore();
+const providerStore = useProviderStore();
+const settingsStore = useSettingsStore();
+const loading: Ref<boolean> = ref(false);
+const notify = useNotificationsStore();
 
 type ServiceForm = {
-  id:string,
-  name: string,
-  description: string,
-  requirements: string[],
-  providerId: string,
-  accessibilityTier: string,
-}
+  id: string;
+  name: string;
+  description: string;
+  requirements: string[];
+  providerId: string;
+  accessibilityTier: string;
+};
 
-let form:ServiceForm = reactive({
-  id:"",
+let form: ServiceForm = reactive({
+  id: "",
   name: "",
   description: "",
   requirements: [],
   providerId: "",
   accessibilityTier: "REGISTERED_USER",
-})
-const emit = defineEmits(['cancel'])
+});
+const emit = defineEmits(["cancel"]);
 
 onMounted(() => {
-  loading.value = true
-  providerStore.fetchProviders(1, 40)
-      .then(() => (loading.value = false))
-      .catch(() => {
-        loading.value = false
-      })
-})
+  loading.value = true;
+  providerStore
+    .fetchProviders(1, 40)
+    .then(() => (loading.value = false))
+    .catch(() => {
+      loading.value = false;
+    });
+});
 
-function submit(){
-
+function submit() {
   let payload = {
-    name:form.name,
-    description:form.description,
-    requirements:form.requirements,
-    accessibility_tier:form.accessibilityTier,
-    provider_id:form.providerId,
+    name: form.name,
+    description: form.description,
+    requirements: form.requirements,
+    accessibility_tier: form.accessibilityTier,
+    provider_id: form.providerId,
+  };
+  store
+    .createService(payload)
+    .then(() => {
+      loading.value = false;
+      window.location.reload();
+      notify.success("Created");
+    })
+    .catch((error: ApiError) => {
+      loading.value = false;
+      notify.error(error.response.data.message);
+    });
+}
+
+function addRequirement() {
+  form.requirements.push("");
+}
+
+function removeRequirement(idx: number) {
+  form.requirements.splice(idx, 1);
+}
+
+watch(store.createServiceResponse, (data: any) => {
+  if (data.success) {
+    window.location.reload();
   }
-  store.createService(payload)
-      .then(() => {
-        loading.value = false
-        window.location.reload()
-        notify.success("Created")
-      })
-      .catch((error:ApiError) => {
-        loading.value = false
-        notify.error(error.response.data.message)
-      })
-}
-
-function addRequirement(){
-  form.requirements.push("")
-}
-
-function  removeRequirement(idx:number){
-  form.requirements.splice(idx, 1)
-}
-
-watch(
-    store.createServiceResponse,
-    (data:any) =>{
-      if(data.success){
-        window.location.reload()
-      }
-    }
-)
+});
 </script>
 
 <template>
@@ -94,17 +92,29 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Customer Name</label>
-          <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
-                 required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Customer Name</label
+          >
+          <input
+            type="text"
+            v-model="form.name"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Customer ID</label>
-          <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
-                 required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Customer ID</label
+          >
+          <input
+            type="text"
+            v-model="form.name"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
 
@@ -126,12 +136,17 @@ watch(
         </div>
       </div> -->
 
-
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Note</label>
-          <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
-                 required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Note</label
+          >
+          <textarea
+            rows="4"
+            v-model="form.description"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
 
@@ -142,12 +157,24 @@ watch(
           </div>
           <div class="flex">
             <div class="w-9/12" v-if="form.requirements.length > 0">
-              <div class="flex" v-for="(requirement, idx) in form.requirements" :key="idx">
+              <div
+                class="flex"
+                v-for="(requirement, idx) in form.requirements"
+                :key="idx"
+              >
                 <div class="cell-full">
-                  <input type="text" :id="requirement" class="noFocus form-element e-input w-full" v-model="form.requirements[idx]"
-                         required />
+                  <input
+                    type="text"
+                    :id="requirement"
+                    class="noFocus form-element e-input w-full"
+                    v-model="form.requirements[idx]"
+                    required
+                  />
                 </div>
-                <i class="fa-solid fa-times text-red-600 pr-2" @click="removeRequirement(idx)"></i>
+                <i
+                  class="fa-solid fa-times text-red-600 pr-2"
+                  @click="removeRequirement(idx)"
+                ></i>
               </div>
             </div>
             <div class="w-3/12">
@@ -158,7 +185,6 @@ watch(
           </div>
         </div>
       </div>
-
 
       <!-- <div class="flex my-5">
         <div class="w-full">
