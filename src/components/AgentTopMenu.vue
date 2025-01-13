@@ -46,6 +46,13 @@ const topMenu: TopMenuLink[] = [
     iconClass: "fa fa-check-circle",
   },
   {
+    name: "agent-app-submissions",
+    label: "Api Submissions",
+    // iconClass: "fa-solid fa-upload",
+    // iconClass: "fa fa-paper-plane",
+    iconClass: "fa fa-upload",
+  },
+  {
     name: "agent-app-ledger",
     label: "Ledger",
     iconClass: "fa-solid fa-money-check",
