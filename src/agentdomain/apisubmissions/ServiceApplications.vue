@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { useApplications } from "@/domain/applications/stores";
+import { useApplications } from "@/agentdomain/apisubmissions/stores";
 import {onMounted, type Ref, ref, watch} from "vue";
 import moment from "moment";
-import {useProviderStore} from "@/domain/providers/stores";
-import {useServicesStore} from "@/domain/services/stores";
+import {useProviderStore} from "@/agentdomain/providers/stores";
+import {useServicesStore} from "@/agentdomain/services/stores";
 import type {ApiError} from "@/types";
-import ApplicationDetails from "@/domain/applications/views/ApplicationDetails.vue";
+import ApplicationDetails from "@/agentdomain/apisubmissions/views/ApplicationDetails.vue";
 import {useNotificationsStore} from "@/stores/notifications";
 import TableLoader from "@/components/TableLoader.vue";
 
