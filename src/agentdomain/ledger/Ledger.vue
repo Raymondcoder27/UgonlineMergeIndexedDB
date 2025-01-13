@@ -486,7 +486,7 @@ onMounted(() => {
                 <!-- <span>{{ transaction.balance.toLocaleString() }}</span> -->
                 <span>{{ transaction.balance.toLocaleString() }}</span>
               </td>
-              <td class="text-right">
+              <td class="text-center">
                 <span class="text-xs">{{
                   convertDateTime(transaction.createdAt)
                 }}</span>
