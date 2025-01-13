@@ -1,21 +1,57 @@
 <script setup lang="ts">
 interface TableItem {
-  name: string;
+  name: string;S
   type: string;
   amount: string;
 }
 
 const tableData: TableItem[] = [
-  { name: 'Data Update', type: 'Government', amount: 'Fee' },
-  { name: 'Name Reservation/Business Name Registration fees', type: 'Government', amount: 'UGX. 35,000' },
-  { name: 'Change of Particulars for Business Name', type: 'Government', amount: 'UGX. 35,000' },
-  { name: 'Search Fees for Business Name', type: 'Private', amount: 'UGX. 35,000' },
-  { name: 'Certification fees for Particulars of a Business Name', type: 'Government', amount: 'UGX. 35,000' },
-  { name: 'Certification fees for a Certificate of Registration for a Business Name', type: 'Private', amount: 'UGX. 35,000' },
-  { name: 'Fees for Cancellation of an Entry', type: 'Government', amount: 'UGX. 35,000' },
-  { name: 'Fees for Change of Address', type: 'Government', amount: 'UGX. 35,000' },
-  { name: 'Rectification Fees of a Register', type: 'Government', amount: 'UGX. 35,000' },
-  { name: 'Fees for Notice of Cessation', type: 'Private', amount: 'UGX. 35,000' },
+  { name: "Data Update", type: "Government", amount: "Fee" },
+  {
+    name: "Name Reservation/Business Name Registration fees",
+    type: "Government",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Change of Particulars for Business Name",
+    type: "Government",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Search Fees for Business Name",
+    type: "Private",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Certification fees for Particulars of a Business Name",
+    type: "Government",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Certification fees for a Certificate of Registration for a Business Name",
+    type: "Private",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Fees for Cancellation of an Entry",
+    type: "Government",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Fees for Change of Address",
+    type: "Government",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Rectification Fees of a Register",
+    type: "Government",
+    amount: "UGX. 35,000",
+  },
+  {
+    name: "Fees for Notice of Cessation",
+    type: "Private",
+    amount: "UGX. 35,000",
+  },
 ];
 </script>
 
