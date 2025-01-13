@@ -350,10 +350,10 @@ watch(
               <i class="fa-solid fa-eye px-1" @click="open()"></i>
             </td> -->
             <td>
-              <div class="" v-if="transaction.status === 'rejected'">
+              <div class="" v-if="application.status === 'rejected'">
                   <span
                     class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
-                    @click="confirm(transaction)"
+                    @click="confirm(application)"
                   >
                     <i class="fa fa-redo"></i>
                     Resubmit
