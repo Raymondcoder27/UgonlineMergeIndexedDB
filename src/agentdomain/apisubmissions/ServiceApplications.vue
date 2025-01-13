@@ -275,7 +275,7 @@ watch(
             <th class="t-header">Applicant</th>
             <th class="text-center">Status</th>
             <th class="t-header">Date</th>
-            <th class="t-header"></th>
+            <th class="t-header">Actions</th>
           </tr>
           <tr>
             <th colspan="12">
