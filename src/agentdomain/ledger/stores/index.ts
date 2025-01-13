@@ -151,8 +151,8 @@ export const useBilling = defineStore("billing", () => {
       id: floatRequests.value.length + 1,
       dateRequested: new Date().toISOString(),
       amount: payload.amount,
-      // status: "pending",
-      status: "success",
+      status: "pending",
+      // status: "success",
       tillId: payload.tillId,
       description: "Till " + payload.tillId,
     })
@@ -182,7 +182,8 @@ export const useBilling = defineStore("billing", () => {
       description: payload.description,
       amount: payload.amount,
       balance: totalBalance.value + payload.amount,
-      status: "pending",
+      // status: "pending",
+      status: "success",
     })
   }
 
