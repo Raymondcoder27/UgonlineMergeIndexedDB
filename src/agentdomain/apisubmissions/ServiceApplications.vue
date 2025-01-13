@@ -25,6 +25,9 @@ let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
+const totalRecords = computed(() => store.submissions.length); // Total backofficeAccounts
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const submissions: Ref<any[]> = ref([]);
 
 const pageInput = ref(1);
 const changePageSize = () => {
