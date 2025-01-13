@@ -26,6 +26,7 @@ let status = ref("");
 const notify = useNotificationsStore();
 
 // const totalRecords = computed(() => store.submissions.length); // Total backofficeAccounts
+const totalRecords = computed(() => store.applications?.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 // const submissions: Ref<any[]> = ref([]);
 
@@ -427,9 +428,9 @@ watch(
             <button
               class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
               :class="{
-                'opacity-50 cursor-not-allowed': submissions.length < limit,
+                'opacity-50 cursor-not-allowed': applications?.length < limit,
               }"
-              :disabled="submissions.length < limit"
+              :disabled="applications?.length < limit"
               @click="next"
             >
               <i class="fa-solid fa-arrow-right"></i>
