@@ -83,6 +83,7 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "agent-app-finances", path: "/agent/finances", component: AgentAppFinances },
       { name: "agent-app-gateway", path: "/agent/gateway", component: AgentAppGateway },
       { name: "agent-app-submissions", path: "/agent/submissions", component: AgentSubmissions },
+      { name: "agent-api-app-submissions", path: "/agent/api-submissions", component: ApiSubmissions },
       { name: "api-services", path: "/agent/api-services", component: ApiServices },
       { name: "api-service-details", path: "/service/:id", component: AgentAppServicesDetails },
     ],
