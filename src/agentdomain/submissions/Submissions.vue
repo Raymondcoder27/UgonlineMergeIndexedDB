@@ -9,19 +9,17 @@ import ServiceForm from "@/agentdomain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
 const serviceFormModalOpen: Ref<boolean> = ref(false);
 function serviceForm(id: string) {
-  loading.value = true
+  loading.value = true;
   // Logic to open the modal or start the process
   // console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
   serviceFormModalOpen.value = true;
 
-  loading.value = false
+  loading.value = false;
 }
 // const close = () => {
 //   serviceFormModalOpen.value = false;
 // };
-
-
 
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -483,7 +481,7 @@ watch(
                   >
                     <!-- appropriate icon -->
                     <i class="fa fa-play"></i>
-<!-- 
+                    <!-- 
                     <div class="flex justify-between py-2">
           <span></span>
           <button class="button" type="submit">
@@ -497,14 +495,14 @@ watch(
           </button>
         </div> -->
                     Resume
-                     <span v-if="loading" class="lds-ring"> 
-                   <!-- <span class="lds-ring"> -->
+                    <span v-if="loading" class="lds-ring">
+                      <!-- <span class="lds-ring"> -->
 
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </span>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </span>
                   </button>
                   <button
                     class="bg-red-700 rounded-md ml-1 font-semibold text-white px-1 py-1 hover:bg-red-600"
@@ -584,7 +582,10 @@ watch(
         </table>
       </div>
 
-      <div v-if="showPagination" class="flex text-xs mt-auto justify-center items-center">
+      <div
+        v-if="showPagination"
+        class="flex text-xs mt-auto justify-center items-center"
+      >
         <div class="w-full border-t border-b border-gray-50">
           <div class="flex gap-2 items-center">
             <!-- Previous Button -->
@@ -660,8 +661,8 @@ watch(
     </AppModal>
 
     <AppModal v-model="serviceFormModalOpen" xl2>
-    <ServiceForm @serviceSubmitted="close" @cancel="close" />
-  </AppModal>
+      <ServiceForm @serviceSubmitted="close" @cancel="close" />
+    </AppModal>
   </div>
 </template>
 
