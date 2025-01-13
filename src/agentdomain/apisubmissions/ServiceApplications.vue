@@ -117,12 +117,12 @@ watch(
 <template>
   <div class="w-full shadow-lg bg-white rounded p-2">
     <div class="flex">
-      <div class="w-full py-1">
+      <!-- <div class="w-full py-1">
         <i
           class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-file-circle-check"
         ></i>
         <label class="text-lg mx-1">Service Applications (Requests)</label>
-      </div>
+      </div> -->
     </div>
     <div class="flex my-4" v-if="store.applicationStatistics">
       <div class="w-2/12 p-3 rounded mx-1 text-center border border-primary-600 bg-primary-50">
