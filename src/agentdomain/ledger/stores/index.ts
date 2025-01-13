@@ -25,8 +25,8 @@ export const useBilling = defineStore("billing", () => {
     { id: 1, description: "Recharge", amount: 15000000, balance: 15000000, status: "success", date: "2021-09-01", },
     { id: 1, description: "Service fee", amount: -25000, balance: 5000000, status: "success", date: "2021-09-01", },
     { id: 2, description: "Recharge", amount: 500000, balance: 5500000, status: "success", date: "2021-09-02", },
-    { id: 3, description: "Service fee", amount: -40000, balance: 5460000 , status: "pending", date: "2021-09-03",},
-    { id: 4, description: "Service fee", amount: -30000, balance: 5430000 , status: "failed", date: "2021-09-04",},
+    { id: 3, description: "Service fee", amount: -40000, balance: 5460000, status: "pending", date: "2021-09-03", },
+    { id: 4, description: "Service fee", amount: -30000, balance: 5430000, status: "failed", date: "2021-09-04", },
   ];
 
   // dummy float requests
@@ -64,18 +64,18 @@ export const useBilling = defineStore("billing", () => {
   async function fetchTransactions(filter: any) {
     const filteredData = dummyTransactions.filter(transaction => {
       return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
-             (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
-             (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
-             (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
-             (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
+        (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
+        (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
+        (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
+        (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
     });
-    
-  
+
+
     transactions.value = filteredData;
     console.log("Filtered transactions:", filteredData);
   }
-  
-  
+
+
 
   // async function fetchFloatLedgers(filter: any) {
   //   // Simulate API call
@@ -91,27 +91,27 @@ export const useBilling = defineStore("billing", () => {
   //     // Example: filter by status
   //     return !filter.status || item.status === filter.status;
   //   }).slice(0, filter.limit || dummyFloatLedgers.length);
-  
+
   //   floatLedgers.value = filteredData;
   // }
 
   async function fetchFloatLedgers(filter: any) {
     console.log("Fetching Float Ledgers with filter:", filter);
-  
+
     const filteredData = dummyFloatLedgers.filter(item => {
       // Filter logic...
     });
-  
+
     const limitedData = filteredData.slice(0, filter.limit || dummyFloatLedgers.length);
     floatLedgers.value = limitedData;
     console.log("Filtered float ledgers:", limitedData);
     return limitedData;  // Add this return to make the data available for use
   }
-  
-  
-  
 
-   // allocate float function, push to the float allocation array
+
+
+
+  // allocate float function, push to the float allocation array
   //  function allocateFloat(payload: AllocateFloat) {
   //   floatAllocations.value.push({
   //     id: floatAllocations.value.length + 1,
@@ -134,7 +134,7 @@ export const useBilling = defineStore("billing", () => {
     floatRequests.value = dummyFloatRequests;
   }
 
-   // allocate float function, push to the float allocation array
+  // allocate float function, push to the float allocation array
   //  function allocateFloat(payload: AllocateFloat) {
   //   floatAllocations.value.push({
   //     id: floatAllocations.value.length + 1,
@@ -156,22 +156,23 @@ export const useBilling = defineStore("billing", () => {
       tillId: payload.tillId,
       description: "Till " + payload.tillId,
     })
-      //save to localstorage
-      floatRequestToBranchManagerLocalStorage.value.push({
-         id: floatRequests.value.length + 1,
-         dateRequested: new Date().toISOString(),
-         amount: payload.amount,
-          status: "success", 
-          tillId: payload.tillId,
-        branch: "Branch 1"})
-      saveFloatRequestToLocalStorage();
-    }
-  
-    const floatRequestToBranchManagerLocalStorage = ref<FloatRequest[]>([]);
-  
-    const saveFloatRequestToLocalStorage = () => {
-      localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestToBranchManagerLocalStorage.value))
-    }
+    //save to localstorage
+    floatRequestToBranchManagerLocalStorage.value.push({
+      id: floatRequests.value.length + 1,
+      dateRequested: new Date().toISOString(),
+      amount: payload.amount,
+      status: "success",
+      tillId: payload.tillId,
+      branch: "Branch 1"
+    })
+    saveFloatRequestToLocalStorage();
+  }
+
+  const floatRequestToBranchManagerLocalStorage = ref<FloatRequest[]>([]);
+
+  const saveFloatRequestToLocalStorage = () => {
+    localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestToBranchManagerLocalStorage.value))
+  }
 
   // adjust float ledgers with float request
   function adjustFloatLedger(payload: RequestFloat) {
