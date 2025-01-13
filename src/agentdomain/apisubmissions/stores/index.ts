@@ -2,7 +2,7 @@
 import {defineStore} from "pinia";
 import {ref, type Ref} from "vue";
 import api from "@/config/api";
-import type {ApplicationStatistics, ClientApplication} from "@/domain/applications/types";
+import type {ApplicationStatistics, ClientApplication} from "@/agentdomain/apisubmissions/types";
 
 export const useApplications = defineStore("applications", () => {
   const applications: Ref<ClientApplication[] | undefined> = ref()
