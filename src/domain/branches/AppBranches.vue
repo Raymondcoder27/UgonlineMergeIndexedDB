@@ -108,7 +108,7 @@ function convertDateTime(date: string) {
 
 function deleteBranch(branch: Branch) {
   branchStore.deleteBranch(branch.id);
-  notify.success("Branch Deleted");
+  notify.success("Branch Closed");
   fetchBranches();
 }
 
