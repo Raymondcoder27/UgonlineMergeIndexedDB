@@ -105,7 +105,7 @@ function submit(userId: string) {
   };
 
   loading.value = true;
-  store.assignManager(payload.userId, payload.branchId);
+  accountStore.assignManager(payload.userId, payload.branchId);
   // store.assignManager(userId);
   // notify.success(`User successfully ${payload.userId} assigned to branch`);
   notify.success(`User successfully assigned to branch`);
