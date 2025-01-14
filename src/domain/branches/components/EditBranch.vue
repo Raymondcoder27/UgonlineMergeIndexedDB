@@ -7,7 +7,7 @@ import type { AssignManager } from "@/types";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 
-const store = useProviderStore();
+// const store = useProviderStore();
 const accountStore = useAccountStore();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
