@@ -55,7 +55,6 @@ const tableData: TableItem[] = [
 ];
 </script>
 
-
 <template>
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex">
