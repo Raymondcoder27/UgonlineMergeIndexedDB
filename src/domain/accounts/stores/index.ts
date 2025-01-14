@@ -121,7 +121,7 @@ export const useAccounts = defineStore("user-management", () => {
     }
 
     // Update the branch's manager
-    const branch = branches.value.find((branch) => branch.id === payload.branchId);
+    const branch = branches?.value.find((branch) => branch.id === payload.branchId);
     if (branch) {
       branch.manager = payload.managerId;
     }
