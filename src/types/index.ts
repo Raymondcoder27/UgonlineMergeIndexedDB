@@ -85,7 +85,7 @@ export interface ManagerAccount {
   phone: string;
   role: string;
   createdAt: string;
-  emailVerified: boolean;
+  // emailVerified: boolean;
   phoneVerified: boolean;
   activatedAt: string;
 }

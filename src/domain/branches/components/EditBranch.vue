@@ -55,7 +55,7 @@ let form: ManagerAccount = reactive({
   phone: "",
   role: "",
   createdAt: "",
-  emailVerified: "",
+  // emailVerified: "",
   phoneVerified: "",
   activatedAt: "",
 })
