@@ -47,7 +47,7 @@ function previous() {
 const paginatedManagers = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return store.branches.slice(start, end); // Adjust according to your page & limit
+  return store.managerAccounts.slice(start, end); // Adjust according to your page & limit
 });
 
 // type BranchForm = {
