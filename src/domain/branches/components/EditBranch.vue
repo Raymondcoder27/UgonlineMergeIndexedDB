@@ -124,7 +124,7 @@ function submit(userId: string) {
       of Uganda.
     </p> -->
     <form @submit.prevent="submit" class="pt-5">
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
             >Provider Name</label
@@ -136,7 +136,7 @@ function submit(userId: string) {
             required
           />
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="flex">
         <div class="cell-full">
