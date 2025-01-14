@@ -186,22 +186,22 @@ function submit(userId: string) {
           >
           <input
             type="email"
-            v-model="form.mail"
+            v-model="form.email"
             class="noFocus form-element e-input w-full"
           />
         </div>
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Inquiry Phone Number</label
+            >Phone Number</label
           >
           <input
             type="tel"
-            v-model="form.inquiryPhoneNumber"
+            v-model="form.phone"
             class="noFocus form-element e-input w-full"
           />
         </div>
       </div>
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
             >Physical Address</label
@@ -213,7 +213,7 @@ function submit(userId: string) {
             placeholder="Address Description"
           />
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
