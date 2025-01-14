@@ -147,7 +147,7 @@ function submit(userId: string) {
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold">Edit Branch</p>
+    <p class="text-xl font-bold">Edit Branch Details</p>
     <!-- <p class="text-sm text-gray-500" v-if="form.name">
       <b>{{ form.name }}</b> provides a services consumed by the general public
       of Uganda.
