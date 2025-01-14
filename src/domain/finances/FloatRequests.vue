@@ -391,7 +391,7 @@ onMounted(() => {
                 > -->
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
-                ></span>
+                >
                   <!-- <i class="fa-solid fa-check"></i> -->
                   Approved</span
                 >
