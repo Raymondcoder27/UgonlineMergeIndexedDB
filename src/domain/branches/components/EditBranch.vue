@@ -23,15 +23,12 @@ const notify = useNotificationsStore();
 //   username: ""
 // })
 
-let form: CreateServiceProvider = reactive({
-  name: "",
-  displayName: "",
-  displayLogo: null,
-  providerType: "GOVERNMENT",
-  physicalAddress: "",
-  inquiryEmail: "",
-  inquiryPhoneNumber: "",
-  username: "",
+let form: AssignManager = reactive({
+  branch: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
 });
 
 const emit = defineEmits(["cancel"]);
