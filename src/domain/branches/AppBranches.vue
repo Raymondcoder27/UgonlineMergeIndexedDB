@@ -511,7 +511,7 @@ onMounted(() => {
             > -->
           <button
             class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
-             @click="showBranchCloseModal = false"
+            @click="showBranchCloseModal = false"
           >
             <i class="fa-solid fa-times-circle mx-1"></i> Cancel
           </button>
