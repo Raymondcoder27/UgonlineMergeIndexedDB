@@ -59,8 +59,39 @@ onMounted(() => {
   form.username = data.username
 })
 
-function submit(){
-  loading.value = true
+// function submit(){
+//   loading.value = true
+//   let data = JSON.parse(<string>localStorage.getItem("provider"))
+
+//   let id = data.id
+//   let payload = {
+//     name:form.name,
+//     display_name:form.displayName,
+//     inquiry_email:form.inquiryEmail,
+//     provider_type:form.providerType,
+//     inquiry_phone_number:form.inquiryPhoneNumber,
+//     physical_address:form.physicalAddress,
+//     username:form.username
+//   }
+//   store
+//       .editProvider(id, payload)
+//       .then(() => {
+//         loading.value = false
+//         window.location.reload()
+//         notify.error("Edited")
+//       })
+//       .catch((error:ApiError) => {
+//         loading.value = false
+//         notify.error(error.response.data.message)
+//       })
+// }
+
+function submit(userId: string) {
+  // let payload = {
+  //   // userId: form.userId,
+  //   userId: userId,
+  //   branchId: branchId,
+  // };
   let data = JSON.parse(<string>localStorage.getItem("provider"))
 
   let id = data.id
@@ -74,14 +105,6 @@ function submit(){
     username:form.username
   }
 
-  function submit(userId: string) {
-  let payload = {
-    // userId: form.userId,
-    userId: userId,
-    branchId: branchId,
-  };
-  let data = JSON.parse(<string>localStorage.getItem("provider"))
-
   loading.value = true;
   store.assignManager(payload.userId, payload.branchId);
   // store.assignManager(userId);
@@ -89,18 +112,6 @@ function submit(){
   notify.success(`User successfully assigned to branch`);
   emit("managerAssigned");
   loading.value = false;
-}
-  store
-      .editProvider(id, payload)
-      .then(() => {
-        loading.value = false
-        window.location.reload()
-        notify.error("Edited")
-      })
-      .catch((error:ApiError) => {
-        loading.value = false
-        notify.error(error.response.data.message)
-      })
 }
 
 </script>
