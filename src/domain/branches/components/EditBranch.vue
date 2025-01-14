@@ -33,14 +33,32 @@ const notify = useNotificationsStore();
 //   phone: "",
 // });
 
+// let form: ManagerAccount = reactive({
+//   managerId: "",
+//   branch: "",
+//   firstName: "",
+//   lastName: "",
+//   email: "",
+//   phone: "",
+// });
+
 let form: ManagerAccount = reactive({
-  managerId: "",
-  branch: "",
+  id: "",
+  status: "",
   firstName: "",
   lastName: "",
+  middleNames: "",
+  username: "",
   email: "",
+  branchName: "",
+  branch: "",
   phone: "",
-});
+  role: "",
+  createdAt: "",
+  emailVerified: "",
+  phoneVerified: "",
+  activatedAt: "",
+})
 
 const emit = defineEmits(["cancel"]);
 
