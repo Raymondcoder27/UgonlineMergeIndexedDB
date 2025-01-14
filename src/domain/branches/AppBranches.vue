@@ -513,7 +513,7 @@ onMounted(() => {
             </button>
             <button
               class="bg-green-700 text-white p-1 w-1/2 rounded hover:bg-green-800"
-              @click="rejectRequest"
+              @click = "showBranchCloseModal = true"
             >
               <i class="fa-solid fa-check-circle mx-1"></i> Confirm
             </button>
