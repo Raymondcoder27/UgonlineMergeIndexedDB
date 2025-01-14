@@ -16,12 +16,12 @@ const notify = useNotificationsStore();
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 
-const totalRecords = computed(() => branchStore.branches.length); // Total branches
+const totalRecords = computed(() => store.backofficeAccounts.length); // Total branches
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchBranches();
+  fetchBackofficeAccounts();
 };
 const showPagination = computed(() => totalRecords.value >= limit.value);
 const jumpToPage = () => {
@@ -32,22 +32,22 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchBranches();
+  fetchBackofficeAccounts();
 };
 function next() {
   page.value += 1;
-  fetchBranches();
+  fetchBackofficeAccounts();
 }
 
 function previous() {
   page.value -= 1;
-  fetchBranches();
+  fetchBackofficeAccounts();
 }
 
-const paginatedBranches = computed(() => {
+const paginatedManagers = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return branchStore.branches.slice(start, end); // Adjust according to your page & limit
+  return store.branches.slice(start, end); // Adjust according to your page & limit
 });
 
 // type BranchForm = {
@@ -184,8 +184,13 @@ const filteredManagers = computed(() => {
             :key="manager.id"
             class="text-xs body-tr border-b"
           > -->
-          <tr
+          <!-- <tr
             v-for="user in store.backofficeAccounts"
+            :key="user.id"
+            class="text-xs body-tr border-b"
+          > -->
+          <tr
+            v-for="user in paginatedManagers"
             :key="user.id"
             class="text-xs body-tr border-b"
           >
