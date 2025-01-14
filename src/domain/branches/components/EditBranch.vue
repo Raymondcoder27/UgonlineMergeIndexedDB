@@ -101,9 +101,9 @@ function submit(userId: string) {
     lastName: form.lastName,
     email: form.email,
     phone: form.phone,
-    inquiry_phone_number: form.inquiryPhoneNumber,
-    physical_address: form.physicalAddress,
-    username: form.username,
+    // inquiry_phone_number: form.inquiryPhoneNumber,
+    // physical_address: form.physicalAddress,
+    // username: form.username,
   };
 
   loading.value = true;
