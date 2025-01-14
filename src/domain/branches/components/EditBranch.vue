@@ -100,7 +100,7 @@ function submit(userId: string) {
     firstName: form.firstName,
     lastName: form.lastName,
     email: form.email,
-    provider_type: form.providerType,
+    phone: form.phone,
     inquiry_phone_number: form.inquiryPhoneNumber,
     physical_address: form.physicalAddress,
     username: form.username,
