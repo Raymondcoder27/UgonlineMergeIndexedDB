@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager, AssignManager} from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager, AssignManager } from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
@@ -119,7 +119,7 @@ export const useAccounts = defineStore("user-management", () => {
     if (manager) {
       manager.branch = payload.branchId;
       localStorageManagerAccount.value = manager; // Update the local storage variable
-    // }
+      // }
     }
 
     // Update the branch's manager
@@ -148,7 +148,7 @@ export const useAccounts = defineStore("user-management", () => {
       console.warn("No manager account to save to local storage.");
     }
   };
-  
+
 
   // Simulating account creation
   const createAccount = async (payload: any) => {
@@ -304,7 +304,7 @@ export const useAccounts = defineStore("user-management", () => {
   //   console.log('User ID:', userId); // Debugging log
 
   //   const user = backofficeAccounts.value?.find((account) => account.id === userId);  // Compare `userId` with `account.id`
-    
+
   //   if (user) {
   //     managerAccounts.value.push({
   //       firstName: user.firstName,
@@ -327,11 +327,11 @@ export const useAccounts = defineStore("user-management", () => {
   const assignManager = (userId: string, branchId: string) => {
     console.log('User ID:', userId); // Debugging log
     console.log('Branch ID:', branchId); // Debugging log
-  
+
     const user = backofficeAccounts.value?.find((account) => account.id === userId); // Find user by `userId`
 
-    const branch = branchStore.branches.find((branch: Branch) => branch.id === branchId); 
-  
+    const branch = branchStore.branches.find((branch: Branch) => branch.id === branchId);
+
     if (user && branch) {
       const assignedManager: ManagerAccount = {
         firstName: user.firstName,
@@ -346,7 +346,7 @@ export const useAccounts = defineStore("user-management", () => {
         activatedAt: new Date().toISOString(),
         branch: branch.name, // Include branchId
       };
-      managerAccounts.value.push(assignedManager); 
+      managerAccounts.value.push(assignedManager);
       localStorageManagerAccount.value = assignedManager; // Update the local storage reference
       saveManagerToLocalStorage(); // Save to local storage
       console.log(`Manager assigned to branch ${branch.name}`);
@@ -356,10 +356,10 @@ export const useAccounts = defineStore("user-management", () => {
       alert(`User with ID ${userId} not found.`);
     }
   };
-  
-  
-  
-  
+
+
+
+
 
 
   // push new assigned manager managerAccounts array
