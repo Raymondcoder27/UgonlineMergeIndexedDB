@@ -119,7 +119,7 @@ export const useAccounts = defineStore("user-management", () => {
     if (manager) {
       manager.branch = payload.branchId;
       localStorageManagerAccount.value = manager; // Update the local storage variable
-    }
+    // }
     }
 
     // Update the branch's manager
