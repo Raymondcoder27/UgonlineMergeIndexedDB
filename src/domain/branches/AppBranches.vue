@@ -404,10 +404,13 @@ onMounted(() => {
                 Edit
               </span>
 
-              <!-- <i
-                class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
+           <span class="rounded-md p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700">
+            <i
+                class="fa-solid fa-store-slash"
                 @click="deleteBranch(branch.id)"
-              ></i> -->
+              ></i>
+              Close
+           </span>
             </td>
           </tr>
         </tbody>
