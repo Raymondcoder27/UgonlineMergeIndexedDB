@@ -138,7 +138,7 @@ function submit(userId: string) {
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
             >Provider Type</label
@@ -151,16 +151,16 @@ function submit(userId: string) {
             <option value="PRIVATE">Private Company</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Display Name</label
+            >First Name</label
           >
           <input
             type="text"
-            v-model="form.displayName"
+            v-model="form.firstName"
             class="noFocus form-element e-input w-full"
             required
           />
@@ -171,7 +171,7 @@ function submit(userId: string) {
           >
           <input
             type="text"
-            v-model="form.username"
+            v-model="form.lastName"
             class="noFocus form-element e-input w-full"
             required
           />
@@ -182,11 +182,11 @@ function submit(userId: string) {
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Inquiry Email Address</label
+            >Email Address</label
           >
           <input
             type="email"
-            v-model="form.inquiryEmail"
+            v-model="form.mail"
             class="noFocus form-element e-input w-full"
           />
         </div>
