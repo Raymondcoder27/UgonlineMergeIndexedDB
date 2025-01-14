@@ -117,11 +117,11 @@ function submit(userId: string) {
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold">Edit Service Provider</p>
-    <p class="text-sm text-gray-500" v-if="form.name">
+    <p class="text-xl font-bold">Edit Branch</p>
+    <!-- <p class="text-sm text-gray-500" v-if="form.name">
       <b>{{ form.name }}</b> provides a services consumed by the general public
       of Uganda.
-    </p>
+    </p> -->
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
@@ -130,7 +130,7 @@ function submit(userId: string) {
           >
           <input
             type="text"
-            v-model="form.name"
+            v-model="form.branch"
             class="noFocus form-element e-input w-full"
             required
           />
