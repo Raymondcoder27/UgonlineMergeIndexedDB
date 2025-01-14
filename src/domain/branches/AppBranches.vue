@@ -492,38 +492,38 @@ onMounted(() => {
 
   <!-- Approve Modal -->
   <AppModal v-model="showBranchCloseModal" xl>
-      <div class="flex">
-        <div class="w-full">
-          <div class="flex">
-            <span class="mx-auto text-center justify-center">
-              <i
-                class="mx-auto fa-solid fa-exclamation-circle text-3xl text-danger"
-              ></i>
-            </span>
-          </div>
-          <p class="py-5 text-center">
-            Are you sure you want to close this branch?
-          </p>
-          <div class="flex w-1/2 gap-2 justify-center mx-auto">
-            <!-- <button
+    <div class="flex">
+      <div class="w-full">
+        <div class="flex">
+          <span class="mx-auto text-center justify-center">
+            <i
+              class="mx-auto fa-solid fa-exclamation-circle text-3xl text-danger"
+            ></i>
+          </span>
+        </div>
+        <p class="py-5 text-center">
+          Are you sure you want to close this branch?
+        </p>
+        <div class="flex w-1/2 gap-2 justify-center mx-auto">
+          <!-- <button
               class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
               @click="showApproveModal = false"
             > -->
-            <button
-              class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
-            >
-              <i class="fa-solid fa-times-circle mx-1"></i> Cancel
-            </button>
-            <button
-              class="bg-green-700 text-white p-1 w-1/2 rounded hover:bg-green-800"
-              @click = "showBranchCloseModal = true"
-            >
-              <i class="fa-solid fa-check-circle mx-1"></i> Confirm
-            </button>
-          </div>
+          <button
+            class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
+          >
+            <i class="fa-solid fa-times-circle mx-1"></i> Cancel
+          </button>
+          <button
+            class="bg-green-700 text-white p-1 w-1/2 rounded hover:bg-green-800"
+            @click="showBranchCloseModal = true"
+          >
+            <i class="fa-solid fa-check-circle mx-1"></i> Confirm
+          </button>
         </div>
       </div>
-    </AppModal>
+    </div>
+  </AppModal>
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
