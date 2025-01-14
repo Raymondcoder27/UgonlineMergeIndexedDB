@@ -98,6 +98,7 @@ function submit(userId: string) {
   let payload = {
     branch: form.branch,
     firstName: form.firstName,
+    lastName: form.lastName,
     email: form.email,
     provider_type: form.providerType,
     inquiry_phone_number: form.inquiryPhoneNumber,
