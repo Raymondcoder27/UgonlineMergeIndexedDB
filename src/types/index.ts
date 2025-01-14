@@ -74,6 +74,7 @@ export interface AddManager {
 
 export interface ManagerAccount {
   id: string;
+  name: string;
   status: string;
   firstName: string;
   lastName: string;

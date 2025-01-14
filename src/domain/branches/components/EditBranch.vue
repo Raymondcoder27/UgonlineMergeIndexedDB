@@ -44,6 +44,7 @@ const notify = useNotificationsStore();
 
 let form: ManagerAccount = reactive({
   id: "",
+  name: "",
   status: "",
   firstName: "",
   lastName: "",
@@ -78,6 +79,7 @@ onMounted(() => {
   let data = JSON.parse(<string>localStorage.getItem("branchManagerAccount"));
 
   form.branch = data.branch;
+  form.name = data.name;
   form.firstName = data.firstName;
   form.lastName = data.lastName;
   form.email = data.email;
