@@ -91,7 +91,7 @@ function submit(userId: string) {
   //   userId: userId,
   //   branchId: branchId,
   // };
-  let data = JSON.parse(<string>localStorage.getItem("provider"));
+  let data = JSON.parse(<string>localStorage.getItem("branchManagerAccount"));
 
   let id = data.id;
   let payload = {
