@@ -106,11 +106,11 @@ function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
-// function deleteBranch(branch: Branch) {
-//   branchStore.deleteBranch(branch.id);
-//   notify.success("Branch Deleted");
-//   fetchBranches();
-// }
+function deleteBranch(branch: Branch) {
+  branchStore.deleteBranch(branch.id);
+  notify.success("Branch Deleted");
+  fetchBranches();
+}
 
 // function deleteBranch(branch: Branch) {
 //     branchStore.deleteBranch(branch.id);
@@ -126,12 +126,12 @@ function assignManager(branch: Branch) {
   assignManagerModalOpen.value = true;
 }
 
-function deleteBranch(branchId: string) {
-  branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
-  // branchStore.branches = branchStore.branches.filter((b) => b.id !== branchId); // Manually update the store
-  // fetchBranches(); // Refetch the branches after deleting, if needed
-  notify.success("Branch Deleted");
-}
+// function deleteBranch(branchId: string) {
+//   branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
+//   // branchStore.branches = branchStore.branches.filter((b) => b.id !== branchId); // Manually update the store
+//   // fetchBranches(); // Refetch the branches after deleting, if needed
+//   notify.success("Branch Deleted");
+// }
 
 function close() {
   modalOpen.value = false;
