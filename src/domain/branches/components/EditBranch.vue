@@ -178,7 +178,7 @@ function submit(userId: string) {
         </div>
       </div>
 
-      <p class="text-sm font-bold pt-5">Provider Inquiry Details</p>
+      <!-- <p class="text-sm font-bold pt-5">Provider Inquiry Details</p> -->
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
