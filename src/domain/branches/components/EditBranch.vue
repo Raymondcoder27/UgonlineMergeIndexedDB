@@ -165,7 +165,7 @@ function submit(userId: string) {
         </div>
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Username</label
+            >Last Name</label
           >
           <input
             type="text"
