@@ -15,7 +15,6 @@ const notify = useNotificationsStore();
 
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(5);
-const loading: Ref<boolean> = ref(false);
 // const selectedBackOfficeAccount: Ref<string> = ref("");
 const backofficeAccounts: Ref<any[]> = ref([]);
 const totalRecords = computed(() => store.backofficeAccounts.length); // Total backofficeAccounts
