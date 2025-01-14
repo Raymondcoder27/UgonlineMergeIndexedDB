@@ -96,9 +96,9 @@ function submit(userId: string) {
 
   let id = data.id;
   let payload = {
-    name: form.name,
-    display_name: form.displayName,
-    inquiry_email: form.inquiryEmail,
+    branch: form.branch,
+    firstName: form.firstName,
+    email: form.email,
     provider_type: form.providerType,
     inquiry_phone_number: form.inquiryPhoneNumber,
     physical_address: form.physicalAddress,
