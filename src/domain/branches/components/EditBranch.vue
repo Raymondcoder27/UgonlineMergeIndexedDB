@@ -24,6 +24,7 @@ const notify = useNotificationsStore();
 // })
 
 let form: AssignManager = reactive({
+  managerId: "",
   branch: "",
   firstName: "",
   lastName: "",
