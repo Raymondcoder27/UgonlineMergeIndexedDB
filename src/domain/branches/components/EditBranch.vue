@@ -9,7 +9,7 @@ import type { ApiError } from "@/types";
 import { ManagerAccount } from "@/types/index";
 
 // const store = useProviderStore();
-const accountStore = useAccountStore();
+const accountStore = useAccounts();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
 
