@@ -33,6 +33,7 @@ const branches: Ref<any[]> = ref([]);
 // let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
+const showBranchCloseModal = ref(false);
 
 const totalRecords = computed(() => branchStore.branches.length); // Total branches
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
@@ -486,7 +487,7 @@ onMounted(() => {
   </div>
 
   <!-- Approve Modal -->
-  <AppModal v-model="showApproveModal" xl>
+  <AppModal v-model="showBranchCloseModal" xl>
       <div class="flex">
         <div class="w-full">
           <div class="flex">
@@ -497,7 +498,7 @@ onMounted(() => {
             </span>
           </div>
           <p class="py-5 text-center">
-            Are you sure you want to approve this service request?
+            Are you sure you want to close this branch?
           </p>
           <div class="flex w-1/2 gap-2 justify-center mx-auto">
             <button
