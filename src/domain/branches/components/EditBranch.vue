@@ -4,6 +4,7 @@ import {onMounted, reactive, type Ref, ref} from "vue";
 import {useProviderStore} from "@/domain/providers/stores";
 import { useAccountStore } from "@/domain/auth/stores";
 import type {CreateServiceProvider} from "@/domain/providers/types";
+import type { AssignManager } from "@/types";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
 
@@ -11,6 +12,17 @@ const store = useProviderStore()
 const accountStore = useAccountStore()
 const loading: Ref<boolean> = ref(false)
 const notify =useNotificationsStore()
+
+// let form: CreateServiceProvider = reactive({
+//   name: "",
+//   displayName: "",
+//   displayLogo: null,
+//   providerType:"GOVERNMENT",
+//   physicalAddress: "",
+//   inquiryEmail:"",
+//   inquiryPhoneNumber:"",
+//   username: ""
+// })
 
 let form: CreateServiceProvider = reactive({
   name: "",
@@ -61,6 +73,23 @@ function submit(){
     physical_address:form.physicalAddress,
     username:form.username
   }
+
+  function submit(userId: string) {
+  let payload = {
+    // userId: form.userId,
+    userId: userId,
+    branchId: branchId,
+  };
+  let data = JSON.parse(<string>localStorage.getItem("provider"))
+
+  loading.value = true;
+  store.assignManager(payload.userId, payload.branchId);
+  // store.assignManager(userId);
+  // notify.success(`User successfully ${payload.userId} assigned to branch`);
+  notify.success(`User successfully assigned to branch`);
+  emit("managerAssigned");
+  loading.value = false;
+}
   store
       .editProvider(id, payload)
       .then(() => {
