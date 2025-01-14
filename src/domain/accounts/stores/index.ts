@@ -118,6 +118,8 @@ export const useAccounts = defineStore("user-management", () => {
     const manager = managerAccounts.value.find((manager) => manager.id === payload.managerId);
     if (manager) {
       manager.branch = payload.branchId;
+      localStorageManagerAccount.value = manager; // Update the local storage variable
+    }
     }
 
     // Update the branch's manager
