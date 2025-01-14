@@ -333,7 +333,7 @@ export const useAccounts = defineStore("user-management", () => {
     const branch = branchStore.branches.find((branch: Branch) => branch.id === branchId);
 
     // if (user && branch) {
-      if (user && branch) {
+      if (user) {
       managerAccounts.value.push({
         firstName: user.firstName,
         lastName: user.lastName,
@@ -348,19 +348,19 @@ export const useAccounts = defineStore("user-management", () => {
         branch: branch.name, // Include branchId
       });
       // managerAccounts.value.push(assignedManager);
-      localStorageManagerAccount.value.push({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        phone: user.phone,
-        role: user.role,
-        status: user.status,
-        createdAt: new Date().toISOString(),
-        emailVerified: true,
-        phoneVerified: true,
-        activatedAt: new Date().toISOString(),
-        branch: branch.name, // Include branchId
-      }) // Update the local storage reference
+      // localStorageManagerAccount.value.push({
+      //   firstName: user.firstName,
+      //   lastName: user.lastName,
+      //   email: user.email,
+      //   phone: user.phone,
+      //   role: user.role,
+      //   status: user.status,
+      //   createdAt: new Date().toISOString(),
+      //   emailVerified: true,
+      //   phoneVerified: true,
+      //   activatedAt: new Date().toISOString(),
+      //   branch: branch.name, // Include branchId
+      // }) // Update the local storage reference
       saveManagerToLocalStorage(); // Save to local storage
       console.log(`Manager assigned to branch ${branch.name}`);
       console.log(`Manager assigned to branch ${branchId}`);
