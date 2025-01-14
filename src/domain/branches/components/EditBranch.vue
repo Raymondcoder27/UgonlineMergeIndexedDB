@@ -1,194 +1,154 @@
 <script setup lang="ts">
-import { ref, reactive, defineEmits, onMounted, type Ref } from "vue";
-import { useBranchStore } from "@/domain/branches/stores";
-import { useNotificationsStore } from "@/stores/notifications";
-// import type { Branch } from "@/domain/branches/types";
 
-const branchStore = useBranchStore();
-const notify = useNotificationsStore();
+import {onMounted, reactive, type Ref, ref} from "vue";
+import {useProviderStore} from "@/domain/providers/stores";
+import { useAccountStore } from "@/domain/auth/stores";
+import type {CreateServiceProvider} from "@/domain/providers/types";
+import {useNotificationsStore} from "@/stores/notifications";
+import type {ApiError} from "@/types";
 
-const loading: Ref<boolean> = ref(false);
-const selectedBranchId: Ref<string> = ref(""); // ID of the branch to be edited
+const store = useProviderStore()
+const accountStore = useAccountStore()
+const loading: Ref<boolean> = ref(false)
+const notify =useNotificationsStore()
 
-const branch = reactive({
-  id: "",
+let form: CreateServiceProvider = reactive({
   name: "",
-  location: "",
-  manager: "",
-  status: "",
-  createdAt: "",
-});
-// const branch: Ref<Branch | undefined> = reactive({
-//   id: "",
-//   name: "",
-//   location: "",
-//   manager: "",
-//   status: "",
-//   createdAt: "",
-// });
-const emit = defineEmits(["cancel"]);
-// Fetch the branch data from the store
-onMounted(async () => {
-  loading.value = true;
+  displayName: "",
+  displayLogo: null,
+  providerType:"GOVERNMENT",
+  physicalAddress: "",
+  inquiryEmail:"",
+  inquiryPhoneNumber:"",
+  username: ""
+})
+const emit = defineEmits(['cancel'])
 
-  // Fetch the list of branches
-  await branchStore.fetchBranches({});
+// onMounted(() => {
+//   let data = JSON.parse(<string>localStorage.getItem("provider"))
 
-  // Assuming that a selected branch ID is passed to the component (e.g., from a parent component or route)
-  const branchId = selectedBranchId.value; // Set this to the appropriate value
+//   form.name = data.name
+//   form.displayName = data.displayName
+//   form.physicalAddress = data.physicalAddress
+//   form.inquiryEmail = data.inquiryEmail
+//   form.inquiryPhoneNumber = data.inquiryPhoneNumber
+//   form.username = data.username
+// })
 
-  // Get the branch to edit
-  const selectedBranch = branchStore.branches.value?.find(
-    (b) => b.id === Number(branchId)
-  );
-  // const selectedBranch = branchStore.branches?.find(b => b.id === Number(branchId));
-  if (selectedBranch) {
-    branch.value = { ...selectedBranch }; // Clone the branch to avoid mutating the store directly
+onMounted(() => {
+//   let data = JSON.parse(<string>localStorage.getItem("provider"))
+  let data = JSON.parse(<string>localStorage.getItem("backofficeAccount"))
+
+  form.name = data.name
+  form.displayName = data.displayName
+  form.physicalAddress = data.physicalAddress
+  form.inquiryEmail = data.inquiryEmail
+  form.inquiryPhoneNumber = data.inquiryPhoneNumber
+  form.username = data.username
+})
+
+function submit(){
+  loading.value = true
+  let data = JSON.parse(<string>localStorage.getItem("provider"))
+
+  let id = data.id
+  let payload = {
+    name:form.name,
+    display_name:form.displayName,
+    inquiry_email:form.inquiryEmail,
+    provider_type:form.providerType,
+    inquiry_phone_number:form.inquiryPhoneNumber,
+    physical_address:form.physicalAddress,
+    username:form.username
   }
-
-  loading.value = false;
-});
-
-// Handle form submission to save the updated branch
-function submit() {
-  const payload = {
-    id: branch.value.id,
-    name: branch.value.name,
-    location: branch.value.location,
-    manager: branch.value.manager,
-    status: branch.value.status,
-  };
-
-  // Simulate saving the edited branch (assuming it updates the store)
-  branchStore.addBranch(payload); // If you were adding a new branch or you can update it via another method
-  loading.value = false;
-
-  // Show success notification
-  notify.success("Branch edited successfully");
+  store
+      .editProvider(id, payload)
+      .then(() => {
+        loading.value = false
+        window.location.reload()
+        notify.error("Edited")
+      })
+      .catch((error:ApiError) => {
+        loading.value = false
+        notify.error(error.response.data.message)
+      })
 }
 
-// Handle the cancel action
-function cancel() {
-  emit("cancel");
-}
 </script>
 
 <template>
-  <div v-if="loading" class="bg-white py-5">
-    <p class="text-xl font-bold">Loading...</p>
-  </div>
-
-  <div v-else class="bg-white py-5">
-    <p class="text-xl font-bold">Edit Branch</p>
+  <div class="bg-white py-5">
+    <p class="text-xl font-bold">Edit Service Provider</p>
+    <p class="text-sm text-gray-500" v-if="form.name"><b>{{form.name}}</b> provides a services consumed by the general public of Uganda.</p>
     <form @submit.prevent="submit" class="pt-5">
-      <!-- Branch Name -->
-      <div class="flex flex-col my-2">
-        <label for="name" class="text-neutral-600 text-xs font-bold mb-1"
-          >Branch Name</label
-        >
-        <input
-          type="text"
-          id="name"
-          v-model="branch.name"
-          class="form-element e-input w-full"
-          required
-        />
+      <div class="flex">
+        <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Provider Name</label>
+          <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
+                 required />
+        </div>
       </div>
 
-      <!-- Branch Location -->
-      <div class="flex flex-col my-2">
-        <label for="location" class="text-neutral-600 text-xs font-bold mb-1"
-          >Location</label
-        >
-        <input
-          type="text"
-          id="location"
-          v-model="branch.location"
-          class="form-element e-input w-full"
-          required
-        />
+      <div class="flex">
+        <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Provider Type</label>
+          <select v-model="form.providerType" class="noFocus form-element e-input w-full">
+            <option value="GOVERNMENT">Government Entity</option>
+            <option value="PRIVATE">Private Company</option>
+          </select>
+        </div>
       </div>
 
-      <!-- Branch Manager -->
-      <div class="flex flex-col my-2">
-        <label for="manager" class="text-neutral-600 text-xs font-bold mb-1"
-          >Manager</label
-        >
-        <input
-          type="text"
-          id="manager"
-          v-model="branch.manager"
-          class="form-element e-input w-full"
-        />
+      <div class="flex">
+        <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Display Name</label>
+          <input type="text" v-model="form.displayName" class="noFocus form-element e-input w-full"
+                 required />
+        </div>
+        <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Username</label>
+          <input type="text" v-model="form.username" class="noFocus form-element e-input w-full"
+                 required />
+        </div>
       </div>
 
-      <!-- Branch Status -->
-      <div class="flex flex-col my-2">
-        <label for="status" class="text-neutral-600 text-xs font-bold mb-1"
-          >Status</label
-        >
-        <select
-          v-model="branch.status"
-          id="status"
-          class="form-element e-input w-full"
-          required
-        >
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-        </select>
+      <p class="text-sm font-bold pt-5">Provider Inquiry Details</p>
+      <div class="flex">
+        <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Inquiry Email Address</label>
+          <input type="email" v-model="form.inquiryEmail" class="noFocus form-element e-input w-full"/>
+        </div>
+        <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Inquiry Phone Number</label>
+          <input type="tel" v-model="form.inquiryPhoneNumber" class="noFocus form-element e-input w-full"/>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Physical Address</label>
+          <textarea v-model="form.physicalAddress" class="noFocus form-element e-input w-full" cols="4"
+                    placeholder="Address Description"/>
+        </div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex my-5">
+      <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
-          <button
-            type="button"
-            @click="cancel"
-            class="button-outline w-full py-2 text-sm border border-gray-300 rounded"
-          >
+          <button class="button-outline" type="button" @click="emit('cancel')">
             <i class="fa-solid fa-ban"></i> Cancel
           </button>
         </div>
         <div class="w-6/12 px-1">
-          <button
-            type="submit"
-            class="button w-full py-2 text-sm bg-blue-500 text-white rounded"
-          >
-            <i class="fa-solid fa-save"></i> Save Changes
+          <button class="button" type="submit">
+            <i class="fa-solid fa-hand-pointer"></i> Submit
+            <span class="lds-ring mx-1" v-if="loading">
+              <div></div><div></div><div></div><div></div>
+            </span>
           </button>
         </div>
       </div>
     </form>
   </div>
 </template>
-
-<!-- <style scoped>
-@import "@/assets/styles/button.css";
-@import "@/assets/styles/forms.css";
-@import "@/assets/styles/ring.css";
-@import "@/assets/styles/ripple.css";
-
-.form-element {
-  @apply border rounded-md px-3 py-2 text-sm;
-}
-
-.e-input {
-  @apply shadow-sm border-gray-300 focus:ring-2 focus:ring-blue-500;
-}
-
-.button-outline {
-  @apply border border-gray-300 text-gray-700 hover:bg-gray-100;
-}
-
-.button {
-  @apply bg-blue-500 hover:bg-blue-600 text-white;
-}
-
-button {
-  @apply transition-colors duration-300;
-}
-</style> -->
-
 
 <style scoped>
 @import "@/assets/styles/button.css";
@@ -204,3 +164,7 @@ button {
   @apply w-full px-1 my-2;
 }
 </style>
+
+
+
+
