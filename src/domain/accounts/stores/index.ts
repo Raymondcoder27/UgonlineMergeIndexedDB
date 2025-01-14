@@ -332,7 +332,8 @@ export const useAccounts = defineStore("user-management", () => {
 
     const branch = branchStore.branches.find((branch: Branch) => branch.id === branchId);
 
-    if (user && branch) {
+    // if (user && branch) {
+      if (user && branch) {
       managerAccounts.value.push({
         firstName: user.firstName,
         lastName: user.lastName,
