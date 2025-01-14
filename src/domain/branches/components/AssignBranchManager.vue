@@ -14,9 +14,11 @@ const notify = useNotificationsStore();
 
 
 const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(8);
-
-const totalRecords = computed(() => store.backofficeAccounts.length); // Total branches
+const limit: Ref<number> = ref(5);
+const loading: Ref<boolean> = ref(false);
+// const selectedBackOfficeAccount: Ref<string> = ref("");
+const backofficeAccounts: Ref<any[]> = ref([]);
+const totalRecords = computed(() => store.backofficeAccounts.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -24,6 +26,7 @@ const changePageSize = () => {
   fetchBackofficeAccounts();
 };
 const showPagination = computed(() => totalRecords.value >= limit.value);
+
 const jumpToPage = () => {
   if (pageInput.value > totalPages.value) {
     page.value = totalPages.value;
@@ -34,22 +37,30 @@ const jumpToPage = () => {
   }
   fetchBackofficeAccounts();
 };
-function next() {
-  page.value += 1;
-  fetchBackofficeAccounts();
-}
+function fetchBackofficeAccounts() {
+  // store
+  //   .fetchBackofficeAccounts(page.value, limit.value)
+  //   .then(() => (loading.value = false))
+  //   .catch((error: ApiError) => {
+  //     loading.value = false;
+  //     notify.error(error.response.data.message);
+  //   });
 
-function previous() {
-  page.value -= 1;
-  fetchBackofficeAccounts();
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  backofficeAccounts.value = store.backofficeAccounts.slice(
+    startIndex,
+    endIndex
+  );
+  loading.value = false;
 }
-
-const paginatedManagers = computed(() => {
+const paginatedBackofficeAccounts = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return store.managerAccounts.slice(start, end); // Adjust according to your page & limit
+  return store.backofficeAccounts.slice(start, end); // Adjust according to your page & limit
 });
-
 // type BranchForm = {
 //   branchId: string;
 //   name: string;
@@ -190,7 +201,7 @@ const filteredManagers = computed(() => {
             class="text-xs body-tr border-b"
           > -->
           <tr
-            v-for="user in paginatedManagers"
+            v-for="user in paginatedBackofficeAccounts"
             :key="user.id"
             class="text-xs body-tr border-b"
           >
@@ -246,9 +257,10 @@ const filteredManagers = computed(() => {
           <button
             class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
             :class="{
-              'opacity-50 cursor-not-allowed': branches.length < limit,
+              'opacity-50 cursor-not-allowed':
+                backofficeAccounts.length < limit,
             }"
-            :disabled="branches.length < limit"
+            :disabled="backofficeAccounts.length < limit"
             @click="next"
           >
             <i class="fa-solid fa-arrow-right"></i>
