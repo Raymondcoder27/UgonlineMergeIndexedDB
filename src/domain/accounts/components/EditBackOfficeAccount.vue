@@ -24,6 +24,17 @@ let form: CreateServiceProvider = reactive({
 })
 const emit = defineEmits(['cancel'])
 
+// onMounted(() => {
+//   let data = JSON.parse(<string>localStorage.getItem("provider"))
+
+//   form.name = data.name
+//   form.displayName = data.displayName
+//   form.physicalAddress = data.physicalAddress
+//   form.inquiryEmail = data.inquiryEmail
+//   form.inquiryPhoneNumber = data.inquiryPhoneNumber
+//   form.username = data.username
+// })
+
 onMounted(() => {
   let data = JSON.parse(<string>localStorage.getItem("provider"))
 
