@@ -401,7 +401,7 @@ onMounted(() => {
                 <!-- <td> -->
                 <label>
                   <span
-                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-700 bg-red-200 border border-red-300 hover:text-red-700 hover:bg-red-200"
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-700 bg-red-200 border border-red-300 hover:text-red-700 hover:bg-red-300"
                     @click="open(request)"
                   >
                     <!-- <i class="fa-solid fa-times-square"></i> -->
