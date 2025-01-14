@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface TableItem {
-  name: string;S
+  name: string;
   type: string;
   amount: string;
 }
