@@ -505,9 +505,12 @@ onMounted(() => {
             Are you sure you want to close this branch?
           </p>
           <div class="flex w-1/2 gap-2 justify-center mx-auto">
-            <button
+            <!-- <button
               class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
               @click="showApproveModal = false"
+            > -->
+            <button
+              class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
             >
               <i class="fa-solid fa-times-circle mx-1"></i> Cancel
             </button>
