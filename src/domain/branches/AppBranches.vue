@@ -404,7 +404,7 @@ onMounted(() => {
                 Edit
               </span>
 
-           <span class="rounded-md p-1 mx-1 text-white bg-red-700 hover:bg-red-400 hover:text-red-700">
+           <span class="rounded-md p-1 mx-1 text-white bg-red-700 hover:bg-red-400 hover:text-white hover:text-red-700">
             <i
                 class="fa-solid fa-store-slash"
                 @click="deleteBranch(branch.id)"
