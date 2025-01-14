@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive, type Ref, ref } from "vue";
+import { onMounted, reactive, type Ref, ref, defineEmits } from "vue";
 import { useProviderStore } from "@/domain/providers/stores";
 import { useAccountStore } from "@/domain/auth/stores";
 import type { CreateServiceProvider } from "@/domain/providers/types";
@@ -51,9 +51,9 @@ onMounted(() => {
   //   let data = JSON.parse(<string>localStorage.getItem("provider"))
   let data = JSON.parse(<string>localStorage.getItem("backofficeAccount"));
 
-  form.name = data.name;
-  form.displayName = data.displayName;
-  form.physicalAddress = data.physicalAddress;
+  form.branch = data.branch;
+  form.firstName = data.firstName;
+  form.lastName = data.lastName;
   form.inquiryEmail = data.inquiryEmail;
   form.inquiryPhoneNumber = data.inquiryPhoneNumber;
   form.username = data.username;
