@@ -134,10 +134,21 @@ export const useAccounts = defineStore("user-management", () => {
   const localStorageManagerAccount = ref<ManagerAccount>();
 
   // Save manager to local storage
+  // const saveManagerToLocalStorage = () => {
+  //   // localStorage.setItem('branchManagerFloatBalance', JSON.stringify(localStorageManagerAccount.value))
+  //   localStorage.setItem('branchManagerAccount', JSON.stringify(localStorageManagerAccount.value))
+  //   console.log("Manager saved to local storage:", localStorageManagerAccount.value);
+
+  // }
   const saveManagerToLocalStorage = () => {
-    // localStorage.setItem('branchManagerFloatBalance', JSON.stringify(localStorageManagerAccount.value))
-    localStorage.setItem('branchManagerAccount', JSON.stringify(localStorageManagerAccount.value))
-  }
+    if (localStorageManagerAccount.value) {
+      localStorage.setItem('branchManagerAccount', JSON.stringify(localStorageManagerAccount.value));
+      console.log("Manager saved to local storage:", localStorageManagerAccount.value);
+    } else {
+      console.warn("No manager account to save to local storage.");
+    }
+  };
+  
 
   // Simulating account creation
   const createAccount = async (payload: any) => {
