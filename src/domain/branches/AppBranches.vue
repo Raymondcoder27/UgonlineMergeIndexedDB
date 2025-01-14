@@ -409,7 +409,7 @@ onMounted(() => {
               >
                 <i
                   class="fa-solid fa-store-slash"
-                  @click="deleteBranch(branch.id)"
+                  @click="deleteBranch(branch)"
                 ></i>
                 Close
               </span>
