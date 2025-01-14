@@ -60,7 +60,7 @@ let form: ManagerAccount = reactive({
   activatedAt: "",
 })
 
-const emit = defineEmits(["cancel"]);
+const emit = defineEmits(["cancel", "managerAssigned"]);
 
 // onMounted(() => {
 //   let data = JSON.parse(<string>localStorage.getItem("provider"))
