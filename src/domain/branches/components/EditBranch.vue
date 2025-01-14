@@ -54,7 +54,7 @@ onMounted(() => {
   form.lastName = data.lastName;
   form.email = data.email;
   form.phone = data.phone;
-  form.username = data.username;
+  // form.username = data.username;
 });
 
 // function submit(){
