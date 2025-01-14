@@ -6,6 +6,7 @@ import type { CreateServiceProvider } from "@/domain/providers/types";
 import type { AssignManager } from "@/types";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
+import { ManagerAccount } from "@/types/index";
 
 // const store = useProviderStore();
 const accountStore = useAccountStore();
@@ -23,7 +24,16 @@ const notify = useNotificationsStore();
 //   username: ""
 // })
 
-let form: AssignManager = reactive({
+// let form: AssignManager = reactive({
+//   managerId: "",
+//   branch: "",
+//   firstName: "",
+//   lastName: "",
+//   email: "",
+//   phone: "",
+// });
+
+let form: ManagerAccount = reactive({
   managerId: "",
   branch: "",
   firstName: "",
