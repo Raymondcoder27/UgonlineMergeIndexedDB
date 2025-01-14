@@ -54,8 +54,8 @@ onMounted(() => {
   form.branch = data.branch;
   form.firstName = data.firstName;
   form.lastName = data.lastName;
-  form.inquiryEmail = data.inquiryEmail;
-  form.inquiryPhoneNumber = data.inquiryPhoneNumber;
+  form.email = data.email;
+  form.phone = data.phone;
   form.username = data.username;
 });
 
