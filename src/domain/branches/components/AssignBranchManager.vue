@@ -11,6 +11,45 @@ const store = useAccounts();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
 
+
+
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(8);
+
+const totalRecords = computed(() => branchStore.branches.length); // Total branches
+const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
+const pageInput = ref(1);
+const changePageSize = () => {
+  page.value = 1;
+  fetchBranches();
+};
+const showPagination = computed(() => totalRecords.value >= limit.value);
+const jumpToPage = () => {
+  if (pageInput.value > totalPages.value) {
+    page.value = totalPages.value;
+  } else if (pageInput.value < 1) {
+    page.value = 1;
+  } else {
+    page.value = pageInput.value;
+  }
+  fetchBranches();
+};
+function next() {
+  page.value += 1;
+  fetchBranches();
+}
+
+function previous() {
+  page.value -= 1;
+  fetchBranches();
+}
+
+const paginatedBranches = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return branchStore.branches.slice(start, end); // Adjust according to your page & limit
+});
+
 // type BranchForm = {
 //   branchId: string;
 //   name: string;
@@ -173,6 +212,71 @@ const filteredManagers = computed(() => {
           </tr> -->
         </tbody>
       </table>
+    </div>
+
+
+    <div v-if="showPagination" class="flex text-xs mt-auto">
+      <div class="w-full border-t border-b border-gray-50">
+        <div class="flex gap-2 items-center">
+          <!-- Previous Button -->
+          <button
+            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+            :disabled="page <= 1"
+            @click="previous"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <!-- Current Page / Total Pages -->
+          <div class="py-1">
+            <span class="px-2 py-1 bg-primary rounded text-white">{{
+              page
+            }}</span>
+            <label class="mx-1 text-gray-400">/</label>
+            <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+              {{ totalPages }}
+            </span>
+          </div>
+          <button
+            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            :class="{
+              'opacity-50 cursor-not-allowed': branches.length < limit,
+            }"
+            :disabled="branches.length < limit"
+            @click="next"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <!-- Jump to Page -->
+          <label>Page</label>
+          <input
+            type="number"
+            placeholder="Page"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            v-model.number="pageInput"
+            @change="jumpToPage"
+          />
+
+          <!-- Adjust Page Size -->
+          <label>Page Size</label>
+          <input
+            type="number"
+            placeholder="Page Size"
+            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+            v-model.number="limit"
+            @change="changePageSize"
+          />
+
+          <!-- Total Records -->
+          <span
+            class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
+          >
+            Total Records: {{ totalRecords }}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
