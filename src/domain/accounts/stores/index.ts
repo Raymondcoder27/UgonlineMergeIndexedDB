@@ -126,13 +126,13 @@ export const useAccounts = defineStore("user-management", () => {
       branch.manager = payload.managerId;
     }
 
-    saveManagerToLocalStorage();
+    saveManagerToLocalStorage(payload);
   }
 
   const localStorageManagerAccount = ref<ManagerAccount>();
 
   // Save manager to local storage
-  const saveManagerToLocalStorage = () => {
+  const saveManagerToLocalStorage = (payload: string) => {
     // localStorage.setItem('branchManagerFloatBalance', JSON.stringify(localStorageManagerAccount.value))
     localStorage.setItem('branchManagerAccount', JSON.stringify(localStorageManagerAccount.value))
   }
