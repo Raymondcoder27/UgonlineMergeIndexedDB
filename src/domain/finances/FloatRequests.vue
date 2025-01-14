@@ -415,7 +415,6 @@ onMounted(() => {
                 <label>
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-700 bg-gray-50 border border-gray-300 hover:text-gray-700 hover:bg-gray-200"
-                    @click="open(request)"
                   >
                     <!-- <i class="fa-solid fa-clock text-gray-500"></i> -->
                     Pending</span
