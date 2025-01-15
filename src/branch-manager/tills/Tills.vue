@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
-import CreateTill from "@/domain/tills/components/CreateBranch.vue";
+import CreateTill from "@/branch-manager/tills/components/CreateBranch.vue";
 import { useTillStore } from "@/branch-manager/tills/stores"; // Updated import
-import type { Till } from "@/domain/tills/types"; // Assuming you have a Branch type
+import type { Till } from "@/branch-manager/tills/types"; // Assuming you have a Branch type
 import moment from "moment/moment";
 import router from "@/router";
-import { useProviderStore } from "@/domain/entities/stores";
-import AssignTillOperator from "@/domain/tills/components/AssignTillOperator.vue";
-import EditBranch from "@/domain/tills/components/EditBranch.vue";
-// import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
+import { useProviderStore } from "@/branch-manager/entities/stores";
+import AssignTillOperator from "@/branch-manager/tills/components/AssignTillOperator.vue";
+import EditBranch from "@/branch-manager/tills/components/EditBranch.vue";
+// import CategorySelector from "@/branch-manager/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
-import { useBilling } from "@/domain/finances/stores";
+import { useBilling } from "@/branch-manager/finances/stores";
 
 const billingStore = useBilling();
 
-import { useAccounts } from "@/domain/accounts/stores";
+import { useAccounts } from "@/branch-manager/accounts/stores";
 const accountStore = useAccounts();
 const tillStore = useTillStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
