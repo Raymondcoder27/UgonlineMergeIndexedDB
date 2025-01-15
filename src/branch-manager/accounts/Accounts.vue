@@ -34,7 +34,7 @@ function select(tab: string) {
         "
         @click="select('branchmanagers')"
       >
-        Branch Managers
+        Till Operators
       </div>
       <!-- <div :class="(activeTab == 'users') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('users')">Public Users
       </div> -->
