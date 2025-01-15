@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
 import CreateTill from "@/domain/tills/components/CreateBranch.vue";
-import { useTillStore } from "@/domain/tills/stores"; // Updated import
+import { useTillStore } from "@/branch-manager/tills/stores"; // Updated import
 import type { Till } from "@/domain/tills/types"; // Assuming you have a Branch type
 import moment from "moment/moment";
 import router from "@/router";
