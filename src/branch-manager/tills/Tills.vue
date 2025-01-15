@@ -7,8 +7,8 @@ import type { Till } from "@/domain/tills/types"; // Assuming you have a Branch 
 import moment from "moment/moment";
 import router from "@/router";
 import { useProviderStore } from "@/domain/entities/stores";
-import AssignBranchManager from "@/domain/branches/components/AssignBranchManager.vue";
-import EditBranch from "@/domain/branches/components/EditBranch.vue";
+import AssignTillOperator from "@/domain/tills/components/AssignTillOperator.vue";
+import EditBranch from "@/domain/tills/components/EditBranch.vue";
 // import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
@@ -20,7 +20,7 @@ const billingStore = useBilling();
 
 import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
-const branchStore = useTillStore(); // Updated store
+const tillStore = useTillStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
 const categoryModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
@@ -29,17 +29,17 @@ const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
 const selectedBranch: Ref<string> = ref("");
-const branches: Ref<any[]> = ref([]);
+const tills: Ref<any[]> = ref([]);
 // let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
-const totalRecords = computed(() => branchStore.branches.length); // Total branches
+const totalRecords = computed(() => tillStore.tills.length); // Total branches
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchBranches();
+  fetchTills();
 };
 const showPagination = computed(() => totalRecords.value >= limit.value);
 
@@ -51,7 +51,7 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchBranches();
+  fetchTills();
 };
 
 // Helper function to get manager by branch
@@ -68,8 +68,8 @@ const getManagerByBranch = (branchName) => {
 //   );
 // };
 
-function fetchBranches() {
-  // branchStore
+function fetchTills() {
+  // tillStore
   //   .fetchBranches(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
@@ -81,7 +81,7 @@ function fetchBranches() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  branches.value = branchStore.branches.slice(startIndex, endIndex);
+  tills.value = tillStore.tills.slice(startIndex, endIndex);
   loading.value = false;
 }
 
@@ -107,14 +107,14 @@ function convertDateTime(date: string) {
 }
 
 // function deleteBranch(branch: Branch) {
-//   branchStore.deleteBranch(branch.id);
+//   tillStore.deleteBranch(branch.id);
 //   notify.success("Branch Deleted");
-//   fetchBranches();
+//   fetchTills();
 // }
 
 // function deleteBranch(branch: Branch) {
-//     branchStore.deleteBranch(branch.id);
-//     fetchBranches();  // Refetch the branches after deleting
+//     tillStore.deleteBranch(branch.id);
+//     fetchTills();  // Refetch the branches after deleting
 //     notify.success("Branch Deleted");
 //   }
 
@@ -127,9 +127,9 @@ function assignManager(branch: Branch) {
 }
 
 function deleteBranch(branchId: string) {
-  branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
-  // branchStore.branches = branchStore.branches.filter((b) => b.id !== branchId); // Manually update the store
-  // fetchBranches(); // Refetch the branches after deleting, if needed
+  tillStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
+  // tillStore.branches = tillStore.tills.filter((b) => b.id !== branchId); // Manually update the store
+  // fetchTills(); // Refetch the branches after deleting, if needed
   notify.success("Branch Deleted");
 }
 
@@ -141,12 +141,12 @@ function close() {
 
 function next() {
   page.value += 1;
-  fetchBranches();
+  fetchTills();
 }
 
 function previous() {
   page.value -= 1;
-  fetchBranches();
+  fetchTills();
 }
 
 watch(
@@ -166,12 +166,12 @@ watch(
 const paginatedBranches = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return branchStore.branches.slice(start, end); // Adjust according to your page & limit
+  return tillStore.tills.slice(start, end); // Adjust according to your page & limit
 });
 
 // Helper function to assign managers to branches
 const assignManagersToBranches = () => {
-  branchStore.branches.forEach((branch) => {
+  tillStore.tills.forEach((branch) => {
     const manager = getManagerByBranch(branch.name);
     if (manager) {
       branch.manager = manager;
@@ -191,9 +191,9 @@ const assignManagersToBranches = () => {
 
 onMounted(() => {
   loading.value = true;
-  fetchBranches();
+  fetchTills();
   accountStore.fetchManagerAccounts();
-  branchStore.fetchBranches();
+  tillStore.fetchTills();
   accountStore.fetchManagerAccounts();
   // allocateManager();
   assignManagersToBranches();
@@ -289,7 +289,7 @@ onMounted(() => {
         <tbody>
           <!-- <tr
             class="body-tr"
-            v-for="(branch, idx) in branchStore.branches"
+            v-for="(branch, idx) in tillStore.branches"
             :key="idx"
           > -->
           <tr
@@ -441,9 +441,9 @@ onMounted(() => {
           <button
             class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
             :class="{
-              'opacity-50 cursor-not-allowed': branches.length < limit,
+              'opacity-50 cursor-not-allowed': tills.length < limit,
             }"
-            :disabled="branches.length < limit"
+            :disabled="tills.length < limit"
             @click="next"
           >
             <i class="fa-solid fa-arrow-right"></i>
