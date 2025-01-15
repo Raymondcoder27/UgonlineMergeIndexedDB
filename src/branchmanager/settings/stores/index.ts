@@ -2,8 +2,8 @@
 import {ref, type Ref} from "vue";
 import {defineStore} from "pinia";
 import api from "@/config/api";
-import type {ServiceResponseInterface} from "@/branchmanager/services/types";
-import type {AccessibilityTier, Category} from "@/branchmanager/settings/types";
+import type {ServiceResponseInterface} from "@/branch-manager/services/types";
+import type {AccessibilityTier, Category} from "@/branch-manager/settings/types";
 
 export const useSettingsStore = defineStore("settings", () => {
   const categories: Ref<Category[] | undefined> = ref()

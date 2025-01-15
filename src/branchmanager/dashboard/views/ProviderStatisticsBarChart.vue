@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import BarChart from "@/branchmanager/analytics/components/BarChart.vue";
-import LineChart from "@/branchmanager/analytics/components/LineChart.vue";
-import PieChart from "@/branchmanager/analytics/components/PieChart.vue";
+import BarChart from "@/branch-manager/analytics/components/BarChart.vue";
+import LineChart from "@/branch-manager/analytics/components/LineChart.vue";
+import PieChart from "@/branch-manager/analytics/components/PieChart.vue";
 
-import { useServicesStore } from "@/branchmanager/services/stores";
+import { useServicesStore } from "@/branch-manager/services/stores";
 
 const servicesStore = useServicesStore();
 
 const totalServices = servicesStore.subscribedServices?.length || 0;
 
 import type { Ref } from "vue";
-import type { GraphData, Statistic } from "@/branchmanager/analytics/types/chart";
+import type { GraphData, Statistic } from "@/branch-manager/analytics/types/chart";
 import { ref } from "vue";
 
 const data: Ref<Array<GraphData>> = ref([

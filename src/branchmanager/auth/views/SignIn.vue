@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref, watch, type Ref, type ComputedRef, computed, onMounted } from "vue"
 import Logo from "@/assets/images/banner.png"
-import type { SignInPayloadInterface } from "@/branchmanager/auth/types"
-import { useAccountStore } from "@/branchmanager/auth/stores"
+import type { SignInPayloadInterface } from "@/branch-manager/auth/types"
+import { useAccountStore } from "@/branch-manager/auth/stores"
 import { useRouter } from "vue-router"
-import { useAuth } from "@/branchmanager/auth/composables"
+import { useAuth } from "@/branch-manager/auth/composables"
 import { useCommonsStore } from "@/stores/commons"
 
 const router = useRouter()

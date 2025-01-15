@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, type Ref } from "vue";
-import BackofficeAccounts from "@/branchmanager/agents/BackofficeAccounts.vue";
-import UserAccounts from "@/branchmanager/agents/UserAccounts.vue";
+import BackofficeAccounts from "@/branch-manager/agents/BackofficeAccounts.vue";
+import UserAccounts from "@/branch-manager/agents/UserAccounts.vue";
 
 const activeTab: Ref<string> = ref("backoffice")
 

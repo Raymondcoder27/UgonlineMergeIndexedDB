@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import PieChart from "@/branchmanager/analytics/components/PieChart.vue";
-import { useBalance } from "@/branchmanager/balance/stores";
+import PieChart from "@/branch-manager/analytics/components/PieChart.vue";
+import { useBalance } from "@/branch-manager/balance/stores";
 const balanceStore = useBalance();
 const totalBalance = balanceStore.totalBalance;
-import { useBilling } from "@/branchmanager/finances/stores";
+import { useBilling } from "@/branch-manager/finances/stores";
 const billingStore = useBilling();
 billingStore.fetchFloatRequests();
 const pendingFloatRequests =
@@ -27,9 +27,9 @@ const totalTransactions = billingStore.transactions?.length || 0;
 // const failedTransactions = billingStore.transactions?
 
 import type { Ref } from "vue";
-import type { GraphData, Statistic } from "@/branchmanager/analytics/types/chart";
+import type { GraphData, Statistic } from "@/branch-manager/analytics/types/chart";
 import { ref } from "vue";
-import AreaChart from "@/branchmanager/analytics/components/AreaChart.vue";
+import AreaChart from "@/branch-manager/analytics/components/AreaChart.vue";
 import { request } from "node_modules/axios/index.d.cts";
 
 const revenueByTime: Ref<Array<GraphData>> = ref([

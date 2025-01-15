@@ -10,7 +10,7 @@ export const routes: RouteRecordRaw[] = [
       {
         path: "/account/sign-in",
         name: "app-account-sign-in",
-        component: () => import("@/branchmanager/auth/views/SignIn.vue"),
+        component: () => import("@/branch-manager/auth/views/SignIn.vue"),
         meta: { requiresAuth: false }
       }
     ]

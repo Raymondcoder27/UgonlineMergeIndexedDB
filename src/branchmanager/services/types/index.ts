@@ -1,4 +1,4 @@
-import type {FormSection} from "@/branchmanager/composer/types/formtypes";
+import type {FormSection} from "@/branch-manager/composer/types/formtypes";
 
 export interface ServiceResponseInterface {
     success: boolean

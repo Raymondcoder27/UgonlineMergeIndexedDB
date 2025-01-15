@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { useBilling } from "@/branchmanager/finances/stores";
+import { useBilling } from "@/branch-manager/finances/stores";
 import { onMounted, type Ref, ref, reactive, watch, computed } from "vue";
-import AllocateFloat from "@/branchmanager/finances/components/AllocateFloat.vue";
+import AllocateFloat from "@/branch-manager/finances/components/AllocateFloat.vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 import moment from "moment";

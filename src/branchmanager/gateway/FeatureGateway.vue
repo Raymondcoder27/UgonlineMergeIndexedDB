@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Features from "@/branchmanager/gateway/Features.vue";
-import DeadLetters from "@/branchmanager/gateway/DeadLetters.vue";
+import Features from "@/branch-manager/gateway/Features.vue";
+import DeadLetters from "@/branch-manager/gateway/DeadLetters.vue";
 import {ref, type Ref} from "vue";
-import Callbacks from "@/branchmanager/gateway/Callbacks.vue";
-import OutgoingRequests from "@/branchmanager/gateway/OutgoingRequests.vue";
+import Callbacks from "@/branch-manager/gateway/Callbacks.vue";
+import OutgoingRequests from "@/branch-manager/gateway/OutgoingRequests.vue";
 
 const activeTab: Ref<string> = ref("features")
 

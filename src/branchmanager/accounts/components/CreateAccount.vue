@@ -2,10 +2,10 @@
 
 import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive } from "vue";
-import { useAccounts } from "@/branchmanager/accounts/stores";
+import { useAccounts } from "@/branch-manager/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
-import { useBranchStore } from "@/branchmanager/tills/stores";
+import { useBranchStore } from "@/branch-manager/tills/stores";
 
 const branchStore = useBranchStore();
 

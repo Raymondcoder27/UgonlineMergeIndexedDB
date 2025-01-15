@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import type {GraphData} from "@/branchmanager/analytics/types/chart";
+import type {GraphData} from "@/branch-manager/analytics/types/chart";
 import {onMounted, ref, type Ref} from "vue";
 
 type Option = {

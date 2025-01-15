@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, reactive, defineEmits, onMounted, type Ref } from "vue";
-import { useBranchStore } from "@/branchmanager/tills/stores";
+import { useBranchStore } from "@/branch-manager/tills/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-// import type { Branch } from "@/branchmanager/branches/types";
+// import type { Branch } from "@/branch-manager/branches/types";
 
 const branchStore = useBranchStore();
 const notify = useNotificationsStore();
@@ -203,4 +203,4 @@ button {
 .cell-full {
   @apply w-full px-1 my-2;
 }
-</style>@/branchmanager/tills/stores
+</style>@/branch-manager/tills/stores

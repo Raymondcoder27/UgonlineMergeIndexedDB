@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import BarChart from "@/branchmanager/dashboard/components/BarChart.vue";
-import LineChart from "@/branchmanager/dashboard/components/LineChart.vue";
-import PieChart from "@/branchmanager/dashboard/components/PieChart.vue";
+import BarChart from "@/branch-manager/dashboard/components/BarChart.vue";
+import LineChart from "@/branch-manager/dashboard/components/LineChart.vue";
+import PieChart from "@/branch-manager/dashboard/components/PieChart.vue";
 
 import type { Ref } from "vue";
-import type { GraphData, Statistic } from "@/branchmanager/analytics/types/chart";
+import type { GraphData, Statistic } from "@/branch-manager/analytics/types/chart";
 import { ref } from "vue";
 
 const data: Ref<Array<GraphData>> = ref([

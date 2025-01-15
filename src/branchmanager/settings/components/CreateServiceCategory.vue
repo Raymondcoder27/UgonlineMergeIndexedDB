@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import {reactive, type Ref, ref} from "vue";
-import type {CreateServiceCategory} from "@/branchmanager/settings/types";
-import {useSettingsStore} from "@/branchmanager/settings/stores";
+import type {CreateServiceCategory} from "@/branch-manager/settings/types";
+import {useSettingsStore} from "@/branch-manager/settings/stores";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
 

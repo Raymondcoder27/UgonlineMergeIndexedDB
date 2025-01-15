@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {useSettingsStore} from "@/branchmanager/settings/stores";
+import {useSettingsStore} from "@/branch-manager/settings/stores";
 
 const store = useSettingsStore()
 </script>

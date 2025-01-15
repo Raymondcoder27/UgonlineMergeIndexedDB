@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import ProviderStatisticsBarChart from "@/branchmanager/dashboard/views/ProviderStatisticsBarChart.vue";
-// import LineChart from "@/branchmanager/dashboard/components/LineChart.vue";
-// import PieChart from "@/branchmanager/dashboard/components/PieChart.vue";
+import ProviderStatisticsBarChart from "@/branch-manager/dashboard/views/ProviderStatisticsBarChart.vue";
+// import LineChart from "@/branch-manager/dashboard/components/LineChart.vue";
+// import PieChart from "@/branch-manager/dashboard/components/PieChart.vue";
 
-import GatewayStatistics from "@/branchmanager/dashboard/views/ServiceStatusPieChart.vue";
+import GatewayStatistics from "@/branch-manager/dashboard/views/ServiceStatusPieChart.vue";
 import { type Ref, ref } from "vue";
-// import ProviderStatistics from "@/branchmanager/dashboard/views/ProviderStatistics.vue";
-// import ServicesStatistics from "@/branchmanager/dashboard/views/ServicesStatistics.vue";
-import ApplicationsLineGraph from "@/branchmanager/dashboard/views/ApplicationsLineGraph.vue";
-// import RevenueStatistics from "@/branchmanager/dashboard/views/RevenueStatistics.vue";
-// import UserStatistics from "@/branchmanager/dashboard/views/UserStatistics.vue";
+// import ProviderStatistics from "@/branch-manager/dashboard/views/ProviderStatistics.vue";
+// import ServicesStatistics from "@/branch-manager/dashboard/views/ServicesStatistics.vue";
+import ApplicationsLineGraph from "@/branch-manager/dashboard/views/ApplicationsLineGraph.vue";
+// import RevenueStatistics from "@/branch-manager/dashboard/views/RevenueStatistics.vue";
+// import UserStatistics from "@/branch-manager/dashboard/views/UserStatistics.vue";
 
 // import type { Ref } from "vue";
-import type { GraphData, Statistic } from "@/branchmanager/dashboard/types/chart";
-import ServiceStatusPieChart from "@/branchmanager/dashboard/views/ServiceStatusPieChart.vue";
+import type { GraphData, Statistic } from "@/branch-manager/dashboard/types/chart";
+import ServiceStatusPieChart from "@/branch-manager/dashboard/views/ServiceStatusPieChart.vue";
 // import { ref } from "vue";
 
 const data: Ref<Array<GraphData>> = ref([

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive } from "vue";
-import { useAccounts } from "@/branchmanager/accounts/stores";
+import { useAccounts } from "@/branch-manager/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 
 let form: CreateAccount = reactive({

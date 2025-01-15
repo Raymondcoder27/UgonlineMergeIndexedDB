@@ -1,7 +1,7 @@
 import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 import api from "@/config/api";
-import type { Branch } from "@/branchmanager/tills/types"; // Assuming you have a Branch type
+import type { Branch } from "@/branch-manager/tills/types"; // Assuming you have a Branch type
 import type { AssignManager } from "@/types";
 
 export const useBranchStore = defineStore("useBranch", () => {

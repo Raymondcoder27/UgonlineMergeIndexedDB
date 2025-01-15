@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useSettingsStore } from "@/branchmanager/settings/stores";
+import { useSettingsStore } from "@/branch-manager/settings/stores";
 import { reactive, ref, type Ref } from "vue";
 import AppModal from "@/components/AppModal.vue";
 import { onMounted } from "vue";
-import CreateServiceCategory from "@/branchmanager/settings/components/CreateServiceCategory.vue";
-import EditServiceCategory from "@/branchmanager/settings/components/EditServiceCategory.vue";
-import type { Category } from "@/branchmanager/settings/types";
+import CreateServiceCategory from "@/branch-manager/settings/components/CreateServiceCategory.vue";
+import EditServiceCategory from "@/branch-manager/settings/components/EditServiceCategory.vue";
+import type { Category } from "@/branch-manager/settings/types";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";

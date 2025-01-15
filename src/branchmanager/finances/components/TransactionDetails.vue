@@ -2,9 +2,9 @@
 
 // import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive, onMounted, defineEmits } from "vue";
-import { useBilling } from "@/branchmanager/finances/stores";
+import { useBilling } from "@/branch-manager/finances/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useBranchStore } from "@/branchmanager/tills/stores"; 
+import { useBranchStore } from "@/branch-manager/tills/stores"; 
 import type { AllocateFloat } from "@/types";
 
 const branchStore = useBranchStore();

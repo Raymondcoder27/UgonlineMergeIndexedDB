@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, type Ref, ref } from "vue";
 import moment from "moment/moment";
-import { useServicesStore } from "@/branchmanager/services/stores";
+import { useServicesStore } from "@/branch-manager/services/stores";
 import Footer from "@/components/Footer.vue";
 import { useRouter } from "vue-router";
-import ServiceSpecificationDetails from "@/branchmanager/services/views/ServiceSpecificationDetails.vue";
+import ServiceSpecificationDetails from "@/branch-manager/services/views/ServiceSpecificationDetails.vue";
 import OptionalHeader from "@/components/OptionalHeader.vue";
 import AgentHeader from "@/components/AgentHeader.vue";
 

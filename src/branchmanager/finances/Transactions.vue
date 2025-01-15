@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted, watch, computed, type Ref } from "vue";
 import AppModal from "@/components/AppModal.vue";
-import { useBilling } from "@/branchmanager/finances/stores";
+import { useBilling } from "@/branch-manager/finances/stores";
 import { useDebounceFn } from "@vueuse/core";
 import moment from "moment";
 import type { IGoFilter } from "@/types";
-import TransactionDetails from "@/branchmanager/finances/components/TransactionDetails.vue";
+import TransactionDetails from "@/branch-manager/finances/components/TransactionDetails.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 
 const notify = useNotificationsStore();

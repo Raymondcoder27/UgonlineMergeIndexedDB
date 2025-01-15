@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {useGatewayStore} from "@/branchmanager/gateway/stores";
+import {useGatewayStore} from "@/branch-manager/gateway/stores";
 import {onMounted, ref, type Ref} from "vue";
 import moment from "moment";
 

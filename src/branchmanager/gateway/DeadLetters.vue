@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {onMounted, ref, type Ref} from "vue";
-import {useGatewayStore} from "@/branchmanager/gateway/stores";
+import {useGatewayStore} from "@/branch-manager/gateway/stores";
 import moment from "moment";
 
 const loading: Ref<boolean> = ref(false)

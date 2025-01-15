@@ -1,4 +1,4 @@
-import type {GoValueInt, GoValueString, GoValueTime} from "@/branchmanager/services/types";
+import type {GoValueInt, GoValueString, GoValueTime} from "@/branch-manager/services/types";
 
 export interface GatewayResponseInterface {
     success: boolean

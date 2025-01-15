@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
 import api from "@/config/api";
-import type { AccountResponseInterface, AccountsData, IResendVerificationPayload } from "@/branchmanager/accounts/types";
+import type { AccountResponseInterface, AccountsData, IResendVerificationPayload } from "@/branch-manager/accounts/types";
 import { useGoRequest } from "@/composables/go-request";
 import { useNotificationsStore } from "@/stores/notifications";
 import { AxiosError } from "axios";

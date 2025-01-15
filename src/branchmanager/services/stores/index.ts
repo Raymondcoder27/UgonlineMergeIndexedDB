@@ -2,7 +2,7 @@
 import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 import api from "@/config/api";
-import type { Service, ServiceResponseInterface, ServiceSpecification } from "@/branchmanager/services/types";
+import type { Service, ServiceResponseInterface, ServiceSpecification } from "@/branch-manager/services/types";
 import niraThumbnail from '@/assets/images/nira.png';
 import epostaThumbnail from '@/assets/images/eposta.png';
 import naroThumbnail from '@/assets/images/naro.png';

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, type Ref } from "vue";
-// import BackofficeAccounts from "@/branchmanager/accounts/BackofficeAccounts.vue";
-// import UserAccounts from "@/branchmanager/accounts/UserAccounts.vue";
+// import BackofficeAccounts from "@/branch-manager/accounts/BackofficeAccounts.vue";
+// import UserAccounts from "@/branch-manager/accounts/UserAccounts.vue";
 
-import FloatLedgers from "@/branchmanager/finances/FloatLedgers.vue";
-import FloatManagement from "@/branchmanager/finances/FloatAllocation.vue";
-import Transactions from "@/branchmanager/finances/Transactions.vue";
-import FloatRequests from "@/branchmanager/finances/FloatRequests.vue";
-import { useBalance } from "@/branchmanager/balance/stores";
+import FloatLedgers from "@/branch-manager/finances/FloatLedgers.vue";
+import FloatManagement from "@/branch-manager/finances/FloatAllocation.vue";
+import Transactions from "@/branch-manager/finances/Transactions.vue";
+import FloatRequests from "@/branch-manager/finances/FloatRequests.vue";
+import { useBalance } from "@/branch-manager/balance/stores";
 
 const balanceStore = useBalance();
 

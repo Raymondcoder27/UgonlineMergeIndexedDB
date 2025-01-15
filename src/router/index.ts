@@ -18,18 +18,18 @@ import DashboardTab from "@/domain/dashboard/DashboardTab.vue";
 
 
 // Import the branch manager domain components
-import BranchManagerLayout from "@/layouts/BranchManagerLayout.vue";
-import BranchManagerAppServices from "@/branchmanager/services/AppServices.vue";
-import BranchManagerAppEntities from "@/branchmanager/entities/AppEntities.vue";
-import BranchManagerAppAgents from "@/branchmanager/agents/AppAgents.vue";
-import BranchManagerBranches from "@/branchmanager/tills/Tills.vue";
-import BranchManagerSettings from "@/branchmanager/settings/Settings.vue";
-// import BranchManagerLedger from "@/branchmanager/ledger/Ledger.vue";
-import BranchManagerServicesDetails from "@/branchmanager/servicesdetails/ServicesDetails.vue";
-import BranchManagerAppGateway from "@/branchmanager/gateway/AppGateway.vue";
-import BranchManagerAppFinances from "@/branchmanager/finances/Finances.vue";
-// import BranchManagerSubmissions from "@/branchmanager/submissions/Submissions.vue";
-// import BranchManagerAppServicesDetails from "@/branchmanager/apiservices/views/ServiceDetails.vue";
+import BranchManagerLayout from "@/layouts/branch-managerLayout.vue";
+import BranchManagerAppServices from "@/branch-manager/services/AppServices.vue";
+import BranchManagerAppEntities from "@/branch-manager/entities/AppEntities.vue";
+import BranchManagerAppAgents from "@/branch-manager/agents/AppAgents.vue";
+import BranchManagerBranches from "@/branch-manager/tills/Tills.vue";
+import BranchManagerSettings from "@/branch-manager/settings/Settings.vue";
+// import BranchManagerLedger from "@/branch-manager/ledger/Ledger.vue";
+import BranchManagerServicesDetails from "@/branch-manager/servicesdetails/ServicesDetails.vue";
+import BranchManagerAppGateway from "@/branch-manager/gateway/AppGateway.vue";
+import BranchManagerAppFinances from "@/branch-manager/finances/Finances.vue";
+// import BranchManagerSubmissions from "@/branch-manager/submissions/Submissions.vue";
+// import BranchManagerAppServicesDetails from "@/branch-manager/apiservices/views/ServiceDetails.vue";
 
 
 // Import the agent domain components
@@ -82,25 +82,25 @@ const mergedRoutes: RouteRecordRaw[] = [
     ],
   },
   {
-    path: "/branchmanager",
-    name: "branchmanager-home",
+    path: "/branch-manager",
+    name: "branch-manager-home",
     component: BranchManagerLayout,
     meta: { requiresAuth: true },
     // redirect: "/agent/services",
-    redirect: "/branchmanager/api-services",
+    redirect: "/branch-manager/api-services",
     children: [
-      { name: "branchmanager-app-services", path: "/branchmanager/services", component: BranchManagerAppServices },
-      { name: "branchmanager-app-entities", path: "/branchmanager/entities", component:BranchManagerAppEntities },
-      { name: "branchmanager-app-agents", path: "/branchmanager/agents", component:BranchManagerAppAgents },
-      { name: "branchmanager-app-branches", path: "/branchmanager/branches", component:BranchManagerBranches },
-      { name: "branchmanager-app-configurations", path: "/branchmanager/configurations", component:BranchManagerSettings },
-      // { name: "branchmanager-app-ledger", path: "/branchmanager/ledger", component:BranchManagerLedger },
-      { name: "branchmanager-app-services-details", path: "/branchmanager/services-details", component:BranchManagerServicesDetails },
-      { name: "branchmanager-app-finances", path: "/branchmanager/finances", component:BranchManagerAppFinances },
-      { name: "branchmanager-app-gateway", path: "/branchmanager/gateway", component:BranchManagerAppGateway },
-      // { name: "branchmanager-app-submissions", path: "/branchmanager/submissions", component:BranchManagerSubmissions },
-      // { name: "branchmanager-api-app-submissions", path: "/branchmanager/api-submissions", component: ApiSubmissions },
-      // { name: "api-services", path: "/branchmanager/api-services", component: ApiServices },
+      { name: "branchmanager-app-services", path: "/branch-manager/services", component: BranchManagerAppServices },
+      { name: "branchmanager-app-entities", path: "/branch-manager/entities", component:BranchManagerAppEntities },
+      { name: "branchmanager-app-agents", path: "/branch-manager/agents", component:BranchManagerAppAgents },
+      { name: "branchmanager-app-branches", path: "/branch-manager/branches", component:BranchManagerBranches },
+      { name: "branchmanager-app-configurations", path: "/branch-manager/configurations", component:BranchManagerSettings },
+      // { name: "branchmanager-app-ledger", path: "/branch-manager/ledger", component:BranchManagerLedger },
+      { name: "branchmanager-app-services-details", path: "/branch-manager/services-details", component:BranchManagerServicesDetails },
+      { name: "branchmanager-app-finances", path: "/branch-manager/finances", component:BranchManagerAppFinances },
+      { name: "branchmanager-app-gateway", path: "/branch-manager/gateway", component:BranchManagerAppGateway },
+      // { name: "branchmanager-app-submissions", path: "/branch-manager/submissions", component:BranchManagerSubmissions },
+      // { name: "branchmanager-api-app-submissions", path: "/branch-manager/api-submissions", component: ApiSubmissions },
+      // { name: "api-services", path: "/branch-manager/api-services", component: ApiServices },
       // { name: "api-service-details", path: "/service/:id", component:BranchManagerAppServicesDetails },
     ],
   },

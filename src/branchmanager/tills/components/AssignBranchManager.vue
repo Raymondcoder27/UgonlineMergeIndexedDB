@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, computed, defineProps, type Ref } from "vue";
-import { useBranchStore } from "@/branchmanager/tills/stores";
+import { useBranchStore } from "@/branch-manager/tills/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { defineEmits } from "vue";
-import { useAccounts } from "@/branchmanager/accounts/stores";
+import { useAccounts } from "@/branch-manager/accounts/stores";
 
 const branchStore = useBranchStore();
 const store = useAccounts();
@@ -311,4 +311,4 @@ const filteredManagers = computed(() => {
   @apply w-full px-1 my-2;
 }
 </style>
-@/branchmanager/tills/stores
+@/branch-manager/tills/stores

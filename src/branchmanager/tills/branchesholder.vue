@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
-import CreateBranch from "@/branchmanager/branches/components/CreateBranch.vue";
-import { useBranchStore } from "@/branchmanager/tills/stores"; // Updated import
-import type { Branch } from "@/branchmanager/branches/types"; // Assuming you have a Branch type
+import CreateBranch from "@/branch-manager/branches/components/CreateBranch.vue";
+import { useBranchStore } from "@/branch-manager/tills/stores"; // Updated import
+import type { Branch } from "@/branch-manager/branches/types"; // Assuming you have a Branch type
 import moment from "moment/moment";
 import router from "@/router";
-import { useProviderStore } from "@/branchmanager/entities/stores";
-import AssignBranchManager from "@/branchmanager/branches/components/AssignBranchManager.vue";
-// import CategorySelector from "@/branchmanager/settings/components/CategorySelector.vue";
+import { useProviderStore } from "@/branch-manager/entities/stores";
+import AssignBranchManager from "@/branch-manager/branches/components/AssignBranchManager.vue";
+// import CategorySelector from "@/branch-manager/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
 
-import { useAccounts } from "@/branchmanager/accounts/stores";
+import { useAccounts } from "@/branch-manager/accounts/stores";
 const accountStore = useAccounts();
 const branchStore = useBranchStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
@@ -476,4 +476,4 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-@/branchmanager/tills/stores@/branchmanager/tills/types
+@/branch-manager/tills/stores@/branch-manager/tills/types

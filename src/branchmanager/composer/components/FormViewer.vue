@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import type {FormElement, FormSection, SectionEntry,} from "@/branchmanager/composer/types/formtypes";
+import type {FormElement, FormSection, SectionEntry,} from "@/branch-manager/composer/types/formtypes";
 import {onMounted, type Ref, ref, watch} from "vue";
 
 let formSections: Ref<Array<FormSection>> = ref([])

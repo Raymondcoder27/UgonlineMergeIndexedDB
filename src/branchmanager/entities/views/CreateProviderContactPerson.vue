@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {reactive} from "vue";
-// import {useProviderStore} from "@/branchmanager/entities/stores";
+// import {useProviderStore} from "@/branch-manager/entities/stores";
 //
 // const stores = useProviderStore()
 

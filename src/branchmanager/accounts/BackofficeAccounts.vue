@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { useAccounts } from "@/branchmanager/accounts/stores";
+import { useAccounts } from "@/branch-manager/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive, computed } from "vue";
-import CreateAccount from "@/branchmanager/accounts/components/CreateAccount.vue";
+import CreateAccount from "@/branch-manager/accounts/components/CreateAccount.vue";
 import moment from "moment";
 import type { IGoFilter } from "@/types";
 import { useDebounceFn } from "@vueuse/core";
