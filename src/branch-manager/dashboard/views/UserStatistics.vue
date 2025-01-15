@@ -119,7 +119,7 @@ function labelExtractor(data: Statistic[]) {
           <div class="flex my-2">
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">
-                {{ Number(21).toLocaleString() }}
+                {{ Number(18).toLocaleString() }}
               </p>
               <p class="text-xs">Total Users</p>
             </div>
