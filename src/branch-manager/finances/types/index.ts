@@ -99,15 +99,25 @@ export interface BackofficeUser {
     dateAssigned: string;
   }
 
-export interface BranchManager {
-    id: number;
-    username: string;
-    fullName: string;
-    role: string;
-    branch: string;
-    status: string;
-    dateAssigned: string;
-  }
+// export interface BranchManager {
+//     id: number;
+//     username: string;
+//     fullName: string;
+//     role: string;
+//     branch: string;
+//     status: string;
+//     dateAssigned: string;
+//   }
+
+export interface TillOperator {
+  id: number;
+  username: string;
+  fullName: string;
+  role: string;
+  branch: string;
+  status: string;
+  dateAssigned: string;
+}
 
   // const dummyFloatRequests: FloatRequest[] = [
   //   { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "Pending", branch: "Branch 1", approvedBy: null },

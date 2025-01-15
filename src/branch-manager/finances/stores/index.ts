@@ -2,7 +2,7 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { Transaction, FloatLedger, BackofficeUser, TillOperator FloatAllocation, FloatRequest } from "@/branch-manager/finances/types";
+import type { Transaction, FloatLedger, BackofficeUser, TillOperator, FloatAllocation, FloatRequest } from "@/branch-manager/finances/types";
 import type { AllocateFloat } from "@/types";
 
 export const useBilling = defineStore("billing", () => {
@@ -141,14 +141,14 @@ export const useBilling = defineStore("billing", () => {
   // function submit() {
   //   let payload = {
   //     amount: form.firstName,
-  //     branchId: form.branchId,
+  //     tillId: form.tillId,
   //   };
   //   loading.value = true;
   //   store
   //     .allocateFloat(payload)
   //     .then(() => {
   //       loading.value = false;
-  //       notify.success(`Float assigned to ${form.branchId}.`);
+  //       notify.success(`Float assigned to ${form.tillId}.`);
   //       emit("cancel");
   //     })
   //     .catch(() => {
@@ -163,7 +163,7 @@ export const useBilling = defineStore("billing", () => {
       dateAssigned: new Date().toISOString(),
       amount: payload.amount,
       status: "Allocated",
-      till: payload.branchId,
+      till: payload.tillId,
     })
     //save to localstorage
     // saveTransactionsToLocalStorage();
@@ -201,7 +201,7 @@ function allocateFloatFromRequest(requestId: any) {
       dateAssigned: new Date().toISOString(),
       amount: floatRequest.amount,
       status: "Allocated",
-      till: floatRequest.branch,
+      till: floatRequest.till,
     });
 
 
@@ -210,7 +210,7 @@ function allocateFloatFromRequest(requestId: any) {
     //   dateAssigned: new Date().toISOString(),
     //   status: "Allocated",
     //   payload: floatRequest.amount,
-    //    branchId: floatRequest.branch,
+    //    tillId: floatRequest.till,
     // })
     // saveFloatRequestToLocalStorage();
   }
@@ -221,7 +221,7 @@ function allocateFloatFromRequest(requestId: any) {
   //   status: "Allocated",
   //   payload: floatRequest.amount,
   //    status: "Allocated",
-  //    branchId: floatRequest.branch,
+  //    tillId: floatRequest.till,
   // })
   // saveFloatRequestToLocalStorage();
 }
@@ -236,8 +236,8 @@ function allocateFloatFromRequest(requestId: any) {
     floatLedgers.value.push({
       id: floatLedgers.value.length + 1,
       date: new Date().toISOString(),
-      // description: "Till " + payload.branchId,
-      description: payload.branchId,
+      // description: "Till " + payload.tillId,
+      description: payload.tillId,
       amount: -payload.amount,
       // balance: totalBalance.value + payload.amount,
     })
@@ -284,7 +284,7 @@ async function reduceFloatLedger(requestId: any) {
   floatLedgers.value.push({
     id: floatLedgers.value.length + 1,
     date: new Date().toISOString(),
-    description: floatRequest.branch,
+    description: floatRequest.till,
     amount: -floatRequest.amount,
     // balance: 300000000 - floatRequest.amount,
   });
