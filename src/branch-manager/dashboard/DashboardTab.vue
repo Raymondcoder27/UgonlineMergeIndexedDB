@@ -38,7 +38,7 @@ balanceStore.fetchTotalBalance();
 
 const totalBalance = balanceStore.totalBalance;
 
-const activeTab: Ref<string> = ref("services");
+const activeTab: Ref<string> = ref("branches");
 
 function select(tab: string) {
   activeTab.value = tab;
