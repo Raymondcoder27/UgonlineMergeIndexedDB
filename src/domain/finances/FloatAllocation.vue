@@ -245,7 +245,7 @@ watch(
             <th class="t-header">Amount(UGX)</th>
             <th class="text-left">Status</th>
             <th class="text-right">Date of Allocation</th>
-            <!-- <th class="t-header">Actions</th> -->
+            <th class="t-right">Actions</th>
             <th class="t-header"></th>
           </tr>
         </thead>
@@ -301,6 +301,18 @@ watch(
             </td>
             <td class="text-right">
               {{ convertDateTime(assignment.createdAt) }}
+            </td>
+            <td class="text-right">
+              <!-- <div class="" v-if="transaction.status === 'rejected'"> -->
+                  <span
+                    class="bg-green-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-green-800"
+                    @click="confirm(transaction)"
+                  >
+                    <!-- <i class="fa fa-redo"></i> -->
+                    <i class="fa fa-eye"></i>
+                    View Details
+                  </span>
+                <!-- </div> -->
             </td>
           </tr>
         </tbody>
