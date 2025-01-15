@@ -228,9 +228,9 @@ function labelExtractor(data: Statistic[]) {
     <div class="w-full border-r border-gray-200 px-2">
       <div class="flex">
         <div class="w-full">
-          <div class="flex my-2 justify-between">
+          <div class="flex my-2">
             <!-- <div class="w-2/12 count"> -->
-            <div class="count w-[130px]">
+            <div class="count w-2/12">
               <!-- <p class="text-xl font-bold py-2">60</p> -->
               <!-- <p class="text-xl font-bold py-2">8</p> -->
               <p class="text-xl font-bold py-2">
@@ -305,4 +305,5 @@ function labelExtractor(data: Statistic[]) {
 .count {
   @apply py-2 text-center border border-gray-100 rounded bg-gray-10 mx-1 shadow;
 }
-</style>@/branchmanager/services/stores@/branchmanager/analytics/types/chart
+</style>
+<!-- @/branchmanager/services/stores@/branchmanager/analytics/types/chart -->

@@ -228,7 +228,7 @@ function labelExtractor(data: Statistic[]) {
     <div class="w-full border-r border-gray-200 px-2">
       <div class="flex">
         <div class="w-full">
-          <div class="flex my-2 justify-between">
+          <div class="flex my-2">
             <!-- <div class="w-2/12 count"> -->
             <div class="count w-[130px]">
               <!-- <p class="text-xl font-bold py-2">60</p> -->
