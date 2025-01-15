@@ -14,3 +14,12 @@ export type Branch = {
     manager: string;
     createdAt: string;
 };
+
+export type Till = {
+  id: string;
+  name: string;
+  location: string;
+  status: string;
+  manager: string;
+  createdAt: string;
+};
