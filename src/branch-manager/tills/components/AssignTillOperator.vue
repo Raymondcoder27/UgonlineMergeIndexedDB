@@ -100,9 +100,9 @@ function submit(userId: string) {
 const searchQuery = ref("");
 const filteredManagers = computed(() => {
   if (!searchQuery.value.trim()) {
-    return tillStore.managers; // Assuming managers are loaded into tillStore
+    return tillStore.operators; // Assuming managers are loaded into tillStore
   }
-  return tillStore.managers.filter((manager) =>
+  return tillStore.operators.filter((manager) =>
     `${manager.firstName} ${manager.lastName}`
       .toLowerCase()
       .includes(searchQuery.value.trim().toLowerCase())
