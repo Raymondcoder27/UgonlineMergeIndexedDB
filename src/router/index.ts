@@ -29,6 +29,8 @@ import BranchManagerServicesDetails from "@/branch-manager/servicesdetails/Servi
 import BranchManagerAppGateway from "@/branch-manager/gateway/AppGateway.vue";
 import BranchManagerAppFinances from "@/branch-manager/finances/Finances.vue";
 import BranchManagerTills from "@/branch-manager/tills/Tills.vue";
+import BranchManagerAccounts from "@/branch-manager/accounts/Accounts.vue";
+import BranchManagerDataAnalytics from "@/branch-manager/analytics/DataAnalytics.vue";
 // import BranchManagerSubmissions from "@/branch-manager/submissions/Submissions.vue";
 // import BranchManagerAppServicesDetails from "@/branch-manager/apiservices/views/ServiceDetails.vue";
 
@@ -101,6 +103,10 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "branch-manager-app-finances", path: "/branch-manager/finances", component:BranchManagerAppFinances },
       { name: "branch-manager-app-gateway", path: "/branch-manager/gateway", component:BranchManagerAppGateway },
       { name: "branch-manager-app-tills", path: "/branch-manager/tills", component:BranchManagerTills },
+//       branch-manager-app-reports
+// branch-manager-app-accounts
+       { name: "branch-manager-app-reports", path: "/branch-manager/data-analytics", component: BranchManagerDataAnalytics },
+       { name: "branch-manager-app-accounts", path: "/branch-manager/accounts", component: BranchManagerAccounts },
       // { name: "branchmanager-app-submissions", path: "/branch-manager/submissions", component:BranchManagerSubmissions },
       // { name: "branchmanager-api-app-submissions", path: "/branch-manager/api-submissions", component: ApiSubmissions },
       // { name: "api-services", path: "/branch-manager/api-services", component: ApiServices },
