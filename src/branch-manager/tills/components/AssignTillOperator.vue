@@ -73,7 +73,7 @@ const { branchId } = defineProps({
   },
 });
 
-const emit = defineEmits(["cancel", "managerAssigned"]);
+const emit = defineEmits(["cancel", "operatorAssigned"]);
 
 onMounted(() => {
   loading.value = true;
