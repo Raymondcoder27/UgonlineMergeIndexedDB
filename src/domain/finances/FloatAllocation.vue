@@ -245,7 +245,7 @@ watch(
             <th class="t-header">Amount(UGX)</th>
             <th class="text-left">Status</th>
             <th class="text-right">Date of Allocation</th>
-            <th class="t-right">Actions</th>
+            <th class="text-right">Actions</th>
             <th class="t-header"></th>
           </tr>
         </thead>
