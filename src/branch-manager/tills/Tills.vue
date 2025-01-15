@@ -501,7 +501,7 @@ onMounted(() => {
     <!-- Chances are high that you're starting with a form -->
     <AssignBranchManager
       :tillId="selectedTill"
-      @managerAssigned="close"
+      @operatorAssigned="close"
       @cancel="close"
     />
     <!-- That's also okay -->
