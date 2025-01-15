@@ -34,7 +34,7 @@ export const useBranchStore = defineStore("useBranch", () => {
   //   managerAllocations.value.push({
   //     id: managerAllocations.value.length + 1,
   //     dateAssigned: new Date().toISOString(),
-  //     branch: payload.branchId,
+  //     branch: payload.tillId,
   //     manager: payload.managerId,
   //     status: "Assigned"
   //   });
@@ -61,27 +61,27 @@ export const useBranchStore = defineStore("useBranch", () => {
   }
 
   // const allocateManager = (payload: AllocateManager) => {
-  //   const branchToUpdate = tills.value?.find(till = > branch.id === payload.branchId);
+  //   const branchToUpdate = tills.value?.find(till = > till.id === payload.tillId);
   //   if (branchToUpdate) {
   //     branchToUpdate.manager = payload.managerId;
   //   } else {
-  //     console.warn(`Till with ID ${payload.branchId} not found.`);
+  //     console.warn(`Till with ID ${payload.tillId} not found.`);
   //   }
   // };
 
   const assignManager = (payload: AssignManager) => {
-    const branchToUpdate = tills.value?.find(till = > branch.id === payload.branchId);
+    const branchToUpdate = tills.value?.find(till => till.id === payload.tillId);
     if (branchToUpdate) {
       branchToUpdate.manager = payload.managerId;
     } else {
-      console.warn(`Till with ID ${payload.branchId} not found.`);
+      console.warn(`Till with ID ${payload.tillId} not found.`);
     }
   };
   
   // push new assigned manager managerAccounts array
   // const assignManager = (payload: AssignManager) => {
   //   managerAssignments.value.push({
-  //     branchId: payload.branchId,
+  //     tillId: payload.tillId,
   //     managerId: payload.managerId,
   //   });
   // }
@@ -92,13 +92,13 @@ export const useBranchStore = defineStore("useBranch", () => {
 
 
    // Delete Till from the store
-  //  const deleteTill = (branchId: string) => {
-  //   tills.value = tills.value?.filter((branch) => branch.id !== branchId); // Remove the Till by ID
+  //  const deleteTill = (tillId: string) => {
+  //   tills.value = tills.value?.filter((branch) => till.id !== tillId); // Remove the Till by ID
   // };
 
 
-  const deleteTill = (branchId: string) => {
-    tills.value = tills.value?.filter((b) => b.id !== branchId); 
+  const deleteTill = (tillId: string) => {
+    tills.value = tills.value?.filter((b) => b.id !== tillId); 
   }
 
   // const service = subscribedServices.value?.find((s) => s.id === serviceId);
