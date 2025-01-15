@@ -243,4 +243,4 @@ function labelExtractor(data: Statistic[]) {
 .count {
   @apply py-2 text-center border border-gray-100 rounded bg-gray-10 mx-1 shadow;
 }
-</style>
+</style>@/branchmanager/analytics/types/chart

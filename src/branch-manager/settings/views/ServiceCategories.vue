@@ -176,4 +176,4 @@ function deleteCategory(id: string) {
   @apply p-1 text-primary-700 mx-auto;
   font-size: 30px;
 }
-</style>
+</style>@/branchmanager/settings/stores@/branchmanager/settings/types

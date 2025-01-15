@@ -235,3 +235,4 @@ watch(
 
 @keyframes l2 {to{background-size: 100% 3px}}
 </style>
+@/branchmanager/providers/stores@/branchmanager/providers/types

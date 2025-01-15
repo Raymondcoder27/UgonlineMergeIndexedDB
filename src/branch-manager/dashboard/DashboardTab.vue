@@ -164,4 +164,4 @@ onMounted(async () => {
 .tab:hover {
   @apply bg-gray-50 text-gray-600 rounded-t-xl;
 }
-</style>
+</style>@/branchmanager/balance/stores@/branchmanager/services/stores@/branchmanager/tills/stores@/branchmanager/accounts/stores@/branchmanager/finances/stores

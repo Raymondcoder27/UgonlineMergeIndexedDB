@@ -114,3 +114,4 @@ function select(tab: string) {
   @apply cursor-pointer p-2 border-b-4 border-primary-700 text-sm text-center;
 }
 </style>
+@/branchmanager/balance/stores

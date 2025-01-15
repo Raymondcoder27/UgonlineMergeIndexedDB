@@ -85,3 +85,4 @@ const open = (service: any) => {
   </div>
 </template>
 
+@/branchmanager/services/stores

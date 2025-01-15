@@ -217,4 +217,4 @@ watch(
 .cell {
   @apply w-full my-2;
 }
-</style>
+</style>@/branchmanager/composer/types/formtypes

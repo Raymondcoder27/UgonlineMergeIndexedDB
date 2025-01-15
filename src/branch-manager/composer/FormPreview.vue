@@ -96,4 +96,4 @@ watch(
 @import "@/assets/styles/forms.css";
 @import "@/assets/styles/ring.css";
 @import "@/assets/styles/ripple.css";
-</style>
+</style>@/branchmanager/services/types@/branchmanager/services/stores@/branchmanager/composer/types/formtypes

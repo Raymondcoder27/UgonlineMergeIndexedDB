@@ -229,4 +229,4 @@ watch(store.createServiceResponse, (data: any) => {
 .cell-full {
   @apply w-full px-1 my-2;
 }
-</style>
+</style>@/branchmanager/services/stores@/branchmanager/entities/stores@/branchmanager/settings/stores

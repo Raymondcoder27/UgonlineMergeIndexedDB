@@ -145,4 +145,4 @@ function submit(){
 .cell-full {
   @apply w-full px-1 my-2;
 }
-</style>
+</style>@/branchmanager/providers/stores@/branchmanager/providers/types

@@ -651,4 +651,4 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-<!-- @/agentdomain/ledger/types -->
+<!-- @/agentdomain/ledger/types -->@/branchmanager/finances/stores@/branchmanager/balance/stores@/branchmanager/finances/types

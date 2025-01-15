@@ -239,3 +239,4 @@ onMounted(() => {
   @apply w-6/12 px-1 my-2;
 }
 </style>
+@/branchmanager/composer/types/formtypes

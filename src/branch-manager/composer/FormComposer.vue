@@ -275,4 +275,4 @@ watch(
 <style scoped>
 @import "@/assets/styles/button.css";
 @import "@/assets/styles/forms.css";
-</style>
+</style>@/branchmanager/services/stores@/branchmanager/entities/stores@/branchmanager/composer/types/formtypes@/branchmanager/composer/types/formtypes

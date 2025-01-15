@@ -417,3 +417,4 @@ watch(
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
+@/branchmanager/accounts/stores

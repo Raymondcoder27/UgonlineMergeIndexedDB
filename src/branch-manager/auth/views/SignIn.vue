@@ -106,3 +106,4 @@ watch(
 @import "@/assets/styles/ring.css";
 @import "@/assets/styles/ripple.css";
 </style>
+@/branchmanager/auth/types@/branchmanager/auth/stores@/branchmanager/auth/composables

@@ -536,3 +536,4 @@ watch(
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
+@/branchmanager/applications/stores@/branchmanager/entities/stores@/branchmanager/services/stores@/branchmanager/applications/types

@@ -149,4 +149,4 @@ function submit(){
 @import "@/assets/styles/forms.css";
 @import "@/assets/styles/ring.css";
 @import "@/assets/styles/ripple.css";
-</style>
+</style>@/branchmanager/settings/stores

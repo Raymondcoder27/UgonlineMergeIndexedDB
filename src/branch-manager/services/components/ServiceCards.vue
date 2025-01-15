@@ -144,3 +144,4 @@ onMounted(() => {
     </div>
   </div>
 </template>
+@/branchmanager/services/stores@/branchmanager/services/types

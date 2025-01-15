@@ -233,4 +233,4 @@ function convertDate(date: string) {
 .cell-full {
   @apply w-full px-1 my-2;
 }
-</style>
+</style>@/branchmanager/services/stores

@@ -311,4 +311,4 @@ const filteredManagers = computed(() => {
   @apply w-full px-1 my-2;
 }
 </style>
-@/branch-manager/tills/stores
+@/branch-manager/tills/stores@/branchmanager/tills/stores@/branchmanager/accounts/stores

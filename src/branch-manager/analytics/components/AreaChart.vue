@@ -63,4 +63,4 @@ onMounted(() => {
 
 <style scoped>
 
-</style>
+</style>@/branchmanager/analytics/types/chart
