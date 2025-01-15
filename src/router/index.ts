@@ -31,6 +31,7 @@ import BranchManagerAppFinances from "@/branch-manager/finances/Finances.vue";
 import BranchManagerTills from "@/branch-manager/tills/Tills.vue";
 import BranchManagerAccounts from "@/branch-manager/accounts/Accounts.vue";
 import BranchManagerDataAnalytics from "@/branch-manager/analytics/DataAnalytics.vue";
+import BranchManagerDashboardTab from "@/branch-manager/dashboard/DashboardTab.vue"
 // import BranchManagerSubmissions from "@/branch-manager/submissions/Submissions.vue";
 // import BranchManagerAppServicesDetails from "@/branch-manager/apiservices/views/ServiceDetails.vue";
 
@@ -92,7 +93,7 @@ const mergedRoutes: RouteRecordRaw[] = [
     // redirect: "/agent/services",
     redirect: "/branch-manager/dashboard",
     children: [
-      { name: "branch-manager-app-dashboard", path: "/branch-manager/dashboard", component: DashboardTab },
+      { name: "branch-manager-app-dashboard", path: "/branch-manager/dashboard", component: BranchManagerDashboardTab },
       { name: "branch-manager-app-services", path: "/branch-manager/app-services", component: BranchManagerAppServices },
       { name: "branch-manager-app-entities", path: "/branch-manager/entities", component:BranchManagerAppEntities },
       { name: "branch-manager-app-agents", path: "/branch-manager/agents", component:BranchManagerAppAgents },

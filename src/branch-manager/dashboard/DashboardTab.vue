@@ -77,7 +77,7 @@ onMounted(async () => {
         class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
       >
         <i class="fa-solid fa-building mr-2"></i>
-        <span>Branches</span>
+        <span>Tills</span>
         <!-- <p class="text-xl font-bold mt-1">4</p> -->
         <!-- <p class="text-xl font-bold ml-2">{{ totalBranches }}</p> -->
       </div>
