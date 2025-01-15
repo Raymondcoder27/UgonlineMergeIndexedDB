@@ -109,7 +109,7 @@ export const useAccounts = defineStore("user-management", () => {
     managerAllocations.value.push({
       id: managerAllocations.value.length + 1,
       dateAssigned: new Date().toISOString(),
-      till: payload.branchId,
+      till: payload.tillId,
       manager: payload.managerId,
       status: "Assigned"
     });
@@ -117,13 +117,13 @@ export const useAccounts = defineStore("user-management", () => {
     // Update the manager's branch
     const manager = managerAccounts.value.find((manager) => manager.id === payload.managerId);
     if (manager) {
-      manager.till = payload.branchId;
+      manager.till = payload.tillId;
       localStorageManagerAccount.value = manager; // Update the local storage variable
       // }
     }
 
     // Update the branch's manager
-    const till = branches?.value.find((branch) => branch.id === payload.branchId);
+    const till = branches?.value.find((branch) => branch.id === payload.tillId);
     if (branch) {
       branch.manager = payload.managerId;
     }
@@ -171,7 +171,7 @@ export const useAccounts = defineStore("user-management", () => {
   //     dateAssigned: new Date().toISOString(),
   //     amount: payload.amount,
   //     status: "Assigned",
-  //     till: payload.branchId,
+  //     till: payload.tillId,
   //   })
   // }
 
@@ -192,7 +192,7 @@ export const useAccounts = defineStore("user-management", () => {
         createdAt: new Date().toISOString(),
         status: "Active",
         email: newOperator.email,
-        till: newOperator.branchId
+        till: newOperator.tillId
       }
     );
   }
@@ -257,18 +257,18 @@ export const useAccounts = defineStore("user-management", () => {
   }
 
   // const assignManager = (payload: AssignManager) => {
-  //   const branchToUpdate = branches.value?.find(till => branch.id === payload.branchId);
+  //   const branchToUpdate = branches.value?.find(till => branch.id === payload.tillId);
   //   if (branchToUpdate) {
   //     branchToUpdate.manager = payload.managerId;
   //   } else {
-  //     console.warn(`Till with ID ${payload.branchId} not found.`);
+  //     console.warn(`Till with ID ${payload.tillId} not found.`);
   //   }
   // };
 
   // function submit() {
   //   let payload = {
   //     managerId: form.managerId,
-  //     // branchId: form.branchId,
+  //     // tillId: form.tillId,
   //   };
   //   loading.value = true;
   //   tillStore.assignManager(payload); // Simply add the branch
@@ -325,13 +325,13 @@ export const useAccounts = defineStore("user-management", () => {
   //   }
   // };
 
-  const assignManager = (userId: string, branchId: string) => {
+  const assignManager = (userId: string, tillId: string) => {
     console.log('User ID:', userId); // Debugging log
-    console.log('Till ID:', branchId); // Debugging log
+    console.log('Till ID:', tillId); // Debugging log
 
     const user = backofficeAccounts.value?.find((account) => account.id === userId); // Find user by `userId`
 
-    const till = tillStore.branches.find((till: Branch) => branch.id === branchId);
+    const till = tillStore.branches.find((till: Branch) => branch.id === tillId);
 
     // if (user && branch) {
     if (user && branch) {
@@ -346,7 +346,7 @@ export const useAccounts = defineStore("user-management", () => {
         emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
-        till: branch.name, // Include branchId
+        till: branch.name, // Include tillId
       });
       // managerAccounts.value.push(assignedManager);
       localStorageManagerAccount.value.push({
@@ -360,11 +360,11 @@ export const useAccounts = defineStore("user-management", () => {
         emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
-        till: branch.name, // Include branchId
+        till: branch.name, // Include tillId
       }) // Update the local storage reference
       saveManagerToLocalStorage(); // Save to local storage
       console.log(`Manager assigned to Till ${branch.name}`);
-      console.log(`Manager assigned to Till ${branchId}`);
+      console.log(`Manager assigned to Till ${tillId}`);
     } else {
       console.warn(`User with ID ${userId} not found.`);
       alert(`User with ID ${userId} not found.`);
