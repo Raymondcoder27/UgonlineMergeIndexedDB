@@ -499,7 +499,7 @@ onMounted(() => {
   <AppModal v-model="assignOperatorModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <AssignBranchManager
+    <AssignTillOperator
       :tillId="selectedTill"
       @operatorAssigned="close"
       @cancel="close"
