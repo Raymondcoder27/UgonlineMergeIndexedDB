@@ -71,7 +71,7 @@ onMounted(() => {
   // loading.value = true;
    store
     .fetchManagerAccounts(),
-    branchStore
+    tillStore
     .fetchBranches()
   
     // .finally(() => (loading.value = false));
@@ -137,7 +137,7 @@ onMounted(() => {
         >
           <option :value="null">-- Select Branch --</option>
           <option
-            v-for="(branch, idx) in branchStore.branches"
+            v-for="(branch, idx) in tillStore.branches"
             :key="idx"
             :value="branch.name"
           >
