@@ -192,7 +192,7 @@ watch(
                   v-model="filter.filter[1].operand"
                   class="filter-element e-input"
                   type="text"
-                  placeholder="Filter by Branch"
+                  placeholder="Filter by Till"
                 >
                   <option value="" disabled selected>Filter by Till</option>
                   <option value="Till 1">Till 1</option>
@@ -261,7 +261,7 @@ watch(
                 manager.fullName
               }}</label>
             </td> -->
-            <td class="text-left">{{ assignment.branch }}</td>
+            <td class="text-left">{{ assignment.till }}</td>
             <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
             <!-- <td class="text-left text-center">{{ assignment.status }}</td> -->
             <!-- use v-if, v-else-if and v-else to allocate depending on whether it was allocated, pending or failed -->
@@ -417,4 +417,4 @@ watch(
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-@/branchmanager/finances/stores
+<!-- @/branchmanager/finances/stores -->
