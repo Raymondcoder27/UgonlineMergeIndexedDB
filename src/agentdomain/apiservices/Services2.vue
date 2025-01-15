@@ -170,8 +170,11 @@ watch(
   <div
     class="flex px-4 py-3 shadow-md w-full justify-between items-center bg-white"
   >
-    <div
+    <!-- <div
       class="w-1/3 bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+    > -->
+    <div
+      class="w-1/3 bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
     >
       <input
         type="text"
