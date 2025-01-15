@@ -88,7 +88,7 @@ function labelExtractor(data: Statistic[]) {
           <div class="flex my-2">
             <div class="w-2/12 count">
               <p class="text-lg font-bold py-2">
-                <!-- {{ totalBalance.currentBalance.toLocaleString() }}/= -->
+                {{ totalBalance.currentBalance.toLocaleString() }}/=
               </p>
               <!-- <p class="text-xl font-bold py-2">{{Number(6341883900).toLocaleString()}}</p> -->
               <p class="text-xs">Balance</p>

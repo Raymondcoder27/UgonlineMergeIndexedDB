@@ -14,8 +14,8 @@ export interface TotalBalance {
 export const useBalance = defineStore("balance", () => {
   // Reactive state for total balance
   const totalBalance = reactive<TotalBalance>({
-    prevBalance: 300000000, // Initial previous balance
-    currentBalance: 300000000, // Initial current balance
+    prevBalance: 20000000, // Initial previous balance
+    currentBalance: 20000000, // Initial current balance
   });
 
   const billingStore = useBilling();
