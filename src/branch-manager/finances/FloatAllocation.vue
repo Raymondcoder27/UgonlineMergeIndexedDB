@@ -194,10 +194,10 @@ watch(
                   type="text"
                   placeholder="Filter by Branch"
                 >
-                  <option value="" disabled selected>Filter by Branch</option>
-                  <option value="Branch 1">Branch 1</option>
-                  <option value="Branch 2">Branch 2</option>
-                  <option value="Branch 3">Branch 3</option>
+                  <option value="" disabled selected>Filter by Till</option>
+                  <option value="Till 1">Till 1</option>
+                  <option value="Till 2">Till 2</option>
+                  <option value="Till 3">Till 3</option>
                 </select>
                 <label for="date-from" class="mr-2 ml-4 text-sm text-gray-600"
                   >From:</label
@@ -241,7 +241,7 @@ watch(
           <tr class="header-tr">
             <th class="t-header">#</th>
             <!-- <th class="t-header" width="30%">Names</th> -->
-            <th class="t-header">Branch</th>
+            <th class="t-header">Till</th>
             <th class="t-header">Amount(UGX)</th>
             <th class="text-left">Status</th>
             <th class="text-right">Date of Allocation</th>

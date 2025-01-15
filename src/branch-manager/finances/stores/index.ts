@@ -45,35 +45,35 @@ export const useBilling = defineStore("billing", () => {
   // <th class="text-left">Actions</th>
 
   const dummyFloatRequests: FloatRequest[] = [
-    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", branch: "Branch 1", approvedBy: null },
-    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", branch: "Branch 4", approvedBy: null },
-    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", branch: "Branch 2", approvedBy: "Manager One" },
-    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "rejected", branch: "Branch 3", approvedBy: null },
+    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", branch: "Till 1", approvedBy: null },
+    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", branch: "Till 4", approvedBy: null },
+    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", branch: "Till 2", approvedBy: "Manager One" },
+    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "rejected", branch: "Till 3", approvedBy: null },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
     { id: 1, date: "2021-09-01", description: "Recharge", amount: 300000000, balance: 300000000 },
-    // { id: 2, date: "2021-09-02", description: "Branch 1", amount: -20000000, balance: 300000000 },
+    // { id: 2, date: "2021-09-02", description: "Till 1", amount: -20000000, balance: 300000000 },
   ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [
-    { id: 1, username: "admin1", fullName: "Jack Mwebe", role: "Administrator", branch: "Branch 1", status: "Active" },
-    { id: 2, username: "manager1", fullName: "Katamba Johnson", role: "Manager", branch: "Branch 2", status: "Active" },
-    { id: 3, username: "admin2", fullName: "Kasule Ronald", role: "Administrator", branch: "Branch 3", status: "Inactive" },
+    { id: 1, username: "admin1", fullName: "Jack Mwebe", role: "Administrator", branch: "Till 1", status: "Active" },
+    { id: 2, username: "manager1", fullName: "Katamba Johnson", role: "Manager", branch: "Till 2", status: "Active" },
+    { id: 3, username: "admin2", fullName: "Kasule Ronald", role: "Administrator", branch: "Till 3", status: "Inactive" },
   ];
 
   // dummy branch manager data
   const dummyBranchManagers: BranchManager[] = [
-    { id: 1, username: "manager1", fullName: "Manager User One", role: "Manager", branch: "Branch 1", status: "Active" },
-    { id: 2, username: "manager2", fullName: "Manager User Two", role: "Manager", branch: "Branch 2", status: "Active" },
-    { id: 3, username: "manager3", fullName: "Manager User Three", role: "Manager", branch: "Branch 3", status: "Inactive" },
+    { id: 1, username: "manager1", fullName: "Manager User One", role: "Manager", branch: "Till 1", status: "Active" },
+    { id: 2, username: "manager2", fullName: "Manager User Two", role: "Manager", branch: "Till 2", status: "Active" },
+    { id: 3, username: "manager3", fullName: "Manager User Three", role: "Manager", branch: "Till 3", status: "Inactive" },
   ];
 
   // dummy float assignment data
   const dummyFloatAllocations: FloatAllocation[] = [
-    { id: 1, dateAssigned: "2021-09-01", amount: 20000000, status: "Allocated", branch: "Branch 1" },
-    { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "pending", branch: "Branch 2" },
-    { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "failed", branch: "Branch 3" },
+    { id: 1, dateAssigned: "2021-09-01", amount: 20000000, status: "Allocated", branch: "Till 1" },
+    { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "pending", branch: "Till 2" },
+    { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "failed", branch: "Till 3" },
   ];
 
 
@@ -236,7 +236,7 @@ function allocateFloatFromRequest(requestId: any) {
     floatLedgers.value.push({
       id: floatLedgers.value.length + 1,
       date: new Date().toISOString(),
-      // description: "Branch " + payload.branchId,
+      // description: "Till " + payload.branchId,
       description: payload.branchId,
       amount: -payload.amount,
       // balance: totalBalance.value + payload.amount,
