@@ -5,9 +5,9 @@ import { type Ref, ref, reactive, onMounted } from "vue";
 import { useAccounts } from "@/branch-manager/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
-import { useBranchStore } from "@/branch-manager/tills/stores";
+import { useTillStore } from "@/branch-manager/tills/stores";
 
-const branchStore = useBranchStore();
+const tillStore = useTillStore();
 
 
  const form: ManagerAccount = reactive({
