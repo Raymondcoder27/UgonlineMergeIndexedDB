@@ -24,7 +24,7 @@ const tillStore = useTillStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
 const categoryModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
-const assignManagerModalOpen: Ref<boolean> = ref(false);
+const assignOperatorModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
@@ -123,7 +123,7 @@ function assignOperator(till: Till) {
   console.log(`Assigning operator for till: ${till.name}`);
   selectedTill.value = till.id;
   // Example: modalOpen.value = true;
-  assignManagerModalOpen.value = true;
+  assignOperatorModalOpen.value = true;
 }
 
 function deleteTill(tillId: string) {
@@ -136,7 +136,7 @@ function deleteTill(tillId: string) {
 function close() {
   modalOpen.value = false;
   editModalOpen.value = false;
-  assignManagerModalOpen.value = false;
+  assignOperatorModalOpen.value = false;
 }
 
 function next() {
@@ -496,7 +496,7 @@ onMounted(() => {
   <!-- /Modal -->
 
   <!-- Assign Manager Modal -->
-  <AppModal v-model="assignManagerModalOpen" xl2>
+  <AppModal v-model="assignOperatorModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
     <AssignBranchManager
