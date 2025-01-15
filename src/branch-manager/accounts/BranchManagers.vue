@@ -161,7 +161,7 @@ watch(
 );
 
 onMounted(() => {
-  store.fetchManagerAccounts(), tillStore.fetchBranches();
+  store.fetchManagerAccounts(), tillStore.fetchTills();
   // store.fetchRoles()
 });
 </script>
