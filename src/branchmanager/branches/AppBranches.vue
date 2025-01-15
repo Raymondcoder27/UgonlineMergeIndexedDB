@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
-import CreateBranch from "@/branchmanager/branches/components/CreateBranch.vue";
-import { useBranchStore } from "@/branchmanager/branches/stores"; // Updated import
-import type { Branch } from "@/branchmanager/branches/types"; // Assuming you have a Branch type
+import CreateBranch from "@/domain/branches/components/CreateBranch.vue";
+import { useBranchStore } from "@/domain/branches/stores"; // Updated import
+import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
 import moment from "moment/moment";
 import router from "@/router";
-import { useProviderStore } from "@/branchmanager/entities/stores";
-import AssignBranchManager from "@/branchmanager/branches/components/AssignBranchManager.vue";
-import EditBranch from "@/branchmanager/branches/components/EditBranch.vue";
-// import CategorySelector from "@/branchmanager/settings/components/CategorySelector.vue";
+import { useProviderStore } from "@/domain/entities/stores";
+import AssignBranchManager from "@/domain/branches/components/AssignBranchManager.vue";
+import EditBranch from "@/domain/branches/components/EditBranch.vue";
+// import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
-import { useBilling } from "@/branchmanager/finances/stores";
+import { useBilling } from "@/domain/finances/stores";
 
 const billingStore = useBilling();
 
-import { useAccounts } from "@/branchmanager/accounts/stores";
+import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
 const branchStore = useBranchStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
@@ -33,7 +33,6 @@ const branches: Ref<any[]> = ref([]);
 // let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
-const showBranchCloseModal = ref(false);
 
 const totalRecords = computed(() => branchStore.branches.length); // Total branches
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
@@ -107,11 +106,11 @@ function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
-function deleteBranch(branch: Branch) {
-  branchStore.deleteBranch(branch.id);
-  notify.success("Branch Closed");
-  fetchBranches();
-}
+// function deleteBranch(branch: Branch) {
+//   branchStore.deleteBranch(branch.id);
+//   notify.success("Branch Deleted");
+//   fetchBranches();
+// }
 
 // function deleteBranch(branch: Branch) {
 //     branchStore.deleteBranch(branch.id);
@@ -127,12 +126,12 @@ function assignManager(branch: Branch) {
   assignManagerModalOpen.value = true;
 }
 
-// function deleteBranch(branchId: string) {
-//   branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
-//   // branchStore.branches = branchStore.branches.filter((b) => b.id !== branchId); // Manually update the store
-//   // fetchBranches(); // Refetch the branches after deleting, if needed
-//   notify.success("Branch Deleted");
-// }
+function deleteBranch(branchId: string) {
+  branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
+  // branchStore.branches = branchStore.branches.filter((b) => b.id !== branchId); // Manually update the store
+  // fetchBranches(); // Refetch the branches after deleting, if needed
+  notify.success("Branch Deleted");
+}
 
 function close() {
   modalOpen.value = false;
@@ -211,7 +210,7 @@ onMounted(() => {
         <i
           class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-building"
         ></i>
-        <label class="text-lg mx-1">Branches</label>
+        <label class="text-lg mx-1">Tills</label>
       </div>
     </div>
     <div class="flex justify-between my-1">
@@ -243,7 +242,7 @@ onMounted(() => {
         >
           <input
             type="text"
-            placeholder="Search Managers"
+            placeholder="Search Till Operators"
             class="w-full text-sm border-none outline-none bg-white"
           />
           <i class="fas fa-search p-2 cursor-pointer text-gray-300 text-lg"></i>
@@ -262,7 +261,7 @@ onMounted(() => {
           class="button btn-sm my-auto"
           type="button"
         >
-          <i class="px-1 fa-solid fa-plus"></i> Add Branch
+          <i class="px-1 fa-solid fa-plus"></i> Add Till
         </button>
       </div>
     </div>
@@ -271,8 +270,8 @@ onMounted(() => {
         <thead>
           <tr class="">
             <!-- <th class="t-header">#</th> -->
-            <th class="t-header">Name</th>
-            <th class="text-left">Manager</th>
+            <th class="t-header">Number</th>
+            <th class="text-left">Operator</th>
             <th class="text-left">Date</th>
             <th class="text-right">Actions</th>
             <!-- <th class="t-header"></th> -->
@@ -362,7 +361,7 @@ onMounted(() => {
                   @click="assignManager(branch)"
                 >
                   <i class="fa fa-user-plus"></i>
-                  Assign Manager
+                  Assign Operator
                 </button>
               </div>
             </td>
@@ -399,25 +398,16 @@ onMounted(() => {
                 @click="open(branch)"
               ></i> -->
               <span
-                class="p-1 mx-1 rounded-md text-white bg-blue-600 hover:bg-blue-200 hover:text-blue-600"
+                class="p-1 mx-1 rounded-md text-white bg-blue-600 hover:bg-blue-800"
               >
                 <i class="fa-solid fa-pen" @click="edit(branch)"></i>
                 Edit
               </span>
 
-              <span
-                class="rounded-md p-1 mx-1 text-white bg-red-700 hover:bg-red-200 hover:text-red-700"
-              >
-                <!-- <i
-                  class="fa-solid fa-store-slash"
-                  @click="deleteBranch(branch)"
-                ></i> -->
-                <i
-                  class="fa-solid fa-store-slash"
-                  @click="showBranchCloseModal = true"
-                ></i>
-                Close
-              </span>
+              <!-- <i
+                class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
+                @click="deleteBranch(branch.id)"
+              ></i> -->
             </td>
           </tr>
         </tbody>
@@ -490,51 +480,11 @@ onMounted(() => {
     </div>
   </div>
 
-  <!-- Approve Modal -->
-  <AppModal v-model="showBranchCloseModal" xl>
-    <div class="flex">
-      <div class="w-full">
-        <div class="flex">
-          <span class="mx-auto text-center justify-center">
-            <i
-              class="mx-auto fa-solid fa-exclamation-circle text-3xl text-danger"
-            ></i>
-          </span>
-        </div>
-        <p class="py-5 text-center">
-          Are you sure you want to close this branch?
-        </p>
-        <div class="flex w-1/2 gap-2 justify-center mx-auto">
-          <!-- <button
-              class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
-              @click="showApproveModal = false"
-            > -->
-          <button
-            class="bg-gray-600 hover:bg-gray-500 w-1/2 rounded text-white"
-            @click="showBranchCloseModal = false"
-          >
-            <i class="fa-solid fa-times-circle mx-1"></i> Cancel
-          </button>
-          <!-- <button
-            class="bg-green-700 text-white p-1 w-1/2 rounded hover:bg-green-800"
-            @click="showBranchCloseModal = true"
-          > -->
-          <button
-            class="bg-green-700 text-white p-1 w-1/2 rounded hover:bg-green-800"
-            @click="deleteBranch(branch)"
-          >
-            <i class="fa-solid fa-check-circle mx-1"></i> Confirm
-          </button>
-        </div>
-      </div>
-    </div>
-  </AppModal>
-
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <CreateBranch @branchCreated="close" @cancel="close" />
+    <CreateBranch @tillCreated="close" @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 
