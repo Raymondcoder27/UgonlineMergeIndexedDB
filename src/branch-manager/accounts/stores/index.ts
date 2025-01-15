@@ -95,8 +95,8 @@ export const useAccounts = defineStore("user-management", () => {
   const response: Ref<AccountResponse | undefined> = ref();
   const userAccounts: Ref<Account[]> = ref([dummyUserAccounts]);
   const backofficeAccounts: Ref<Account[]> = ref([dummyBackofficeAccounts]);
-  const managerAccounts: Ref<TillOperatorAccount[]> = ref([dummyTillOperatorAccounts]);
-  const managerAllocations: Ref<AllocateManager[]> = ref([]);
+  const tillOperatorAccounts: Ref<TillOperatorAccount[]> = ref([dummyTillOperatorAccounts]);
+  const tillOperatorAllocations: Ref<AllocateManager[]> = ref([]);
 
 
 
