@@ -22,7 +22,7 @@ const router = useRouter();
 const accountStore = useAccountStore();
 const sideMenu: SideMenuLink[] = [
   {
-    name: "app-dashboard",
+    name: "branch-manager-app-dashboard",
     label: "Dashboard",
     iconClass: "fa-solid fa-gauge",
   },
@@ -43,18 +43,18 @@ const sideMenu: SideMenuLink[] = [
   //   iconClass: "fa-solid fa-people-group",
   // },
   {
-    name: "app-services",
+    name: "branch-manager-app-services",
     label: "Service Subscriptions",
     iconClass: "fa-solid fa-list",
   },
   {
-    name: "app-billing",
+    name: "branch-manager-app-billing",
     label: "Finances",
     // iconClass: "fa-solid fa-money-bill",
     iconClass: "fa-solid fa-coins"
   },
   {
-    name: "app-reports",
+    name: "branch-manager-app-reports",
     label: "Reports",
     iconClass: "fa-solid fa-chart-line",
   },
@@ -64,7 +64,7 @@ const sideMenu: SideMenuLink[] = [
   //   iconClass: "fa-solid fa-list"
   // },
   {
-    name: "app-accounts",
+    name: "branch-manager-app-accounts",
     label: "Accounts",
     iconClass: "fa-solid fa-users",
   },
