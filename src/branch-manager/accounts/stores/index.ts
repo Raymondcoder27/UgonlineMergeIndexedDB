@@ -327,7 +327,7 @@ export const useAccounts = defineStore("user-management", () => {
 
     const user = backofficeAccounts.value?.find((account) => account.id === userId); // Find user by `userId`
 
-    const till = tillStore.tills.find((till: Till) => till.id === tillId);
+    const till = tillStore.tills?.find((till: Till) => till.id === tillId);
 
     // if (user && till) {
     if (user && till) {

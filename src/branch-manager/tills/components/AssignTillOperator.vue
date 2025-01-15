@@ -6,7 +6,7 @@ import type { ApiError } from "@/types";
 import { defineEmits } from "vue";
 import { useAccounts } from "@/branch-manager/accounts/stores";
 
-const branchStore = useTillStore();
+const tillStore = useTillStore();
 const store = useAccounts();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
@@ -78,7 +78,7 @@ const emit = defineEmits(["cancel", "operatorAssigned"]);
 onMounted(() => {
   loading.value = true;
   store.fetchBackofficeAccounts();
-  branchStore.fetchBranches().finally(() => (loading.value = false));
+  tillStore.fetchTills().finally(() => (loading.value = false));
 });
 
 function submit(userId: string) {
@@ -100,9 +100,9 @@ function submit(userId: string) {
 const searchQuery = ref("");
 const filteredManagers = computed(() => {
   if (!searchQuery.value.trim()) {
-    return branchStore.managers; // Assuming managers are loaded into branchStore
+    return tillStore.managers; // Assuming managers are loaded into tillStore
   }
-  return branchStore.managers.filter((manager) =>
+  return tillStore.managers.filter((manager) =>
     `${manager.firstName} ${manager.lastName}`
       .toLowerCase()
       .includes(searchQuery.value.trim().toLowerCase())
