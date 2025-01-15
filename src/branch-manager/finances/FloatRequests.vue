@@ -218,7 +218,7 @@ function convertDateTimeNullable(date?: string) {
 // function submit() {
 //   const payload = {
 //     amount: form.amount,
-//     branchId: form.branchId,
+//     tillId: form.tillId,
 //   };
 
 //   console.log("Submitting payload:", payload);
@@ -228,8 +228,8 @@ function convertDateTimeNullable(date?: string) {
 //     // .then(() => {
 //       billingStore.adjustFloatLedger(payload); // Adjust ledger
 //       balanceStore.decreaseTotalBalance(payload.amount); // Update balance
-//       // notify.success(`Float allocated to branch: ${form.branchId}`);
-//       notify.success(`Float allocated to ${form.branchId}`);
+//       // notify.success(`Float allocated to branch: ${form.tillId}`);
+//       notify.success(`Float allocated to ${form.tillId}`);
 //       emit("floatAllocated");
 //     // })
 //     // .catch((err) => {
@@ -371,7 +371,7 @@ onMounted(() => {
             <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
             <td class="text-left">{{ request.requestDate }}</td>
             <!-- convertDateTime(request.createdAt) -->
-            <td class="text-left">{{ request.branch }}</td>
+            <td class="text-left">{{ request.till }}</td>
             <td class="text-left">{{ request.amount.toLocaleString() }}</td>
             <td class="text-left">
               <!-- First Case: float request approved -->
