@@ -7,8 +7,8 @@ import { useNotificationsStore } from "@/stores/notifications";
 import { useCommonsStore } from "../../../stores/commons";
 import { AxiosError } from "axios";
 import type { AccountResponseInterface, AccountsData, IResendVerificationPayload } from "@/branchmanager/accounts/types";
-import type { Branch } from "@/branchmanager/branches/types";
-import { useBranchStore } from "@/branchmanager/branches/stores";
+import type { Branch } from "@/branchmanager/tills/types";
+import { useBranchStore } from "@/branchmanager/tills/stores";
 
 
 export const useAccounts = defineStore("user-management", () => {

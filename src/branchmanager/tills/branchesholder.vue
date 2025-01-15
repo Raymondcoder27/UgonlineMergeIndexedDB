@@ -476,3 +476,4 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
+@/branchmanager/tills/stores@/branchmanager/tills/types

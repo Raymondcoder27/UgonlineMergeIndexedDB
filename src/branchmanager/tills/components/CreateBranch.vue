@@ -156,3 +156,4 @@ function submit() {
   @apply w-full px-1 my-2;
 }
 </style>
+@/branchmanager/tills/stores
