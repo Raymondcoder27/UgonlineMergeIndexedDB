@@ -45,10 +45,10 @@ export const useBilling = defineStore("billing", () => {
   // <th class="text-left">Actions</th>
 
   const dummyFloatRequests: FloatRequest[] = [
-    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", till: "Till 1", approvedBy: null },
-    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", till: "Till 4", approvedBy: null },
-    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", till: "Till 2", approvedBy: "Manager One" },
-    { id: 3, requestDate: "2021-09-03", amount: 2000000, status: "rejected", till: "Till 3", approvedBy: null },
+    { id: 1, requestDate: "2021-09-01", amount: 12000000, status: "pending", till: "Till 1", approvedBy: null },
+    { id: 4, requestDate: "2021-09-04", amount: 10000000, status: "pending", till: "Till 4", approvedBy: null },
+    { id: 2, requestDate: "2021-09-02", amount: 18000000, status: "approved", till: "Till 2", approvedBy: "Manager One" },
+    { id: 3, requestDate: "2021-09-03", amount: 9000000, status: "rejected", till: "Till 3", approvedBy: null },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
@@ -71,9 +71,9 @@ export const useBilling = defineStore("billing", () => {
 
   // dummy float assignment data
   const dummyFloatAllocations: FloatAllocation[] = [
-    { id: 1, dateAssigned: "2021-09-01", amount: 20000000, status: "Allocated", till: "Till 1" },
+    { id: 1, dateAssigned: "2021-09-01", amount: 10000000, status: "Allocated", till: "Till 1" },
     { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "pending", till: "Till 2" },
-    { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "failed", till: "Till 3" },
+    { id: 3, dateAssigned: "2021-09-03", amount: 17000000, status: "failed", till: "Till 3" },
   ];
 
 
