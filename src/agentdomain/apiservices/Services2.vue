@@ -22,7 +22,7 @@ const balanceStore = useBalance();
 
 onMounted(() => {
   balanceStore.fetchTotalBalance();
-  fetchServices();
+  // fetchServices();
 });
 
 const store = useServicesStore();
@@ -168,7 +168,7 @@ watch(
 <template>
   <!-- Styled Search Bar -->
   <div
-    class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white"
+    class="flex px-4 py-3 shadow-md w-full justify-between items-center bg-white"
   >
     <div
       class="w-1/3 bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
@@ -193,7 +193,7 @@ watch(
     </div>
   </div>
   <div class="rounded p-2">
-    <div class="flex justify-end items-center mt-2 mb-2">
+    <div class="flex justify-end items-center">
       <!-- Previous Button -->
       <button
         class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
@@ -221,7 +221,7 @@ watch(
     </div>
 
     <!-- Service Cards Section -->
-    <div class="grid grid-cols-4 gap-3 mt-3 p-5">
+    <div class="grid grid-cols-4 gap-3 p-5">
       <!-- <div
       v-for="service in store.services"
       :key="service.id"
