@@ -66,8 +66,8 @@ const paginatedBackofficeAccounts = computed(() => {
 // };
 
 // Define props
-const { branchId } = defineProps({
-  branchId: {
+const { tillId } = defineProps({
+  tillId: {
     type: String,
     required: true,
   },
