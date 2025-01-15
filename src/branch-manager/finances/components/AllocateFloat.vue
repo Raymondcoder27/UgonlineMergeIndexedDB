@@ -3,11 +3,11 @@
 import { type Ref, ref, reactive, onMounted, defineEmits } from "vue";
 import { useBilling } from "@/branch-manager/finances/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useBranchStore } from "@/branch-manager/tills/stores";
+import { useTillStore } from "@/branch-manager/tills/stores";
 import type { AllocateFloat } from "@/types";
 import { useBalance } from "@/branch-manager/balance/stores";
 
-const branchStore = useBranchStore();
+const tillStore = useTillStore();
 const balanceStore = useBalance();
 const billingStore = useBilling();
 
@@ -106,7 +106,7 @@ function submit() {
 
 onMounted(() => {
   // loading.value = true;
-  branchStore.fetchBranches();
+  tillStore.fetchTills();
   // .finally(() => (loading.value = false));
 });
 </script>
@@ -172,7 +172,7 @@ onMounted(() => {
         >
           <option :value="null">-- Select Branch --</option>
           <option
-            v-for="(branch, idx) in branchStore.branches"
+            v-for="(branch, idx) in tillStore.branches"
             :key="idx"
             :value="branch.name"
           >
