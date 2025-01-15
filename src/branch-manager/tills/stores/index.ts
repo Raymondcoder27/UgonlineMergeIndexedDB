@@ -4,10 +4,10 @@ import api from "@/config/api";
 import type { Till } from "@/branch-manager/tills/types"; // Assuming you have a Till type
 import type { AssignManager } from "@/types";
 
-export const useBranchStore = defineStore("useBranch", () => {
+export const useTillStore = defineStore("useTill", () => {
 
   // Dummy data for testing purposes
-  const dummyTills: Branch[] = [
+  const dummyTills: Till[] = [
     { id: 1, name: "Till 1", location: "Location 1", manager: "", status: "Active" },
     { id: 2, name: "Till 2", location: "Location 2", manager: "", status: "Inactive" },
     { id: 3, name: "Till 3", location: "Location 3", manager: "", status: "Active" },
@@ -22,11 +22,11 @@ export const useBranchStore = defineStore("useBranch", () => {
   ];
 
   // Add new Till to the store
-  // const addTill= (newTill: Branch) => {
+  // const addTill= (newTill: Till) => {
   //   tills.value.push(newTill);
   // };
 
-  // const addTill= (newTill: Branch) => {
+  // const addTill= (newTill: Till) => {
   //   tills.value.push(newTill); // Directly add the Till to the array
   // };
 
@@ -45,7 +45,7 @@ export const useBranchStore = defineStore("useBranch", () => {
   const isLoading: Ref<boolean> = ref(false);
   const managerAssignments: Ref<AssignManager[]> = ref([]);
 
-  const addTill= (newTill: Branch) => {
+  const addTill= (newTill: Till) => {
     tills.value?.push({
       id: tills.value?.length + 1,
       name: newTill.name,
@@ -61,18 +61,18 @@ export const useBranchStore = defineStore("useBranch", () => {
   }
 
   // const allocateManager = (payload: AllocateManager) => {
-  //   const branchToUpdate = tills.value?.find(till = > till.id === payload.tillId);
-  //   if (branchToUpdate) {
-  //     branchToUpdate.manager = payload.managerId;
+  //   const tillToUpdate = tills.value?.find(till = > till.id === payload.tillId);
+  //   if (tillToUpdate) {
+  //     tillToUpdate.manager = payload.managerId;
   //   } else {
   //     console.warn(`Till with ID ${payload.tillId} not found.`);
   //   }
   // };
 
   const assignManager = (payload: AssignManager) => {
-    const branchToUpdate = tills.value?.find(till => till.id === payload.tillId);
-    if (branchToUpdate) {
-      branchToUpdate.manager = payload.managerId;
+    const tillToUpdate = tills.value?.find(till => till.id === payload.tillId);
+    if (tillToUpdate) {
+      tillToUpdate.manager = payload.managerId;
     } else {
       console.warn(`Till with ID ${payload.tillId} not found.`);
     }
@@ -93,7 +93,7 @@ export const useBranchStore = defineStore("useBranch", () => {
 
    // Delete Till from the store
   //  const deleteTill = (tillId: string) => {
-  //   tills.value = tills.value?.filter((branch) => till.id !== tillId); // Remove the Till by ID
+  //   tills.value = tills.value?.filter((Till) => till.id !== tillId); // Remove the Till by ID
   // };
 
 
@@ -134,11 +134,11 @@ export const useBranchStore = defineStore("useBranch", () => {
 
   return {
     tills,
-    branch,
+    till,
     managerAssignments,
     fetchTills,
     assignManager,
-    addBranch,
-    deleteBranch,
+    addTill,
+    deleteTill,
   };
 });
