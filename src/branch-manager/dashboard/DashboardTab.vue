@@ -76,7 +76,7 @@ onMounted(async () => {
         @click="select('branches')"
         class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
       >
-        <i class="fa-solid fa-building mr-2"></i>
+        <i class="fa-solid fa-code-branch mr-2"></i>
         <span>Tills</span>
         <!-- <p class="text-xl font-bold mt-1">4</p> -->
         <!-- <p class="text-xl font-bold ml-2">{{ totalBranches }}</p> -->
