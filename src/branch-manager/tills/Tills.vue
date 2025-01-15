@@ -313,10 +313,10 @@ onMounted(() => {
             </td>
 
             <!-- <td class="text-black-700">
-              <div v-if="getManagerByBranch(till.name)">
+              <div v-if="getOperatorByTill(till.name)">
                 <label
-                  >{{ getManagerByBranch(till.name).firstName }}
-                  {{ getManagerByBranch(till.name).lastName }}</label
+                  >{{ getOperatorByTill(till.name).firstName }}
+                  {{ getOperatorByTill(till.name).lastName }}</label
                 >
               </div>
               <div v-else>
@@ -330,11 +330,11 @@ onMounted(() => {
             </td> -->
 
             <td class="text-black-700 text-left">
-              <!-- First Case: Manager linked via `getManagerByBranch()` -->
-              <div v-if="getManagerByBranch(till.name)">
+              <!-- First Case: Manager linked via `getOperatorByTill()` -->
+              <div v-if="getOperatorByTill(till.name)">
                 <label>
-                  {{ getManagerByBranch(till.name).firstName }}
-                  {{ getManagerByBranch(till.name).lastName }}
+                  {{ getOperatorByTill(till.name).firstName }}
+                  {{ getOperatorByTill(till.name).lastName }}
                 </label>
               </div>
 
