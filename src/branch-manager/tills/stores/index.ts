@@ -8,17 +8,17 @@ export const useTillStore = defineStore("useTill", () => {
 
   // Dummy data for testing purposes
   const dummyTills: Till[] = [
-    { id: 1, name: "Till 1", location: "Location 1", manager: "", status: "Active" },
-    { id: 2, name: "Till 2", location: "Location 2", manager: "", status: "Inactive" },
-    { id: 3, name: "Till 3", location: "Location 3", manager: "", status: "Active" },
-    { id: 4, name: "Till 4", location: "Location 4", manager: "", status: "Inactive" },
-    { id: 5, name: "Till 5", location: "Location 5", manager: "", status: "Active" },
-    { id: 6, name: "Till 6", location: "Location 6", manager: "", status: "Inactive" },
-    { id: 7, name: "Till 7", location: "Location 7", manager: "", status: "Active" },
-    { id: 8, name: "Till 8", location: "Location 8", manager: "", status: "Inactive" },
-    { id: 9, name: "Till 9", location: "Location 9", manager: "", status: "Active" },
-    { id: 10, name: "Till 10", location: "Location 10", manager: "", status: "Inactive" },
-    { id: 11, name: "Till 11", location: "Location 11", manager: "", status: "Active" },
+    { id: 1, name: "Till 1", location: "Location 1", operator: "", status: "Active" },
+    { id: 2, name: "Till 2", location: "Location 2", operator: "", status: "Inactive" },
+    { id: 3, name: "Till 3", location: "Location 3", operator: "", status: "Active" },
+    { id: 4, name: "Till 4", location: "Location 4", operator: "", status: "Inactive" },
+    { id: 5, name: "Till 5", location: "Location 5", operator: "", status: "Active" },
+    { id: 6, name: "Till 6", location: "Location 6", operator: "", status: "Inactive" },
+    { id: 7, name: "Till 7", location: "Location 7", operator: "", status: "Active" },
+    { id: 8, name: "Till 8", location: "Location 8", operator: "", status: "Inactive" },
+    { id: 9, name: "Till 9", location: "Location 9", operator: "", status: "Active" },
+    { id: 10, name: "Till 10", location: "Location 10", operator: "", status: "Inactive" },
+    { id: 11, name: "Till 11", location: "Location 11", operator: "", status: "Active" },
   ];
 
   // Add new Till to the store

@@ -34,7 +34,7 @@ const tills: Ref<any[]> = ref([]);
 let status = ref("");
 const notify = useNotificationsStore();
 
-const totalRecords = computed(() => tillStore.tills.length); // Total tills
+const totalRecords = computed(() => tillStore?.tills.length); // Total tills
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -302,7 +302,7 @@ onMounted(() => {
               <label
                 class="cursor-pointer font-bold hover:text-primary-700 mx-2"
               >
-                <span class="hover:underline" @click="open(branch)">
+                <span class="hover:underline" @click="open(till)">
                   {{ till.name }}
                 </span>
                 <!-- <i
