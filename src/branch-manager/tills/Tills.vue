@@ -120,7 +120,7 @@ function convertDateTime(date: string) {
 
 function assignOperator(till: Till) {
   // Logic to open the modal or start the process
-  console.log(`Assigning manager for branch: ${till.name}`);
+  console.log(`Assigning operator for till: ${till.name}`);
   selectedTill.value = till.id;
   // Example: modalOpen.value = true;
   assignManagerModalOpen.value = true;
