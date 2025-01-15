@@ -18,7 +18,7 @@ import DashboardTab from "@/domain/dashboard/DashboardTab.vue";
 
 
 // Import the branch manager domain components
-import BranchManagerLayout from "@/layouts/branch-managerLayout.vue";
+import BranchManagerLayout from "@/layouts/BranchManagerLayout.vue";
 import BranchManagerAppServices from "@/branch-manager/services/AppServices.vue";
 import BranchManagerAppEntities from "@/branch-manager/entities/AppEntities.vue";
 import BranchManagerAppAgents from "@/branch-manager/agents/AppAgents.vue";
