@@ -2,7 +2,7 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { Transaction, FloatLedger, BackofficeUser, BranchManager, FloatAllocation, FloatRequest } from "@/branch-manager/finances/types";
+import type { Transaction, FloatLedger, BackofficeUser, TillOperator FloatAllocation, FloatRequest } from "@/branch-manager/finances/types";
 import type { AllocateFloat } from "@/types";
 
 export const useBilling = defineStore("billing", () => {
@@ -40,15 +40,15 @@ export const useBilling = defineStore("billing", () => {
   // use this for dummy float requests
   // <th class="text-left">Date</th>
   // <th class="text-left">Name</th>
-  // <th class="text-left">Branch</th>
+  // <th class="text-left"> till</th>
   // <th class="text-left">Amount</th>
   // <th class="text-left">Actions</th>
 
   const dummyFloatRequests: FloatRequest[] = [
-    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", branch: "Till 1", approvedBy: null },
-    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", branch: "Till 4", approvedBy: null },
-    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", branch: "Till 2", approvedBy: "Manager One" },
-    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "rejected", branch: "Till 3", approvedBy: null },
+    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", till: "Till 1", approvedBy: null },
+    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", till: "Till 4", approvedBy: null },
+    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", till: "Till 2", approvedBy: "Manager One" },
+    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "rejected", till: "Till 3", approvedBy: null },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
@@ -57,23 +57,23 @@ export const useBilling = defineStore("billing", () => {
   ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [
-    { id: 1, username: "admin1", fullName: "Jack Mwebe", role: "Administrator", branch: "Till 1", status: "Active" },
-    { id: 2, username: "manager1", fullName: "Katamba Johnson", role: "Manager", branch: "Till 2", status: "Active" },
-    { id: 3, username: "admin2", fullName: "Kasule Ronald", role: "Administrator", branch: "Till 3", status: "Inactive" },
+    { id: 1, username: "admin1", fullName: "Jack Mwebe", role: "Administrator", till: "Till 1", status: "Active" },
+    { id: 2, username: "manager1", fullName: "Katamba Johnson", role: "Manager", till: "Till 2", status: "Active" },
+    { id: 3, username: "admin2", fullName: "Kasule Ronald", role: "Administrator", till: "Till 3", status: "Inactive" },
   ];
 
-  // dummy branch manager data
-  const dummyBranchManagers: BranchManager[] = [
-    { id: 1, username: "manager1", fullName: "Manager User One", role: "Manager", branch: "Till 1", status: "Active" },
-    { id: 2, username: "manager2", fullName: "Manager User Two", role: "Manager", branch: "Till 2", status: "Active" },
-    { id: 3, username: "manager3", fullName: "Manager User Three", role: "Manager", branch: "Till 3", status: "Inactive" },
+  // dummy  till manager data
+  const dummyTillOperators: TillOperator[] = [
+    { id: 1, username: "manager1", fullName: "Manager User One", role: "Manager", till: "Till 1", status: "Active" },
+    { id: 2, username: "manager2", fullName: "Manager User Two", role: "Manager", till: "Till 2", status: "Active" },
+    { id: 3, username: "manager3", fullName: "Manager User Three", role: "Manager", till: "Till 3", status: "Inactive" },
   ];
 
   // dummy float assignment data
   const dummyFloatAllocations: FloatAllocation[] = [
-    { id: 1, dateAssigned: "2021-09-01", amount: 20000000, status: "Allocated", branch: "Till 1" },
-    { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "pending", branch: "Till 2" },
-    { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "failed", branch: "Till 3" },
+    { id: 1, dateAssigned: "2021-09-01", amount: 20000000, status: "Allocated", till: "Till 1" },
+    { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "pending", till: "Till 2" },
+    { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "failed", till: "Till 3" },
   ];
 
 
@@ -83,7 +83,7 @@ export const useBilling = defineStore("billing", () => {
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
   const backofficeUsers = ref<BackofficeUser[]>(dummyBackofficeUsers);
-  const branchManagers = ref<BranchManager[]>(dummyBranchManagers);
+  const tillOperators = ref<TillOperator[]>(dummyTillOperators);
   const floatAllocations = ref<FloatAllocation[]>(dummyFloatAllocations);
   const floatRequests = ref<FloatRequest[]>(dummyFloatRequests);
   
@@ -120,10 +120,10 @@ export const useBilling = defineStore("billing", () => {
     backofficeUsers.value = dummyBackofficeUsers;
   }
 
-  async function fetchBranchManagers(filter: any) {
+  async function fetchTillOperators(filter: any) {
     // Simulate API call
     // You can adjust this based on the filtering criteria or paging
-    branchManagers.value = dummyBranchManagers;
+    tillOperators.value = dummyTillOperators;
   }
 
   async function fetchFloatAllocations(filter: any) {
@@ -163,22 +163,22 @@ export const useBilling = defineStore("billing", () => {
       dateAssigned: new Date().toISOString(),
       amount: payload.amount,
       status: "Allocated",
-      branch: payload.branchId,
+      till: payload.branchId,
     })
     //save to localstorage
     // saveTransactionsToLocalStorage();
   }
 
-  const branchManagerFloatBalance = ref(0);
+  const tillOperatorFloatBalance = ref(0);
 
   // const saveTransactionsToLocalStorage = () => {
-  //   localStorage.setItem('branchManagerFloatBalance', JSON.stringify(floatAllocations.value))
+  //   localStorage.setItem('tillOperatorFloatBalance', JSON.stringify(floatAllocations.value))
   // }
 
-  // const savedFloatManagerBalance = JSON.parse(localStorage.getItem('branchManagerFloatBalance') || '0');
+  // const savedFloatManagerBalance = JSON.parse(localStorage.getItem('tillOperatorFloatBalance') || '0');
 
   // if (savedFloatManagerBalance) {
-  //   branchManagerFloatBalance.value = savedFloatManagerBalance;
+  //   tillOperatorFloatBalance.value = savedFloatManagerBalance;
   // }
 
 
@@ -201,7 +201,7 @@ function allocateFloatFromRequest(requestId: any) {
       dateAssigned: new Date().toISOString(),
       amount: floatRequest.amount,
       status: "Allocated",
-      branch: floatRequest.branch,
+      till: floatRequest.branch,
     });
 
 
@@ -340,10 +340,10 @@ async function reduceFloatLedger(requestId: any) {
     totalBalance,
     floatLedgers,
     backofficeUsers,
-    branchManagers,
+    tillOperators,
     floatAllocations,
     floatRequests,
-    branchManagerFloatBalance,
+    tillOperatorFloatBalance,
     reduceFloatLedger,
     approveFloatRequest,
     adjustFloatLedger,
@@ -352,7 +352,7 @@ async function reduceFloatLedger(requestId: any) {
     fetchTransactions,
     fetchFloatLedgers,
     fetchBackofficeUsers,  
-    fetchBranchManagers,
+    fetchTillOperators,
     fetchFloatAllocations,
     allocateFloat,
     allocateFloatFromRequest,
