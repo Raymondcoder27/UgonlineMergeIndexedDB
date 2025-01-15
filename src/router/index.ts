@@ -87,9 +87,10 @@ const mergedRoutes: RouteRecordRaw[] = [
     component: BranchManagerLayout,
     meta: { requiresAuth: true },
     // redirect: "/agent/services",
-    redirect: "/branch-manager/app-services",
+    redirect: "/branch-manager/dashboard",
     children: [
-      { name: "branch-manager-app-services", path: "/branch-manager/services", component: BranchManagerAppServices },
+      { name: "branch-manager-dashboard", path: "/branch-manager/dashboard", component: DashboardTab },
+      { name: "branch-manager-app-services", path: "/branch-manager/app-services", component: BranchManagerAppServices },
       { name: "branch-manager-app-entities", path: "/branch-manager/entities", component:BranchManagerAppEntities },
       { name: "branch-manager-app-agents", path: "/branch-manager/agents", component:BranchManagerAppAgents },
       { name: "branch-manager-app-branches", path: "/branch-manager/branches", component:BranchManagerBranches },
