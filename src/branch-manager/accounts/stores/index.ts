@@ -321,7 +321,7 @@ export const useAccounts = defineStore("user-management", () => {
   //   }
   // };
 
-  const assignManager = (userId: string, tillId: string) => {
+  const assignOperator = (userId: string, tillId: string) => {
     console.log('User ID:', userId); // Debugging log
     console.log('Till ID:', tillId); // Debugging log
 
@@ -396,7 +396,7 @@ export const useAccounts = defineStore("user-management", () => {
     backofficeAccounts,
     managerAccounts,
     managerAllocations,
-    assignManager,
+    assignOperator,
     createAccount,
     fetchBackofficeAccounts,
     fetchUserAccounts,

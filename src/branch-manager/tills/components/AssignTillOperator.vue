@@ -85,10 +85,10 @@ function submit(userId: string) {
   let payload = {
     // userId: form.userId,
     userId: userId,
-    branchId: branchId,
+    tillId: tillId,
   };
   loading.value = true;
-  store.assignManager(payload.userId, payload.branchId);
+  store.assignOperator(payload.userId, payload.tillId);
   // store.assignManager(userId);
   // notify.success(`User successfully ${payload.userId} assigned to branch`);
   notify.success(`User successfully assigned to branch`);
