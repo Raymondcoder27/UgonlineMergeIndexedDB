@@ -42,8 +42,8 @@ function select(tab: string) {
           >
         <i class="fas fa-wallet px-1 pt-0.5 text-red-700"></i>
 
-          {{ totalBalance.currentBalance.toLocaleString() }}/=</span
-        >
+          {{ totalBalance.currentBalance.toLocaleString() }}/=
+          </span>
       </div>
     </div>
     <div class="flex pt-5">
