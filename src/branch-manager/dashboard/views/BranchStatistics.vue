@@ -2,12 +2,12 @@
 import BarChart from "@/branch-manager/analytics/components/BarChart.vue";
 import LineChart from "@/branch-manager/analytics/components/LineChart.vue";
 import PieChart from "@/branch-manager/analytics/components/PieChart.vue";
-import { useBranchStore } from "@/branch-manager/tills/stores";
-const branchStore = useBranchStore();
+import { useTillStore } from "@/branch-manager/tills/stores";
+const tillStore = useTillStore();
 
 const totalBranches = branchStore.branches?.length || 0;
 
-branchStore.fetchBranches();
+tillStore.fetchTills();
 
 import type { Ref } from "vue";
 import type { GraphData, Statistic } from "@/branch-manager/analytics/types/chart";
