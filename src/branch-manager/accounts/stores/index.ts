@@ -83,6 +83,12 @@ export const useAccounts = defineStore("user-management", () => {
       phone: "789-012-3456", role: "admin", createdAt: "2021-07-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-07-01", email: "jim@gmail.com",
     },
+    {
+      firstName: "Mable", lastName: "Lunkuse", middleNames: "B", username: "Mable Lunkuse",
+      phone: "345-678-9012", role: "manager", createdAt: "2021-03-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01",
+      email: "mable@gmail.com", status: "Active", till: "Till 3"
+    }
   ];
 
 
