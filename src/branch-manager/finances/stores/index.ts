@@ -48,7 +48,7 @@ export const useBilling = defineStore("billing", () => {
     { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", till: "Till 1", approvedBy: null },
     { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", till: "Till 4", approvedBy: null },
     { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", till: "Till 2", approvedBy: "Manager One" },
-    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "rejected", till: "Till 3", approvedBy: null },
+    { id: 3, requestDate: "2021-09-03", amount: 2000000, status: "rejected", till: "Till 3", approvedBy: null },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
