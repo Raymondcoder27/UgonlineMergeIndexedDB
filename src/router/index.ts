@@ -17,6 +17,21 @@ import moment from "moment";
 import DashboardTab from "@/domain/dashboard/DashboardTab.vue";
 
 
+// Import the branch manager domain components
+import BranchManagerLayout from "@/layouts/BranchManagerLayout.vue";
+import BranchManagerAppServices from "@/branchmanager/apiservices/Services.vue";
+import BranchManagerAppEntities from "@/branchmanager/entities/AppEntities.vue";
+import BranchManagerAppAgents from "@/branchmanager/agents/AppAgents.vue";
+import BranchManagerBranches from "@/branchmanager/branches/AppBranches.vue";
+import BranchManagerSettings from "@/branchmanager/settings/Settings.vue";
+import BranchManagerLedger from "@/branchmanager/ledger/Ledger.vue";
+import BranchManagerServicesDetails from "@/branchmanager/servicesdetails/ServicesDetails.vue";
+import BranchManagerAppGateway from "@/branchmanager/gateway/AppGateway.vue";
+import BranchManagerAppFinances from "@/branchmanager/finances/AppFinances.vue";
+import BranchManagerSubmissions from "@/branchmanager/submissions/Submissions.vue";
+import BranchManagerAppServicesDetails from "@/branchmanager/apiservices/views/ServiceDetails.vue";
+
+
 // Import the agent domain components
 import FormComposer from "@/agentdomain/composer/FormComposer.vue";
 import FormPreview from "@/agentdomain/composer/FormPreview.vue";
