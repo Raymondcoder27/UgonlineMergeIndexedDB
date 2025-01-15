@@ -172,7 +172,7 @@ const paginatedTills = computed(() => {
 // Helper function to assign managers to tills
 const assignOperatorsToTills = () => {
   tillStore.tills.forEach((till) => {
-    const operator = getTillByOperator(till.name);
+    const operator = getOperatorByTill(till.name);
     if (operator) {
       till.operator = operator;
     }
@@ -389,7 +389,7 @@ onMounted(() => {
 </td> -->
             <td class="text-left">
               <span class="text-xs">{{
-                convertDateTime(branch.createdAt)
+                convertDateTime(till.createdAt)
               }}</span>
             </td>
             <td class="text-right">
