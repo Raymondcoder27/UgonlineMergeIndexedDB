@@ -153,7 +153,8 @@ export const useBilling = defineStore("billing", () => {
       amount: payload.amount,
       status: "pending",
       // status: "success",
-      tillId: payload.tillId,
+      // tillId: payload.tillId,
+            tillId: "Till 1",
       description: "Till " + payload.tillId,
     })
     //save to localstorage
@@ -162,7 +163,8 @@ export const useBilling = defineStore("billing", () => {
       requestDate: new Date().toISOString(),
       amount: payload.amount,
       status: "success",
-      tillId: payload.tillId,
+      // tillId: payload.tillId,
+            tillId: "Till 1",
       branch: "Branch 1"
     })
     saveFloatRequestToLocalStorage();
