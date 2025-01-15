@@ -7,8 +7,8 @@ import { useNotificationsStore } from "@/stores/notifications";
 import { useCommonsStore } from "../../../stores/commons";
 import { AxiosError } from "axios";
 import type { AccountResponseInterface, AccountsData, IResendVerificationPayload } from "@/branch-manager/accounts/types";
-import type { Branch } from "@/branch-manager/tills/types";
-import { useBranchStore } from "@/branch-manager/tills/stores";
+import type { Till } from "@/branch-manager/tills/types";
+import { useTillStore } from "@/branch-manager/tills/stores";
 
 
 export const useAccounts = defineStore("user-management", () => {
@@ -17,7 +17,7 @@ export const useAccounts = defineStore("user-management", () => {
   const notify = useNotificationsStore();
   const commons = useCommonsStore();
 
-  const branchStore = useBranchStore();
+  const tillStore = useTillStore();
 
   // Dummy Data for testing
   const dummyUserAccounts: Account[] = [
@@ -41,24 +41,24 @@ export const useAccounts = defineStore("user-management", () => {
   // <!-- <th class="text-center">Activation</th> -->
   // <th class="text-center">Date</th>
 
-  const dummyManagerAccounts: ManagerAccount[] = [
+  const dummyTillOperatorAccounts: TillOperatorAccount[] = [
     {
       firstName: "Kalungu", lastName: "Kevin", middleNames: "M", username: "James Doe",
       phone: "123-456-7890", role: "manager", createdAt: "2021-01-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-01-01",
-      email: "kevinkalungu@gmail.com", status: "Active", branch: "Branch 1"
+      email: "kevinkalungu@gmail.com", status: "Active", till: "Till 1"
     },
     {
       firstName: "Mukisa", lastName: "Crispus", middleNames: "A", username: "Jane Smith",
       phone: "234-567-8901", role: "manager", createdAt: "2021-02-01",
       emailVerified: true, phoneVerified: false, activatedAt: "2021-02-01",
-      email: "crispusmukisa@gmail.com", status: "Active", branch: "Branch 2"
+      email: "crispusmukisa@gmail.com", status: "Active", till: "Till 2"
     },
     {
       firstName: "Katamba", lastName: "Bradely", middleNames: "B", username: "John Doe",
       phone: "345-678-9012", role: "manager", createdAt: "2021-03-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01",
-      email: "bradelykata@gmail.com", status: "Active", branch: "Branch 3"
+      email: "bradelykata@gmail.com", status: "Active", till: "Till 3"
     }
   ];
 
@@ -99,17 +99,17 @@ export const useAccounts = defineStore("user-management", () => {
   const response: Ref<AccountResponse | undefined> = ref();
   const userAccounts: Ref<Account[]> = ref([dummyUserAccounts]);
   const backofficeAccounts: Ref<Account[]> = ref([dummyBackofficeAccounts]);
-  const managerAccounts: Ref<ManagerAccount[]> = ref([dummyManagerAccounts]);
+  const managerAccounts: Ref<TillOperatorAccount[]> = ref([dummyTillOperatorAccounts]);
   const managerAllocations: Ref<AllocateManager[]> = ref([]);
 
 
 
-  // allocate manager to a branch using managerId
+  // allocate manager to a Till using managerId
   const allocateManager = (payload: AllocateManager) => {
     managerAllocations.value.push({
       id: managerAllocations.value.length + 1,
       dateAssigned: new Date().toISOString(),
-      branch: payload.branchId,
+      till: payload.branchId,
       manager: payload.managerId,
       status: "Assigned"
     });
@@ -117,13 +117,13 @@ export const useAccounts = defineStore("user-management", () => {
     // Update the manager's branch
     const manager = managerAccounts.value.find((manager) => manager.id === payload.managerId);
     if (manager) {
-      manager.branch = payload.branchId;
+      manager.till = payload.branchId;
       localStorageManagerAccount.value = manager; // Update the local storage variable
       // }
     }
 
     // Update the branch's manager
-    const branch = branches?.value.find((branch) => branch.id === payload.branchId);
+    const till = branches?.value.find((branch) => branch.id === payload.branchId);
     if (branch) {
       branch.manager = payload.managerId;
     }
@@ -132,7 +132,7 @@ export const useAccounts = defineStore("user-management", () => {
   }
 
   // const localStorageManagerAccount = ref<ManagerAccount>();
-  const localStorageManagerAccount = ref<ManagerAccount[]>([])
+  const localStorageManagerAccount = ref<TillOperatorAccount[]>([])
 
   // Save manager to local storage
   // const saveManagerToLocalStorage = () => {
@@ -158,8 +158,8 @@ export const useAccounts = defineStore("user-management", () => {
     });
   }
 
-  // const addBranch = (newBranch: Branch) => {
-  //   branches.value.push(newBranch); // Directly add the branch to the array
+  // const addtill = (newtill: Branch) => {
+  //   branches.value.push(newBranch); // Directly add the Till to the array
   // };
 
 
@@ -171,7 +171,7 @@ export const useAccounts = defineStore("user-management", () => {
   //     dateAssigned: new Date().toISOString(),
   //     amount: payload.amount,
   //     status: "Assigned",
-  //     branch: payload.branchId,
+  //     till: payload.branchId,
   //   })
   // }
 
@@ -181,18 +181,18 @@ export const useAccounts = defineStore("user-management", () => {
       {
         // id:  floatAllocations.value.length + 1,
         id: managerAccounts.value.length + 1,
-        firstName: newManager.firstName,
-        lastName: newManager.lastName,
-        middleNames: newManager.middleNames,
-        username: newManager.username,
-        phone: newManager.phone,
+        firstName: newOperator.firstName,
+        lastName: newOperator.lastName,
+        middleNames: newOperator.middleNames,
+        username: newOperator.username,
+        phone: newOperator.phone,
         emailVerified: true,
         phoneVerified: true,
-        role: newManager.role,
+        role: newOperator.role,
         createdAt: new Date().toISOString(),
         status: "Active",
-        email: newManager.email,
-        branch: newManager.branchId
+        email: newOperator.email,
+        till: newOperator.branchId
       }
     );
   }
@@ -239,7 +239,7 @@ export const useAccounts = defineStore("user-management", () => {
   // Fetch dummy manager accounts
   const fetchManagerAccounts = async (filter: IGoFilter) => {
     // Here you would normally process the filter if you had real data
-    managerAccounts.value = dummyManagerAccounts;
+    managerAccounts.value = dummyTillOperatorAccounts;
   }
 
   // Simulating resend account verification
@@ -257,11 +257,11 @@ export const useAccounts = defineStore("user-management", () => {
   }
 
   // const assignManager = (payload: AssignManager) => {
-  //   const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
+  //   const branchToUpdate = branches.value?.find(till => branch.id === payload.branchId);
   //   if (branchToUpdate) {
   //     branchToUpdate.manager = payload.managerId;
   //   } else {
-  //     console.warn(`Branch with ID ${payload.branchId} not found.`);
+  //     console.warn(`Till with ID ${payload.branchId} not found.`);
   //   }
   // };
 
@@ -271,7 +271,7 @@ export const useAccounts = defineStore("user-management", () => {
   //     // branchId: form.branchId,
   //   };
   //   loading.value = true;
-  //   branchStore.assignManager(payload); // Simply add the branch
+  //   tillStore.assignManager(payload); // Simply add the branch
   //   notify.success("Manager assigned to branch");
   //   emit("managerAssigned");
   //   loading.value = false;
@@ -327,11 +327,11 @@ export const useAccounts = defineStore("user-management", () => {
 
   const assignManager = (userId: string, branchId: string) => {
     console.log('User ID:', userId); // Debugging log
-    console.log('Branch ID:', branchId); // Debugging log
+    console.log('Till ID:', branchId); // Debugging log
 
     const user = backofficeAccounts.value?.find((account) => account.id === userId); // Find user by `userId`
 
-    const branch = branchStore.branches.find((branch: Branch) => branch.id === branchId);
+    const till = tillStore.branches.find((till: Branch) => branch.id === branchId);
 
     // if (user && branch) {
     if (user && branch) {
@@ -346,7 +346,7 @@ export const useAccounts = defineStore("user-management", () => {
         emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
-        branch: branch.name, // Include branchId
+        till: branch.name, // Include branchId
       });
       // managerAccounts.value.push(assignedManager);
       localStorageManagerAccount.value.push({
@@ -360,11 +360,11 @@ export const useAccounts = defineStore("user-management", () => {
         emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
-        branch: branch.name, // Include branchId
+        till: branch.name, // Include branchId
       }) // Update the local storage reference
       saveManagerToLocalStorage(); // Save to local storage
-      console.log(`Manager assigned to branch ${branch.name}`);
-      console.log(`Manager assigned to branch ${branchId}`);
+      console.log(`Manager assigned to Till ${branch.name}`);
+      console.log(`Manager assigned to Till ${branchId}`);
     } else {
       console.warn(`User with ID ${userId} not found.`);
       alert(`User with ID ${userId} not found.`);
