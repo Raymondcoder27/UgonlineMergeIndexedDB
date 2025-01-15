@@ -305,7 +305,7 @@ watch(
             <td class="text-right">
               <!-- <div class="" v-if="transaction.status === 'rejected'"> -->
                   <span
-                    class="bg-green-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-green-800"
+                    class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
                     @click="confirm(transaction)"
                   >
                     <!-- <i class="fa fa-redo"></i> -->
