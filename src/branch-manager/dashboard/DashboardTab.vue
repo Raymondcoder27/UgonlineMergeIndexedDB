@@ -12,22 +12,22 @@ import BranchStatistics from "@/branch-manager/dashboard/views/BranchStatistics.
 import ServicesStatistics from "@/branch-manager/dashboard/views/ServicesStatistics.vue";
 import RevenueStatistics from "@/branch-manager/dashboard/views/RevenueStatistics.vue";
 import { useServicesStore } from "@/branch-manager/services/stores";
-import { useBranchStore } from "@/branch-manager/tills/stores";
+import { useTillStore } from "@/branch-manager/tills/stores";
 import { useAccounts } from "@/branch-manager/accounts/stores";
 import { useBilling } from "@/branch-manager/finances/stores";
 // import { useBalance } from "@/branch-manager/balance/stores";
 
-const branchStore = useBranchStore();
+const tillStore = useTillStore();
 const billingStore = useBilling();
 const servicesStore = useServicesStore();
 const accountStore = useAccounts();
-branchStore.fetchBranches();
+tillStore.fetchTills();
 // servicesStore.fetchSubscribedServices();
 accountStore.fetchManagerAccounts();
 accountStore.fetchBackofficeAccounts();
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
-const totalBranches = branchStore.branches?.length || 0;
+const totalBranches = tillStore.tills?.length || 0;
 const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
 
