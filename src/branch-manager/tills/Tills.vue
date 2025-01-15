@@ -500,7 +500,7 @@ onMounted(() => {
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
     <AssignBranchManager
-      :branchId="selectedBranch"
+      :tillId="selectedTill"
       @managerAssigned="close"
       @cancel="close"
     />
