@@ -221,7 +221,7 @@ watch(
     </div>
 
     <!-- Service Cards Section -->
-    <div class="grid grid-cols-4 gap-3 p-5">
+    <div class="grid grid-cols-4 gap-3 p-1">
       <!-- <div
       v-for="service in store.services"
       :key="service.id"
