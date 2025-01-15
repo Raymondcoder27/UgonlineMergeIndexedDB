@@ -1,33 +1,33 @@
 import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 import api from "@/config/api";
-import type { Branch } from "@/branch-manager/tills/types"; // Assuming you have a Branch type
+import type { Till } from "@/branch-manager/tills/types"; // Assuming you have a Till type
 import type { AssignManager } from "@/types";
 
 export const useBranchStore = defineStore("useBranch", () => {
 
   // Dummy data for testing purposes
-  const dummyBranches: Branch[] = [
-    { id: 1, name: "Branch 1", location: "Location 1", manager: "", status: "Active" },
-    { id: 2, name: "Branch 2", location: "Location 2", manager: "", status: "Inactive" },
-    { id: 3, name: "Branch 3", location: "Location 3", manager: "", status: "Active" },
-    { id: 4, name: "Branch 4", location: "Location 4", manager: "", status: "Inactive" },
-    { id: 5, name: "Branch 5", location: "Location 5", manager: "", status: "Active" },
-    { id: 6, name: "Branch 6", location: "Location 6", manager: "", status: "Inactive" },
-    { id: 7, name: "Branch 7", location: "Location 7", manager: "", status: "Active" },
-    { id: 8, name: "Branch 8", location: "Location 8", manager: "", status: "Inactive" },
-    { id: 9, name: "Branch 9", location: "Location 9", manager: "", status: "Active" },
-    { id: 10, name: "Branch 10", location: "Location 10", manager: "", status: "Inactive" },
-    { id: 11, name: "Branch 11", location: "Location 11", manager: "", status: "Active" },
+  const dummyTills: Branch[] = [
+    { id: 1, name: "Till 1", location: "Location 1", manager: "", status: "Active" },
+    { id: 2, name: "Till 2", location: "Location 2", manager: "", status: "Inactive" },
+    { id: 3, name: "Till 3", location: "Location 3", manager: "", status: "Active" },
+    { id: 4, name: "Till 4", location: "Location 4", manager: "", status: "Inactive" },
+    { id: 5, name: "Till 5", location: "Location 5", manager: "", status: "Active" },
+    { id: 6, name: "Till 6", location: "Location 6", manager: "", status: "Inactive" },
+    { id: 7, name: "Till 7", location: "Location 7", manager: "", status: "Active" },
+    { id: 8, name: "Till 8", location: "Location 8", manager: "", status: "Inactive" },
+    { id: 9, name: "Till 9", location: "Location 9", manager: "", status: "Active" },
+    { id: 10, name: "Till 10", location: "Location 10", manager: "", status: "Inactive" },
+    { id: 11, name: "Till 11", location: "Location 11", manager: "", status: "Active" },
   ];
 
-  // Add new branch to the store
-  // const addBranch = (newBranch: Branch) => {
-  //   branches.value.push(newBranch);
+  // Add new Till to the store
+  // const addTill= (newTill: Branch) => {
+  //   tills.value.push(newTill);
   // };
 
-  // const addBranch = (newBranch: Branch) => {
-  //   branches.value.push(newBranch); // Directly add the branch to the array
+  // const addTill= (newTill: Branch) => {
+  //   tills.value.push(newTill); // Directly add the Till to the array
   // };
 
   // const allocateManager = (payload: AllocateManager) => {
@@ -40,41 +40,41 @@ export const useBranchStore = defineStore("useBranch", () => {
   //   });
 
   // state variables
-  const branches: Ref<Branch[] | undefined> = ref(dummyBranches);
-  const branch: Ref<Branch | undefined> = ref();
+  const tills: Ref<Till[] | undefined> = ref(dummyTills);
+  const branch: Ref<Till | undefined> = ref();
   const isLoading: Ref<boolean> = ref(false);
   const managerAssignments: Ref<AssignManager[]> = ref([]);
 
-  const addBranch = (newBranch: Branch) => {
-    branches.value?.push({
-      id: branches.value?.length + 1,
-      name: newBranch.name,
-      location: newBranch.location,
-      status: newBranch.status,
+  const addTill= (newTill: Branch) => {
+    tills.value?.push({
+      id: tills.value?.length + 1,
+      name: newTill.name,
+      location: newTill.location,
+      status: newTill.status,
     })
 
-    // allocate branch manager
-    // const manager = branchManagers.value.find((manager) => manager.id === newBranch.managerId);
+    // allocate Till manager
+    // const manager = branchManagers.value.find((manager) => manager.id === newTill.managerId);
     // if (manager) {
-    //   manager.branch = newBranch.id;
+    //   manager.Till = newTill.id;
     // }
   }
 
   // const allocateManager = (payload: AllocateManager) => {
-  //   const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
+  //   const branchToUpdate = tills.value?.find(till = > branch.id === payload.branchId);
   //   if (branchToUpdate) {
   //     branchToUpdate.manager = payload.managerId;
   //   } else {
-  //     console.warn(`Branch with ID ${payload.branchId} not found.`);
+  //     console.warn(`Till with ID ${payload.branchId} not found.`);
   //   }
   // };
 
   const assignManager = (payload: AssignManager) => {
-    const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
+    const branchToUpdate = tills.value?.find(till = > branch.id === payload.branchId);
     if (branchToUpdate) {
       branchToUpdate.manager = payload.managerId;
     } else {
-      console.warn(`Branch with ID ${payload.branchId} not found.`);
+      console.warn(`Till with ID ${payload.branchId} not found.`);
     }
   };
   
@@ -91,14 +91,14 @@ export const useBranchStore = defineStore("useBranch", () => {
   //   managerAccounts
 
 
-   // Delete branch from the store
-  //  const deleteBranch = (branchId: string) => {
-  //   branches.value = branches.value?.filter((branch) => branch.id !== branchId); // Remove the branch by ID
+   // Delete Till from the store
+  //  const deleteTill = (branchId: string) => {
+  //   tills.value = tills.value?.filter((branch) => branch.id !== branchId); // Remove the Till by ID
   // };
 
 
-  const deleteBranch = (branchId: string) => {
-    branches.value = branches.value?.filter((b) => b.id !== branchId); 
+  const deleteTill = (branchId: string) => {
+    tills.value = tills.value?.filter((b) => b.id !== branchId); 
   }
 
   // const service = subscribedServices.value?.find((s) => s.id === serviceId);
@@ -113,17 +113,17 @@ export const useBranchStore = defineStore("useBranch", () => {
   
   
 
-  async function fetchBranches(filter: any) {
+  async function fetchTills(filter: any) {
     // isLoading.value = true;
     // try {
       // Uncomment the following line to fetch data from the API once ready
-      // const { data } = await api.get(`/branches?page=${page}&limit=${limit}`);
+      // const { data } = await api.get(`/tills?page=${page}&limit=${limit}`);
       
       // For now, use the dummy data for testing
-      branches.value = dummyBranches; // Use dummy data for testing
+      tills.value = dummyTills; // Use dummy data for testing
 
       // Uncomment below to assign the API data when it's available
-      // branches.value = data;
+      // tills.value = data;
     // } catch (error) {
       // console.error(error);
       // throw error;
@@ -133,10 +133,10 @@ export const useBranchStore = defineStore("useBranch", () => {
   }
 
   return {
-    branches,
+    tills,
     branch,
     managerAssignments,
-    fetchBranches,
+    fetchTills,
     assignManager,
     addBranch,
     deleteBranch,
