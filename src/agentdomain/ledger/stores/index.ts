@@ -31,10 +31,10 @@ export const useBilling = defineStore("billing", () => {
 
   // dummy float requests
   const dummyFloatRequests: FloatRequest[] = [
-    { id: 1, dateRequested: "2021-09-01", amount: 15000000, status: "pending", branchId: 1 },
-    { id: 2, dateRequested: "2021-09-02", amount: 500000, status: "approved", branchId: 2 },
-    { id: 3, dateRequested: "2021-09-03", amount: 40000, status: "rejected", branchId: 3 },
-    { id: 4, dateRequested: "2021-09-04", amount: 30000, status: "pending", branchId: 4 },
+    { id: 1, requestDate: "2021-09-01", amount: 15000000, status: "pending", branchId: 1 },
+    { id: 2, requestDate: "2021-09-02", amount: 500000, status: "approved", branchId: 2 },
+    { id: 3, requestDate: "2021-09-03", amount: 40000, status: "rejected", branchId: 3 },
+    { id: 4, requestDate: "2021-09-04", amount: 30000, status: "pending", branchId: 4 },
   ];
 
   // State variables

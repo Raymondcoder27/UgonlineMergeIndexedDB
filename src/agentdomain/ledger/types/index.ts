@@ -14,7 +14,7 @@ export interface ProviderRegistrationStatistic {
 
 export interface FloatRequest {
     id:number
-    dateRequested:string
+    requestDate:string
     amount:number
     status:string
     branchId:number
