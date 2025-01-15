@@ -13,7 +13,7 @@ import type {
 // import AddManager from "@/branch-manager/accounts/components/AddManager.vue";
 import EditManager from "@/branch-manager/accounts/components/EditManager.vue";
 
-import { useBranchStore } from "@/branch-manager/tills/stores"; // Updated import
+import { useTillStore } from "@/branch-manager/tills/stores"; // Updated import
 
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -54,7 +54,7 @@ const paginatedManagersAccounts = computed(() => {
   return store.managerAccounts.slice(start, end); // Adjust according to your page & limit
 });
 
-const branchStore = useBranchStore();
+const tillStore = useTillStore();
 const loading: Ref<boolean> = ref(false);
 const totalRecords = computed(() => store.managerAccounts.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
@@ -161,7 +161,7 @@ watch(
 );
 
 onMounted(() => {
-  store.fetchManagerAccounts(), branchStore.fetchBranches();
+  store.fetchManagerAccounts(), tillStore.fetchBranches();
   // store.fetchRoles()
 });
 </script>
