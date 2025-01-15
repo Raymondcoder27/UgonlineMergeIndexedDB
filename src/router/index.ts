@@ -94,7 +94,7 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "branch-manager-app-services", path: "/branch-manager/app-services", component: BranchManagerAppServices },
       { name: "branch-manager-app-entities", path: "/branch-manager/entities", component:BranchManagerAppEntities },
       { name: "branch-manager-app-agents", path: "/branch-manager/agents", component:BranchManagerAppAgents },
-      { name: "branch-manager-app-branches", path: "/branch-manager/branches", component:BranchManagerBranches },
+      { name: "branch-manager-app-branches", path: "/branch-manager/branches", component:BranchManagerTills },
       { name: "branch-manager-app-configurations", path: "/branch-manager/configurations", component:BranchManagerSettings },
       // { name: "branchmanager-app-ledger", path: "/branch-manager/ledger", component:BranchManagerLedger },
       { name: "branch-manager-app-services-details", path: "/branch-manager/services-details", component:BranchManagerServicesDetails },
