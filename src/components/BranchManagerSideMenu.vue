@@ -31,12 +31,12 @@ const sideMenu: SideMenuLink[] = [
   //   label: "Entities",
   //   iconClass: "fa-solid fa-landmark",
   // },
-  {
-    name: "branch-manager-app-branches",
-    label: "Branches",
-    // iconClass: "fa-solid fa-code-branch",
-    iconClass: "fa-solid fa-building"
-  },
+  // {
+  //   name: "branch-manager-app-branches",
+  //   label: "Branches",
+  //   // iconClass: "fa-solid fa-code-branch",
+  //   iconClass: "fa-solid fa-building"
+  // },
   {
     name: "branch-manager-app-tills",
     label: "Tills",
@@ -48,13 +48,13 @@ const sideMenu: SideMenuLink[] = [
   //   label: "Agents",
   //   iconClass: "fa-solid fa-people-group",
   // },
+  // {
+  //   name: "branch-manager-app-services",
+  //   label: "Service Subscriptions",
+  //   iconClass: "fa-solid fa-list",
+  // },
   {
-    name: "branch-manager-app-services",
-    label: "Service Subscriptions",
-    iconClass: "fa-solid fa-list",
-  },
-  {
-    name: "branch-manager-app-billing",
+    name: "branch-manager-app-finances",
     label: "Finances",
     // iconClass: "fa-solid fa-money-bill",
     iconClass: "fa-solid fa-coins"

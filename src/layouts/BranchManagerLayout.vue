@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Header from "../components/Header.vue";
-import SideMenu from "../components/SideMenu.vue";
+import BranchManagerSideMenu from "../components/BranchManagerSideMenu.vue";
 import AppNotification from "../components/AppNotification.vue";
 import { useAuth } from "../domain/auth/composables"
 import { useAccountStore } from "../domain/auth/stores"

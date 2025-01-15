@@ -90,7 +90,7 @@ const mergedRoutes: RouteRecordRaw[] = [
     // redirect: "/agent/services",
     redirect: "/branch-manager/dashboard",
     children: [
-      { name: "branch-manager-dashboard", path: "/branch-manager/dashboard", component: DashboardTab },
+      { name: "branch-manager-app-dashboard", path: "/branch-manager/dashboard", component: DashboardTab },
       { name: "branch-manager-app-services", path: "/branch-manager/app-services", component: BranchManagerAppServices },
       { name: "branch-manager-app-entities", path: "/branch-manager/entities", component:BranchManagerAppEntities },
       { name: "branch-manager-app-agents", path: "/branch-manager/agents", component:BranchManagerAppAgents },
