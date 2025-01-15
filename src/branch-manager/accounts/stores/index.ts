@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager, AssignManager } from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateTillOperator, AssignTillOperator } from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
@@ -96,14 +96,14 @@ export const useAccounts = defineStore("user-management", () => {
   const userAccounts: Ref<Account[]> = ref([dummyUserAccounts]);
   const backofficeAccounts: Ref<Account[]> = ref([dummyBackofficeAccounts]);
   const tillOperatorAccounts: Ref<TillOperatorAccount[]> = ref([dummyTillOperatorAccounts]);
-  const tillOperatorAllocations: Ref<AllocateManager[]> = ref([]);
+  const tillOperatorAllocations: Ref<AllocateTillOperator[]> = ref([]);
 
 
 
   // allocate manager to a Till using managerId
-  const allocateManager = (payload: AllocateManager) => {
-    managerAllocations.value.push({
-      id: managerAllocations.value.length + 1,
+  const allocateTillOperator = (payload: AllocateTillOperator) => {
+    tillOperatorAllocations.value.push({
+      id: tillOperatorAllocations.value.length + 1,
       dateAssigned: new Date().toISOString(),
       till: payload.tillId,
       manager: payload.managerId,
