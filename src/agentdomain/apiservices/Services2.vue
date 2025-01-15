@@ -16,6 +16,15 @@ import TableLoader from "@/components/TableLoader.vue";
 import ministryThumbnail from "@/assets/images/ministry.png";
 import ursbThumbnail from "@/assets/images/ursb.png";
 
+import { useBalance } from "@/agentdomain/balance/stores";
+
+const balanceStore = useBalance();
+
+onMounted(() => {
+  balanceStore.fetchTotalBalance();
+  fetchServices();
+});
+
 const store = useServicesStore();
 const modalOpen: Ref<boolean> = ref(false);
 const categoryModalOpen: Ref<boolean> = ref(false);
@@ -157,6 +166,32 @@ watch(
 </script>
 
 <template>
+  <!-- Styled Search Bar -->
+  <div
+    class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white"
+  >
+    <div
+      class="w-1/3 bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+    >
+      <input
+        type="text"
+        placeholder="Search by Service Name or Provider"
+        class="w-full text-sm border-none outline-none bg-white"
+      />
+      <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+
+      <!-- <button
+      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button> -->
+    </div>
+    <div class="font-semibold text-gray-500 text-sm mr-5">
+      <!-- BALANCE: 15,000,000/= -->
+      {{ balanceStore.totalBalance.currentBalance.toLocaleString() }}/=
+    </div>
+  </div>
   <div class="rounded p-2">
     <div class="flex justify-end items-center mt-2 mb-2">
       <!-- Previous Button -->
