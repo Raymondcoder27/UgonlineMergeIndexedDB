@@ -43,22 +43,22 @@ export const useAccounts = defineStore("user-management", () => {
 
   const dummyTillOperatorAccounts: TillOperatorAccount[] = [
     {
-      firstName: "Kalungu", lastName: "Kevin", middleNames: "M", username: "James Doe",
+      firstName: "Grace", lastName: "Nakato", middleNames: "M", username: "Grace Nakato",
       phone: "123-456-7890", role: "manager", createdAt: "2021-01-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-01-01",
-      email: "kevinkalungu@gmail.com", status: "Active", till: "Till 1"
+      email: "grace@gmail.com", status: "Active", till: "Till 1"
     },
     {
-      firstName: "Mukisa", lastName: "Crispus", middleNames: "A", username: "Jane Smith",
+      firstName: "Moses", lastName: "Kato", middleNames: "A", username: "Moses Kato",
       phone: "234-567-8901", role: "manager", createdAt: "2021-02-01",
       emailVerified: true, phoneVerified: false, activatedAt: "2021-02-01",
-      email: "crispusmukisa@gmail.com", status: "Active", till: "Till 2"
+      email: "kato@gmail.com", status: "Active", till: "Till 2"
     },
     {
-      firstName: "Katamba", lastName: "Bradely", middleNames: "B", username: "John Doe",
+      firstName: "Jim", lastName: "Kasana", middleNames: "B", username: "Jim Kasana",
       phone: "345-678-9012", role: "manager", createdAt: "2021-03-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01",
-      email: "bradelykata@gmail.com", status: "Active", till: "Till 3"
+      email: "jim@gmail.com", status: "Active", till: "Till 3"
     }
   ];
 
@@ -69,29 +69,19 @@ export const useAccounts = defineStore("user-management", () => {
     //   emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01", email: "admin.user@example.com"
     // },
     {
-      id: "1", firstName: "Jack", lastName: "Tumwine", username: "jacktumwine.user@example.com",
-      phone: "345-678-9012", role: "admin", createdAt: "2021-03-01",
-      emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01", email: "jacktumwine.user@example.com"
-    },
-    {
-      id: "2", firstName: "Sarah", lastName: "Nambasa", username: "sarahnambasa.agent@example.com",
-      phone: "456-789-0123", role: "admin", createdAt: "2021-04-01",
-      emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01", email: "sarahnambasa.agent@example.com"
-    },
-    {
-      id: "3", firstName: "Joseph", lastName: "Mugisha", username: "josephmugisha@gmail.com",
-      phone: "567-890-1234", role: "admin", createdAt: "2021-05-01",
-      emailVerified: true, phoneVerified: true, activatedAt: "2021-05-01", email: "josephmugisha@gmail.com",
-    },
-    {
-      id: "4", firstName: "Grace", lastName: "Nakato", username: "gracenakato@gmail.com",
+      id: "1", firstName: "Grace", lastName: "Nakato", username: "gracenakato@gmail.com",
       phone: "678-901-2345", role: "admin", createdAt: "2021-06-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-06-01", email: "gracenakato@gmail.com",
     },
     {
-      id: "5", firstName: "Moses", lastName: "Kato", username: "katomoses@gmail.com",
+      id: "2", firstName: "Moses", lastName: "Kato", username: "katomoses@gmail.com",
       phone: "789-012-3456", role: "admin", createdAt: "2021-07-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-07-01", email: "katomoses@gmail.com",
+    },
+    {
+      id: "3", firstName: "Jim", lastName: "Kasana", username: "jim@gmail.com",
+      phone: "789-012-3456", role: "admin", createdAt: "2021-07-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-07-01", email: "jim@gmail.com",
     },
   ];
 
