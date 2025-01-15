@@ -24,7 +24,7 @@ import BranchManagerAppEntities from "@/branchmanager/entities/AppEntities.vue";
 import BranchManagerAppAgents from "@/branchmanager/agents/AppAgents.vue";
 import BranchManagerBranches from "@/branchmanager/tills/Tills.vue";
 import BranchManagerSettings from "@/branchmanager/settings/Settings.vue";
-import BranchManagerLedger from "@/branchmanager/ledger/Ledger.vue";
+// import BranchManagerLedger from "@/branchmanager/ledger/Ledger.vue";
 import BranchManagerServicesDetails from "@/branchmanager/servicesdetails/ServicesDetails.vue";
 import BranchManagerAppGateway from "@/branchmanager/gateway/AppGateway.vue";
 import BranchManagerAppFinances from "@/branchmanager/finances/AppFinances.vue";
