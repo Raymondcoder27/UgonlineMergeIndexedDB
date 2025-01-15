@@ -241,11 +241,11 @@ function convertDateTimeNullable(date?: string) {
 //     // });
 // }
 
-// const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
+const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
 
-// if (floatRequestsFromLocalStorage) {
-//   floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
-// }
+if (floatRequestsFromLocalStorage) {
+  floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
+}
 
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
