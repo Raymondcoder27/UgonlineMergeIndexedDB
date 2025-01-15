@@ -399,7 +399,7 @@ onMounted(() => {
                 <!-- </td> -->
               </div>
 
-              <!-- Second Case: Manager directly assigned to branch -->
+              <!-- Second Case: Manager directly assigned to till -->
               <div v-else-if="request.status === 'rejected'">
                 <!-- <td> -->
                 <label>
@@ -444,7 +444,7 @@ onMounted(() => {
                 <!-- </td> -->
               </div>
 
-              <!-- Second Case: Manager directly assigned to branch -->
+              <!-- Second Case: Manager directly assigned to till -->
               <div v-else-if="request.status === 'rejected'">
                 <!-- <td> -->
                 <label>
@@ -590,8 +590,8 @@ onMounted(() => {
               <td class="p-1">{{ selectedFloatRequest?.dateRequested }}</td>
             </tr> -->
             <tr class="border border-gray-50">
-              <td class="p-1 font-bold">Branch</td>
-              <td class="p-1">{{ selectedFloatRequest?.branch }}</td>
+              <td class="p-1 font-bold">Till</td>
+              <td class="p-1">{{ selectedFloatRequest?.till }}</td>
             </tr>
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Status</td>
