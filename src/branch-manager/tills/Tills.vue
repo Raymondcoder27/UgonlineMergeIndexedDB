@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
-import CreateBranch from "@/domain/branches/components/CreateBranch.vue";
+import CreateTill from "@/domain/tills/components/CreateBranch.vue";
 import { useTillStore } from "@/domain/tills/stores"; // Updated import
-import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
+import type { Till } from "@/domain/tills/types"; // Assuming you have a Branch type
 import moment from "moment/moment";
 import router from "@/router";
 import { useProviderStore } from "@/domain/entities/stores";

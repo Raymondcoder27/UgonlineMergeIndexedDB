@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, computed, defineProps, type Ref } from "vue";
-import { useBranchStore } from "@/branch-manager/tills/stores";
+import { useTillStore } from "@/branch-manager/tills/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { defineEmits } from "vue";
 import { useAccounts } from "@/branch-manager/accounts/stores";
 
-const branchStore = useBranchStore();
+const branchStore = useTillStore();
 const store = useAccounts();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
