@@ -283,10 +283,10 @@ onMounted(() => {
             type="text"
             placeholder="Search by Service"
           >
-            <option value="" disabled selected>Filter by Branch</option>
-            <option value="Branch 1">Branch 1</option>
-            <option value="Branch 2">Branch 2</option>
-            <option value="Branch 3">Branch 3</option>
+            <option value="" disabled selected>Filter by Till</option>
+            <option value="Branch 1">Till 1</option>
+            <option value="Branch 2">Till 2</option>
+            <option value="Branch 3">Till 3</option>
           </select>
           <select
             v-if="filter.filter !== undefined"
