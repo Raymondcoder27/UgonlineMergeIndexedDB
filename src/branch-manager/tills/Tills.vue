@@ -57,7 +57,7 @@ const jumpToPage = () => {
 // Helper function to get manager by branch
 const getOperatorByTill = (tillName) => {
   return accountStore.managerAccounts.find(
-    (manager) => operator.till === tillName
+    (operator) => operator.till === tillName
   );
 };
 
@@ -172,9 +172,9 @@ const paginatedTills = computed(() => {
 // Helper function to assign managers to tills
 const assignOperatorsToTills = () => {
   tillStore.tills.forEach((till) => {
-    const manager = getTillByOperator(till.name);
-    if (manager) {
-      till.operator = manager;
+    const operator = getTillByOperator(till.name);
+    if (operator) {
+      till.operator = operator;
     }
   });
 };
