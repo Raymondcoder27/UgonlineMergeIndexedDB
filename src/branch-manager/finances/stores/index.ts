@@ -201,7 +201,7 @@ function allocateFloatFromRequest(requestId: any) {
       dateAssigned: new Date().toISOString(),
       amount: floatRequest.amount,
       status: "Allocated",
-      till: floatRequest.till,
+      till: floatRequest.tillId,
     });
 
 

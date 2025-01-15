@@ -149,7 +149,7 @@ export const useBilling = defineStore("billing", () => {
   function requestFloat(payload: RequestFloat) {
     floatRequests.value.push({
       id: floatRequests.value.length + 1,
-      dateRequested: new Date().toISOString(),
+      requestDate: new Date().toISOString(),
       amount: payload.amount,
       status: "pending",
       // status: "success",
