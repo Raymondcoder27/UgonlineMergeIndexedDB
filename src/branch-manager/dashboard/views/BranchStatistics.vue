@@ -5,7 +5,7 @@ import PieChart from "@/branch-manager/analytics/components/PieChart.vue";
 import { useTillStore } from "@/branch-manager/tills/stores";
 const tillStore = useTillStore();
 
-const totalBranches = branchStore.branches?.length || 0;
+const totalTills = tillStore.tills?.length || 0;
 
 tillStore.fetchTills();
 
@@ -54,10 +54,10 @@ function labelExtractor(data: Statistic[]) {
             <div class="w-2/12 count">
               <!-- <p class="text-xl font-bold py-2">16</p> -->
               <p class="text-xl font-bold py-2" style="font-size: 18px">
-                {{ totalBranches }}
+                {{ totalTills }}
               </p>
               <!-- <p class="text-xs">Total Providers</p> -->
-              <p class="text-xs">Total Branches</p>
+              <p class="text-xs">Total Tills</p>
             </div>
             <div class="w-2/12 count">
               <p class="text-xl font-bold py-2">32</p>

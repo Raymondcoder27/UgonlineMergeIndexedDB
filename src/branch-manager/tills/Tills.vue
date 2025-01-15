@@ -172,7 +172,7 @@ const paginatedTills = computed(() => {
 // Helper function to assign managers to tills
 const assignOperatorsToTills = () => {
   tillStore.tills.forEach((till) => {
-    const manager = getManagerByBranch(till.name);
+    const manager = getTillByOperator(till.name);
     if (manager) {
       till.operator = manager;
     }
@@ -294,7 +294,7 @@ onMounted(() => {
           > -->
           <tr
             class="body-tr"
-            v-for="(branch, idx) in paginatedTills"
+            v-for="(till, idx) in paginatedTills"
             :key="idx"
           >
             <!-- <td width="10px">{{ idx + 1 }}.</td> -->
