@@ -28,13 +28,13 @@ const assignManagerModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(8);
 const loading: Ref<boolean> = ref(false);
-const selectedBranch: Ref<string> = ref("");
+const selectedTill: Ref<string> = ref("");
 const tills: Ref<any[]> = ref([]);
 // let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
-const totalRecords = computed(() => tillStore.tills.length); // Total branches
+const totalRecords = computed(() => tillStore.tills.length); // Total tills
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -55,9 +55,9 @@ const jumpToPage = () => {
 };
 
 // Helper function to get manager by branch
-const getManagerByBranch = (branchName) => {
+const getManagerByTill = (tillName) => {
   return accountStore.managerAccounts.find(
-    (manager) => manager.branch === branchName
+    (manager) => operator.till === tillName
   );
 };
 
@@ -70,7 +70,7 @@ const getManagerByBranch = (branchName) => {
 
 function fetchTills() {
   // tillStore
-  //   .fetchBranches(page.value, limit.value)
+  //   .fetchtills(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -85,42 +85,42 @@ function fetchTills() {
   loading.value = false;
 }
 
-function open(branch: Branch) {
-  router.push({ name: "branch-details", params: { id: branch.id } });
+function open(branch: Till) {
+  router.push({ name: "till-details", params: { id: branch.id } });
 }
 
 // edit branch
-function edit(branch: Branch) {
+function edit(branch: Till) {
   editModalOpen.value = true;
   // localStorage.setItem("branch", JSON.stringify(branch));
   console.log("Branch to edit: ", branch);
 }
 
 //configure branch
-function configure(branch: Branch) {
+function configure(branch: Till) {
   localStorage.setItem("branch", JSON.stringify(branch));
-  router.push({ name: "branch-configuration", params: { id: branch.id } });
+  router.push({ name: "till-configuration", params: { id: branch.id } });
 }
 
 function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
-// function deleteBranch(branch: Branch) {
+// function deleteBranch(branch: Till) {
 //   tillStore.deleteBranch(branch.id);
 //   notify.success("Branch Deleted");
 //   fetchTills();
 // }
 
-// function deleteBranch(branch: Branch) {
+// function deleteBranch(branch: Till) {
 //     tillStore.deleteBranch(branch.id);
-//     fetchTills();  // Refetch the branches after deleting
+//     fetchTills();  // Refetch the tills after deleting
 //     notify.success("Branch Deleted");
 //   }
 
-function assignManager(branch: Branch) {
+function assignManager(branch: Till) {
   // Logic to open the modal or start the process
-  console.log(`Assigning manager for branch: ${branch.name}`);
+  console.log(`Assigning manager for branch: ${till.name}`);
   selectedBranch.value = branch.id;
   // Example: modalOpen.value = true;
   assignManagerModalOpen.value = true;
@@ -128,8 +128,8 @@ function assignManager(branch: Branch) {
 
 function deleteBranch(branchId: string) {
   tillStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
-  // tillStore.branches = tillStore.tills.filter((b) => b.id !== branchId); // Manually update the store
-  // fetchTills(); // Refetch the branches after deleting, if needed
+  // tillStore.tills = tillStore.tills.filter((b) => b.id !== branchId); // Manually update the store
+  // fetchTills(); // Refetch the tills after deleting, if needed
   notify.success("Branch Deleted");
 }
 
@@ -163,18 +163,18 @@ watch(
 //   return store.services.slice(start, end);  // Adjust according to your page & limit
 // });
 
-const paginatedBranches = computed(() => {
+const paginatedTills = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
   return tillStore.tills.slice(start, end); // Adjust according to your page & limit
 });
 
-// Helper function to assign managers to branches
-const assignManagersToBranches = () => {
-  tillStore.tills.forEach((branch) => {
-    const manager = getManagerByBranch(branch.name);
+// Helper function to assign managers to tills
+const assignOperatorsToTills = () => {
+  tillStore.tills.forEach((till) => {
+    const manager = getManagerByBranch(till.name);
     if (manager) {
-      branch.manager = manager;
+      till.operator = manager;
     }
   });
 };
@@ -196,7 +196,7 @@ onMounted(() => {
   tillStore.fetchTills();
   accountStore.fetchManagerAccounts();
   // allocateManager();
-  assignManagersToBranches();
+  assignOperatorsToTills();
 });
 </script>
 
@@ -289,12 +289,12 @@ onMounted(() => {
         <tbody>
           <!-- <tr
             class="body-tr"
-            v-for="(branch, idx) in tillStore.branches"
+            v-for="(branch, idx) in tillStore.tills"
             :key="idx"
           > -->
           <tr
             class="body-tr"
-            v-for="(branch, idx) in paginatedBranches"
+            v-for="(branch, idx) in paginatedTills"
             :key="idx"
           >
             <!-- <td width="10px">{{ idx + 1 }}.</td> -->
@@ -303,7 +303,7 @@ onMounted(() => {
                 class="cursor-pointer font-bold hover:text-primary-700 mx-2"
               >
                 <span class="hover:underline" @click="open(branch)">
-                  {{ branch.name }}
+                  {{ till.name }}
                 </span>
                 <!-- <i
                   class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
@@ -313,10 +313,10 @@ onMounted(() => {
             </td>
 
             <!-- <td class="text-black-700">
-              <div v-if="getManagerByBranch(branch.name)">
+              <div v-if="getManagerByBranch(till.name)">
                 <label
-                  >{{ getManagerByBranch(branch.name).firstName }}
-                  {{ getManagerByBranch(branch.name).lastName }}</label
+                  >{{ getManagerByBranch(till.name).firstName }}
+                  {{ getManagerByBranch(till.name).lastName }}</label
                 >
               </div>
               <div v-else>
@@ -331,17 +331,17 @@ onMounted(() => {
 
             <td class="text-black-700 text-left">
               <!-- First Case: Manager linked via `getManagerByBranch()` -->
-              <div v-if="getManagerByBranch(branch.name)">
+              <div v-if="getManagerByBranch(till.name)">
                 <label>
-                  {{ getManagerByBranch(branch.name).firstName }}
-                  {{ getManagerByBranch(branch.name).lastName }}
+                  {{ getManagerByBranch(till.name).firstName }}
+                  {{ getManagerByBranch(till.name).lastName }}
                 </label>
               </div>
 
               <!-- Second Case: Manager directly assigned to branch -->
-              <div v-else-if="branch.manager">
+              <div v-else-if="till.operator">
                 <label>
-                  {{ branch.manager.firstName }} {{ branch.manager.lastName }}
+                  {{ till.operator.firstName }} {{ till.operator.lastName }}
                 </label>
               </div>
 
