@@ -57,18 +57,15 @@ onMounted(async () => {
     <!-- Tabs -->
     <div class="flex border-b-2 border-primary gap-1">
       <!-- Services Tab -->
-      <div
+      <!-- <div
         :class="activeTab == 'services' ? 'tab-active' : 'tab'"
         @click="select('services')"
         class="cursor-pointer flex items-center justify-center flex-grow text-sm hover:bg-gray-100"
       >
-        <!-- <i class="fa-solid fa-concierge-bell mr-2"></i> -->
         <i class="fa-solid fa-cogs mr-2"></i>
         <span>Services</span>
-        <!-- <p class="text-xl font-bold mt-1">23</p> -->
-        <!-- <p class="text-xs font-bold py-2" style="font-size: 18px;">{{ totalServiceSubscriptions }}</p> -->
-        <!-- <p class="text-xl font-bold ml-2">{{ totalServiceSubscriptions }}</p> -->
-      </div>
+    
+      </div> -->
 
       <!-- Branches Tab -->
       <div
