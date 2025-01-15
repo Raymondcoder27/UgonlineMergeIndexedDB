@@ -128,11 +128,11 @@ export interface TillOperator {
   // ];
 
   export interface FloatRequest {
-    id: string;
+    id: number;
     date: string;
     amount: number;
     status: string;
-    branch: string;
+    till: string;
     approvedBy: string | null;
   }
 
