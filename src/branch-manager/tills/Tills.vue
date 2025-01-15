@@ -118,16 +118,16 @@ function convertDateTime(date: string) {
 //     notify.success("Branch Deleted");
 //   }
 
-function assignManager(branch: Till) {
+function assignOperator(till: Till) {
   // Logic to open the modal or start the process
   console.log(`Assigning manager for branch: ${till.name}`);
-  selectedBranch.value = branch.id;
+  selectedTill.value = till.id;
   // Example: modalOpen.value = true;
   assignManagerModalOpen.value = true;
 }
 
-function deleteBranch(branchId: string) {
-  tillStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
+function deleteTill(tillId: string) {
+  tillStore.deleteTill(tillId); // Assuming this is a mutation to remove the branch
   // tillStore.tills = tillStore.tills.filter((b) => b.id !== branchId); // Manually update the store
   // fetchTills(); // Refetch the tills after deleting, if needed
   notify.success("Branch Deleted");
@@ -358,7 +358,7 @@ onMounted(() => {
               <div v-else>
                 <button
                   class="bg-red-700 rounded-md text-xs font-semibold text-white px-1.5 py-1 hover:underline"
-                  @click="assignManager(branch)"
+                  @click="assignOperator(till)"
                 >
                   <i class="fa fa-user-plus"></i>
                   Assign Operator
