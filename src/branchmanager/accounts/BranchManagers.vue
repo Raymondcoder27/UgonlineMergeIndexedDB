@@ -13,7 +13,7 @@ import type {
 // import AddManager from "@/branchmanager/accounts/components/AddManager.vue";
 import EditManager from "@/branchmanager/accounts/components/EditManager.vue";
 
-import { useBranchStore } from "@/branchmanager/branches/stores"; // Updated import
+import { useBranchStore } from "@/branchmanager/tills/stores"; // Updated import
 
 const pageInput = ref(1);
 const changePageSize = () => {

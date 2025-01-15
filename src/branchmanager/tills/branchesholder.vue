@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
 import CreateBranch from "@/branchmanager/branches/components/CreateBranch.vue";
-import { useBranchStore } from "@/branchmanager/branches/stores"; // Updated import
+import { useBranchStore } from "@/branchmanager/tills/stores"; // Updated import
 import type { Branch } from "@/branchmanager/branches/types"; // Assuming you have a Branch type
 import moment from "moment/moment";
 import router from "@/router";

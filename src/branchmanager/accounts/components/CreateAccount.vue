@@ -5,7 +5,7 @@ import { type Ref, ref, reactive } from "vue";
 import { useAccounts } from "@/branchmanager/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
-import { useBranchStore } from "@/branchmanager/branches/stores";
+import { useBranchStore } from "@/branchmanager/tills/stores";
 
 const branchStore = useBranchStore();
 

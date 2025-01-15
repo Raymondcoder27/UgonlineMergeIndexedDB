@@ -3,7 +3,7 @@
 import { type Ref, ref, reactive, onMounted, defineEmits } from "vue";
 import { useBilling } from "@/branchmanager/finances/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useBranchStore } from "@/branchmanager/branches/stores";
+import { useBranchStore } from "@/branchmanager/tills/stores";
 import type { AllocateFloat } from "@/types";
 import { useBalance } from "@/branchmanager/balance/stores";
 

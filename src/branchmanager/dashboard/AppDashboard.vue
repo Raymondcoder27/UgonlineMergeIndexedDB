@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { useBranchStore } from "@/branchmanager/branches/stores";
+import { useBranchStore } from "@/branchmanager/tills/stores";
 import { useBilling } from "@/branchmanager/finances/stores";
 import { useServicesStore } from "@/branchmanager/services/stores";
 import { useAccounts } from "@/branchmanager/accounts/stores";

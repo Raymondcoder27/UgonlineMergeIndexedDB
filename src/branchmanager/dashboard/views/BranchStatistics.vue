@@ -2,7 +2,7 @@
 import BarChart from "@/branchmanager/analytics/components/BarChart.vue";
 import LineChart from "@/branchmanager/analytics/components/LineChart.vue";
 import PieChart from "@/branchmanager/analytics/components/PieChart.vue";
-import { useBranchStore } from "@/branchmanager/branches/stores";
+import { useBranchStore } from "@/branchmanager/tills/stores";
 const branchStore = useBranchStore();
 
 const totalBranches = branchStore.branches?.length || 0;

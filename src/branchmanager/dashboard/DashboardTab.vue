@@ -12,7 +12,7 @@ import BranchStatistics from "@/branchmanager/dashboard/views/BranchStatistics.v
 import ServicesStatistics from "@/branchmanager/dashboard/views/ServicesStatistics.vue";
 import RevenueStatistics from "@/branchmanager/dashboard/views/RevenueStatistics.vue";
 import { useServicesStore } from "@/branchmanager/services/stores";
-import { useBranchStore } from "@/branchmanager/branches/stores";
+import { useBranchStore } from "@/branchmanager/tills/stores";
 import { useAccounts } from "@/branchmanager/accounts/stores";
 import { useBilling } from "@/branchmanager/finances/stores";
 // import { useBalance } from "@/branchmanager/balance/stores";
