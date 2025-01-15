@@ -39,11 +39,11 @@ function select(tab: string) {
 
         <span
           class="mt-2 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md flex"
-          >
-        <i class="fas fa-wallet px-1 pt-0.5 text-red-700"></i>
+        >
+          <i class="fas fa-wallet px-1 pt-0.5 text-red-700"></i>
 
           {{ totalBalance.currentBalance.toLocaleString() }}/=
-          </span>
+        </span>
       </div>
     </div>
     <div class="flex pt-5">
@@ -78,6 +78,12 @@ function select(tab: string) {
         @click="select('floatrequests')"
       >
         Float Requests
+      </div>
+      <div
+        :class="activeTab == 'tillbalance' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
+        @click="select('tillbalance')"
+      >
+        Till Balance
       </div>
     </div>
     <div class="flex flex-grow">
