@@ -284,9 +284,9 @@ onMounted(() => {
             placeholder="Search by Service"
           >
             <option value="" disabled selected>Filter by Till</option>
-            <option value="Branch 1">Till 1</option>
-            <option value="Branch 2">Till 2</option>
-            <option value="Branch 3">Till 3</option>
+            <option value="Till 1">Till 1</option>
+            <option value="Till 2">Till 2</option>
+            <option value="Till 3">Till 3</option>
           </select>
           <select
             v-if="filter.filter !== undefined"
@@ -345,7 +345,7 @@ onMounted(() => {
             <th class="text-left">#</th>
             <th class="text-left">Date</th>
             <!-- <th class="text-left">Name</th> -->
-            <th class="text-left">Branch</th>
+            <th class="text-left">Till</th>
             <th class="text-left">Amount</th>
             <th class="text-left">Status</th>
             <th class="text-right">Actions</th>
@@ -651,4 +651,5 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-<!-- @/agentdomain/ledger/types -->@/branchmanager/finances/stores@/branchmanager/balance/stores@/branchmanager/finances/types
+<!-- @/agentdomain/ledger/types -->
+ <!-- @/branchmanager/finances/stores@/branchmanager/balance/stores@/branchmanager/finances/types -->
