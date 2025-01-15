@@ -114,7 +114,7 @@ export const useAccounts = defineStore("user-management", () => {
       status: "Assigned"
     });
 
-    // Update the manager's branch
+    // Update the manager's till
     const manager = managerAccounts.value.find((manager) => manager.id === payload.managerId);
     if (manager) {
       manager.till = payload.tillId;
@@ -122,10 +122,10 @@ export const useAccounts = defineStore("user-management", () => {
       // }
     }
 
-    // Update the branch's manager
-    const till = branches?.value.find((branch) => branch.id === payload.tillId);
+    // Update the till's manager
+    const till = tills?.value.find((branch) => till.id === payload.tillId);
     if (branch) {
-      branch.manager = payload.managerId;
+      till.manager = payload.managerId;
     }
 
     saveManagerToLocalStorage();
@@ -158,8 +158,8 @@ export const useAccounts = defineStore("user-management", () => {
     });
   }
 
-  // const addtill = (newtill: Branch) => {
-  //   branches.value.push(newBranch); // Directly add the Till to the array
+  // const addtill = (newtill: till) => {
+  //   tills.value.push(newBranch); // Directly add the Till to the array
   // };
 
 
@@ -257,9 +257,9 @@ export const useAccounts = defineStore("user-management", () => {
   }
 
   // const assignManager = (payload: AssignManager) => {
-  //   const branchToUpdate = branches.value?.find(till => branch.id === payload.tillId);
+  //   const tillToUpdate = tills.value?.find(till => till.id === payload.tillId);
   //   if (branchToUpdate) {
-  //     branchToUpdate.manager = payload.managerId;
+  //     tillToUpdate.manager = payload.managerId;
   //   } else {
   //     console.warn(`Till with ID ${payload.tillId} not found.`);
   //   }
@@ -271,13 +271,13 @@ export const useAccounts = defineStore("user-management", () => {
   //     // tillId: form.tillId,
   //   };
   //   loading.value = true;
-  //   tillStore.assignManager(payload); // Simply add the branch
-  //   notify.success("Manager assigned to branch");
+  //   tillStore.assignManager(payload); // Simply add the till
+  //   notify.success("Manager assigned to till");
   //   emit("managerAssigned");
   //   loading.value = false;
   // }
 
-  //use the manager id to assign a manager to a branch
+  //use the manager id to assign a manager to a till
   // const assignManager = (payload: AssignManager) => {
   // const assignManager = (userId: string) => {
   //   const user = userAccounts.value?.find(userId => user.id === userId.userId);
@@ -300,7 +300,7 @@ export const useAccounts = defineStore("user-management", () => {
   //   }
   // };
 
-  // assign manager to a branch
+  // assign manager to a till
   // const assignManager = (userId: string) => {
   //   console.log('User ID:', userId); // Debugging log
 
@@ -331,10 +331,10 @@ export const useAccounts = defineStore("user-management", () => {
 
     const user = backofficeAccounts.value?.find((account) => account.id === userId); // Find user by `userId`
 
-    const till = tillStore.branches.find((till: Branch) => branch.id === tillId);
+    const till = tillStore.tills.find((till: Till) => till.id === tillId);
 
-    // if (user && branch) {
-    if (user && branch) {
+    // if (user && till) {
+    if (user && till) {
       managerAccounts.value.push({
         firstName: user.firstName,
         lastName: user.lastName,
@@ -346,7 +346,7 @@ export const useAccounts = defineStore("user-management", () => {
         emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
-        till: branch.name, // Include tillId
+        till: till.name, // Include tillId
       });
       // managerAccounts.value.push(assignedManager);
       localStorageManagerAccount.value.push({
@@ -360,7 +360,7 @@ export const useAccounts = defineStore("user-management", () => {
         emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
-        till: branch.name, // Include tillId
+        till: till.name, // Include tillId
       }) // Update the local storage reference
       saveManagerToLocalStorage(); // Save to local storage
       console.log(`Manager assigned to Till ${branch.name}`);
