@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
 import CreateBranch from "@/domain/branches/components/CreateBranch.vue";
-import { useBranchStore } from "@/domain/branches/stores"; // Updated import
+import { useTillStore } from "@/domain/tills/stores"; // Updated import
 import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
 import moment from "moment/moment";
 import router from "@/router";
@@ -20,7 +20,7 @@ const billingStore = useBilling();
 
 import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
-const branchStore = useBranchStore(); // Updated store
+const branchStore = useTillStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
 const categoryModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
