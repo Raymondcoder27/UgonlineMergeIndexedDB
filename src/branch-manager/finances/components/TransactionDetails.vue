@@ -4,10 +4,10 @@
 import { type Ref, ref, reactive, onMounted, defineEmits } from "vue";
 import { useBilling } from "@/branch-manager/finances/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useBranchStore } from "@/branch-manager/tills/stores"; 
+import { useTillStore } from "@/branch-manager/tills/stores"; 
 import type { AllocateFloat } from "@/types";
 
-const branchStore = useBranchStore();
+const tillStore = useTillStore();
 
 // allocate float form
 const form: AllocateFloat = reactive({
@@ -67,7 +67,7 @@ function submit() {
 
 onMounted(() => {
   // loading.value = true;
-  branchStore
+  tillStore
     .fetchBranches()
     // .finally(() => (loading.value = false));
 });
