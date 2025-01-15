@@ -123,8 +123,8 @@ export const useAccounts = defineStore("user-management", () => {
     }
 
     // Update the till's manager
-    const till = tills?.value.find((branch) => till.id === payload.tillId);
-    if (branch) {
+    const till = tills?.value.find((till) => till.id === payload.tillId);
+    if (till) {
       till.manager = payload.managerId;
     }
 
@@ -137,13 +137,13 @@ export const useAccounts = defineStore("user-management", () => {
   // Save manager to local storage
   // const saveManagerToLocalStorage = () => {
   //   // localStorage.setItem('branchManagerFloatBalance', JSON.stringify(localStorageManagerAccount.value))
-  //   localStorage.setItem('branchManagerAccount', JSON.stringify(localStorageManagerAccount.value))
+  //   localStorage.setItem('tillOperatorAccount', JSON.stringify(localStorageManagerAccount.value))
   //   console.log("Manager saved to local storage:", localStorageManagerAccount.value);
 
   // }
   const saveManagerToLocalStorage = () => {
     if (localStorageManagerAccount.value) {
-      localStorage.setItem('branchManagerAccount', JSON.stringify(localStorageManagerAccount.value));
+      localStorage.setItem('tillOperatorAccount', JSON.stringify(localStorageManagerAccount.value));
       console.log("Manager saved to local storage:", localStorageManagerAccount.value);
     } else {
       console.warn("No manager account to save to local storage.");
@@ -159,7 +159,7 @@ export const useAccounts = defineStore("user-management", () => {
   }
 
   // const addtill = (newtill: till) => {
-  //   tills.value.push(newBranch); // Directly add the Till to the array
+  //   tills.value.push(newtill); // Directly add the Till to the array
   // };
 
 
@@ -363,7 +363,7 @@ export const useAccounts = defineStore("user-management", () => {
         till: till.name, // Include tillId
       }) // Update the local storage reference
       saveManagerToLocalStorage(); // Save to local storage
-      console.log(`Manager assigned to Till ${branch.name}`);
+      console.log(`Manager assigned to Till ${till.name}`);
       console.log(`Manager assigned to Till ${tillId}`);
     } else {
       console.warn(`User with ID ${userId} not found.`);
