@@ -168,12 +168,18 @@ export const useBilling = defineStore("billing", () => {
       branch: "Branch 1"
     })
     saveFloatRequestToLocalStorage();
+    saveRequestToLocalStorageTillCopy();
   }
 
   const floatRequestToBranchManagerLocalStorage = ref<FloatRequest[]>([]);
+  const requestToLocalStorageTillCopy = ref<FloatRequest[]>([]);
 
   const saveFloatRequestToLocalStorage = () => {
     localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestToBranchManagerLocalStorage.value))
+  }
+
+  const saveRequestToLocalStorageTillCopy = () => {
+    localStorage.setItem('requestToLocalStorageTillCopy', JSON.stringify(requestToLocalStorageTillCopy.value))
   }
 
   // adjust float ledgers with float request
