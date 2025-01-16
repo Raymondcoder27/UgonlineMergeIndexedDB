@@ -194,7 +194,7 @@ onMounted(() => {
   fetchTills();
   accountStore.fetchTillOperators();
   tillStore.fetchTills();
-  accountStore.fetchTillOperators();
+  // accountStore.fetchTillOperators();
   // allocateManager();
   assignOperatorsToTills();
 });
