@@ -28,19 +28,22 @@ export interface IAccount {
     blockedAt?: string;
     activatedAt?: string;
   }
-  
+
 
 export type Transaction = {
     // id: string;
     id: number;
-    branchName: string;
-    manager: string;
-    transactionType: string;
+    // branchName: string;
+    // manager: string;
+    // transactionType: string;
     trackingNumber: string;
     service: string;
+    provider: string;
+    till: string;
+    fee: number;
     status: string;
     date: string;
-    amount: number;
+    // amount: number;
   };
 
 export interface FloatLedger {
