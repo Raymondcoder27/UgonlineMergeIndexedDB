@@ -248,18 +248,34 @@ function convertDateTimeNullable(date?: string) {
 // }
 
 // pass in the requestId
-const approveFloatRequest = (requestId: any) => {
-  billingStore.approveFloatRequest(requestId);
-  // billingStore.fetchFloatRequests();
-  balanceStore.approveFloatRequest(requestId);
-  billingStore.reduceFloatLedger(requestId);
-  billingStore.allocateFloatFromRequest(requestId);
+// const approveFloatRequest = (requestId: any) => {
+//   billingStore.approveFloatRequest(requestId);
+//   // billingStore.fetchFloatRequests();
+//   balanceStore.approveFloatRequest(requestId);
+//   billingStore.reduceFloatLedger(requestId);
+//   billingStore.allocateFloatFromRequest(requestId);
+//   console.log(`float request with id ${requestId} approved`);
+// };
+
+// const rejectFloatRequest = (requestId: any) => {
+//   billingStore.rejectFloatRequest(requestId);
+//   billingStore.fetchFloatRequests();
+//   console.log(`float request with id ${requestId} rejected`);
+// };
+
+const approveFloatRequestInLocalStorage = (requestId: any) => {
+  const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
+  const floatRequest = floatRequestsFromLocalStorage.find((request: any) => request.id === requestId);
+  floatRequest.status = 'approved';
+  localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestsFromLocalStorage));
   console.log(`float request with id ${requestId} approved`);
 };
 
-const rejectFloatRequest = (requestId: any) => {
-  billingStore.rejectFloatRequest(requestId);
-  billingStore.fetchFloatRequests();
+const rejectFloatRequestInLocalStorage = (requestId: any) => {
+  const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
+  const floatRequest = floatRequestsFromLocalStorage.find((request: any) => request.id === requestId);
+  floatRequest.status = 'rejected';
+  localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestsFromLocalStorage));
   console.log(`float request with id ${requestId} rejected`);
 };
 
@@ -466,9 +482,13 @@ onMounted(() => {
               <!-- Third Case: Fallback, no manager assigned -->
               <div v-else>
                 <!-- <td> -->
-                <span
+                <!-- <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-800"
                   @click="approveFloatRequest(request.id)"
+                > -->
+                <span
+                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-800"
+                  @click="approveFloatRequestInLocalStorage(request.id)"
                 >
                   <i class="fa-solid fa-check"></i>
                   Approve</span
@@ -476,7 +496,7 @@ onMounted(() => {
 
                 <span
                   class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-600 hover:text-white hover:bg-red-700"
-                  @click="rejectFloatRequest(request.id)"
+                  @click="rejectFloatRequestInLocalStorage(request.id)"
                 >
                   <i class="fa-solid fa-times-square"></i>
                   Reject</span
