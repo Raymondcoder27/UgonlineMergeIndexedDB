@@ -15,7 +15,7 @@ export const useBilling = defineStore("billing", () => {
   // Fetch transactions from IndexedDB
   async function fetchTransactions(filter: any) {
     try {
-      const storedTransactions = await db.getAll<Transaction>(); // Get all transactions from IndexedDB
+      const storedTransactions = await billingDb.getAll<Transaction>(); // Get all transactions from IndexedDB
       const filteredData = storedTransactions.filter(transaction => {
         return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
           (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
@@ -34,7 +34,7 @@ export const useBilling = defineStore("billing", () => {
   // Fetch float ledgers from IndexedDB
   async function fetchFloatLedgers(filter: any) {
     try {
-      const storedFloatLedgers = await db.getAll<FloatLedger>(); // Get all float ledgers from IndexedDB
+      const storedFloatLedgers = await billingDb.getAll<FloatLedger>(); // Get all float ledgers from IndexedDB
       const filteredData = storedFloatLedgers.filter(item => {
         // Apply filters...
       });
@@ -60,7 +60,7 @@ export const useBilling = defineStore("billing", () => {
         branchId: payload.branchId, // Adjust as needed
       };
 
-      await db.set(newRequest.id, newRequest); // Save to IndexedDB
+      await billingDb.set(newRequest.id, newRequest); // Save to IndexedDB
       floatRequests.value.push(newRequest);
 
       console.log("Request saved to IndexedDB", newRequest);
@@ -81,7 +81,7 @@ export const useBilling = defineStore("billing", () => {
         status: "pending", // Adjust as needed
       };
 
-      await db.set(newLedger.id, newLedger); // Save to IndexedDB
+      await billingDb.set(newLedger.id, newLedger); // Save to IndexedDB
       floatLedgers.value.push(newLedger);
 
       console.log("Float ledger adjusted and saved to IndexedDB", newLedger);
@@ -95,7 +95,7 @@ export const useBilling = defineStore("billing", () => {
     try {
       const id = transactions.value.length ? transactions.value[transactions.value.length - 1].id + 1 : 1;
       const transactionWithId: Transaction = { ...newTransaction, id };
-      await db.set(transactionWithId.id, transactionWithId);
+      await billingDb.set(transactionWithId.id, transactionWithId);
       transactions.value.push(transactionWithId);
 
       console.log("Transaction added to IndexedDB", transactionWithId);
