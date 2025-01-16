@@ -18,7 +18,7 @@ import { useTillStore } from "@/branch-manager/tills/stores"; // Updated import
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
-  fetchManagerAccounts();
+  fetchTillOperators();
 };
 const showPagination = computed(() => totalRecords.value >= limit.value);
 
@@ -30,11 +30,11 @@ const jumpToPage = () => {
   } else {
     page.value = pageInput.value;
   }
-  fetchManagerAccounts();
+  fetchTillOperators();
 };
-function fetchManagerAccounts() {
+function fetchTillOperators() {
   // store
-  //   .fetchManagerAccounts(page.value, limit.value)
+  //   .fetchTillOperators(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
   //     loading.value = false;
@@ -100,7 +100,7 @@ onMounted(() => {
 function fetch() {
   filter.limit = limit.value;
   filter.page = page.value;
-  store.fetchManagerAccounts(filter);
+  store.fetchTillOperators(filter);
 }
 function open() {
   modalOpen.value = true;
@@ -161,7 +161,7 @@ watch(
 );
 
 onMounted(() => {
-  store.fetchManagerAccounts(), tillStore.fetchTills();
+  store.fetchTillOperators(), tillStore.fetchTills();
   // store.fetchRoles()
 });
 </script>
