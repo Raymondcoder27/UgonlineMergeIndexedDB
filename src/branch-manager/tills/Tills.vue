@@ -171,7 +171,7 @@ const paginatedTills = computed(() => {
 
 // Helper function to assign managers to tills
 const assignOperatorsToTills = () => {
-  tillStore.tills.forEach((till) => {
+  tillStore.tills?.forEach((till) => {
     const operator = getOperatorByTill(till.name);
     if (operator) {
       till.operator = operator;
