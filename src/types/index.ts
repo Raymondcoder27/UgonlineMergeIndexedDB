@@ -91,6 +91,28 @@ export interface ManagerAccount {
   activatedAt: string;
 }
 
+export interface TillOperatorAccount {
+  id: string;
+  name: string;
+  status: string;
+  firstName: string;
+  lastName: string;
+  middleNames: string;
+  username: string;
+  email: string;
+  branchName: string;
+  branch: string;
+  phone: string;
+  role: string;
+  createdAt: string;
+  // emailVerified: boolean;
+  phoneVerified: boolean;
+  activatedAt: string;
+}
+
+
+
+
 export interface BackOfficeAccount {
   id: string;
   status: string;
