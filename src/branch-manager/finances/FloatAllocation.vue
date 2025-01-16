@@ -432,4 +432,4 @@ watch(
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-<!-- @/branchmanager/finances/stores -->
+<!-- @/branchmanager/finances/stores -->@/branch-manager/finances/stores/index2
