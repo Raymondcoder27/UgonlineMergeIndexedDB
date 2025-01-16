@@ -360,7 +360,7 @@ export const useAccounts = defineStore("user-management", () => {
       //   activatedAt: new Date().toISOString(),
       //   till: till.name, // Include tillId
       // }) // Update the local storage reference
-      saveManagerToLocalStorage(); // Save to local storage
+      // saveManagerToLocalStorage(); // Save to local storage
       console.log(`Manager assigned to Till ${till.name}`);
       console.log(`Manager assigned to Till ${tillId}`);
     } else {
