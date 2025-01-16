@@ -23,17 +23,21 @@ export const useBilling = defineStore("billing", () => {
   //         </tr>
 
   const dummyTransactions: Transaction[] = [
-    { id: 1, trackingNumber: "TA123456",
+    {
+      id: 1, trackingNumber: "TA123456",
       service: "Company Name Reservation", provider: "URSB", till: "Till 001",
-      fee: 25000, date: "2021-09-01", status: "success" 
+      fee: 25000, date: "2021-09-01", status: "success"
     },
-    { id: 2, trackingNumber: "TB123457",
+    {
+      id: 2, trackingNumber: "TB123457",
       service: "Create Postal Account", provider: "Posta Uganda",
-       till: "Till 002", fee: 20000, date: "2021-09-02", status: "failed"
-      },
-    { id: 3, trackingNumber: "TC123458",
+      till: "Till 002", fee: 20000, date: "2021-09-02", status: "failed"
+    },
+    {
+      id: 3, trackingNumber: "TC123458",
       service: "National ID registration", provider: "NIRA",
-       till: "Till 003", fee: 35000, date: "2021-09-03", status: "pending" },
+      till: "Till 003", fee: 35000, date: "2021-09-03", status: "pending"
+    },
   ];
 
 
@@ -45,10 +49,10 @@ export const useBilling = defineStore("billing", () => {
   // <th class="text-left">Actions</th>
 
   const dummyFloatRequests: FloatRequest[] = [
-    { id: 1, requestDate: "2021-09-01", amount: 12000000, status: "pending", till: "Till 1", approvedBy: null, requesterName: "", createdAt:"", date: "" },
-    { id: 4, requestDate: "2021-09-04", amount: 10000000, status: "pending", till: "Till 4", approvedBy: null, requesterName: "", createdAt:"", date: "" },
-    { id: 2, requestDate: "2021-09-02", amount: 18000000, status: "approved", till: "Till 2", approvedBy: "Manager One", requesterName: "", createdAt:"", date: "" },
-    { id: 3, requestDate: "2021-09-03", amount: 9000000, status: "rejected", till: "Till 3", approvedBy: null, requesterName: "", createdAt:"", date: "" },
+    { id: 1, requestDate: "2021-09-01", amount: 12000000, status: "pending", till: "Till 1", approvedBy: null, requesterName: "", createdAt: "", date: "" },
+    { id: 4, requestDate: "2021-09-04", amount: 10000000, status: "pending", till: "Till 4", approvedBy: null, requesterName: "", createdAt: "", date: "" },
+    { id: 2, requestDate: "2021-09-02", amount: 18000000, status: "approved", till: "Till 2", approvedBy: "Manager One", requesterName: "", createdAt: "", date: "" },
+    { id: 3, requestDate: "2021-09-03", amount: 9000000, status: "rejected", till: "Till 3", approvedBy: null, requesterName: "", createdAt: "", date: "" },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
@@ -86,7 +90,7 @@ export const useBilling = defineStore("billing", () => {
   const tillOperators = ref<TillOperator[]>(dummyTillOperators);
   const floatAllocations = ref<FloatAllocation[]>(dummyFloatAllocations);
   // const floatRequests = ref<FloatRequest[]>(dummyFloatRequests);
-  
+
 
   const floatRequests = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
 
@@ -183,54 +187,55 @@ export const useBilling = defineStore("billing", () => {
 
 
   // pass in the requestId
-// const approveFloatRequest = (requestId: any) => {
-//   store.approveFloatRequest(requestId);
-//   store.fetchFloatRequests();
-//   balanceStore.approveFloatRequest(requestId);
-//   store.reduceFloatLedger(requestId); 
-//   store.allocateFloat(requestId);
-//   console.log(`float request with id ${requestId} approved`);
-// };
+  // const approveFloatRequest = (requestId: any) => {
+  //   store.approveFloatRequest(requestId);
+  //   store.fetchFloatRequests();
+  //   balanceStore.approveFloatRequest(requestId);
+  //   store.reduceFloatLedger(requestId); 
+  //   store.allocateFloat(requestId);
+  //   console.log(`float request with id ${requestId} approved`);
+  // };
 
-// allocate float based on approved float request
-function allocateFloatFromRequest(requestId: any) {
-  const floatRequest = floatRequests.value.find((request) => request.id === requestId);
-  if (floatRequest) {
-    floatAllocations.value.push({
-      id: floatAllocations.value.length + 1,
-      dateAssigned: new Date().toISOString(),
-      amount: floatRequest.amount,
-      status: "Allocated",
-      till: floatRequest.till,
-    });
+  // allocate float based on approved float request
+  function allocateFloatFromRequest(requestId: any) {
+    const floatRequest = floatRequests.value.find((request) => request.id === requestId);
+
+    if (floatRequest) {
+      floatAllocations.value.push({
+        id: floatAllocations.value.length + 1,
+        dateAssigned: new Date().toISOString(),
+        amount: floatRequest.amount,
+        status: "Allocated",
+        till: floatRequest.till,
+      });
 
 
-    allocateFloatFromRequestToLocalStorage.value.push({
-      id: allocateFloatFromRequestToLocalStorage.value.length + 1,
-      dateAssigned: new Date().toISOString(),
-      status: "Allocated",
-      payload: floatRequest.amount,
-       tillId: floatRequest.till,
-    })
-    saveFloatRequestToLocalStorage();
+      allocateFloatFromRequestToLocalStorage.value.push({
+        id: allocateFloatFromRequestToLocalStorage.value.length + 1,
+        dateAssigned: new Date().toISOString(),
+        status: "Allocated",
+        payload: floatRequest.amount,
+        tillId: floatRequest.till,
+      })
+      saveFloatRequestToLocalStorage();
+    }
+    //save to localstorage
+    // allocateFloatFromRequestToLocalStorage.value.push({
+    //   id: allocateFloatFromRequestToLocalStorage.value.length + 1,
+    //   dateAssigned: new Date().toISOString(),
+    //   status: "Allocated",
+    //   payload: floatRequest.amount,
+    //    status: "Allocated",
+    //    tillId: floatRequest.till,
+    // })
+    // saveFloatRequestToLocalStorage();
   }
-  //save to localstorage
-  // allocateFloatFromRequestToLocalStorage.value.push({
-  //   id: allocateFloatFromRequestToLocalStorage.value.length + 1,
-  //   dateAssigned: new Date().toISOString(),
-  //   status: "Allocated",
-  //   payload: floatRequest.amount,
-  //    status: "Allocated",
-  //    tillId: floatRequest.till,
-  // })
-  // saveFloatRequestToLocalStorage();
-}
 
-const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
+  const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
 
-const saveFloatRequestToLocalStorage = () => {
-  localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
-}
+  const saveFloatRequestToLocalStorage = () => {
+    localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
+  }
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
     floatLedgers.value.push({
@@ -243,66 +248,66 @@ const saveFloatRequestToLocalStorage = () => {
     })
   }
 
-//   const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
+  //   const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
 
-// const saveFloatRequestToLocalStorage = () => {
-//   localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
-// }
+  // const saveFloatRequestToLocalStorage = () => {
+  //   localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
+  // }
 
   // pass in the requestId
-// const approveFloatRequest = (requestId: any) => {
-//   store.approveFloatRequest(requestId);
-//   store.fetchFloatRequests();
-//   balanceStore.approveFloatRequest(requestId);
-//   store.reduceFloatLedger(requestId); 
-//   console.log(`float request with id ${requestId} approved`);
-// };
+  // const approveFloatRequest = (requestId: any) => {
+  //   store.approveFloatRequest(requestId);
+  //   store.fetchFloatRequests();
+  //   balanceStore.approveFloatRequest(requestId);
+  //   store.reduceFloatLedger(requestId); 
+  //   console.log(`float request with id ${requestId} approved`);
+  // };
 
-async function reduceFloatLedger(requestId: any) {
-  //  This is local storage 
-
-  
+  async function reduceFloatLedger(requestId: any) {
+    //  This is local storage 
 
 
-  // end of local storage
 
-  console.log("Approving float request with ID:", requestId);
-  // Simulate API call
-  // const response = await fetch(`/api/float-requests/${requestId}/approve`, {
-  //   method: "POST",
-  // });
-  // const data = await response.json();
 
-  // use request in floatledgers array id to figure out amount 
-  const floatRequest = floatRequests.value.find(
-    (request) => request.id === requestId
-  );
-  if (!floatRequest) {
-    console.error("Float request not found");
-    return;
+    // end of local storage
+
+    console.log("Approving float request with ID:", requestId);
+    // Simulate API call
+    // const response = await fetch(`/api/float-requests/${requestId}/approve`, {
+    //   method: "POST",
+    // });
+    // const data = await response.json();
+
+    // use request in floatledgers array id to figure out amount 
+    const floatRequest = floatRequests.value.find(
+      (request) => request.id === requestId
+    );
+    if (!floatRequest) {
+      console.error("Float request not found");
+      return;
+    }
+    floatLedgers.value.push({
+      id: floatLedgers.value.length + 1,
+      date: new Date().toISOString(),
+      description: floatRequest.till,
+      amount: -floatRequest.amount,
+      // balance: 300000000 - floatRequest.amount,
+    });
   }
-  floatLedgers.value.push({
-    id: floatLedgers.value.length + 1,
-    date: new Date().toISOString(),
-    description: floatRequest.till,
-    amount: -floatRequest.amount,
-    // balance: 300000000 - floatRequest.amount,
-  });
-}
 
 
-// const rejectFloatRequest = (requestId: any) => {
-//   store.rejectFloatRequest(requestId);
-//   store.fetchFloatRequests();
-//   console.log(`float request with id ${requestId} rejected`);
-// };
+  // const rejectFloatRequest = (requestId: any) => {
+  //   store.rejectFloatRequest(requestId);
+  //   store.fetchFloatRequests();
+  //   console.log(`float request with id ${requestId} rejected`);
+  // };
 
 
 
   // const approveFloatRequest = (requestId: any) => {
   //   store.approveFloatRequest(requestId);
   // };
-  
+
   // const rejectFloatRequest = (requestId: any) => {
   //   store.rejectFloatRequest(requestId);
   // };
@@ -316,7 +321,7 @@ async function reduceFloatLedger(requestId: any) {
   //   }
   // }
 
-    // approve float request using passed in Id and set status to approved and modify the floatrequests array
+  // approve float request using passed in Id and set status to approved and modify the floatrequests array
   function approveFloatRequest(requestId: any) {
     console.log("changing status")
     const floatRequest = floatRequests.value.find((request) => request.id === requestId);
@@ -351,7 +356,7 @@ async function reduceFloatLedger(requestId: any) {
     fetchFloatRequests,
     fetchTransactions,
     fetchFloatLedgers,
-    fetchBackofficeUsers,  
+    fetchBackofficeUsers,
     fetchTillOperators,
     fetchFloatAllocations,
     allocateFloat,
