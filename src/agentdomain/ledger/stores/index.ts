@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import moment from "moment";
-import { db } from "@/agentdomain/db/db"; // Your IndexedDB utility
+import { billingDb } from "@/agentdomain/db/db"; // Your IndexedDB utility
 import type { Transaction, FloatLedger, FloatRequest, RequestFloat } from "@/agentdomain/billing/types";
 
 export const useBilling = defineStore("billing", () => {
