@@ -14,7 +14,7 @@ const billingStore = useBilling();
 // allocate float form
 const form: AllocateFloat = reactive({
   firstName: "",
-  branchId: null,
+  tillId: null,
 });
 
 const notify = useNotificationsStore();
@@ -38,14 +38,14 @@ const store = useBilling();
 // function submit() {
 //   let payload = {
 //     amount: form.firstName,
-//     branchId: form.branchId,
+//     tillId: form.tillId,
 //   };
 //   loading.value = true;
 //   store
 //     .allocateFloat(payload)
 //     .then(() => {
 //       loading.value = false;
-//       notify.success(`Float assigned to ${form.branchId}.`);
+//       notify.success(`Float assigned to ${form.tillId}.`);
 //       emit("cancel");
 //     })
 //     .catch(() => {
@@ -56,13 +56,13 @@ const store = useBilling();
 // function submit() {
 //  let payload = {
 //     amount: form.amount,
-//     branchId: form.branchId,
+//     tillId: form.tillId,
 //   };
 //   loading.value = true;
 //   store.allocateFloat(payload) // Simply add the branch
 //   billingStore.adjustFloatLedger(payload);
 //   balanceStore.decreaseTotalBalance(payload.amount);
-//    notify.success(`Float allocated to ${form.branchId}.`)
+//    notify.success(`Float allocated to ${form.tillId}.`)
 //   emit("floatAllocated");
 //   loading.value = false;
 // }
@@ -70,7 +70,7 @@ const store = useBilling();
 // function submit() {
 //    let payload = {
 //     amount: form.amount,
-//     branchId: form.branchId,
+//     tillId: form.tillId,
 //   };
 //   console.log("Payload:", payload);
 //   console.log("Initial balance:", balanceStore.totalBalance.value);
@@ -81,7 +81,7 @@ const store = useBilling();
 function submit() {
   const payload = {
     amount: form.amount,
-    branchId: form.branchId,
+    tillId: form.tillId,
   };
 
   console.log("Submitting payload:", payload);
@@ -91,8 +91,8 @@ function submit() {
   // .then(() => {
   billingStore.adjustFloatLedger(payload); // Adjust ledger
   balanceStore.decreaseTotalBalance(payload.amount); // Update balance
-  // notify.success(`Float allocated to branch: ${form.branchId}`);
-  notify.success(`Float allocated to ${form.branchId}`);
+  // notify.success(`Float allocated to branch: ${form.tillId}`);
+  notify.success(`Float allocated to ${form.tillId}`);
   emit("floatAllocated");
   // })
   // .catch((err) => {
@@ -115,7 +115,7 @@ onMounted(() => {
   <div class="bg-white py-5">
     <p class="text-xl font-bold">Allocate Float</p>
     <p class="text-sm text-gray-500">
-      The allocation of funds by a Super Agent to a designated branch or till to
+      The allocation of funds by a Branch Manager to a designated till to
       ensure liquidity for transactions and service delivery.
     </p>
     <form @submit.prevent="submit" class="pt-5">
@@ -164,19 +164,19 @@ onMounted(() => {
 
       <div class="">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-          >Select Branch</label
+          >Select Till</label
         >
         <select
-          v-model="form.branchId"
+          v-model="form.tillId"
           class="noFocus form-element e-input w-full"
         >
           <option :value="null">-- Select Till --</option>
           <option
-            v-for="(branch, idx) in tillStore.tills"
+            v-for="(till, idx) in tillStore.tills"
             :key="idx"
-            :value="branch.name"
+            :value="till.name"
           >
-            {{ branch.name }}
+            {{ till.name }}
           </option>
         </select>
       </div>
