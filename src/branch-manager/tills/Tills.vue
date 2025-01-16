@@ -92,13 +92,13 @@ function open(branch: Till) {
 // edit branch
 function edit(branch: Till) {
   editModalOpen.value = true;
-  // localStorage.setItem("branch", JSON.stringify(branch));
-  console.log("Branch to edit: ", branch);
+  // localStorage.setItem("branch", JSON.stringify(till));
+  console.log("Branch to edit: ", till);
 }
 
 //configure branch
 function configure(branch: Till) {
-  localStorage.setItem("branch", JSON.stringify(branch));
+  localStorage.setItem("branch", JSON.stringify(till));
   router.push({ name: "till-configuration", params: { id: branch.id } });
 }
 
@@ -307,7 +307,7 @@ onMounted(() => {
                 </span>
                 <!-- <i
                   class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
-                  @click="tag(branch)"
+                  @click="tag(till)"
                 ></i> -->
               </label>
             </td>
@@ -322,7 +322,7 @@ onMounted(() => {
               <div v-else>
                 <button
                   class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
-                  @click="allocateManager(branch)"
+                  @click="allocateManager(till)"
                 >
                   Allocate Manager
                 </button>
@@ -349,7 +349,7 @@ onMounted(() => {
               <!-- <div v-else>
                 <button
                   class="bg-red-200 rounded-sm text-xs font-semibold text-red-700 px-1.5 py-1 hover:underline"
-                  @click="assignManager(branch)"
+                  @click="assignManager(till)"
                 >
                   <i class="fa fa-user-plus"></i>
                   Assign Manager
@@ -378,7 +378,7 @@ onMounted(() => {
 
             <!-- <i
                 class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
-                @click="open(branch)"
+                @click="open(till)"
               ></i>
   <i
                 class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
@@ -395,12 +395,12 @@ onMounted(() => {
             <td class="text-right">
               <!-- <i
                 class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
-                @click="open(branch)"
+                @click="open(till)"
               ></i> -->
               <span
                 class="p-1 mx-1 rounded-md text-white bg-blue-600 hover:bg-blue-800"
               >
-                <i class="fa-solid fa-pen" @click="edit(branch)"></i>
+                <i class="fa-solid fa-pen" @click="edit(till)"></i>
                 Edit
               </span>
 
