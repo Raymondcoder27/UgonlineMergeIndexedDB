@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse, TillOperator, BackOfficeAccount, AllocateTillOperator, AssignTillOperator } from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, TillOperatorAccount, BackOfficeAccount, AllocateTillOperator, AssignTillOperator } from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
