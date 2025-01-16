@@ -237,7 +237,7 @@ export const useAccounts = defineStore("user-management", () => {
   // Fetch dummy tillOperator accounts
   const fetchTillOperators = async (filter: IGoFilter) => {
     // Here you would normally process the filter if you had real data
-    tillOperatorAccounts.value = dummyTillOperatorAccounts;
+    tillOperators.value = dummyTillOperatorAccounts;
   }
 
   // Simulating resend account verification

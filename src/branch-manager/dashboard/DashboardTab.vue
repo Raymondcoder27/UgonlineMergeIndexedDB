@@ -23,7 +23,7 @@ const servicesStore = useServicesStore();
 const accountStore = useAccounts();
 tillStore.fetchTills();
 // servicesStore.fetchSubscribedServices();
-accountStore.fetchTillOperatorAccounts();
+accountStore.fetchTillOperators();
 accountStore.fetchBackofficeAccounts();
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
 const totalTransactions = billingStore.transactions?.length || 0;
