@@ -127,8 +127,8 @@ export const useAccounts = defineStore("user-management", () => {
     saveManagerToLocalStorage();
   }
 
-  // const localStorageManagerAccount = ref<ManagerAccount>();
-  const localStorageManagerAccount = ref<TillOperatorAccount[]>([])
+  // const localStorageTillOperatorAccount = ref<ManagerAccount>();
+  const localStorageTillOperatorAccount = ref<TillOperatorAccount[]>([])
 
   // Save manager to local storage
   // const saveManagerToLocalStorage = () => {
@@ -172,7 +172,7 @@ export const useAccounts = defineStore("user-management", () => {
   // }
 
   // add manager account, push to the manager account array
-  const addManagerAccount = (newManager: ManagerAccount) => {
+  const addTillOperatorAccount = (newManager: ManagerAccount) => {
     tillOperatorAccounts.value.push(
       {
         // id:  floatAllocations.value.length + 1,
@@ -216,7 +216,7 @@ export const useAccounts = defineStore("user-management", () => {
     ); // Directly add the backoffice to the array
   }
 
-  // const addManagerAccount = (newManager: ManagerAccount) => {
+  // const addTillOperatorAccount = (newManager: ManagerAccount) => {
   //   tillOperatorAccounts.value.push(newManager); // Directly add the manager to the array
   // }
 
