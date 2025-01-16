@@ -85,12 +85,12 @@ function fetchTills() {
   loading.value = false;
 }
 
-function open(branch: Till) {
-  router.push({ name: "till-details", params: { id: branch.id } });
+function open(till: Till) {
+  router.push({ name: "till-details", params: { id: till.id } });
 }
 
 // edit branch
-function edit(branch: Till) {
+function edit(till: Till) {
   editModalOpen.value = true;
   // localStorage.setItem("branch", JSON.stringify(till));
   console.log("Branch to edit: ", till);
@@ -514,4 +514,4 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index copy
+<!-- @/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index copy -->
