@@ -41,7 +41,8 @@ export type Transaction = {
   };
 
 export interface FloatLedger {
-  id: string;
+  // id: string;
+  id: number;
   date: string;
   description: string;
   amount: number;
