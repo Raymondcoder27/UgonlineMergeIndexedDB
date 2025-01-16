@@ -71,6 +71,20 @@ async function approveFloatRequest(requestId: any) {
   // });
   // const data = await response.json();
 
+  //use the float request in local storage
+  //find the float request in local storage by id
+  const localStorageFloatRequest = localStorage.getItem("floatRequestToBranchManagerLocalStorage");
+
+  if (!localStorageFloatRequest) {
+    console.error("Float request not found in local storage");
+    return;
+  }
+  const floatRequest = JSON.parse(localStorageFloatRequest);
+  // console.log("Float request approved:", data);
+  totalBalance.prevBalance = totalBalance.currentBalance;
+  totalBalance.currentBalance -= floatRequest.amount; // Example of updating balance
+// }
+
   // use request in floatledgers array id to figure out amount 
   const floatRequest = billingStore.floatRequests.find(
     (request) => request.id === requestId
