@@ -1,4 +1,4 @@
-// branch-manager/billing/stores.ts
+// branch-manager/finances/stores.ts
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
