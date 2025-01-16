@@ -3,7 +3,7 @@ import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, type Ref, watch, computed } from "vue";
 import CreateTill from "@/branch-manager/tills/components/CreateBranch.vue";
 import { useTillStore } from "@/branch-manager/tills/stores"; // Updated import
-import type { Till } from "@/branch-manager/tills/types"; // Assuming you have a Branch type
+import type { Till } from "@/branch-manager/tills/types"; // Assuming you have a till type
 import moment from "moment/moment";
 import router from "@/router";
 import { useProviderStore } from "@/branch-manager/entities/stores";
@@ -289,7 +289,7 @@ onMounted(() => {
         <tbody>
           <!-- <tr
             class="body-tr"
-            v-for="(branch, idx) in tillStore.tills"
+            v-for="(till, idx) in tillStore.tills"
             :key="idx"
           > -->
           <tr
@@ -338,7 +338,7 @@ onMounted(() => {
                 </label>
               </div>
 
-              <!-- Second Case: Manager directly assigned to branch -->
+              <!-- Second Case: Manager directly assigned to till -->
               <div v-else-if="till.operator">
                 <label>
                   {{ till.operator.firstName }} {{ till.operator.lastName }}
