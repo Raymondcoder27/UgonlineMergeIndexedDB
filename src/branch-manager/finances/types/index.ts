@@ -112,6 +112,7 @@ export interface BackofficeUser {
 
 export interface TillOperator {
   id: number;
+  till: string;
   username: string;
   fullName: string;
   role: string;
