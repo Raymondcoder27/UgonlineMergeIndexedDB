@@ -170,7 +170,7 @@ onMounted(() => {
           v-model="form.branchId"
           class="noFocus form-element e-input w-full"
         >
-          <option :value="null">-- Select Branch --</option>
+          <option :value="null">-- Select Till --</option>
           <option
             v-for="(branch, idx) in tillStore.tills"
             :key="idx"
