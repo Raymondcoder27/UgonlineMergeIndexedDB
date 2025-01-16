@@ -19,6 +19,7 @@ export const useAccounts = defineStore("user-management", () => {
 
   const tillStore = useTillStore();
 
+
   // Dummy Data for testing
   const dummyUserAccounts: Account[] = [
     {
@@ -95,7 +96,8 @@ export const useAccounts = defineStore("user-management", () => {
   const response: Ref<AccountResponse | undefined> = ref();
   const userAccounts: Ref<Account[]> = ref([dummyUserAccounts]);
   const backofficeAccounts: Ref<Account[]> = ref([dummyBackofficeAccounts]);
-  const tillOperatorAccounts: Ref<TillOperatorAccount[]> = ref([dummyTillOperatorAccounts]);
+  // const tillOperatorAccounts: Ref<TillOperatorAccount[]> = ref([dummyTillOperatorAccounts]);
+  const tillOperators: Ref<TillOperatorAccount[]> = ref([dummyTillOperatorAccounts]);
   const tillOperatorAllocations: Ref<AllocateTillOperator[]> = ref([]);
 
 
