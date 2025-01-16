@@ -167,4 +167,4 @@ onMounted(() => {
 .cell-full {
   @apply w-full px-1 my-2;
 }
-</style>@/branchmanager/finances/stores@/branchmanager/tills/stores@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2
+</style>@/branchmanager/finances/stores@/branchmanager/tills/stores@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index copy

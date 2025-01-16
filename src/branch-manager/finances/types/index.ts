@@ -37,6 +37,7 @@ export type Transaction = {
     manager: string;
     transactionType: string;
     trackingNumber: string;
+    service: string;
     status: string;
     date: string;
     amount: number;

@@ -203,4 +203,4 @@ function labelExtractor(data: Statistic[]) {
 .count {
   @apply py-2 text-center border border-gray-100 rounded bg-gray-10 mx-1 shadow;
 }
-</style>@/branchmanager/balance/stores@/branchmanager/finances/stores@/branchmanager/analytics/types/chart@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2
+</style>@/branchmanager/balance/stores@/branchmanager/finances/stores@/branchmanager/analytics/types/chart@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index copy

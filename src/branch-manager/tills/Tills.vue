@@ -514,4 +514,4 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2
+@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index2@/branch-manager/finances/stores/index copy
