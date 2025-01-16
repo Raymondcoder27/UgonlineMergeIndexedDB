@@ -45,13 +45,13 @@ function fetchManagerAccounts() {
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
-  managerAccounts.value = store.managerAccounts.slice(startIndex, endIndex);
+  managerAccounts.value = store.managerAccounts?.slice(startIndex, endIndex);
   loading.value = false;
 }
 const paginatedManagersAccounts = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return store.managerAccounts.slice(start, end); // Adjust according to your page & limit
+  return store.managerAccounts?.slice(start, end); // Adjust according to your page & limit
 });
 
 const branchStore = useBranchStore();

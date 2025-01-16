@@ -315,7 +315,7 @@ const paginatedFloatLedgersWithBalance = computed(() => {
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
   fetchFloatLedgers();
-  fetchTransactions();
+  // fetchTransactions();
   // store.fetchFloatLedgers();
 });
 </script>
