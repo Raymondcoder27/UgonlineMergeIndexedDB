@@ -154,7 +154,7 @@ export const useBilling = defineStore("billing", () => {
       status: "pending",
       // status: "success",
       // tillId: payload.tillId,
-            tillId: "Till 1",
+      tillId: "Till 1",
       description: "Till " + payload.tillId,
     })
     //save to localstorage
