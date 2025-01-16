@@ -382,7 +382,7 @@ onMounted(() => {
               ></i>
   <i
                 class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
-                @click="deleteBranch(branch.id)"
+                @click="deleteBranch(till.id)"
               ></i>
             <td class="text-center">
   <span>{{ branch.status }}</span>
