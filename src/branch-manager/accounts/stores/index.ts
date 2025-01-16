@@ -341,7 +341,7 @@ export const useAccounts = defineStore("user-management", () => {
         role: user.role,
         status: user.status,
         createdAt: new Date().toISOString(),
-        emailVerified: true,
+        // emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
         till: till.name, // Include tillId
