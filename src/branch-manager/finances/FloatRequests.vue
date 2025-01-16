@@ -267,6 +267,7 @@ const approveFloatRequestInLocalStorage = (requestId: any) => {
   const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
   const floatRequest = floatRequestsFromLocalStorage.find((request: any) => request.id === requestId);
   floatRequest.status = 'approved';
+  billingStore.approveFloatRequest(requestId);
   localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestsFromLocalStorage));
   console.log(`float request with id ${requestId} approved`);
 };
@@ -275,6 +276,7 @@ const rejectFloatRequestInLocalStorage = (requestId: any) => {
   const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
   const floatRequest = floatRequestsFromLocalStorage.find((request: any) => request.id === requestId);
   floatRequest.status = 'rejected';
+  billingStore.rejectFloatRequest(requestId);
   localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestsFromLocalStorage));
   console.log(`float request with id ${requestId} rejected`);
 };

@@ -236,6 +236,7 @@ export const useBilling = defineStore("billing", () => {
   const saveFloatRequestToLocalStorage = () => {
     localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
   }
+  
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
     floatLedgers.value.push({
