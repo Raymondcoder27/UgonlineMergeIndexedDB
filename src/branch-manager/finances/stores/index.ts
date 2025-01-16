@@ -205,14 +205,14 @@ function allocateFloatFromRequest(requestId: any) {
     });
 
 
-    // allocateFloatFromRequestToLocalStorage.value.push({
-    //   id: allocateFloatFromRequestToLocalStorage.value.length + 1,
-    //   dateAssigned: new Date().toISOString(),
-    //   status: "Allocated",
-    //   payload: floatRequest.amount,
-    //    tillId: floatRequest.till,
-    // })
-    // saveFloatRequestToLocalStorage();
+    allocateFloatFromRequestToLocalStorage.value.push({
+      id: allocateFloatFromRequestToLocalStorage.value.length + 1,
+      dateAssigned: new Date().toISOString(),
+      status: "Allocated",
+      payload: floatRequest.amount,
+       tillId: floatRequest.till,
+    })
+    saveFloatRequestToLocalStorage();
   }
   //save to localstorage
   // allocateFloatFromRequestToLocalStorage.value.push({
@@ -226,11 +226,11 @@ function allocateFloatFromRequest(requestId: any) {
   // saveFloatRequestToLocalStorage();
 }
 
-// const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
+const allocateFloatFromRequestToLocalStorage = ref<FloatRequest[]>([]);
 
-// const saveFloatRequestToLocalStorage = () => {
-//   localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
-// }
+const saveFloatRequestToLocalStorage = () => {
+  localStorage.setItem('allocateFloatFromRequestToLocalStorage', JSON.stringify(allocateFloatFromRequestToLocalStorage.value))
+}
   // allocate float allocation to float ledger array
   function adjustFloatLedger(payload: AllocateFloat) {
     floatLedgers.value.push({
