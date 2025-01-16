@@ -97,9 +97,9 @@ function edit(till: Till) {
 }
 
 //configure branch
-function configure(branch: Till) {
-  localStorage.setItem("branch", JSON.stringify(till));
-  router.push({ name: "till-configuration", params: { id: branch.id } });
+function configure(till: Till) {
+  localStorage.setItem("till", JSON.stringify(till));
+  router.push({ name: "till-configuration", params: { id: till.id } });
 }
 
 function convertDateTime(date: string) {
@@ -166,7 +166,7 @@ watch(
 const paginatedTills = computed(() => {
   const start = (page.value - 1) * limit.value;
   const end = start + limit.value;
-  return tillStore.tills.slice(start, end); // Adjust according to your page & limit
+  return tillStore.tills?.slice(start, end); // Adjust according to your page & limit
 });
 
 // Helper function to assign managers to tills
