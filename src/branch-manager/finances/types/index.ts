@@ -92,6 +92,7 @@ export interface AccountsData {
 
 export interface BackofficeUser {
     id: number;
+    till: string;
     username: string;
     fullName: string;
     role: string;
