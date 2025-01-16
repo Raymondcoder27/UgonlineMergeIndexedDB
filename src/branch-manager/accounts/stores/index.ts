@@ -174,7 +174,7 @@ export const useAccounts = defineStore("user-management", () => {
   // }
 
   // add tillOperator account, push to the tillOperator account array
-  const addTillOperatorAccount = (newManager: TillOperator) => {
+  const addTillOperator = (newManager: TillOperator) => {
     tillOperatorAccounts.value.push(
       {
         // id:  floatAllocations.value.length + 1,
@@ -218,7 +218,7 @@ export const useAccounts = defineStore("user-management", () => {
     ); // Directly add the backoffice to the array
   }
 
-  // const addTillOperatorAccount = (newManager: TillOperator) => {
+  // const addTillOperator = (newManager: TillOperator) => {
   //   tillOperatorAccounts.value.push(newManager); // Directly add the tillOperator to the array
   // }
 
@@ -235,7 +235,7 @@ export const useAccounts = defineStore("user-management", () => {
   }
 
   // Fetch dummy tillOperator accounts
-  const fetchTillOperatorAccounts = async (filter: IGoFilter) => {
+  const fetchTillOperators = async (filter: IGoFilter) => {
     // Here you would normally process the filter if you had real data
     tillOperatorAccounts.value = dummyTillOperatorAccounts;
   }
@@ -402,8 +402,8 @@ export const useAccounts = defineStore("user-management", () => {
     createAccount,
     fetchBackofficeAccounts,
     fetchUserAccounts,
-    fetchTillOperatorAccounts,
-    addTillOperatorAccount,
+    fetchTillOperators,
+    addTillOperator,
     addBackOfficeAccount,
     allocateTillOperator,
     resendAccountVerification
