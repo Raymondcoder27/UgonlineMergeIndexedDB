@@ -172,7 +172,7 @@ onMounted(() => {
         >
           <option :value="null">-- Select Branch --</option>
           <option
-            v-for="(branch, idx) in tillStore.branches"
+            v-for="(branch, idx) in tillStore.tills"
             :key="idx"
             :value="branch.name"
           >
