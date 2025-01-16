@@ -100,7 +100,7 @@ export const useAccounts = defineStore("user-management", () => {
 
 
 
-  // allocate manager to a Till using operatorId
+  // allocate tillOperator to a Till using operatorId
   const allocateTillOperator = (payload: AllocateTillOperator) => {
     tillOperatorAllocations.value.push({
       id: tillOperatorAllocations.value.length + 1,
@@ -111,7 +111,7 @@ export const useAccounts = defineStore("user-management", () => {
     });
 
     // Update the manager's till
-    const manager = tillOperatorAccounts.value.find((manager) => manager.id === payload.operatorId);
+    const tillOperator = tillOperatorAccounts.value.find((manager) => manager.id === payload.operatorId);
     if (manager) {
       manager.till = payload.tillId;
       localStorageManagerAccount.value = manager; // Update the local storage variable
@@ -130,7 +130,7 @@ export const useAccounts = defineStore("user-management", () => {
   // const localStorageTillOperatorAccount = ref<ManagerAccount>();
   const localStorageTillOperatorAccount = ref<TillOperatorAccount[]>([])
 
-  // Save manager to local storage
+  // Save tillOperator to local storage
   // const saveManagerToLocalStorage = () => {
   //   // localStorage.setItem('branchManagerFloatBalance', JSON.stringify(localStorageManagerAccount.value))
   //   localStorage.setItem('tillOperatorAccount', JSON.stringify(localStorageManagerAccount.value))
@@ -142,7 +142,7 @@ export const useAccounts = defineStore("user-management", () => {
       localStorage.setItem('tillOperatorAccount', JSON.stringify(localStorageManagerAccount.value));
       console.log("Manager saved to local storage:", localStorageManagerAccount.value);
     } else {
-      console.warn("No manager account to save to local storage.");
+      console.warn("No tillOperator account to save to local storage.");
     }
   };
 
@@ -171,7 +171,7 @@ export const useAccounts = defineStore("user-management", () => {
   //   })
   // }
 
-  // add manager account, push to the manager account array
+  // add tillOperator account, push to the tillOperator account array
   const addTillOperatorAccount = (newManager: ManagerAccount) => {
     tillOperatorAccounts.value.push(
       {
@@ -217,7 +217,7 @@ export const useAccounts = defineStore("user-management", () => {
   }
 
   // const addTillOperatorAccount = (newManager: ManagerAccount) => {
-  //   tillOperatorAccounts.value.push(newManager); // Directly add the manager to the array
+  //   tillOperatorAccounts.value.push(newManager); // Directly add the tillOperator to the array
   // }
 
   // Fetch dummy user accounts
@@ -232,7 +232,7 @@ export const useAccounts = defineStore("user-management", () => {
     backofficeAccounts.value = dummyBackofficeAccounts;
   }
 
-  // Fetch dummy manager accounts
+  // Fetch dummy tillOperator accounts
   const fetchTillOperatorAccounts = async (filter: IGoFilter) => {
     // Here you would normally process the filter if you had real data
     tillOperatorAccounts.value = dummyTillOperatorAccounts;
@@ -273,7 +273,7 @@ export const useAccounts = defineStore("user-management", () => {
   //   loading.value = false;
   // }
 
-  //use the manager id to assign a manager to a till
+  //use the tillOperator id to assign a tillOperator to a till
   // const assignManager = (payload: AssignManager) => {
   // const assignManager = (userId: string) => {
   //   const user = userAccounts.value?.find(userId => user.id === userId.userId);
@@ -296,7 +296,7 @@ export const useAccounts = defineStore("user-management", () => {
   //   }
   // };
 
-  // assign manager to a till
+  // assign tillOperator to a till
   // const assignManager = (userId: string) => {
   //   console.log('User ID:', userId); // Debugging log
 
@@ -372,7 +372,7 @@ export const useAccounts = defineStore("user-management", () => {
 
 
 
-  // push new assigned manager tillOperators array
+  // push new assigned tillOperator tillOperators array
   // const assignManager = (payload: AssignManager) => {
   //   tillOperatorAccounts.value.push({
   //     firstName: payload.firstName,
