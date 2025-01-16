@@ -56,7 +56,7 @@ const jumpToPage = () => {
 
 // Helper function to get manager by branch
 const getOperatorByTill = (tillName) => {
-  return accountStore.managerAccounts.find(
+  return accountStore.tillOperatorAccounts.find(
     (operator) => operator.till === tillName
   );
 };
