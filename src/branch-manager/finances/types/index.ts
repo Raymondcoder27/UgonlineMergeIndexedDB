@@ -70,6 +70,7 @@ export interface FloatRequest {
 export interface FloatAllocation {
   // id: string;
   id: number;
+  till: string;
   dateAssigned: string;
   amount: number;
   status: string;
