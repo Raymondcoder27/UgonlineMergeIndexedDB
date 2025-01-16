@@ -14,8 +14,6 @@ import RequestFloat from "@/agentdomain/ledger/components/RequestFloat.vue";
 import { useBalance } from "@/agentdomain/balance/stores";
 const balanceStore = useBalance();
 
-
-
 const pageInput = ref(1);
 const changePageSize = () => {
   page.value = 1;
@@ -59,8 +57,6 @@ const loading: Ref<boolean> = ref(false);
 const totalRecords = computed(() => store.floatLedgers.length); // Total backofficeAccounts
 const totalPages = computed(() => Math.ceil(totalRecords.value / limit.value));
 const floatLedgers: Ref<any[]> = ref([]);
-
-
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
@@ -277,7 +273,6 @@ const paginatedFloatLedgersWithBalance = computed(() => {
   });
 });
 
-
 // watch(
 //   computedTransactions,
 //   (transactions) => {
@@ -320,6 +315,7 @@ const paginatedFloatLedgersWithBalance = computed(() => {
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
   fetchFloatLedgers();
+  fetchTransactions();
   // store.fetchFloatLedgers();
 });
 </script>
@@ -410,7 +406,7 @@ onMounted(() => {
           </thead>
           <tbody>
             <tr
-              v-for="transaction, idx in paginatedFloatLedgersWithBalance"
+              v-for="(transaction, idx) in paginatedFloatLedgersWithBalance"
               :key="transaction.id"
               class="body-tr"
             >
@@ -545,69 +541,72 @@ onMounted(() => {
         </table>
       </div> -->
 
-      <div v-if="showPagination" class="flex text-xs mt-auto justify-center items-center">
-      <div class="w-full border-t border-b border-gray-50">
-        <div class="flex gap-2 items-center">
-          <!-- Previous Button -->
-          <button
-            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
-            :disabled="page <= 1"
-            @click="previous"
-          >
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
+      <div
+        v-if="showPagination"
+        class="flex text-xs mt-auto justify-center items-center"
+      >
+        <div class="w-full border-t border-b border-gray-50">
+          <div class="flex gap-2 items-center">
+            <!-- Previous Button -->
+            <button
+              class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+              :disabled="page <= 1"
+              @click="previous"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
 
-          <!-- Current Page / Total Pages -->
-          <div class="py-1">
-            <span class="px-2 py-1 bg-primary rounded text-white">{{
-              page
-            }}</span>
-            <label class="mx-1 text-gray-400">/</label>
-            <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
-              {{ totalPages }}
+            <!-- Current Page / Total Pages -->
+            <div class="py-1">
+              <span class="px-2 py-1 bg-primary rounded text-white">{{
+                page
+              }}</span>
+              <label class="mx-1 text-gray-400">/</label>
+              <span class="px-2 py-1 bg-primary-50 rounded text-primary-600">
+                {{ totalPages }}
+              </span>
+            </div>
+            <button
+              class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="{
+                'opacity-50 cursor-not-allowed': floatLedgers.length < limit,
+              }"
+              :disabled="floatLedgers.length < limit"
+              @click="next"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Jump to Page -->
+            <label>Page</label>
+            <input
+              type="number"
+              placeholder="Page"
+              class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+              v-model.number="pageInput"
+              @change="jumpToPage"
+            />
+
+            <!-- Adjust Page Size -->
+            <label>Page Size</label>
+            <input
+              type="number"
+              placeholder="Page Size"
+              class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
+              v-model.number="limit"
+              @change="changePageSize"
+            />
+
+            <!-- Total Records -->
+            <span
+              class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
+            >
+              Total Records: {{ totalRecords }}
             </span>
           </div>
-          <button
-            class="px-1 py-0.5 text-red-600 rounded-md hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            :class="{
-              'opacity-50 cursor-not-allowed': floatLedgers.length < limit,
-            }"
-            :disabled="floatLedgers.length < limit"
-            @click="next"
-          >
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-
-          <!-- Jump to Page -->
-          <label>Page</label>
-          <input
-            type="number"
-            placeholder="Page"
-            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
-            v-model.number="pageInput"
-            @change="jumpToPage"
-          />
-
-          <!-- Adjust Page Size -->
-          <label>Page Size</label>
-          <input
-            type="number"
-            placeholder="Page Size"
-            class="form-element-lean bg-primary-50 font-bold text-center mx-1 w-12"
-            v-model.number="limit"
-            @change="changePageSize"
-          />
-
-          <!-- Total Records -->
-          <span
-            class="my-auto mx-2 bg-primary-50 px-3 py-1 rounded text-primary"
-          >
-            Total Records: {{ totalRecords }}
-          </span>
         </div>
       </div>
-    </div>
     </div>
 
     <!-- Modal -->
