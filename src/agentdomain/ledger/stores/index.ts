@@ -1,200 +1,108 @@
-// domain/billing/stores.ts
-
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import moment from "moment";
+import { db } from "@/db/db"; // Your IndexedDB utility
 import type { Transaction, FloatLedger, FloatRequest, RequestFloat } from "@/agentdomain/billing/types";
 
 export const useBilling = defineStore("billing", () => {
-  // Dummy data for testing
-  const dummyTransactions: Transaction[] = [
-    { id: 1, amount: 100, description: "Sample Transaction 1" },
-    { id: 2, amount: 200, description: "Sample Transaction 2" },
-    { id: 3, amount: 300, description: "Sample Transaction 3" },
-  ];
-
-  // const dummyFloatLedgers: FloatLedger[] = [
-  //   { id: 1, name: "Sample FloatLedger 1", balance: 500 },
-  //   { id: 2, name: "Sample FloatLedger 2", balance: 1000 },
-  //   { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
-  // ];
-
-
-  const dummyFloatLedgers: FloatLedger[] = [
-    //15000000 recharge
-    { id: 1, description: "Recharge", amount: 15000000, balance: 15000000, status: "success", date: "2021-09-01", },
-    { id: 1, description: "Service fee", amount: -25000, balance: 5000000, status: "success", date: "2021-09-01", },
-    { id: 2, description: "Recharge", amount: 500000, balance: 5500000, status: "success", date: "2021-09-02", },
-    { id: 3, description: "Service fee", amount: -40000, balance: 5460000, status: "pending", date: "2021-09-03", },
-    { id: 4, description: "Service fee", amount: -30000, balance: 5430000, status: "failed", date: "2021-09-04", },
-  ];
-
-  // dummy float requests
-  const dummyFloatRequests: FloatRequest[] = [
-    { id: 1, requestDate: "2021-09-01", amount: 15000000, status: "pending", branchId: 1 },
-    { id: 2, requestDate: "2021-09-02", amount: 500000, status: "approved", branchId: 2 },
-    { id: 3, requestDate: "2021-09-03", amount: 40000, status: "rejected", branchId: 3 },
-    { id: 4, requestDate: "2021-09-04", amount: 30000, status: "pending", branchId: 4 },
-  ];
-
   // State variables
-  const transactions = ref<Transaction[]>(dummyTransactions); // Use dummy data for now
+  const transactions = ref<Transaction[]>([]);
   const totalAmount = ref(600); // Set a test value
   const totalBalance = ref(3000); // Set a test value
-  const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
+  const floatLedgers = ref<FloatLedger[]>([]);
+  const floatRequests = ref<FloatRequest[]>([]);
 
-  // const allocateFloatFromRequestToLocalStorage = JSON.parse(localStorage.getItem('allocateFloatFromRequestToLocalStorage') || '0');
-
-  // if (allocateFloatFromRequestToLocalStorage) {
-  //   floatLedgers.value = allocateFloatFromRequestToLocalStorage;
-  // }
-
-
-  // Actions to fetch data
-  // async function fetchTransactions(filter: any) {
-  //   // Simulate API call
-  //   // const response = await fetch(`/api/transactions?limit=${filter.limit}&page=${filter.page}`);
-  //   // const data = await response.json();
-  //   // Use dummy data for now
-  //   transactions.value = dummyTransactions;
-  //   totalAmount.value = 600;  // Set a test value
-  //   totalBalance.value = 3000; // Set a test value
-  // }
-
+  // Fetch transactions from IndexedDB
   async function fetchTransactions(filter: any) {
-    const filteredData = dummyTransactions.filter(transaction => {
-      return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
-        (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
-        (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
-        (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
-        (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
-    });
+    try {
+      const storedTransactions = await db.getAll<Transaction>(); // Get all transactions from IndexedDB
+      const filteredData = storedTransactions.filter(transaction => {
+        return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
+          (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
+          (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
+          (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
+          (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
+      });
 
-
-    transactions.value = filteredData;
-    console.log("Filtered transactions:", filteredData);
+      transactions.value = filteredData;
+      console.log("Filtered transactions:", filteredData);
+    } catch (error) {
+      console.error("Error fetching transactions:", error);
+    }
   }
 
-
-
-  // async function fetchFloatLedgers(filter: any) {
-  //   // Simulate API call
-  //   // const response = await fetch(`/api/float-ledgers?limit=${filter.limit}&page=${filter.page}`);
-  //   // const data = await response.json();
-  //   // Use dummy data for now
-  //   floatLedgers.value = dummyFloatLedgers;
-  // }
-
-  // async function fetchFloatLedgers(filter: any) {
-  //   // Simulate filtering with dummy data
-  //   const filteredData = dummyFloatLedgers.filter(item => {
-  //     // Example: filter by status
-  //     return !filter.status || item.status === filter.status;
-  //   }).slice(0, filter.limit || dummyFloatLedgers.length);
-
-  //   floatLedgers.value = filteredData;
-  // }
-
+  // Fetch float ledgers from IndexedDB
   async function fetchFloatLedgers(filter: any) {
-    console.log("Fetching Float Ledgers with filter:", filter);
+    try {
+      const storedFloatLedgers = await db.getAll<FloatLedger>(); // Get all float ledgers from IndexedDB
+      const filteredData = storedFloatLedgers.filter(item => {
+        // Apply filters...
+      });
 
-    const filteredData = dummyFloatLedgers.filter(item => {
-      // Filter logic...
-    });
-
-    const limitedData = filteredData.slice(0, filter.limit || dummyFloatLedgers.length);
-    floatLedgers.value = limitedData;
-    console.log("Filtered float ledgers:", limitedData);
-    return limitedData;  // Add this return to make the data available for use
+      const limitedData = filteredData.slice(0, filter.limit || storedFloatLedgers.length);
+      floatLedgers.value = limitedData;
+      console.log("Filtered float ledgers:", limitedData);
+      return limitedData;
+    } catch (error) {
+      console.error("Error fetching float ledgers:", error);
+    }
   }
 
+  // Request float and save it to IndexedDB
+  async function requestFloat(payload: RequestFloat) {
+    try {
+      const newRequest: FloatRequest = {
+        id: floatRequests.value.length + 1,
+        requestDate: new Date().toISOString(),
+        amount: payload.amount,
+        status: "pending",
+        tillId: "Till 1",
+        branchId: payload.branchId, // Adjust as needed
+      };
 
+      await db.set(newRequest.id, newRequest); // Save to IndexedDB
+      floatRequests.value.push(newRequest);
 
-
-  // allocate float function, push to the float allocation array
-  //  function allocateFloat(payload: AllocateFloat) {
-  //   floatAllocations.value.push({
-  //     id: floatAllocations.value.length + 1,
-  //     dateAssigned: new Date().toISOString(),
-  //     amount: payload.amount,
-  //     status: "Allocated",
-  //     branch: payload.branchId,
-  //   })
-  // }
-
-  //first make float requests array with statuses: pending, approved, rejected
-  const floatRequests = ref<FloatRequest[]>(dummyFloatRequests);
-
-  //fetch float requests
-  async function fetchFloatRequests() {
-    // Simulate API call
-    // const response = await fetch(`/api/float-requests?limit=${filter.limit}&page=${filter.page}`);
-    // const data = await response.json();
-    // Use dummy data for now
-    floatRequests.value = dummyFloatRequests;
+      console.log("Request saved to IndexedDB", newRequest);
+    } catch (error) {
+      console.error("Error saving float request:", error);
+    }
   }
 
-  // allocate float function, push to the float allocation array
-  //  function allocateFloat(payload: AllocateFloat) {
-  //   floatAllocations.value.push({
-  //     id: floatAllocations.value.length + 1,
-  //     dateAssigned: new Date().toISOString(),
-  //     amount: payload.amount,
-  //     status: "Allocated",
-  //     branch: payload.branchId,
-  //   })
-  // }
+  // Adjust float ledger and update IndexedDB
+  async function adjustFloatLedger(payload: RequestFloat) {
+    try {
+      const newLedger: FloatLedger = {
+        id: floatLedgers.value.length + 1,
+        date: new Date().toISOString(),
+        description: payload.description,
+        amount: payload.amount,
+        balance: totalBalance.value + payload.amount,
+        status: "pending", // Adjust as needed
+      };
 
-  // request float function, push to the float requests array
-  function requestFloat(payload: RequestFloat) {
-    floatRequests.value.push({
-      id: floatRequests.value.length + 1,
-      requestDate: new Date().toISOString(),
-      amount: payload.amount,
-      status: "pending",
-      // status: "success",
-      // tillId: payload.tillId,
-      tillId: "Till 1",
-      description: "Till " + payload.tillId,
-    })
-    //save to localstorage
-    floatRequestToBranchManagerLocalStorage.value.push({
-      id: floatRequests.value.length + 1,
-      requestDate: new Date().toISOString(),
-      amount: payload.amount,
-      status: "pending",
-      // tillId: payload.tillId,
-      tillId: "Till 1",
-      branch: "Branch 1"
-    })
-    saveFloatRequestToLocalStorage();
-    saveRequestToLocalStorageTillCopy();
+      await db.set(newLedger.id, newLedger); // Save to IndexedDB
+      floatLedgers.value.push(newLedger);
+
+      console.log("Float ledger adjusted and saved to IndexedDB", newLedger);
+    } catch (error) {
+      console.error("Error adjusting float ledger:", error);
+    }
   }
 
-  const floatRequestToBranchManagerLocalStorage = ref<FloatRequest[]>([]);
-  const floatRequestToLocalStorageTillCopy = ref<FloatRequest[]>([]);
+  // Add transactions to IndexedDB and store
+  async function addTransaction(newTransaction: Omit<Transaction, "id">) {
+    try {
+      const id = transactions.value.length ? transactions.value[transactions.value.length - 1].id + 1 : 1;
+      const transactionWithId: Transaction = { ...newTransaction, id };
+      await db.set(transactionWithId.id, transactionWithId);
+      transactions.value.push(transactionWithId);
 
-  const saveFloatRequestToLocalStorage = () => {
-    localStorage.setItem('floatRequestToBranchManagerLocalStorage', JSON.stringify(floatRequestToBranchManagerLocalStorage.value))
+      console.log("Transaction added to IndexedDB", transactionWithId);
+    } catch (error) {
+      console.error("Error adding transaction:", error);
+    }
   }
-
-  const saveRequestToLocalStorageTillCopy = () => {
-    localStorage.setItem('requestToLocalStorageTillCopy', JSON.stringify(floatRequestToLocalStorageTillCopy.value))
-  }
-
-  // adjust float ledgers with float request
-  function adjustFloatLedger(payload: RequestFloat) {
-    floatLedgers.value.push({
-      id: floatLedgers.value.length + 1,
-      date: new Date().toISOString(),
-      description: payload.description,
-      amount: payload.amount,
-      balance: totalBalance.value + payload.amount,
-      status: "pending",
-      // status: "success",
-    })
-  }
-
 
   return {
     transactions,
@@ -202,10 +110,10 @@ export const useBilling = defineStore("billing", () => {
     totalBalance,
     floatLedgers,
     floatRequests,
-    requestFloat,
-    adjustFloatLedger,
-    fetchFloatRequests,
     fetchTransactions,
     fetchFloatLedgers,
+    requestFloat,
+    adjustFloatLedger,
+    addTransaction,
   };
 });
