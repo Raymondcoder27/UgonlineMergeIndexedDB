@@ -86,13 +86,13 @@ async function approveFloatRequest(requestId: any) {
 // }
 
   // use request in floatledgers array id to figure out amount 
-  const floatRequest = billingStore.floatRequests.find(
-    (request) => request.id === requestId
-  );
-  if (!floatRequest) {
-    console.error("Float request not found");
-    return;
-  }
+  // const floatRequest = billingStore.floatRequests.find(
+  //   (request) => request.id === requestId
+  // );
+  // if (!floatRequest) {
+  //   console.error("Float request not found");
+  //   return;
+  // }
   // console.log("Float request approved:", data);
   totalBalance.prevBalance = totalBalance.currentBalance;
   totalBalance.currentBalance -= floatRequest.amount; // Example of updating balance
