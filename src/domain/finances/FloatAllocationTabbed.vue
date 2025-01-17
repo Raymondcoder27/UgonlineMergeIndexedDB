@@ -180,7 +180,7 @@ function select(tab: string) {
 <template>
   <!-- <h2>Transactions</h2>
     </ul> -->
-  <div class=" shadow-lg bg-white rounded p-2 h-full flex flex-col">
+  <div class="shadow-lg bg-white rounded p-2 h-full flex flex-col">
     <!-- <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div
@@ -287,54 +287,46 @@ function select(tab: string) {
         </tbody>
       </table>
     </div> -->
-    
-    
-
-
-
-
-
-
 
     <div class="flex">
-    <div class="w-2/12 py-3 text-xs">
-      <div
-        :class="activeTab == 'branch1Ledger' ? 'tab-active' : 'tab'"
-        @click="select('branch1Ledger')"
-      >
-        <div class="w-full py-2 my-auto">
-          <label class="p-3">Branch 1</label>
-          <i
-            class="fa-solid fa-building float-right px-2 py-1"
-            v-if="activeTab == 'branch1Ledger'"
-          ></i>
+      <div class="w-2/12 py-3 text-xs">
+        <div
+          :class="activeTab == 'branch1Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch1Ledger')"
+        >
+          <div class="w-full py-2 my-auto">
+            <label class="p-3">Branch 1</label>
+            <i
+              class="fa-solid fa-building float-right px-2 py-1"
+              v-if="activeTab == 'branch1Ledger'"
+            ></i>
+          </div>
         </div>
-      </div>
-      <div
-        :class="activeTab == 'branch2Ledger' ? 'tab-active' : 'tab'"
-        @click="select('branch2Ledger')"
-      >
-        <div class="w-full py-2">
-          <label class="p-3">Branch 2</label>
-          <i
-            class="fa-solid fa-fa-building float-right px-1 py-1"
-            v-if="activeTab == 'branch2Ledger'"
-          ></i>
+        <div
+          :class="activeTab == 'branch2Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch2Ledger')"
+        >
+          <div class="w-full py-2">
+            <label class="p-3">Branch 2</label>
+            <i
+              class="fa-solid fa-fa-building float-right px-1 py-1"
+              v-if="activeTab == 'branch2Ledger'"
+            ></i>
+          </div>
         </div>
-      </div>
-      <div
-        :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
-        @click="select('branch3Ledger')"
-      >
-        <div class="w-full py-2">
-          <label class="p-3">Branch 3</label>
-          <i
-            class="fa-solid fa-fa-building float-right px-2 py-1"
-            v-if="activeTab == 'branch3Ledger'"
-          ></i>
+        <div
+          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch3Ledger')"
+        >
+          <div class="w-full py-2">
+            <label class="p-3">Branch 3</label>
+            <i
+              class="fa-solid fa-fa-building float-right px-2 py-1"
+              v-if="activeTab == 'branch3Ledger'"
+            ></i>
+          </div>
         </div>
-      </div>
-      <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
+        <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
           <div class="w-full py-1">
             <label class="p-3">Revenue</label>
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
@@ -346,19 +338,16 @@ function select(tab: string) {
             <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'users'"></i>
           </div>
         </div> -->
-    </div>
-    <div class="w-10/12 py-1">
-      <Branch1Ledger v-if="activeTab == 'branch1Ledger'" />
-      <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
-      <!-- <ApplicationsLineGraph v-if="activeTab == 'services'" />
+      </div>
+      <div class="w-10/12 py-1">
+        <Branch1Ledger v-if="activeTab == 'branch1Ledger'" />
+        <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
+        <!-- <ApplicationsLineGraph v-if="activeTab == 'services'" />
       <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
       <RevenueStatistics v-if="activeTab == 'revenue'" />
       <UserStatistics v-if="activeTab == 'users'" /> -->
+      </div>
     </div>
-  </div>
-
-
-
 
     <!-- <div class="flex text-xs mt-auto"> -->
     <div v-if="showPagination" class="flex text-xs mt-auto">
