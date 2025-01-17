@@ -269,9 +269,7 @@ watch(
 <template>
   <!-- <div class=""> -->
   <!-- Header -->
-  <div class="max-w-7xl mx-auto bg-white flex flex-col p-2 min-h-[60vh]">
-   
-
+  <div class="max-w-7xl mx-auto bg-white flex flex-col px-2 min-h-[60vh]">
     <!-- Table -->
     <!-- Table -->
     <div class="flex">
@@ -283,6 +281,7 @@ watch(
             <th class="t-header">Type</th>
             <th class="text-right t-header">Amount</th>
             <th class="text-right t-header">Balance</th>
+            <th class="text-right t-header">Balance2</th>
           </tr>
         </thead>
         <thead v-if="loading">
