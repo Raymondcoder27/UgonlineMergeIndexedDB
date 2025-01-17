@@ -120,7 +120,8 @@ const mergedRoutes: RouteRecordRaw[] = [
     path: "/agent",
     name: "app-home2",
     component: AgentLayout,
-    meta: { requiresAuth: true },
+    // meta: { requiresAuth: true },/
+    meta: { requiresAuth: true, title: "Till Operator Portal" },
     // redirect: "/agent/services",
     redirect: "/agent/api-services",
     children: [
