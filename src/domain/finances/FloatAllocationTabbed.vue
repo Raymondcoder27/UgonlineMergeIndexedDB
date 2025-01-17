@@ -387,7 +387,7 @@ function select(tab: string) {
         </div> -->
     </div>
     <div class="w-10/12 py-1">
-      <ProviderStatisticsBarChart v-if="activeTab == 'providers'" />
+      <Branch1Ledger v-if="activeTab == 'branch1ledger'" />
       <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
       <ApplicationsLineGraph v-if="activeTab == 'services'" />
       <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
