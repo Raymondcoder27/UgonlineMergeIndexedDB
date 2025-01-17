@@ -1,7 +1,7 @@
 import { createStore, get, set, del, keys, clear } from "idb-keyval";
 
 // Create a custom IndexedDB store for the billing module
-const billingStore = createStore("branch-manager-billing-database", "billing-store");
+const billingStore = createStore("branchmanager-billing-database", "billing-store");
 
 // Database abstraction for CRUD operations
 export const db = {
