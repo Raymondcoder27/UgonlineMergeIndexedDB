@@ -228,7 +228,7 @@ function select(tab: string) {
               </div>
             </div>
           </div>
-          <div class="">
+          <!-- <div class="">
             <button
               @click="modalOpen = true"
               class="button btn-sm"
@@ -236,7 +236,7 @@ function select(tab: string) {
             >
               <i class="px-1 fa-solid fa-plus"></i> Allocate Float
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
