@@ -5,6 +5,7 @@ import { ref, type Ref } from "vue";
 
 import FloatLedgers from "@/domain/finances/FloatLedgers.vue";
 import FloatManagement from "@/domain/finances/FloatAllocation.vue";
+import FloatAllocationTabbed from "@/domain/finances/FloatAllocationTabbed.vue";
 import Transactions from "@/domain/finances/Transactions.vue";
 import FloatRequests from "@/domain/finances/FloatRequests.vue";
 import { useBalance } from "@/domain/balance/stores";
@@ -18,7 +19,7 @@ const totalBalance = balanceStore.totalBalance;
 // const availableFloat = balanceStore.availableFloat;
 const finalFloat = balanceStore.finalFloat;
 
-const activeTab: Ref<string> = ref("floatmanagement");
+const activeTab: Ref<string> = ref("floatrequests");
 
 function select(tab: string) {
   activeTab.value = tab;
