@@ -185,7 +185,7 @@ function select(tab: string) {
       </li>
     </ul> -->
   <div class="w-full shadow-lg bg-white rounded p-2 h-full flex flex-col">
-    <div class="flex space-x-2 my-1 pt-1 pb-3">
+    <!-- <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div
           class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
@@ -229,25 +229,15 @@ function select(tab: string) {
               </div>
             </div>
           </div>
-          <!-- <div class="">
-            <button
-              @click="modalOpen = true"
-              class="button btn-sm"
-              type="button"
-            >
-              <i class="px-1 fa-solid fa-plus"></i> Allocate Float
-            </button>
-          </div> -->
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="flex my-1">
+    <!-- <div class="flex my-1">
       <table class="table">
         <thead>
           <tr class="header-tr">
             <th class="t-header">#</th>
-            <!-- <th class="t-header" width="30%">Names</th> -->
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
             <th class="text-left">Status</th>
@@ -257,51 +247,28 @@ function select(tab: string) {
           </tr>
         </thead>
         <tbody>
-          <!-- <tr
-            v-for="(assignment, idx) in billingStore.floatAllocations"
-            :key="idx"
-          > -->
           <tr v-for="(assignment, idx) in paginatedfloatAllocations" :key="idx">
             <td>{{ idx + 1 }}</td>
-            <!-- <td>
-              <label class="font-bold py-1">{{
-                manager.fullName
-              }}</label>
-            </td> -->
             <td class="text-left">{{ assignment.branch }}</td>
-            <!-- <td class="text-left">Branch Balance{{ assignment.branchBalance.toLocaleString() }}</td> -->
-            <!-- <td class="text-left">Branch Balance</td> -->
             <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
-            <!-- <td class="text-left text-center">{{ assignment.status }}</td> -->
-            <!-- use v-if, v-else-if and v-else to allocate depending on whether it was allocated, pending or failed -->
             <td class="text-left">
-              <!-- First Case: float request approved -->
               <div v-if="assignment.status === 'pending'">
-                <!-- <td> -->
-                <!-- <label> -->
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-gray-200"
                   >Pending</span
                 >
-                <!-- </label> -->
-                <!-- </td> -->
               </div>
 
-              <!-- Second Case: Manager directly assigned to branch -->
               <div v-else-if="assignment.status === 'failed'">
-                <!-- <td> -->
                 <label>
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                     >Failed</span
                   >
                 </label>
-                <!-- </td> -->
               </div>
 
-              <!-- Third Case: Fallback, no manager assigned -->
               <div v-else>
-                <!-- <td> -->
                 <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
                   >Allocated</span
@@ -312,21 +279,18 @@ function select(tab: string) {
               {{ convertDateTime(assignment.createdAt) }}
             </td>
             <td class="text-right">
-              <!-- <div class="" v-if="transaction.status === 'rejected'"> -->
                   <span
                     class="bg-green-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-green-800"
                     @click="confirm(transaction)"
                   >
-                    <!-- <i class="fa fa-redo"></i> -->
                     <i class="fa fa-eye"></i>
                     View Details
                   </span>
-                <!-- </div> -->
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
     
     
 
@@ -388,7 +352,7 @@ function select(tab: string) {
         </div> -->
     </div>
     <div class="w-10/12 py-1">
-      <Branch1Ledger v-if="activeTab == 'branch1ledger'" />
+      <Branch1Ledger v-if="activeTab == 'branch1Ledger'" />
       <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
       <!-- <ApplicationsLineGraph v-if="activeTab == 'services'" />
       <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
