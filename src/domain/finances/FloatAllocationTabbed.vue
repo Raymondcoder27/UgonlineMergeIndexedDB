@@ -332,38 +332,38 @@ watch(
     <div class="flex">
     <div class="w-3/12 py-3 text-xs">
       <div
-        :class="activeTab == 'providers' ? 'tab-active' : 'tab'"
-        @click="select('providers')"
+        :class="activeTab == 'branch1Ledger' ? 'tab-active' : 'tab'"
+        @click="select('branch1Ledger')"
       >
         <div class="w-full py-2 my-auto">
           <label class="p-3">Branch 1</label>
           <i
             class="fa-solid fa-handshake float-right px-2 py-1"
-            v-if="activeTab == 'providers'"
+            v-if="activeTab == 'branch1Ledger'"
           ></i>
         </div>
       </div>
       <div
-        :class="activeTab == 'services' ? 'tab-active' : 'tab'"
-        @click="select('services')"
+        :class="activeTab == 'branch2Ledger' ? 'tab-active' : 'tab'"
+        @click="select('branch2Ledger')"
       >
         <div class="w-full py-2">
           <label class="p-3">Branch 2</label>
           <i
             class="fa-solid fa-chart-area float-right px-1 py-1"
-            v-if="activeTab == 'services'"
+            v-if="activeTab == 'branch2Ledger'"
           ></i>
         </div>
       </div>
       <div
-        :class="activeTab == 'serviceStatusPieChart' ? 'tab-active' : 'tab'"
-        @click="select('serviceStatusPieChart')"
+        :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
+        @click="select('branch3Ledger')"
       >
         <div class="w-full py-2">
           <label class="p-3">Branch 3</label>
           <i
             class="fa-solid fa-chart-pie float-right px-2 py-1"
-            v-if="activeTab == 'serviceStatusPieChart'"
+            v-if="activeTab == 'branch3Ledger'"
           ></i>
         </div>
       </div>
