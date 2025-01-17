@@ -324,7 +324,7 @@ onMounted(() => {
   <div class="">
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white p-2 flex flex-col min-h-[85vh]">
-      <div class="flex space-x-2 my-1 pt-1 pb-3">
+      <!-- <div class="flex space-x-2 my-1 pt-1 pb-3">
         <div class="flex-grow">
           <div
             class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
@@ -339,8 +339,6 @@ onMounted(() => {
                     @change="fetchFloatLedgers"
                   >
                     <option value="">All Transactions</option>
-                    <!-- <option value="Recharge">Recharge</option>
-                <option value="serviceFee">Service Fee</option> -->
                     <option value="recharge">Recharge</option>
                     <option value="service_fee">Service Fee</option>
                   </select>
@@ -378,7 +376,7 @@ onMounted(() => {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-1">
         <table class="table w-full">
