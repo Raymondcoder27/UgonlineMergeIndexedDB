@@ -109,7 +109,8 @@ function select(tab: string) {
         <!-- <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <UserAccounts v-if="activeTab == 'users'" /> -->
         <Transactions v-if="activeTab == 'transactions'" />
-        <FloatManagement v-if="activeTab == 'floatmanagement'" />
+        <!-- <FloatManagement v-if="activeTab == 'floatmanagement'" /> -->
+        <FloatAllocationTabbed v-if="activeTab == 'floatmanagement'" />
         <FloatLedgers v-if="activeTab == 'floatledgers'" />
         <FloatRequests v-if="activeTab == 'floatrequests'" />
       </div>
