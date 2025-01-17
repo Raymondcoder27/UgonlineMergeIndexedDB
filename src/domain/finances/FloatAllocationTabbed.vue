@@ -309,7 +309,7 @@ function select(tab: string) {
         <div class="w-full py-2 my-auto">
           <label class="p-3">Branch 1</label>
           <i
-            class="fa-solid fa-handshake float-right px-2 py-1"
+            class="fa-solid fa-building float-right px-2 py-1"
             v-if="activeTab == 'branch1Ledger'"
           ></i>
         </div>
@@ -321,7 +321,7 @@ function select(tab: string) {
         <div class="w-full py-2">
           <label class="p-3">Branch 2</label>
           <i
-            class="fa-solid fa-chart-area float-right px-1 py-1"
+            class="fa-solid fa-fa-building float-right px-1 py-1"
             v-if="activeTab == 'branch2Ledger'"
           ></i>
         </div>
@@ -333,7 +333,7 @@ function select(tab: string) {
         <div class="w-full py-2">
           <label class="p-3">Branch 3</label>
           <i
-            class="fa-solid fa-chart-pie float-right px-2 py-1"
+            class="fa-solid fa-fa-building float-right px-2 py-1"
             v-if="activeTab == 'branch3Ledger'"
           ></i>
         </div>
