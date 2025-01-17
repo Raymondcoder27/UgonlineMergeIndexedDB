@@ -263,7 +263,8 @@ watch(
               }}</label>
             </td> -->
             <td class="text-left">{{ assignment.branch }}</td>
-            <td class="text-left">Branch Balance{{ assignment.branchBalance.toLocaleString() }}</td>
+            <!-- <td class="text-left">Branch Balance{{ assignment.branchBalance.toLocaleString() }}</td> -->
+            <td class="text-left">Branch Balance</td>
             <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
             <!-- <td class="text-left text-center">{{ assignment.status }}</td> -->
             <!-- use v-if, v-else-if and v-else to allocate depending on whether it was allocated, pending or failed -->
