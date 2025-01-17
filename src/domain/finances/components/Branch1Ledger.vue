@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch, computed, type Ref } from "vue";
 // import { useBilling } from "@/branch-manager/finances/stores"; // Import the appropriate store
-import { useBilling } from "@/branch-manager/finances/dymmystore"; // Import the appropriate store
+import { useBilling } from "@/branch-manager/finances/dummystore"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import type {
   Transaction,
