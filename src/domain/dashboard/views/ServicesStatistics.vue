@@ -293,47 +293,9 @@ function select(tab: string) {
       <UserStatistics v-if="activeTab == 'users'" />
     </div>
   </div>
+
   <div class="flex px-2">
     <div class="w-full border-r border-gray-200 px-2">
-      <div class="flex">
-        <div class="w-full">
-          <!-- <div class="flex my-2">
-            <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">60</p>
-              <p class="text-xs">Total Services</p>
-            </div>
-            <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">50</p>
-              <p class="text-xs">Active</p>
-            </div>
-            <div class="w-2/12 count">
-              <p class="text-xl font-bold py-2">10</p>
-              <p class="text-xs">Inactive</p>
-            </div>
-          </div> -->
-        </div>
-      </div>
-      <!-- <div class="flex">
-        <div class="w-full">
-          <ServicesByProvidersBarChart
-            title="Distribution of Services by Provider"
-            :graph-data="serviceDistributionByProvider"
-            :is-horizontal="false"
-            :labels="labelExtractor(serviceDistributionByProvider[0].data)"
-          />
-        </div>
-      </div>
-
-      <div class="flex">
-        <div class="w-full">
-          <ServicesByProvidersBarChart
-            title="Distribution of Service Applications by provider"
-            :graph-data="applicationDistributionByProvider"
-            :is-horizontal="false"
-            :labels="labelExtractor(applicationDistributionByProvider[0].data)"
-          />
-        </div>
-      </div> -->
       <div class="flex">
         <div class="w-full">
           <div class="flex">
