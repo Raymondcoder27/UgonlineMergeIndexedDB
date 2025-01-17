@@ -18,12 +18,12 @@ export const useBalance = defineStore("balance", () => {
     currentBalance: 300000000, // Initial current balance
   });
 
-  const availableFloat = reactive({
+  const availableFloat = reactive<TotalBalance>({
     prevAvailableFloat: 300000000,
     currentAvailableFloat: 300000000,
   });
 
-  const finalFloat = reactive({
+  const finalFloat = reactive<TotalBalance>({
     prevFinalFloat: 126000000,
     currentFinalFloat: 126000000,
   });
