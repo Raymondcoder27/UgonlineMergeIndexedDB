@@ -245,7 +245,7 @@ watch(
             <th>Branch Balance</th>
             <th class="t-header">Amount(UGX)</th>
             <th class="text-left">Status</th>
-            <th class="text-right">Date of Allocation</th>
+            <!-- <th class="text-right">Date of Allocation</th> -->
             <th class="text-right">Actions</th>
             <th class="t-header"></th>
           </tr>
@@ -263,6 +263,7 @@ watch(
               }}</label>
             </td> -->
             <td class="text-left">{{ assignment.branch }}</td>
+            <td class="text-left">Branch Balance{{ assignment.branchBalance.toLocaleString() }}</td>
             <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
             <!-- <td class="text-left text-center">{{ assignment.status }}</td> -->
             <!-- use v-if, v-else-if and v-else to allocate depending on whether it was allocated, pending or failed -->
@@ -300,9 +301,9 @@ watch(
                 >
               </div>
             </td>
-            <td class="text-right">
+            <!-- <td class="text-right">
               {{ convertDateTime(assignment.createdAt) }}
-            </td>
+            </td> -->
             <td class="text-right">
               <!-- <div class="" v-if="transaction.status === 'rejected'"> -->
                   <span
