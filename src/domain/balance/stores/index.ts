@@ -11,6 +11,16 @@ export interface TotalBalance {
   currentBalance: number;
 }
 
+export interface TotalAvailableFloat {
+  prevAvailableFloat: number;
+  currentAvailableFloat: number;
+}
+
+export interface TotalFinalFloat {
+  prevFinalFloat: number;
+  currentFinalFloat: number;
+}
+
 export const useBalance = defineStore("balance", () => {
   // Reactive state for total balance
   const totalBalance = reactive<TotalBalance>({
@@ -18,12 +28,12 @@ export const useBalance = defineStore("balance", () => {
     currentBalance: 300000000, // Initial current balance
   });
 
-  const availableFloat = reactive<TotalBalance>({
+  const availableFloat = reactive<TotalAvailableFloat>({
     prevAvailableFloat: 300000000,
     currentAvailableFloat: 300000000,
   });
 
-  const finalFloat = reactive<TotalBalance>({
+  const finalFloat = reactive<TotalFinalFloat>({
     prevFinalFloat: 126000000,
     currentFinalFloat: 126000000,
   });
