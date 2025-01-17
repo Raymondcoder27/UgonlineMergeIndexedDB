@@ -262,6 +262,7 @@ onMounted(() => {
           <tr class="text-left">
             <th>#</th>
             <th>Tracking Number</th>
+            <th>Transaction ID</th>
             <th>Service</th>
             <th>Provider</th>
             <th>Till</th>
@@ -302,6 +303,7 @@ onMounted(() => {
                 class="fa-regular fa-copy mx-1 hover:text-gray-800"
               ></i>
             </td>
+            <td>{{ transaction.transactionID }}</td>
             <td>{{ transaction.service }}</td>
             <td class="text-left">{{ transaction.provider }}</td>
             <td>{{ transaction.till }}</td>

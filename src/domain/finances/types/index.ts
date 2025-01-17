@@ -31,10 +31,11 @@ export interface IAccount {
   
 
 export type Transaction = {
-    id: string;
+    id: number;
     branchName: string;
     manager: string;
     transactionType: string;
+    transactionID: string;
     status: string;
     date: string;
     amount: number;
