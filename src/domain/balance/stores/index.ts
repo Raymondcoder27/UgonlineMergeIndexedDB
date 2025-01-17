@@ -112,6 +112,8 @@ async function fetchTotalBalance() {
 
   return {
     totalBalance,
+    availableFloat,
+    finalFloat,
     approveFloatRequest,
     fetchTotalBalance,
     increaseTotalBalance,
