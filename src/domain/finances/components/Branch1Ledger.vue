@@ -281,7 +281,7 @@ watch(
             <th class="t-header">Type</th>
             <th class="text-right t-header">Amount</th>
             <th class="text-right t-header">Balance</th>
-            <th class="text-right t-header">Balance2</th>
+            <!-- <th class="text-right t-header">Balance2</th> -->
           </tr>
         </thead>
         <thead v-if="loading">
