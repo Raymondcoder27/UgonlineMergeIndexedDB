@@ -79,12 +79,12 @@ function select(tab: string) {
       >
         Float Requests
       </div>
-      <div
+      <!-- <div
         :class="activeTab == 'tillbalance' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('tillbalance')"
       >
         Till Balance
-      </div>
+      </div> -->
     </div>
     <div class="flex flex-grow">
       <div class="w-full">
