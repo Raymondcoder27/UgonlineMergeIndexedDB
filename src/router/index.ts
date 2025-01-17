@@ -91,7 +91,7 @@ const mergedRoutes: RouteRecordRaw[] = [
     name: "branch-manager-home",
     component: BranchManagerLayout,
     // meta: { requiresAuth: true },
-    meta: { requiresAuth: true, title: "Branch Manager Portal" }, 
+    meta: { requiresAuth: true, title: "UGOnline Branch Manager Portal" }, 
     // redirect: "/agent/services",
     redirect: "/branch-manager/dashboard",
     children: [
@@ -121,7 +121,7 @@ const mergedRoutes: RouteRecordRaw[] = [
     name: "app-home2",
     component: AgentLayout,
     // meta: { requiresAuth: true },/
-    meta: { requiresAuth: true, title: "Till Operator Portal" },
+    meta: { requiresAuth: true, title: "UGOnline Till Operator Portal" },
     // redirect: "/agent/services",
     redirect: "/agent/api-services",
     children: [
