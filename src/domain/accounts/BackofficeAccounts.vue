@@ -301,7 +301,7 @@ watch(
                   @click="modalOpen = true"
                 > -->
                 <span
-                  class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
+                  class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-200 hover:text-blue-800"
                   @click="modalOpen = true"
                 >
                   <i class="fa fa-eye"></i>
