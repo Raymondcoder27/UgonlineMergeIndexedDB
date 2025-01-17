@@ -169,7 +169,7 @@ watch(
   { deep: true }
 );
 
-const activeTab: Ref<string> = ref("providers");
+const activeTab: Ref<string> = ref("branch1Ledger");
 
 function select(tab: string) {
   activeTab.value = tab;
