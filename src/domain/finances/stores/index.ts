@@ -366,6 +366,7 @@ async function reduceFloatLedger(requestId: any) {
     branchManagerFloatBalance,
     reduceFloatLedger,
     approveFloatRequest,
+    editFloatRequest,
     adjustFloatLedger,
     rejectFloatRequest,
     fetchFloatRequests,
