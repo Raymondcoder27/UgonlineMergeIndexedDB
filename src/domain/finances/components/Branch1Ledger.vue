@@ -274,7 +274,7 @@ watch(
 
     <!-- Table -->
     <!-- Table -->
-    <div class="flex my-1">
+    <div class="flex">
       <table class="table w-full">
         <thead>
           <tr class="header-tr">
