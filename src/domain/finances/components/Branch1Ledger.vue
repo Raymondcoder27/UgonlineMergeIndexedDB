@@ -323,7 +323,7 @@ onMounted(() => {
 <template>
   <div class="">
     <!-- Header -->
-    <div class="max-w-7xl mx-auto bg-white flex flex-col min-h-[85vh]">
+    <div class="max-w-7xl mx-auto px-2 bg-white flex flex-col min-h-[85vh]">
       <!-- <div class="flex space-x-2 my-1 pt-1 pb-3">
         <div class="flex-grow">
           <div
