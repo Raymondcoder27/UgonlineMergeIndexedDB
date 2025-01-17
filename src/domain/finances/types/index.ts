@@ -34,6 +34,10 @@ export type Transaction = {
     id: number;
     branchName: string;
     manager: string;
+    service: string;
+    provider: string;
+    till: string;
+    fee: number;
     trackingNumber: string;
     transactionType: string;
     transactionID: string;
