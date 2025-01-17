@@ -168,6 +168,12 @@ watch(
   () => updateFilter(),
   { deep: true }
 );
+
+const activeTab: Ref<string> = ref("providers");
+
+function select(tab: string) {
+  activeTab.value = tab;
+}
 </script>
 
 <template>
@@ -389,6 +395,9 @@ watch(
       <UserStatistics v-if="activeTab == 'users'" />
     </div>
   </div>
+
+
+
 
     <!-- <div class="flex text-xs mt-auto"> -->
     <div v-if="showPagination" class="flex text-xs mt-auto">
