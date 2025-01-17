@@ -466,11 +466,20 @@ onMounted(() => {
               <div v-else>
                 <!-- <td> -->
                 <span
-                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-800"
+                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-green-600 hover:text-white hover:bg-green-800"
                   @click="approveFloatRequest(request.id)"
                 >
                   <i class="fa-solid fa-check"></i>
                   Approve</span
+                >
+
+                <!-- edit float request amount -->
+                <span
+                  class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
+                  @click="editFloatRequest(request.id)"
+                >
+                  <i class="fa-solid fa-edit"></i>
+                  Edit</span
                 >
 
                 <span
