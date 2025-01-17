@@ -336,7 +336,7 @@ watch(
         @click="select('providers')"
       >
         <div class="w-full py-2 my-auto">
-          <label class="p-3">Distribution by Provider</label>
+          <label class="p-3">Branch 1</label>
           <i
             class="fa-solid fa-handshake float-right px-2 py-1"
             v-if="activeTab == 'providers'"
@@ -348,7 +348,7 @@ watch(
         @click="select('services')"
       >
         <div class="w-full py-2">
-          <label class="p-3">Service Applications Line Graph</label>
+          <label class="p-3">Branch 2</label>
           <i
             class="fa-solid fa-chart-area float-right px-1 py-1"
             v-if="activeTab == 'services'"
@@ -360,7 +360,7 @@ watch(
         @click="select('serviceStatusPieChart')"
       >
         <div class="w-full py-2">
-          <label class="p-3">Piechart showing Service by Status</label>
+          <label class="p-3">Branch 3</label>
           <i
             class="fa-solid fa-chart-pie float-right px-2 py-1"
             v-if="activeTab == 'serviceStatusPieChart'"
