@@ -13,9 +13,9 @@ const balanceStore = useBalance();
 
 balanceStore.fetchTotalBalance();
 
-// const totalBalance = balanceStore.totalBalance;
+const totalBalance = balanceStore.totalBalance;
 
-const availableFloat = balanceStore.availableFloat;
+// const availableFloat = balanceStore.availableFloat;
 const finalFloat = balanceStore.finalFloat;
 
 const activeTab: Ref<string> = ref("floatmanagement");
@@ -46,7 +46,8 @@ function select(tab: string) {
 
           <!-- {{ totalBalance.currentBalance.toLocaleString() }}/= -->
 
-          <span class="px-1">Available Float: {{ availableFloat.toLocaleString() }}/=</span>
+          <!-- <span class="px-1">Available Float: {{ availableFloat.toLocaleString() }}/=</span> -->
+          <span class="px-1">Available Float: {{ totalBalance.currentBalance.toLocaleString() }}/=</span>
           <span class="px-1">Final Float: {{ finalFloat.toLocaleString() }}/=</span>
           </span>
       </div>
