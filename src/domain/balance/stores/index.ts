@@ -18,6 +18,16 @@ export const useBalance = defineStore("balance", () => {
     currentBalance: 300000000, // Initial current balance
   });
 
+  const availableFloat = reactive({
+    prevAvailableFloat: 300000000,
+    currentAvailableFloat: 300000000,
+  });
+
+  const finalFloat = reactive({
+    prevFinalFloat: 126000000,
+    currentFinalFloat: 126000000,
+  });
+
   const billingStore = useBilling();
 
   watchEffect(() => {
