@@ -34,6 +34,7 @@ export type Transaction = {
     id: number;
     branchName: string;
     manager: string;
+    trackingNumber: string;
     transactionType: string;
     transactionID: string;
     status: string;
