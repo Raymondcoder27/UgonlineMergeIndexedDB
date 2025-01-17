@@ -193,9 +193,9 @@ const assignManagersToBranches = () => {
 onMounted(() => {
   loading.value = true;
   // fetchTills();
-  accountStore.fetchTillOperatorAccounts();
+  // accountStore.fetchTillOperatorAccounts();
   branchStore.fetchBranches();
-  accountStore.fetchTillOperatorAccounts();
+  accountStore.fetchManagerAccounts();
   // allocateManager();
   assignManagersToBranches();
 });
