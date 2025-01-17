@@ -326,6 +326,26 @@ async function reduceFloatLedger(requestId: any) {
     }
   }
 
+  // const editFloatRequest = (requestId: any) => {
+  //   billingStore.editFloatRequest(requestId);
+  //   billingStore.fetchFloatRequests();
+  //   console.log(`float request with id ${requestId} edited`);
+  // };
+
+  // const currentFloatRequested = ref(0);
+
+
+  // edit the float request and allocate less than the requested amount
+  function editFloatRequest(requestId: any) {
+    const floatRequest = floatRequests.value.find((request) => request.id === requestId);
+    const currentFloatRequested = requestId.amount;
+    const newApprovedFloat = ref(0);
+    if (floatRequest) {
+      floatRequest.amount = currentFloatRequested.value;
+      newApprovedFloat.amount = currentFloatRequested.value - newApprovedFloat.amount;
+    }
+  }
+
   // reject float request using passed in Id and set status to rejected
   function rejectFloatRequest(requestId: any) {
     const floatRequest = floatRequests.value.find((request) => request.id === requestId);
