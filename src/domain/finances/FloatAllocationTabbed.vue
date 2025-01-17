@@ -180,7 +180,7 @@ function select(tab: string) {
 <template>
   <!-- <h2>Transactions</h2>
     </ul> -->
-  <div class="shadow-lg bg-white rounded p-2 h-full flex flex-col">
+  <div class="shadow-lg bg-white rounded p-2">
     <!-- <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div
