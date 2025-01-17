@@ -10,7 +10,7 @@ import type {
   FloatManagement,
 } from "./types"; // Import billing types
 import moment from "moment/moment";
-import { useBalance } from "@/branch-manager/balance/stores"; // Import the balance store
+import { useBalance } from "@/agent-admin/balance/stores"; // Import the balance store
 
 const balanceStore = useBalance(); // Initialize the balance store
 
