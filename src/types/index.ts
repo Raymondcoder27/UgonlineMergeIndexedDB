@@ -15,6 +15,20 @@ export type TopMenuLink = {
   children?: SideMenuLink[];
 };
 
+// id: tillOperatorAllocations.value.length + 1,
+// dateAssigned: new Date().toISOString(),
+// till: payload.tillId,
+// manager: payload.operatorId,
+// status: "Assigned"
+
+export type AllocateTillOperator = {
+  id: number;
+  dateAssigned: string;
+  till: string;
+  manager: string;
+  status: string;
+}
+
 export interface AccountResponse {
   createdAt: string
   emailVerified: boolean
