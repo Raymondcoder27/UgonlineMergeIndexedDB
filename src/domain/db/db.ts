@@ -1,7 +1,7 @@
 import { createStore, get, set, del, keys, clear } from "idb-keyval";
 
 // Create a custom store for branches
-export const branchesStore = createStore("branches-database", "branches-store");
+export const branchesStore = createStore("agent-admin-branch-database", "branches-store");
 
 export const db = {
   async get<T>(key: number): Promise<T | undefined> {
