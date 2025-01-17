@@ -389,10 +389,10 @@ function select(tab: string) {
     <div class="w-10/12 py-1">
       <Branch1Ledger v-if="activeTab == 'branch1ledger'" />
       <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
-      <ApplicationsLineGraph v-if="activeTab == 'services'" />
+      <!-- <ApplicationsLineGraph v-if="activeTab == 'services'" />
       <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
       <RevenueStatistics v-if="activeTab == 'revenue'" />
-      <UserStatistics v-if="activeTab == 'users'" />
+      <UserStatistics v-if="activeTab == 'users'" /> -->
     </div>
   </div>
 
