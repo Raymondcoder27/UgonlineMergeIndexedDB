@@ -68,7 +68,8 @@ const mergedRoutes: RouteRecordRaw[] = [
     name: "app-home",
     component: MainLayout,
     // meta: { requiresAuth: false },
-    meta: { requiresAuth: true },
+    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true, title: "UGOnline Agent Admin Portal" }, 
     redirect: "/agent-admin/dashboard",
     children: [
       // { name: "app-dashboard", path: "/agent-admin/dashboard", component: AppDashboard },
@@ -89,7 +90,8 @@ const mergedRoutes: RouteRecordRaw[] = [
     path: "/branch-manager",
     name: "branch-manager-home",
     component: BranchManagerLayout,
-    meta: { requiresAuth: true },
+    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true, title: "Branch Manager Portal" }, 
     // redirect: "/agent/services",
     redirect: "/branch-manager/dashboard",
     children: [
@@ -182,8 +184,33 @@ const router = createRouter({
 });
 
 // Global route guard
+// router.beforeEach((to, from, next) => {
+//   const { credentials, refreshToken } = useAuth();
+
+//   if (to.meta.requiresAuth) {
+//     if (!credentials.value || !refreshToken.value || refreshToken.value.exp < moment().unix()) {
+//       next({ name: "app-account-sign-in" });
+//     } else {
+//       next();
+//     }
+//   } else if (to.name === "app-account-sign-in" && credentials.value && refreshToken.value) {
+//     next({ name: "app-home" });
+//   } else {
+//     next();
+//   }
+// });
+
+
+// Global route guard
 router.beforeEach((to, from, next) => {
   const { credentials, refreshToken } = useAuth();
+
+  // Dynamically set the title
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  } else {
+    document.title = "UGOnline Portal"; // Fallback title
+  }
 
   if (to.meta.requiresAuth) {
     if (!credentials.value || !refreshToken.value || refreshToken.value.exp < moment().unix()) {
@@ -197,5 +224,6 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
 
 export default router;
