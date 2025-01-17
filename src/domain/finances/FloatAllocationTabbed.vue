@@ -476,4 +476,12 @@ function select(tab: string) {
 @import "@/assets/styles/button.css";
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
+
+.tab-active {
+  @apply flex border-2 border-gray-300 rounded-r cursor-pointer bg-gray-400 text-white font-bold;
+}
+
+.tab {
+  @apply flex border border-gray-100 rounded-r cursor-pointer;
+}
 </style>
