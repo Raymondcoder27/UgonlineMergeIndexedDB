@@ -320,38 +320,75 @@ watch(
         </tbody>
       </table>
     </div>
-    <!-- <div class="flex">
-      <div class="w-full">
-        <div
-          class="flex"
-          v-if="limit == billingStore.backOfficeUsers?.length || page > 1"
-        >
-          <button v-if="page > 1" class="pagination-button" @click="previous">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <button v-else class="pagination-button-inert">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{
-              page
-            }}</label>
-          </div>
-          <button
-            v-if="
-              limit == billingStore.backOfficeUsers?.length - 1 ||
-              limit > billingStore.backOfficeUsers?.length
-            "
-            class="pagination-button-inert"
-          >
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-          <button v-else class="pagination-button" @click="next">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
+    
+    
+
+
+
+
+
+
+
+    <div class="flex">
+    <div class="w-3/12 py-3 text-xs">
+      <div
+        :class="activeTab == 'providers' ? 'tab-active' : 'tab'"
+        @click="select('providers')"
+      >
+        <div class="w-full py-2 my-auto">
+          <label class="p-3">Distribution by Provider</label>
+          <i
+            class="fa-solid fa-handshake float-right px-2 py-1"
+            v-if="activeTab == 'providers'"
+          ></i>
         </div>
       </div>
-    </div> -->
+      <div
+        :class="activeTab == 'services' ? 'tab-active' : 'tab'"
+        @click="select('services')"
+      >
+        <div class="w-full py-2">
+          <label class="p-3">Service Applications Line Graph</label>
+          <i
+            class="fa-solid fa-chart-area float-right px-1 py-1"
+            v-if="activeTab == 'services'"
+          ></i>
+        </div>
+      </div>
+      <div
+        :class="activeTab == 'serviceStatusPieChart' ? 'tab-active' : 'tab'"
+        @click="select('serviceStatusPieChart')"
+      >
+        <div class="w-full py-2">
+          <label class="p-3">Piechart showing Service by Status</label>
+          <i
+            class="fa-solid fa-chart-pie float-right px-2 py-1"
+            v-if="activeTab == 'serviceStatusPieChart'"
+          ></i>
+        </div>
+      </div>
+      <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
+          <div class="w-full py-1">
+            <label class="p-3">Revenue</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'revenue'"></i>
+          </div>
+        </div>
+        <div :class="(activeTab == 'users') ? 'tab-active' : 'tab'" @click="select('users')">
+          <div class="w-full py-1">
+            <label class="p-3">Users</label>
+            <i class="fa-solid fa-chart-area float-right px-2 py-1" v-if="activeTab == 'users'"></i>
+          </div>
+        </div> -->
+    </div>
+    <div class="w-10/12 py-1">
+      <ProviderStatisticsBarChart v-if="activeTab == 'providers'" />
+      <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
+      <ApplicationsLineGraph v-if="activeTab == 'services'" />
+      <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
+      <RevenueStatistics v-if="activeTab == 'revenue'" />
+      <UserStatistics v-if="activeTab == 'users'" />
+    </div>
+  </div>
 
     <!-- <div class="flex text-xs mt-auto"> -->
     <div v-if="showPagination" class="flex text-xs mt-auto">
