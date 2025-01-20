@@ -45,7 +45,7 @@ import AgentAppServices from "@/agentdomain/services/AppServices.vue";
 import AgentAppServicesDetails from "@/agentdomain/apiservices/views/ServiceDetails.vue";
 import AgentAppEntities from "@/agentdomain/entities/AppEntities.vue";
 import AgentAppAgents from "@/agentdomain/agents/AppAgents.vue";
-import AgentBranches from "@/agentdomain/branches/AppBranches.vue";
+// import AgentBranches from "@/agentdomain/branches/AppBranches.vue";
 import AgentSettings from "@/agentdomain/settings/Settings.vue";
 import AgentLedger from "@/agentdomain/ledger/Ledger.vue";
 import AgentSubmissions from "@/agentdomain/submissions/Submissions.vue";
