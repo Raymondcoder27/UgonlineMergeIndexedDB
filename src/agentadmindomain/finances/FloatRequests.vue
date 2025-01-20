@@ -271,11 +271,11 @@ const approveFloatRequest = (requestId: any) => {
   console.log(`float request with id ${requestId} approved`);
 };
 
-const editFloatRequest = (requestId: any) => {
-  billingStore.editFloatRequest(requestId);
-  billingStore.fetchFloatRequests();
-  console.log(`float request with id ${requestId} edited`);
-};
+// const editFloatRequest = (requestId: any) => {
+//   billingStore.editFloatRequest(requestId);
+//   billingStore.fetchFloatRequests();
+//   console.log(`float request with id ${requestId} edited`);
+// };
 
 const rejectFloatRequest = (requestId: any) => {
   billingStore.rejectFloatRequest(requestId);
