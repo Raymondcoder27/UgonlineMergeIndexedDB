@@ -81,7 +81,7 @@ onMounted(() => {
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold">Edit Manager</p>
+    <p class="text-xl font-bold">Edit Till Operator</p>
     <p class="text-sm text-gray-500">
       The individual responsible for overseeing Till operations, managing
       staff, and ensuring smooth service delivery to agents and the public.
