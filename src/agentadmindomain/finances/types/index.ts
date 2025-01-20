@@ -61,9 +61,26 @@ export interface FloatRequest {
   amount: number;
   status: string;
   requesterName: string;
+  branch: string;
   approvedBy: string | null;
   createdAt: string; 
 }
+
+// export interface CreateFloatRequest {
+//   name: string,
+//   requestDate: string,
+//   amount: number,
+//   branch: string,
+//   createdAt: string,
+//   status: string,
+// }
+
+// let form: CreateFloatRequest = reactive({
+//   name: "",
+//   branch: "",
+//   amount: "",
+//   status: "",
+// })
 
 //float assignment
 export interface FloatAllocation {

@@ -4,7 +4,7 @@ import {onMounted, reactive, type Ref, ref} from "vue";
 // import {useProviderStore} from "@/agentadmindomain/providers/stores";
 import { useBilling } from "@/agentadmindomain/finances/stores";
 // import type {CreateServiceProvider} from "@/agentadmindomain/providers/types";
-import type {CreateFloatRequest} from "@/agentadmindomain/finances/types";
+import type {FloatRequest} from "@/agentadmindomain/finances/types";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
 
@@ -13,18 +13,25 @@ const store = useBilling()
 const loading: Ref<boolean> = ref(false)
 const notify =useNotificationsStore()
 
-let form: CreateFloatRequest = reactive({
+// let form: CreateFloatRequest = reactive({
+//   name: "",
+//   branch: "",
+//   amount: "",
+//   status: "",
+// //   displayName: "",
+// //   displayLogo: null,
+// //   providerType:"GOVERNMENT",
+// //   physicalAddress: "",
+// //   inquiryEmail:"",
+// //   inquiryPhoneNumber:"",
+// //   username: ""
+// })
+
+let form: FloatRequest = reactive({
   name: "",
   branch: "",
   amount: "",
   status: "",
-//   displayName: "",
-//   displayLogo: null,
-//   providerType:"GOVERNMENT",
-//   physicalAddress: "",
-//   inquiryEmail:"",
-//   inquiryPhoneNumber:"",
-  username: ""
 })
 const emit = defineEmits(['cancel'])
 
