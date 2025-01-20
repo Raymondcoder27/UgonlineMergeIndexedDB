@@ -2,7 +2,9 @@
 
 import FormBuilder from "@/agentadmindomain/composer/components/FormBuilder.vue";
 import {onMounted, reactive, type Ref, ref, watch} from "vue";
-import FormViewer from "@/agentadmindomain/composer/components/FormViewer.vue";
+// import FormViewer from "@/agentadmindomain/composer/components/FormViewer.vue";
+import FormViewer from "@/agentadmindomain/composer/components/FormViewerTest.vue";
+
 import {useServicesStore} from "@/agentadmindomain/services/stores";
 import {useProviderStore} from "@/agentadmindomain/entities/stores";
 import {useRouter} from "vue-router";

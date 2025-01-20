@@ -1,6 +1,8 @@
 <script setup lang="ts">
 
-import FormViewer from "@/branchmanagerdomain/composer/components/FormViewer.vue";
+// import FormViewer from "@/branchmanagerdomain/composer/components/FormViewer.vue";
+import FormViewer from "@/branchmanagerdomain/composer/components/FormViewerTest.vue";
+
 import type {ServiceSpecification} from "@/branchmanagerdomain/services/types";
 import {onMounted, type Ref, ref, watch} from "vue";
 import {useRouter} from "vue-router";
