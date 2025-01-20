@@ -27,7 +27,7 @@ onMounted(() => {
 // }
 
 function submit() {
-  const request = indexedDB.open("FormDatabase", 1);
+  const request = indexedDB.open("TillOperatorSubmittedFormDatabase", 1);
 
   request.onupgradeneeded = function (event) {
     const db = (event.target as IDBOpenDBRequest).result;
