@@ -44,7 +44,8 @@ function submit() {
     store.add({ timestamp: Date.now(), data: formData });
 
     transaction.oncomplete = function () {
-      alert("Form data successfully saved to IndexedDB!");
+    //   alert("Form data successfully saved to IndexedDB!");
+      console.log("Form data successfully saved to IndexedDB!")
     };
 
     transaction.onerror = function () {
