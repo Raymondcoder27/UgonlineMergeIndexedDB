@@ -23,7 +23,7 @@ function select(tab: string) {
     </div>
     <div class="flex pt-5">
       <div
-        :class="activeTab == 'backoffice' ? 'w-1/12 tab-active' : 'w-1/12 tab'"
+        :class="activeTab == 'backoffice' ? 'w-2/12 tab-active' : 'w-2/12 tab'"
         @click="select('backoffice')"
       >
         Backoffice
