@@ -19,7 +19,7 @@ const form: ManagerAccount = reactive({
 
 const notify = useNotificationsStore();
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(["cancel", "managerAccountCreated"]);
+const emit = defineEmits(["cancel", "tillOperatorAccountCreated"]);
 const store = useAccounts();
 // function submit() {
 //   loading.value = true
@@ -39,7 +39,7 @@ const store = useAccounts();
 //     name: form.name,
 //   };
 //   loading.value = true;
-//   store.addBranch(payload); // Simply add the branch
+//   store.addBranch(payload); // Simply add the Till
 //   notify.success("Till Created");
 //   emit("branchCreated");
 //   loading.value = false;
@@ -55,16 +55,16 @@ function submit() {
     tillId: form.tillId,
   };
   loading.value = true;
-  store.addManagerAccount(payload); // Simply add the branch
+  store.addManagerAccount(payload); // Simply add the Till
   notify.success("Manager Account Created");
   emit("managerAccountCreated");
   loading.value = false;
 }
 
-// onMounted fetch branches
+// onMounted fetch Tilles
 onMounted(() => {
   //   let data = JSON.parse(<string>localStorage.getItem("provider"))
-  let data = JSON.parse(<string>localStorage.getItem("branchManagerAccount"));
+  let data = JSON.parse(<string>localStorage.getItem("tillOperatorAccount"));
 
   form.name = data.name;
   form.firstName = data.firstName;
@@ -151,7 +151,7 @@ onMounted(() => {
 
       <!-- <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Branch</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Till</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
             <option value="admin">Till Wakiso</option>
             <option value="public">Till Masaka</option>
@@ -161,7 +161,7 @@ onMounted(() => {
 
       <div class="">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-          >Select Branch</label
+          >Select Till</label
         >
         <select
           v-model="form.tillId"
