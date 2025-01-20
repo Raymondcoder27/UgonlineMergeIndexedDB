@@ -289,7 +289,7 @@ function select(tab: string) {
     </div> -->
 
     <div class="flex">
-      <div class="w-2/12 py-3 text-xs">
+      <div class="w-2/12 py-2 text-xs">
         <div
           :class="activeTab == 'branch1Ledger' ? 'tab-active' : 'tab'"
           @click="select('branch1Ledger')"
