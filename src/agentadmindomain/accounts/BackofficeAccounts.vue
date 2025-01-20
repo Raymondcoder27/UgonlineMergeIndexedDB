@@ -9,6 +9,7 @@ import { useDebounceFn } from "@vueuse/core";
 import type {
   IResendVerificationPayload,
   TAccountVerificationType,
+  Account,
 } from "./types";
 import EditBackOfficeAccount from "@/agentadmindomain/accounts/components/EditBackOfficeAccount.vue";
 
@@ -320,7 +321,7 @@ watch(
                 > -->
                 <span
                   class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-200 hover:text-blue-800"
-                  @click="editBackofficeAccount"
+                  @click="editBackofficeAccount(account)"
                 >
                   <i class="fa fa-eye"></i>
                   View Details
