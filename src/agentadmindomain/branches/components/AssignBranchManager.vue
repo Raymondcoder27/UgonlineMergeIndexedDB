@@ -91,7 +91,7 @@ function submit(userId: string) {
   store.assignManager(payload.userId, payload.branchId);
   // store.assignManager(userId);
   // notify.success(`User successfully ${payload.userId} assigned to branch`);
-  notify.success(`User successfully assigned to branch`);
+  notify.success(`User successfully assigned to branch ${payload.branchId}`);
   emit("managerAssigned");
   loading.value = false;
 }
