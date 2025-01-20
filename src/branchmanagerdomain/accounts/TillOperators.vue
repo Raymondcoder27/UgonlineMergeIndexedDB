@@ -12,11 +12,9 @@ import type {
   TillOperatorAccount,
 } from "./types";
 // import AddManager from "@/branchmanagerdomain/accounts/components/AddManager.vue";
-import  EditTillOperator from "@/branchmanagerdomain/accounts/components/EditTillOperator.vue";
+import EditTillOperator from "@/branchmanagerdomain/accounts/components/EditTillOperator.vue";
 
 import { useTillStore } from "@/branchmanagerdomain/tills/stores"; // Updated import
-
-
 
 const editModalOpen: Ref<boolean> = ref(false);
 const viewModalOpen: Ref<boolean> = ref(false);
