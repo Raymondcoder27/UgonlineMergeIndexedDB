@@ -39,7 +39,7 @@ const jumpToPage = () => {
   fetchFloatAllocations();
 };
 function fetchFloatAllocations() {
-  // branchStore
+  // tillStore
   //   .fetchfloatAllocations(page.value, limit.value)
   //   .then(() => (loading.value = false))
   //   .catch((error: ApiError) => {
@@ -170,7 +170,7 @@ watch(
   { deep: true }
 );
 
-const activeTab: Ref<string> = ref("branch1Ledger");
+const activeTab: Ref<string> = ref("till1Ledger");
 
 function select(tab: string) {
   activeTab.value = tab;
@@ -195,12 +195,12 @@ function select(tab: string) {
                   v-model="filter.filter[1].operand"
                   class="filter-element e-input"
                   type="text"
-                  placeholder="Filter by Branch"
+                  placeholder="Filter by till"
                 >
-                  <option value="" disabled selected>Filter by Branch</option>
-                  <option value="Branch 1">Branch 1</option>
-                  <option value="Branch 2">Branch 2</option>
-                  <option value="Branch 3">Branch 3</option>
+                  <option value="" disabled selected>Filter by till</option>
+                  <option value="Till 1">Till 1</option>
+                  <option value="Till 2">Till 2</option>
+                  <option value="Till 3">Till 3</option>
                 </select>
                 <label for="date-from" class="mr-2 ml-4 text-sm text-gray-600"
                   >From:</label
@@ -234,7 +234,7 @@ function select(tab: string) {
         <thead>
           <tr class="header-tr">
             <th class="t-header">#</th>
-            <th class="t-header">Branch</th>
+            <th class="t-header">till</th>
             <th class="t-header">Amount(UGX)</th>
             <th class="text-left">Status</th>
             <th class="text-right">Date of Allocation</th>
@@ -245,7 +245,7 @@ function select(tab: string) {
         <tbody>
           <tr v-for="(assignment, idx) in paginatedfloatAllocations" :key="idx">
             <td>{{ idx + 1 }}</td>
-            <td class="text-left">{{ assignment.branch }}</td>
+            <td class="text-left">{{ assignment.Till }}</td>
             <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
             <td class="text-left">
               <div v-if="assignment.status === 'pending'">
@@ -291,98 +291,98 @@ function select(tab: string) {
     <div class="flex">
       <div class="w-2/12 py-2 text-xs">
         <div
-          :class="activeTab == 'branch1Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch1Ledger')"
+          :class="activeTab == 'till1Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till1Ledger')"
         >
           <div class="w-full py-2 my-auto">
-            <label class="p-3">Branch 1</label>
+            <label class="p-3">Till 1</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch1Ledger'"
+              v-if="activeTab == 'till1Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch2Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch2Ledger')"
+          :class="activeTab == 'till2Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till2Ledger')"
         >
           <div class="w-full py-2">
-            <label class="p-3">Branch 2</label>
+            <label class="p-3">Till 2</label>
             <i
               class="fa-solid fa-building float-right px-1 py-1"
-              v-if="activeTab == 'branch2Ledger'"
+              v-if="activeTab == 'till2Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch3Ledger')"
+          :class="activeTab == 'till3Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till3Ledger')"
         >
           <div class="w-full py-2">
-            <label class="p-3">Branch 3</label>
+            <label class="p-3">Till 3</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch3Ledger'"
+              v-if="activeTab == 'till3Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch4Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch4Ledger')"
+          :class="activeTab == 'till4Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till4Ledger')"
         >
           <div class="w-full py-2">
-            <label class="p-3">Branch 4</label>
+            <label class="p-3">Till 4</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch4Ledger'"
+              v-if="activeTab == 'till4Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch5Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch5Ledger')"
+          :class="activeTab == 'till5Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till5Ledger')"
         >
           <div class="w-full py-2">
-            <label class="p-3">Branch 5</label>
+            <label class="p-3">Till 5</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch5Ledger'"
+              v-if="activeTab == 'till5Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch6Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch6Ledger')"
+          :class="activeTab == 'till6Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till6Ledger')"
         >
           <div class="w-full py-2">
-            <label class="p-3">Branch 6</label>
+            <label class="p-3">Till 6</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch6Ledger'"
+              v-if="activeTab == 'till6Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch7Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch7Ledger')"
+          :class="activeTab == 'till7Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till7Ledger')"
         >
           <div class="w-full py-2">
-            <label class="p-3">Branch 7</label>
+            <label class="p-3">Till 7</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch7Ledger'"
+              v-if="activeTab == 'till7Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch8Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch8Ledger')"
+          :class="activeTab == 'till8Ledger' ? 'tab-active' : 'tab'"
+          @click="select('till8Ledger')"
         >
           <div class="w-full py-2">
-            <label class="p-3">Branch 8</label>
+            <label class="p-3">Till 8</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch8Ledger'"
+              v-if="activeTab == 'till8Ledger'"
             ></i>
           </div>
         </div>
@@ -400,7 +400,7 @@ function select(tab: string) {
         </div> -->
       </div>
       <div class="w-10/12 py-1">
-        <Till1Ledger v-if="activeTab == 'branch1Ledger'" />
+        <Till1Ledger v-if="activeTab == 'till1Ledger'" />
         <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
         <!-- <ApplicationsLineGraph v-if="activeTab == 'services'" />
       <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
