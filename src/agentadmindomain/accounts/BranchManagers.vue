@@ -301,7 +301,7 @@ onMounted(() => {
                   @click="editManagerAccount(account)"
                 >
                   <i class="fa fa-eye"></i>
-                  View
+                  View Details
                 </span>
                 <!-- <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i>
