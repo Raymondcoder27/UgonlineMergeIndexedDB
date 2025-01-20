@@ -99,7 +99,7 @@ function submit(){
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold">Edit Service Provider</p>
+    <p class="text-xl font-bold">Edit BackOffice Account</p>
     <p class="text-sm text-gray-500" v-if="form.name"><b>{{form.name}}</b> provides a services consumed by the general public of Uganda.</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
