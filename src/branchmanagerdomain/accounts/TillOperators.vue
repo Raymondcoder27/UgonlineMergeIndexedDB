@@ -125,9 +125,9 @@ function open() {
   modalOpen.value = true;
 }
 
-function close() {
-  modalOpen.value = false;
-}
+// function close() {
+//   modalOpen.value = false;
+// }
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
@@ -301,7 +301,7 @@ onMounted(() => {
                   > -->
                 <span
                   class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
-                  @click="modalOpen = true"
+                  @click="editTillOperatorAccount(account)"
                 >
                   <i class="fa fa-eye"></i>
                   View
