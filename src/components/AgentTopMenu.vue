@@ -38,13 +38,13 @@ const topMenu: TopMenuLink[] = [
   //   iconClass: "fa-solid fa-list",
   // },
   //add activity log
-  // {
-  //   name: "agent-app-submissions",
-  //   label: "Submissions",
-  //   // iconClass: "fa-solid fa-upload",
-  //   // iconClass: "fa fa-paper-plane",
-  //   iconClass: "fa fa-check-circle",
-  // },
+  {
+    name: "agent-app-submissions",
+    label: "Submissions",
+    // iconClass: "fa-solid fa-upload",
+    // iconClass: "fa fa-paper-plane",
+    iconClass: "fa fa-check-circle",
+  },
   {
     name: "agent-api-app-submissions",
     label: "Submissions",

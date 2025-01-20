@@ -1,6 +1,6 @@
 import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
-import { db } from "@/agentadmin/db/db"; // Adjust the path to your IndexedDB utility
+import { db } from "@/agentadmin/branches/db/db"; // Adjust the path to your IndexedDB utility
 import type { Branch } from "@/agentadmin/branches/types";
 import type { AssignManager } from "@/types";
 
