@@ -137,8 +137,7 @@ function submit(){
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">User Name</label>
-          <textarea v-model="form.username" class="noFocus form-element e-input w-full" cols="4"
-                    placeholder="Address Description"/>
+          <input v-model="form.username"  class="noFocus form-element e-input w-full"/>
         </div>
       </div>
 
