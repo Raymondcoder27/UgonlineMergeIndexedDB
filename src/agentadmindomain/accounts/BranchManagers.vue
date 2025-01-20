@@ -20,8 +20,8 @@ const editModalOpen: Ref<boolean> = ref(false);
 const viewModalOpen: Ref<boolean> = ref(false);
 
 
-  function editManagerAccount(backofficeAccount:Account) {
-  localStorage.setItem("branchManagerAccount", JSON.stringify(backofficeAccount))
+  function editManagerAccount(branchManagerAccount:Account) {
+  localStorage.setItem("branchManagerAccount", JSON.stringify(branchManagerAccount))
   editModalOpen.value = true;
 }
 function close() {
