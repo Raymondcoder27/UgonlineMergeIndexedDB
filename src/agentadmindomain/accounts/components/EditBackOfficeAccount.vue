@@ -28,7 +28,7 @@ let form: Account = reactive({
   firstName: "",
   lastName: "",
   middleNames: "",
-  middleName: "",
+  // middleName: "",
   idType: "",
   email: "",
   role: "",
@@ -59,10 +59,12 @@ onMounted(() => {
   let data = JSON.parse(<string>localStorage.getItem("backofficeAccount"))
 
   form.name = data.name
-  form.displayName = data.displayName
-  form.physicalAddress = data.physicalAddress
-  form.inquiryEmail = data.inquiryEmail
-  form.inquiryPhoneNumber = data.inquiryPhoneNumber
+  form.firstName = data.firstName
+  form.lastName = data.lastName
+  form.middleNames = data.middleNames
+  form.email = data.email
+  form.phone = data.phone
+  form.status = data.status
   form.username = data.username
 })
 
