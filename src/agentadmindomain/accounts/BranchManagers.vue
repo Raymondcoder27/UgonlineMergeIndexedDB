@@ -9,11 +9,27 @@ import { useDebounceFn } from "@vueuse/core";
 import type {
   IResendVerificationPayload,
   TAccountVerificationType,
+  Account,
 } from "./types";
 // import AddManager from "@/agentadmindomain/accounts/components/AddManager.vue";
 import EditBranchManager from "@/agentadmindomain/accounts/components/EditManager.vue";
 
 import { useBranchStore } from "@/agentadmindomain/branches/stores"; // Updated import
+
+const editModalOpen: Ref<boolean> = ref(false);
+const viewModalOpen: Ref<boolean> = ref(false);
+
+
+  function editManagerAccount(backofficeAccount:Account) {
+  localStorage.setItem("branchManagerAccount", JSON.stringify(backofficeAccount))
+  editModalOpen.value = true;
+}
+function close() {
+  modalOpen.value = false;
+  viewModalOpen.value = false;
+  editModalOpen.value = false;
+}
+
 
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -106,9 +122,9 @@ function open() {
   modalOpen.value = true;
 }
 
-function close() {
-  modalOpen.value = false;
-}
+// function close() {
+//   modalOpen.value = false;
+// }
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",

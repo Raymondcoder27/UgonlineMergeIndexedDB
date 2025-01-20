@@ -67,15 +67,21 @@ function submit() {
 
 
 // onMounted fetch branches
-onMounted(() => {
-  // loading.value = true;
-   store
-    .fetchManagerAccounts(),
-    branchStore
-    .fetchBranches()
+  onMounted(() => {
+//   let data = JSON.parse(<string>localStorage.getItem("provider"))
+  let data = JSON.parse(<string>localStorage.getItem("backofficeAccount"))
+
+  form.name = data.name
+  form.firstName = data.firstName
+  form.lastName = data.lastName
+  form.middleNames = data.middleNames
+  form.email = data.email
+  form.phone = data.phone
+  form.status = data.status
+  form.username = data.username
+})
   
     // .finally(() => (loading.value = false));
-});
 </script>
 
 <template>
