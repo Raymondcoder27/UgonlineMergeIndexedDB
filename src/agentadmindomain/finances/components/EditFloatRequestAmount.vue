@@ -51,17 +51,20 @@ onMounted(() => {
 
 function submit(){
   loading.value = true
-  let data = JSON.parse(<string>localStorage.getItem("provider"))
+  let data = JSON.parse(<string>localStorage.getItem("floatRequestEdit"))
 
   let id = data.id
   let payload = {
     name:form.name,
-    display_name:form.displayName,
-    inquiry_email:form.inquiryEmail,
-    provider_type:form.providerType,
-    inquiry_phone_number:form.inquiryPhoneNumber,
-    physical_address:form.physicalAddress,
-    username:form.username
+    branch: form.branch,
+    amount: form.amount,
+    status: form.status,
+    // display_name:form.displayName,
+    // inquiry_email:form.inquiryEmail,
+    // provider_type:form.providerType,
+    // inquiry_phone_number:form.inquiryPhoneNumber,
+    // physical_address:form.physicalAddress,
+    // username:form.username
   }
   store
       .editProvider(id, payload)
