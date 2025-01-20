@@ -9,11 +9,30 @@ import { useDebounceFn } from "@vueuse/core";
 import type {
   IResendVerificationPayload,
   TAccountVerificationType,
+  Account,
 } from "./types";
 // import AddManager from "@/branchmanagerdomain/accounts/components/AddManager.vue";
 import  EditTillOperator from "@/branchmanagerdomain/accounts/components/ EditTillOperator.vue";
 
 import { useTillStore } from "@/branchmanagerdomain/tills/stores"; // Updated import
+
+
+
+const editModalOpen: Ref<boolean> = ref(false);
+const viewModalOpen: Ref<boolean> = ref(false);
+
+function editTillOperatorAccount(tillOperatorAccount: Account) {
+  localStorage.setItem(
+    "tillOperatorAccount",
+    JSON.stringify(tillOperatorAccount)
+  );
+  editModalOpen.value = true;
+}
+function close() {
+  modalOpen.value = false;
+  viewModalOpen.value = false;
+  editModalOpen.value = false;
+}
 
 const pageInput = ref(1);
 const changePageSize = () => {
