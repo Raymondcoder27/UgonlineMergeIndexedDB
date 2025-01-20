@@ -48,9 +48,13 @@ function select(tab: string) {
           <!-- {{ totalBalance.currentBalance.toLocaleString() }}/= -->
 
           <!-- <span class="px-1">Available Float: {{ availableFloat.toLocaleString() }}/=</span> -->
-          <span class="px-1">Available Float: {{ totalBalance.currentBalance.toLocaleString() }}/=</span>
+          <span class="px-1">Available Float: 
+            <span class="text-gray-500">{{ totalBalance.currentBalance.toLocaleString() }}/=</span></span>
 
-          <span class="px-1">Final Float: {{ finalFloat.currentFinalFloat.toLocaleString() }}/=</span>
+          <span class="px-1">Final Float: 
+            <span class="text-gray-500">
+              {{ finalFloat.currentFinalFloat.toLocaleString() }}/=
+            </span></span>
           </span>
       </div>
     </div>
