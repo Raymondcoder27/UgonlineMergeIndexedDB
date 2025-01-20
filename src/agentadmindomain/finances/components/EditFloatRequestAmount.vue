@@ -12,12 +12,15 @@ const notify =useNotificationsStore()
 
 let form: CreateServiceProvider = reactive({
   name: "",
-  displayName: "",
-  displayLogo: null,
-  providerType:"GOVERNMENT",
-  physicalAddress: "",
-  inquiryEmail:"",
-  inquiryPhoneNumber:"",
+  branch: "",
+  amount: "",
+  status: "",
+//   displayName: "",
+//   displayLogo: null,
+//   providerType:"GOVERNMENT",
+//   physicalAddress: "",
+//   inquiryEmail:"",
+//   inquiryPhoneNumber:"",
   username: ""
 })
 const emit = defineEmits(['cancel'])
