@@ -125,9 +125,9 @@ function open() {
   modalOpen.value = true;
 }
 
-function close() {
-  modalOpen.value = false;
-}
+// function close() {
+//   modalOpen.value = false;
+// }
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
