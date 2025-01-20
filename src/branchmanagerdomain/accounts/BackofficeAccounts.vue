@@ -3,6 +3,7 @@ import AppModal from "@/components/AppModal.vue";
 import { useAccounts } from "@/branchmanagerdomain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive, computed } from "vue";
 import CreateAccount from "@/branchmanagerdomain/accounts/components/CreateAccount.vue";
+import EditBackOfficeAccount from "@/branchmanagerdomain/accounts/components/EditBackOfficeAccount.vue";
 import moment from "moment";
 import type { IGoFilter } from "@/types";
 import { useDebounceFn } from "@vueuse/core";
@@ -409,6 +410,13 @@ watch(
     <CreateAccount @tillOperatorAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
+
+  <AppModal v-model="editModalOpen" xl2>
+    <!-- Put here whatever makes you smile -->
+    <!-- Chances are high that you're starting with a form -->
+    <EditBackOfficeAccount @cancel="close"/>
+    <!-- That's also okay -->
+  </AppModal>
 </template>
 
 <style scoped>
