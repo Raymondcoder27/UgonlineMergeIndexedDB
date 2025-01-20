@@ -327,50 +327,50 @@ function select(tab: string) {
           </div>
         </div>
         <div
-          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch3Ledger')"
+          :class="activeTab == 'branch4Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch4Ledger')"
         >
           <div class="w-full py-2">
             <label class="p-3">Branch 4</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch3Ledger'"
+              v-if="activeTab == 'branch4Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch3Ledger')"
+          :class="activeTab == 'branch5Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch5Ledger')"
         >
           <div class="w-full py-2">
             <label class="p-3">Branch 5</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch3Ledger'"
+              v-if="activeTab == 'branch5Ledger'"
             ></i>
           </div>
         </div>
         <div
-          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch3Ledger')"
+          :class="activeTab == 'branch6Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch6Ledger')"
         >
           <div class="w-full py-2">
             <label class="p-3">Branch 6</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch3Ledger'"
+              v-if="activeTab == 'branch6Ledger'"
             ></i>
           </div>
         </div>
         <div
           :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch3Ledger')"
+          @click="select('branch7Ledger')"
         >
           <div class="w-full py-2">
             <label class="p-3">Branch 7</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch3Ledger'"
+              v-if="activeTab == 'branch7Ledger'"
             ></i>
           </div>
         </div>
@@ -382,7 +382,7 @@ function select(tab: string) {
             <label class="p-3">Branch 8</label>
             <i
               class="fa-solid fa-building float-right px-2 py-1"
-              v-if="activeTab == 'branch3Ledger'"
+              v-if="activeTab == 'branch8Ledger'"
             ></i>
           </div>
         </div>
