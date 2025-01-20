@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import {onMounted, reactive, type Ref, ref} from "vue";
-import {useProviderStore} from "@/agentadmindomain/providers/stores";
-import { useAccounts } from "@/agentadmindomain/auth/stores";
+import {useAccounts} from "@/agentadmindomain/accounts/components/stores";
+import { useAccountStore } from "@/agentadmindomain/auth/stores";
 import type {Account} from "@/agentadmindomain/types";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
