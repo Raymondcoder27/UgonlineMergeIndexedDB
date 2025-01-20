@@ -39,11 +39,14 @@ onMounted(() => {
   let data = JSON.parse(<string>localStorage.getItem("floatRequestEdit"))
 
   form.name = data.name
-  form.displayName = data.displayName
-  form.physicalAddress = data.physicalAddress
-  form.inquiryEmail = data.inquiryEmail
-  form.inquiryPhoneNumber = data.inquiryPhoneNumber
-  form.username = data.username
+  form.branch = data.branch
+  form.amount = data.amount
+  form.status = data.status
+//   form.displayName = data.displayName
+//   form.physicalAddress = data.physicalAddress
+//   form.inquiryEmail = data.inquiryEmail
+//   form.inquiryPhoneNumber = data.inquiryPhoneNumber
+//   form.username = data.username
 })
 
 function submit(){

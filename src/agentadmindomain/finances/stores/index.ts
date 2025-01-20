@@ -45,10 +45,10 @@ export const useBilling = defineStore("billing", () => {
   // <th class="text-left">Actions</th>
 
   const dummyFloatRequests: FloatRequest[] = [
-    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", branch: "Branch 1", approvedBy: null, requesterName: "", createdAt:"", date: "", },
-    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", branch: "Branch 4", approvedBy: null, requesterName: "", createdAt:"", date: "", },
-    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", branch: "Branch 2", approvedBy: "Manager One", requesterName: "", createdAt:"", date: "", },
-    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "rejected", branch: "Branch 3", approvedBy: null, requesterName: "", createdAt:"", date: "", },
+    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "pending", branch: "Branch 1", approvedBy: null, requesterName: "", createdAt:"", date: "",name:"" },
+    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "pending", branch: "Branch 4", approvedBy: null, requesterName: "", createdAt:"", date: "",name:"" },
+    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "approved", branch: "Branch 2", approvedBy: "Manager One", requesterName: "", createdAt:"", date: "",name:"" },
+    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "rejected", branch: "Branch 3", approvedBy: null, requesterName: "", createdAt:"", date: "",name:"" },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
