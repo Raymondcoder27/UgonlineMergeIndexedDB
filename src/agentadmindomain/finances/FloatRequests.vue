@@ -14,6 +14,21 @@ import EditFloatRequestAmount from "@/agentadmindomain/finances/components/EditF
 
 const balanceStore = useBalance();
 
+const editModalOpen: Ref<boolean> = ref(false);
+const viewModalOpen: Ref<boolean> = ref(false);
+
+
+  function editFloatRequest(floatRequest:FloatRequest) {
+  localStorage.setItem("floatRequestEdit", JSON.stringify(floatRequest))
+  editModalOpen.value = true;
+}
+function close() {
+  modalOpen.value = false;
+  viewModalOpen.value = false;
+  editModalOpen.value = false;
+}
+
+
 const billingStore = useBilling();
 const page = ref(1);
 const loading: Ref<boolean> = ref(false);
