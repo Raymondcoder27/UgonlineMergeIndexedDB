@@ -2,26 +2,45 @@
 
 import {onMounted, reactive, type Ref, ref} from "vue";
 import {useProviderStore} from "@/agentadmindomain/providers/stores";
-import { useAccountStore } from "@/agentadmindomain/auth/stores";
-import type {CreateServiceProvider} from "@/agentadmindomain/providers/types";
+import { useAccounts } from "@/agentadmindomain/auth/stores";
+import type {Account} from "@/agentadmindomain/types";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
 
 const store = useProviderStore()
-const accountStore = useAccountStore()
+const accountStore = useAccounts()
 const loading: Ref<boolean> = ref(false)
 const notify =useNotificationsStore()
 
-let form: CreateServiceProvider = reactive({
-  name: "",
-  displayName: "",
-  displayLogo: null,
-  providerType:"GOVERNMENT",
-  physicalAddress: "",
-  inquiryEmail:"",
-  inquiryPhoneNumber:"",
-  username: ""
+// let form: CreateServiceProvider = reactive({
+//   name: "",
+//   displayName: "",
+//   displayLogo: null,
+//   providerType:"GOVERNMENT",
+//   physicalAddress: "",
+//   inquiryEmail:"",
+//   inquiryPhoneNumber:"",
+//   username: ""
+// })
+
+let form: Account = reactive({
+  id: "",
+  firstName: "",
+  lastName: "",
+  middleNames: "",
+  middleName: "",
+  idType: "",
+  email: "",
+  role: "",
+  username: "",  // emailVerified: boolean
+  // phoneVerified: boolean
+  phone: "",
+  status: "",
+  createdAt: "",
+  activatedAt: "",
+  blockedAt: "",
 })
+
 const emit = defineEmits(['cancel'])
 
 // onMounted(() => {
