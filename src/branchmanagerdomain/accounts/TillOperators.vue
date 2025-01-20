@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { useAccounts } from "@/branchmanagerdomain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive, computed } from "vue";
-import CreateAccount from "@/branchmanagerdomain/accounts/components/CreateAccount.vue";
+// import CreateAccount from "@/branchmanagerdomain/accounts/components/CreateAccount.vue";
 import moment from "moment";
 import type { IGoFilter } from "@/types";
 import { useDebounceFn } from "@vueuse/core";
@@ -12,7 +12,7 @@ import type {
   Account,
 } from "./types";
 // import AddManager from "@/branchmanagerdomain/accounts/components/AddManager.vue";
-import  EditTillOperator from "@/branchmanagerdomain/accounts/components/ EditTillOperator.vue";
+import  EditTillOperator from "@/branchmanagerdomain/accounts/components/EditTillOperator.vue";
 
 import { useTillStore } from "@/branchmanagerdomain/tills/stores"; // Updated import
 
