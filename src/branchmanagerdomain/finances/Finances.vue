@@ -39,12 +39,30 @@ function select(tab: string) {
 
         <span
           class="mt-2 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md flex"
+          >
+        <!-- <i class="fas fa-wallet px-1 pt-0.5 text-red-700"></i> -->
+
+          <!-- {{ totalBalance.currentBalance.toLocaleString() }}/= -->
+
+          <!-- <span class="px-1">Available Float: {{ availableFloat.toLocaleString() }}/=</span> -->
+          <span class="px-1">Available Float: 
+            <span class="text-gray-500">{{ totalBalance.currentBalance.toLocaleString() }}/=</span></span>
+
+          <span class="px-1">Final Float: 
+            <span class="text-gray-500">
+              {{ finalFloat.currentFinalFloat.toLocaleString() }}/=
+            </span></span>
+          </span>
+      </div>
+      <!-- <div class="flex">
+        <span
+          class="mt-2 mr-3 text-gray-800 font-semibold rounded-md px-1 py-0.5 text-md flex"
         >
           <i class="fas fa-wallet px-1 pt-0.5 text-red-700"></i>
 
           {{ totalBalance.currentBalance.toLocaleString() }}/=
         </span>
-      </div>
+      </div> -->
     </div>
     <div class="flex pt-5">
       <div
