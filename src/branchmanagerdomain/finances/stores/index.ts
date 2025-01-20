@@ -115,6 +115,8 @@ export const useBilling = defineStore("billing", () => {
       floatRequest.status = "approved";
       await db.set(floatRequest.id, floatRequest); // Update in IndexedDB
     }
+    manageFloatRequestsFromBranchManager();
+
   }
 
   // Reject float request
@@ -124,6 +126,8 @@ export const useBilling = defineStore("billing", () => {
       floatRequest.status = "rejected";
       await db.set(floatRequest.id, floatRequest); // Update in IndexedDB
     }
+    manageFloatRequestsFromBranchManager();
+
   }
 
   // Allocate float
@@ -148,6 +152,43 @@ export const useBilling = defineStore("billing", () => {
     };
     await saveFloatLedger(floatLedger);
   }
+
+
+  // Example of reading and writing float requests from tilloperator-billing-database
+async function manageFloatRequestsFromBranchManager() {
+  try {
+      // Retrieve all float requests from tilloperator-billing-database
+      const floatRequests = await billingDb.getAll<any>(); // Replace `any` with the actual type if known
+
+      if (floatRequests.length === 0) {
+          console.log("No float requests found in tilloperator-billing-database.");
+          return;
+      }
+
+      console.log(`Found ${floatRequests.length} float requests in tilloperator-billing-database.`);
+
+      // Example: Processing each float request
+      for (const request of floatRequests) {
+          if (request && request.id) {
+              console.log(`Processing float request with ID: ${request.id}`);
+              
+              // Example of modifying a float request
+              request.status = "processed"; // Modify data as needed
+              await billingDb.set(request.id, request); // Update in tilloperator-billing-database
+
+              console.log(`Updated float request with ID: ${request.id}`);
+          } else {
+              console.warn("Encountered a float request without a valid ID. Skipping...");
+          }
+      }
+  } catch (error) {
+      console.error("Error managing float requests from tilloperator-billing-database:", error);
+  }
+}
+
+// Call the function from branchmanager-billing-database
+// manageFloatRequestsFromBranchManager();
+
 
   // Initialize data from IndexedDB
   async function initializeStore() {
