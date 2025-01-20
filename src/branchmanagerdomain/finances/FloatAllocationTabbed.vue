@@ -399,7 +399,7 @@ function select(tab: string) {
           </div>
         </div> -->
       </div>
-      <div class="w-10/12 py-1">
+      <div class="w-10/12">
         <Till1Ledger v-if="activeTab == 'till1Ledger'" />
         <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
         <!-- <ApplicationsLineGraph v-if="activeTab == 'services'" />
