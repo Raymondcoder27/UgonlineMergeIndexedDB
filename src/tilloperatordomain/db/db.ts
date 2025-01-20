@@ -1,7 +1,7 @@
 import { createStore, get, set, del, keys, clear } from "idb-keyval";
 
 // Create a custom store for billing
-export const billingStore = createStore("agentdomain-billing-database", "billing-store");
+export const billingStore = createStore("tilloperator-billing-database", "billing-store");
 
 export const billingDb = {
     async get<T>(key: number): Promise<T | undefined> {

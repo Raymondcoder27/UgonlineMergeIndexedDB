@@ -19,6 +19,8 @@ export const db = {
         }
     },
 
+    
+
     /**
      * Save or update a single item in the database
      * @param key The key of the item to save
