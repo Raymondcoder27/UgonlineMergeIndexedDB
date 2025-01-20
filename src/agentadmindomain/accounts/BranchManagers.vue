@@ -20,9 +20,11 @@ import { useBranchStore } from "@/agentadmindomain/branches/stores"; // Updated 
 const editModalOpen: Ref<boolean> = ref(false);
 const viewModalOpen: Ref<boolean> = ref(false);
 
-
-  function editManagerAccount(branchManagerAccount:ManagerAccount) {
-  localStorage.setItem("branchManagerAccount", JSON.stringify(branchManagerAccount))
+function editManagerAccount(branchManagerAccount: ManagerAccount) {
+  localStorage.setItem(
+    "branchManagerAccount",
+    JSON.stringify(branchManagerAccount)
+  );
   editModalOpen.value = true;
 }
 function close() {
@@ -30,7 +32,6 @@ function close() {
   viewModalOpen.value = false;
   editModalOpen.value = false;
 }
-
 
 const pageInput = ref(1);
 const changePageSize = () => {
@@ -403,7 +404,6 @@ onMounted(() => {
     <EditBranchManager @managerAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
-
 </template>
 
 <style scoped>
