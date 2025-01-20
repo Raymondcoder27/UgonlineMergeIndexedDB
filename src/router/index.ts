@@ -128,7 +128,7 @@ const mergedRoutes: RouteRecordRaw[] = [
       { name: "agent-app-services", path: "/agent/services", component: AgentAppServices },
       { name: "agent-app-entities", path: "/agent/entities", component: AgentAppEntities },
       { name: "agent-app-agents", path: "/agent/agents", component: AgentAppAgents },
-      { name: "agent-app-branches", path: "/agent/branches", component: AgentBranches },
+      // { name: "agent-app-branches", path: "/agent/branches", component: AgentBranches },
       { name: "agent-app-configurations", path: "/agent/configurations", component: AgentSettings },
       { name: "agent-app-ledger", path: "/agent/ledger", component: AgentLedger },
       { name: "agent-app-services-details", path: "/agent/services-details", component: AgentServicesDetails },
