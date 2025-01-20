@@ -9,7 +9,7 @@ import { useDebounceFn } from "@vueuse/core";
 import type {
   IResendVerificationPayload,
   TAccountVerificationType,
-  Account,
+  TillOperatorAccount,
 } from "./types";
 // import AddManager from "@/branchmanagerdomain/accounts/components/AddManager.vue";
 import  EditTillOperator from "@/branchmanagerdomain/accounts/components/EditTillOperator.vue";
@@ -21,7 +21,7 @@ import { useTillStore } from "@/branchmanagerdomain/tills/stores"; // Updated im
 const editModalOpen: Ref<boolean> = ref(false);
 const viewModalOpen: Ref<boolean> = ref(false);
 
-function editTillOperatorAccount(tillOperatorAccount: Account) {
+function editTillOperatorAccount(tillOperatorAccount: TillOperatorAccount) {
   localStorage.setItem(
     "tillOperatorAccount",
     JSON.stringify(tillOperatorAccount)
