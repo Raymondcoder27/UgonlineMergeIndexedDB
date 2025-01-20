@@ -103,9 +103,9 @@ function submit(){
     <p class="text-xl font-bold">Edit BackOffice Account</p>
     <p class="text-sm text-gray-500" v-if="form.name"><b>{{form.name}}</b> provides a services consumed by the general public of Uganda.</p>
     <form @submit.prevent="submit" class="pt-5">
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Provider Name</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">First Name</label>
           <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
                  required />
         </div>
@@ -119,39 +119,41 @@ function submit(){
             <option value="PRIVATE">Private Company</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex">
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Display Name</label>
-          <input type="text" v-model="form.displayName" class="noFocus form-element e-input w-full"
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">First Name</label>
+          <input type="text" v-model="form.firstName" class="noFocus form-element e-input w-full"
                  required />
         </div>
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Username</label>
-          <input type="text" v-model="form.username" class="noFocus form-element e-input w-full"
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Last Name</label>
+          <input type="text" v-model="form.lastName" class="noFocus form-element e-input w-full"
                  required />
         </div>
       </div>
 
-      <p class="text-sm font-bold pt-5">Provider Inquiry Details</p>
-      <div class="flex">
-        <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Inquiry Email Address</label>
-          <input type="email" v-model="form.inquiryEmail" class="noFocus form-element e-input w-full"/>
-        </div>
-        <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Inquiry Phone Number</label>
-          <input type="tel" v-model="form.inquiryPhoneNumber" class="noFocus form-element e-input w-full"/>
-        </div>
-      </div>
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Physical Address</label>
-          <textarea v-model="form.physicalAddress" class="noFocus form-element e-input w-full" cols="4"
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">User Name</label>
+          <textarea v-model="form.username" class="noFocus form-element e-input w-full" cols="4"
                     placeholder="Address Description"/>
         </div>
       </div>
+
+      <p class="text-sm font-bold pt-5">Account Inquiry Details</p>
+      <div class="flex">
+        <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Email Address</label>
+          <input type="email" v-model="form.email" class="noFocus form-element e-input w-full"/>
+        </div>
+        <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Phone Number</label>
+          <input type="tel" v-model="form.phone" class="noFocus form-element e-input w-full"/>
+        </div>
+      </div>
+      
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
