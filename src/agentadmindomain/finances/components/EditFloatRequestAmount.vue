@@ -86,13 +86,13 @@ function submit(){
     <p class="text-xl font-bold">Edit Float Request Amount</p>
     <p class="text-sm text-gray-500" v-if="form.name"><b>{{form.name}}</b> provides a services consumed by the general public of Uganda.</p>
     <form @submit.prevent="submit" class="pt-5">
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Requester Name</label>
           <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
                  required />
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="flex">
         <div class="cell-full">
