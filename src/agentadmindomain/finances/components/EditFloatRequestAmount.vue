@@ -67,7 +67,7 @@ function submit(){
     // username:form.username
   }
   store
-      .editProvider(id, payload)
+      .editFloatRequest(id, payload)
       .then(() => {
         loading.value = false
         window.location.reload()
@@ -83,18 +83,18 @@ function submit(){
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold">Edit Service Provider</p>
+    <p class="text-xl font-bold">Edit Float Request Amount</p>
     <p class="text-sm text-gray-500" v-if="form.name"><b>{{form.name}}</b> provides a services consumed by the general public of Uganda.</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Provider Name</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Requester Name</label>
           <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
                  required />
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Provider Type</label>
           <select v-model="form.providerType" class="noFocus form-element e-input w-full">
@@ -102,22 +102,22 @@ function submit(){
             <option value="PRIVATE">Private Company</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex">
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Display Name</label>
-          <input type="text" v-model="form.displayName" class="noFocus form-element e-input w-full"
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch</label>
+          <input type="text" v-model="form.branch" class="noFocus form-element e-input w-full"
                  required />
         </div>
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Username</label>
-          <input type="text" v-model="form.username" class="noFocus form-element e-input w-full"
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount</label>
+          <input type="text" v-model="form.amount" class="noFocus form-element e-input w-full"
                  required />
         </div>
       </div>
 
-      <p class="text-sm font-bold pt-5">Provider Inquiry Details</p>
+      <!-- <p class="text-sm font-bold pt-5">Provider Inquiry Details</p>
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Inquiry Email Address</label>
@@ -134,7 +134,7 @@ function submit(){
           <textarea v-model="form.physicalAddress" class="noFocus form-element e-input w-full" cols="4"
                     placeholder="Address Description"/>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
