@@ -305,7 +305,7 @@ watch(
                   @click="modalOpen = true"
                 >
                   <i class="fa fa-eye"></i>
-                  View
+                  View Details
                 </span>
               </div>
             </td>
