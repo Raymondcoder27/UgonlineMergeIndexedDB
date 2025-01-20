@@ -7,8 +7,9 @@ import type {Account} from "@/agentadmindomain/types";
 import {useNotificationsStore} from "@/stores/notifications";
 import type {ApiError} from "@/types";
 
-const store = useProviderStore()
-const accountStore = useAccounts()
+// const store = useProviderStore()
+// const accountStore = useAccounts()
+const store = useAccounts()
 const loading: Ref<boolean> = ref(false)
 const notify =useNotificationsStore()
 
