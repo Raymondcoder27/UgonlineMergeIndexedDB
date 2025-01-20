@@ -1,6 +1,6 @@
 import { useCommonsStore } from "@/stores/commons"
 import axios from "axios"
-import { useAuth } from "@/domain/auth/composables"
+import { useAuth } from "@/agentadmin/auth/composables"
 import { useStorage, type RemovableRef } from "@vueuse/core"
 
 const api = axios.create({

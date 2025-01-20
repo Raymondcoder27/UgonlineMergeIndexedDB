@@ -1,4 +1,4 @@
-import type { FormSection } from "@/domain/composer/types/formtypes";
+import type { FormSection } from "@/agentadmin/composer/types/formtypes";
 
 export interface ServiceResponseInterface {
     success: boolean

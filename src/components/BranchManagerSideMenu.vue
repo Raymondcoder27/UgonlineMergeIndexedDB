@@ -11,7 +11,7 @@ import {
 import { useStorage, useWindowSize } from "@vueuse/core";
 import { type SideMenuLink } from "@/types";
 import { useRoute, useRouter } from "vue-router";
-import { useAccountStore } from "@/domain/auth/stores";
+import { useAccountStore } from "@/agentadmin/auth/stores";
 
 const { width } = useWindowSize();
 const isMobile: ComputedRef<boolean> = computed(() => unref(width) <= 768);
