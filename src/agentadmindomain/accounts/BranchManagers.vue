@@ -11,7 +11,7 @@ import type {
   TAccountVerificationType,
 } from "./types";
 // import AddManager from "@/agentadmindomain/accounts/components/AddManager.vue";
-import EditManager from "@/agentadmindomain/accounts/components/EditManager.vue";
+import EditBranchManager from "@/agentadmindomain/accounts/components/EditManager.vue";
 
 import { useBranchStore } from "@/agentadmindomain/branches/stores"; // Updated import
 
@@ -282,7 +282,7 @@ onMounted(() => {
                   > -->
                 <span
                   class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
-                  @click="modalOpen = true"
+                  @click="editManagerAccount(account)"
                 >
                   <i class="fa fa-eye"></i>
                   View
@@ -383,9 +383,10 @@ onMounted(() => {
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <EditManager @managerAccountCreated="close" @cancel="close" />
+    <EditBranchManager @managerAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
+
 </template>
 
 <style scoped>
