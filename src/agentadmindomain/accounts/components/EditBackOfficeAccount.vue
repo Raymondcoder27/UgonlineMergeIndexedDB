@@ -76,13 +76,14 @@ function submit(){
   let payload = {
     firstName:form.firstName,
     lastName: form.lastName,
+    middleNames: form.middleNames,
     email: form.email,
     phone: form.phone,
     status: form.status,
     username:form.username
   }
   store
-      .editProvider(id, payload)
+      .editBackofficeAccount(id, payload)
       .then(() => {
         loading.value = false
         window.location.reload()
