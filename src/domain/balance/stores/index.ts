@@ -120,12 +120,26 @@ async function fetchTotalBalance() {
   console.log("Updated balance in store:", totalBalance); // Debugging
 }
 
+async function fetchFinalFloatBalance() {
+  console.log("Fetching final float")
+  const fetchedBalance = {
+    prevBalance: finalFloat.prevFinalFloat,
+    currentBalance: finalFloat.currentFinalFloat,
+  };
+
+  console.log("Fetched Balance:", fetchedBalance)
+  finalFloat.prevFinalFloat = fetchedBalance.prevBalance;
+  finalFloat.currentFinalFloat = fetchedBalance.currentBalance;
+  console.log("Updated balance in store: ", finalFloat)
+}
+
   return {
     totalBalance,
     availableFloat,
     finalFloat,
     approveFloatRequest,
     fetchTotalBalance,
+    fetchFinalFloatBalance,
     increaseTotalBalance,
     decreaseTotalBalance,
   };
