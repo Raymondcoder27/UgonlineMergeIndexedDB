@@ -9,6 +9,7 @@ import { useDebounceFn } from "@vueuse/core";
 import type {
   IResendVerificationPayload,
   TAccountVerificationType,
+  ManagerAccount,
   Account,
 } from "./types";
 // import AddManager from "@/agentadmindomain/accounts/components/AddManager.vue";
@@ -20,7 +21,7 @@ const editModalOpen: Ref<boolean> = ref(false);
 const viewModalOpen: Ref<boolean> = ref(false);
 
 
-  function editManagerAccount(branchManagerAccount:Account) {
+  function editManagerAccount(branchManagerAccount:ManagerAccount) {
   localStorage.setItem("branchManagerAccount", JSON.stringify(branchManagerAccount))
   editModalOpen.value = true;
 }
@@ -398,7 +399,7 @@ onMounted(() => {
   </div>
 
   <!-- Modal -->
-  <AppModal v-model="modalOpen" xl2>
+  <AppModal v-model="editModalOpen" xl2>
     <EditBranchManager @managerAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
