@@ -9,7 +9,7 @@ import naroThumbnail from '@/assets/images/naro.png';
 import ursbThumbnail from '@/assets/images/ursb.png';
 import ministryThumbnail from '@/assets/images/ministry.png';
 
-import { useServicesStore } from "@/agentdomain/services/stores";
+import { useServicesStore } from "@/tilloperatordomain/services/stores";
 
 export const useServicesStore = defineStore("services", () => {
 

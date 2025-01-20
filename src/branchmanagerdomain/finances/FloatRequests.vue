@@ -8,7 +8,7 @@ import type { IGoFilter } from "@/types";
 // import { useDebounce } from "@vueuse/core";
 import moment from "moment/moment";
 import { useBalance } from "@/branchmanagerdomain/balance/stores";
-// import { FloatRequest } from "@/agentdomain/ledger/types/chart";
+// import { FloatRequest } from "@/tilloperatordomain/ledger/types/chart";
 import { FloatRequest } from "@/branchmanagerdomain/finances/types";
 
 const balanceStore = useBalance();

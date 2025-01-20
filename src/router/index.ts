@@ -37,24 +37,24 @@ import BranchManagerDashboardTab from "@/branchmanagerdomain/dashboard/Dashboard
 
 
 // Import the agent domain components
-import FormComposer from "@/agentdomain/composer/FormComposer.vue";
-import FormPreview from "@/agentdomain/composer/FormPreview.vue";
+import FormComposer from "@/tilloperatordomain/composer/FormComposer.vue";
+import FormPreview from "@/tilloperatordomain/composer/FormPreview.vue";
 import ComposerLayout from "@/layouts/ComposerLayout.vue";
 import AgentLayout from "@/layouts/AgentLayout.vue";
-import AgentAppServices from "@/agentdomain/services/AppServices.vue";
-import AgentAppServicesDetails from "@/agentdomain/apiservices/views/ServiceDetails.vue";
-import AgentAppEntities from "@/agentdomain/entities/AppEntities.vue";
-import AgentAppAgents from "@/agentdomain/agents/AppAgents.vue";
-// import AgentBranches from "@/agentdomain/branches/AppBranches.vue";
-import AgentSettings from "@/agentdomain/settings/Settings.vue";
-import AgentLedger from "@/agentdomain/ledger/Ledger.vue";
-import AgentSubmissions from "@/agentdomain/submissions/Submissions.vue";
-import AgentServicesDetails from "@/agentdomain/servicesdetails/ServicesDetails.vue";
-import AgentAppGateway from "@/agentdomain/gateway/AppGateway.vue";
-import AgentAppFinances from "@/agentdomain/finances/AppFinances.vue";
-// import ApiServices from "@/agentdomain/apiservices/Services.vue";
-import ApiServices from "@/agentdomain/apiservices/Services2.vue";
-import ApiSubmissions from "@/agentdomain/apisubmissions/ServiceApplications.vue";
+import AgentAppServices from "@/tilloperatordomain/services/AppServices.vue";
+import AgentAppServicesDetails from "@/tilloperatordomain/apiservices/views/ServiceDetails.vue";
+import AgentAppEntities from "@/tilloperatordomain/entities/AppEntities.vue";
+import AgentAppAgents from "@/tilloperatordomain/agents/AppAgents.vue";
+// import AgentBranches from "@/tilloperatordomain/branches/AppBranches.vue";
+import AgentSettings from "@/tilloperatordomain/settings/Settings.vue";
+import AgentLedger from "@/tilloperatordomain/ledger/Ledger.vue";
+import AgentSubmissions from "@/tilloperatordomain/submissions/Submissions.vue";
+import AgentServicesDetails from "@/tilloperatordomain/servicesdetails/ServicesDetails.vue";
+import AgentAppGateway from "@/tilloperatordomain/gateway/AppGateway.vue";
+import AgentAppFinances from "@/tilloperatordomain/finances/AppFinances.vue";
+// import ApiServices from "@/tilloperatordomain/apiservices/Services.vue";
+import ApiServices from "@/tilloperatordomain/apiservices/Services2.vue";
+import ApiSubmissions from "@/tilloperatordomain/apisubmissions/ServiceApplications.vue";
 
 
 // Merge appRoutes and appRoutes2

@@ -12,7 +12,7 @@ import {
 import { useStorage, useWindowSize } from "@vueuse/core";
 import { type TopMenuLink } from "@/types";
 import { useRoute, useRouter } from "vue-router";
-import { useAccountStore } from "@/agentdomain/auth/stores";
+import { useAccountStore } from "@/tilloperatordomain/auth/stores";
 
 const { width } = useWindowSize();
 const isMobile: ComputedRef<boolean> = computed(() => unref(width) <= 768);
