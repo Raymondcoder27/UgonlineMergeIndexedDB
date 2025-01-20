@@ -374,6 +374,18 @@ function select(tab: string) {
             ></i>
           </div>
         </div>
+        <div
+          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch3Ledger')"
+        >
+          <div class="w-full py-2">
+            <label class="p-3">Branch 8</label>
+            <i
+              class="fa-solid fa-building float-right px-2 py-1"
+              v-if="activeTab == 'branch3Ledger'"
+            ></i>
+          </div>
+        </div>
         <!-- <div :class="(activeTab == 'revenue') ? 'tab-active' : 'tab'" @click="select('revenue')">
           <div class="w-full py-1">
             <label class="p-3">Revenue</label>
