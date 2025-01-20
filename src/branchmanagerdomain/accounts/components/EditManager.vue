@@ -6,7 +6,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
 import { useTillStore } from "@/branchmanagerdomain/tills/stores";
 
-const store = useTillStore();
+const tillStore = useTillStore();
 
 const form: ManagerAccount = reactive({
   firstName: "",
@@ -56,8 +56,8 @@ function submit() {
   };
   loading.value = true;
   store.addManagerAccount(payload); // Simply add the Till
-  notify.success("Manager Account Created");
-  emit("managerAccountCreated");
+  notify.success("Till Operator Account Created");
+  emit("tillOperatorAccountCreated");
   loading.value = false;
 }
 
@@ -169,7 +169,7 @@ onMounted(() => {
         >
           <option :value="null">-- Select Till --</option>
           <option
-            v-for="(till, idx) in store.tills"
+            v-for="(till, idx) in tillStore.tills"
             :key="idx"
             :value="till.name"
           >
