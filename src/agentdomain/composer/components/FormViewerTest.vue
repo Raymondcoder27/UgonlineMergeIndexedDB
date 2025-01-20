@@ -22,41 +22,41 @@ onMounted(() => {
   formData = {};
 });
 
-function submit() {
-  alert(JSON.stringify(formData));
-}
-
 // function submit() {
-//   const request = indexedDB.open("TillOperatorServiceRequestFormDatabase", 1);
-
-//   request.onupgradeneeded = function (event) {
-//     const db = (event.target as IDBOpenDBRequest).result;
-//     if (!db.objectStoreNames.contains("Forms")) {
-//       db.createObjectStore("Forms", { keyPath: "id", autoIncrement: true });
-//     }
-//   };
-
-//   request.onsuccess = function (event) {
-//     const db = (event.target as IDBOpenDBRequest).result;
-//     const transaction = db.transaction("Forms", "readwrite");
-//     const store = transaction.objectStore("Forms");
-
-//     store.add({ timestamp: Date.now(), data: formData });
-
-//     transaction.oncomplete = function () {
-//     //   alert("Form data successfully saved to IndexedDB!");
-//       console.log("Form data successfully saved to IndexedDB!")
-//     };
-
-//     transaction.onerror = function () {
-//       alert("Failed to save form data.");
-//     };
-//   };
-
-//   request.onerror = function () {
-//     alert("Failed to open IndexedDB.");
-//   };
+//   alert(JSON.stringify(formData));
 // }
+
+function submit() {
+  const request = indexedDB.open("TillOperatorServiceRequestFormDatabase", 1);
+
+  request.onupgradeneeded = function (event) {
+    const db = (event.target as IDBOpenDBRequest).result;
+    if (!db.objectStoreNames.contains("Forms")) {
+      db.createObjectStore("Forms", { keyPath: "id", autoIncrement: true });
+    }
+  };
+
+  request.onsuccess = function (event) {
+    const db = (event.target as IDBOpenDBRequest).result;
+    const transaction = db.transaction("Forms", "readwrite");
+    const store = transaction.objectStore("Forms");
+
+    store.add({ timestamp: Date.now(), data: formData });
+
+    transaction.oncomplete = function () {
+    //   alert("Form data successfully saved to IndexedDB!");
+      console.log("Form data successfully saved to IndexedDB!")
+    };
+
+    transaction.onerror = function () {
+      alert("Failed to save form data.");
+    };
+  };
+
+  request.onerror = function () {
+    alert("Failed to open IndexedDB.");
+  };
+}
 
 // submit to an endpoint (https://sandbox.apiclient.eposta.ug/api/box/apply)
 // function submit() {
