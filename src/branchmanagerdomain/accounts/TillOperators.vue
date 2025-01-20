@@ -11,7 +11,7 @@ import type {
   TAccountVerificationType,
 } from "./types";
 // import AddManager from "@/branchmanagerdomain/accounts/components/AddManager.vue";
-import EditManager from "@/branchmanagerdomain/accounts/components/EditManager.vue";
+import  EditTillOperator from "@/branchmanagerdomain/accounts/components/ EditTillOperator.vue";
 
 import { useTillStore } from "@/branchmanagerdomain/tills/stores"; // Updated import
 
@@ -383,7 +383,7 @@ onMounted(() => {
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <EditManager @managerAccountCreated="close" @cancel="close" />
+    <EditTillOperator @managerAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>
