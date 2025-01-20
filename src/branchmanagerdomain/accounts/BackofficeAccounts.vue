@@ -12,6 +12,20 @@ import type {
   TAccountVerificationType,
 } from "./types";
 
+const editModalOpen: Ref<boolean> = ref(false);
+const viewModalOpen: Ref<boolean> = ref(false);
+
+
+  function editBackofficeAccount(backofficeAccount:Account) {
+  localStorage.setItem("backofficeAccount", JSON.stringify(backofficeAccount))
+  editModalOpen.value = true;
+}
+function close() {
+  modalOpen.value = false;
+  viewModalOpen.value = false;
+  editModalOpen.value = false;
+}
+
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(5);
 const loading: Ref<boolean> = ref(false);
@@ -108,9 +122,9 @@ function open() {
   modalOpen.value = true;
 }
 
-function close() {
-  modalOpen.value = false;
-}
+// function close() {
+//   modalOpen.value = false;
+// }
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
@@ -302,11 +316,11 @@ watch(
                   @click="modalOpen = true"
                 > -->
                 <span
-                  class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-800"
-                  @click="modalOpen = true"
+                  class="bg-blue-600 rounded-md font-semibold text-white px-1 py-1 hover:bg-blue-200 hover:text-blue-700"
+                  @click="editModalOpen(account)"
                 >
                   <i class="fa fa-eye"></i>
-                  View
+                  View Details
                 </span>
               </div>
             </td>
