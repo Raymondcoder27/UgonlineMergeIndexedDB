@@ -185,7 +185,7 @@ function submit(userId: string) {
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >First Name</label
+            >Name</label
           >
           <input
             type="text"
@@ -196,7 +196,7 @@ function submit(userId: string) {
         </div>
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Last Name</label
+            >Description</label
           >
           <input
             type="text"
@@ -208,7 +208,7 @@ function submit(userId: string) {
       </div>
 
       <!-- <p class="text-sm font-bold pt-5">Provider Inquiry Details</p> -->
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
             >Email Address</label
@@ -229,7 +229,7 @@ function submit(userId: string) {
             class="noFocus form-element e-input w-full"
           />
         </div>
-      </div>
+      </div> -->
       <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
