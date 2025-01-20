@@ -78,12 +78,12 @@ function fetchBranches() {
   //     notify.error(error.response.data.message);
   //   });
 
-  loading.value = true;
+  // loading.value = true;
   // Fetch the services based on the page and limit
   const startIndex = (page.value - 1) * limit.value;
   const endIndex = startIndex + limit.value;
   branches.value = branchStore.branches?.slice(startIndex, endIndex);
-  loading.value = false;
+  // loading.value = false;
 }
 
 function open(branch: Branch) {
