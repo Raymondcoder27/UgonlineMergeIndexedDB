@@ -401,7 +401,7 @@ onMounted(() => {
   </div>
 
   <!-- Modal -->
-  <AppModal v-model="modalOpen" xl2>
+  <AppModal v-model="editModalOpen" xl2>
     <EditTillOperator @tillOperatorAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
