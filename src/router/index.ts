@@ -1,39 +1,39 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from "vue-router";
 import MainLayout from "@/layouts/MainLayout.vue";
-import AppDashboard from "../agentadmin/dashboard/AppDashboard.vue";
-import AppEntities from "../agentadmin/entities/AppEntities.vue";
-import AppAgents from "../agentadmin/agents/AppAgents.vue";
-import AppGateway from "../agentadmin/gateway/AppGateway.vue";
-import Finances from "@/agentadmin/finances/Finances.vue";
-import Services from "@/agentadmin/services/AppServices.vue";
-import ServicesDetails from "@/agentadmin/servicesdetails/ServicesDetails.vue";
-import Accounts from "@/agentadmin/accounts/Accounts.vue";
-import Branches from "../agentadmin/branches/AppBranches.vue";
-import DataAnalytics from "@/agentadmin/analytics/DataAnalytics.vue";
-import Settings from "@/agentadmin/settings/Settings.vue";
-import { routes as authRoutes } from "@/agentadmin/auth/routes";
-import { useAuth } from "@/agentadmin/auth/composables";
+import AppDashboard from "../agentadmindomain/dashboard/AppDashboard.vue";
+import AppEntities from "../agentadmindomain/entities/AppEntities.vue";
+import AppAgents from "../agentadmindomain/agents/AppAgents.vue";
+import AppGateway from "../agentadmindomain/gateway/AppGateway.vue";
+import Finances from "@/agentadmindomain/finances/Finances.vue";
+import Services from "@/agentadmindomain/services/AppServices.vue";
+import ServicesDetails from "@/agentadmindomain/servicesdetails/ServicesDetails.vue";
+import Accounts from "@/agentadmindomain/accounts/Accounts.vue";
+import Branches from "../agentadmindomain/branches/AppBranches.vue";
+import DataAnalytics from "@/agentadmindomain/analytics/DataAnalytics.vue";
+import Settings from "@/agentadmindomain/settings/Settings.vue";
+import { routes as authRoutes } from "@/agentadmindomain/auth/routes";
+import { useAuth } from "@/agentadmindomain/auth/composables";
 import moment from "moment";
-import DashboardTab from "@/agentadmin/dashboard/DashboardTab.vue";
+import DashboardTab from "@/agentadmindomain/dashboard/DashboardTab.vue";
 
 
 // Import the branch manager domain components
 import BranchManagerLayout from "@/layouts/BranchManagerLayout.vue";
-import BranchManagerAppServices from "@/branch-manager/services/AppServices.vue";
-import BranchManagerAppEntities from "@/branch-manager/entities/AppEntities.vue";
-import BranchManagerAppAgents from "@/branch-manager/agents/AppAgents.vue";
-// import BranchManagerBranches from "@/branch-manager/tills/Tills.vue";
-import BranchManagerSettings from "@/branch-manager/settings/Settings.vue";
-// import BranchManagerLedger from "@/branch-manager/ledger/Ledger.vue";
-import BranchManagerServicesDetails from "@/branch-manager/servicesdetails/ServicesDetails.vue";
-import BranchManagerAppGateway from "@/branch-manager/gateway/AppGateway.vue";
-import BranchManagerAppFinances from "@/branch-manager/finances/Finances.vue";
-import BranchManagerTills from "@/branch-manager/tills/Tills.vue";
-import BranchManagerAccounts from "@/branch-manager/accounts/Accounts.vue";
-import BranchManagerDataAnalytics from "@/branch-manager/analytics/DataAnalytics.vue";
-import BranchManagerDashboardTab from "@/branch-manager/dashboard/DashboardTab.vue"
-// import BranchManagerSubmissions from "@/branch-manager/submissions/Submissions.vue";
-// import BranchManagerAppServicesDetails from "@/branch-manager/apiservices/views/ServiceDetails.vue";
+import BranchManagerAppServices from "@/branchmanagerdomain/services/AppServices.vue";
+import BranchManagerAppEntities from "@/branchmanagerdomain/entities/AppEntities.vue";
+import BranchManagerAppAgents from "@/branchmanagerdomain/agents/AppAgents.vue";
+// import BranchManagerBranches from "@/branchmanagerdomain/tills/Tills.vue";
+import BranchManagerSettings from "@/branchmanagerdomain/settings/Settings.vue";
+// import BranchManagerLedger from "@/branchmanagerdomain/ledger/Ledger.vue";
+import BranchManagerServicesDetails from "@/branchmanagerdomain/servicesdetails/ServicesDetails.vue";
+import BranchManagerAppGateway from "@/branchmanagerdomain/gateway/AppGateway.vue";
+import BranchManagerAppFinances from "@/branchmanagerdomain/finances/Finances.vue";
+import BranchManagerTills from "@/branchmanagerdomain/tills/Tills.vue";
+import BranchManagerAccounts from "@/branchmanagerdomain/accounts/Accounts.vue";
+import BranchManagerDataAnalytics from "@/branchmanagerdomain/analytics/DataAnalytics.vue";
+import BranchManagerDashboardTab from "@/branchmanagerdomain/dashboard/DashboardTab.vue"
+// import BranchManagerSubmissions from "@/branchmanagerdomain/submissions/Submissions.vue";
+// import BranchManagerAppServicesDetails from "@/branchmanagerdomain/apiservices/views/ServiceDetails.vue";
 
 
 // Import the agent domain components

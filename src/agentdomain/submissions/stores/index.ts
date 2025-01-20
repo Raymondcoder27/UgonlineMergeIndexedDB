@@ -19,6 +19,15 @@ export const useSubmissions = defineStore("submissions", () => {
     { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
   ];
 
+
+  const generateTrackingNumberForSubmissions = () => {
+    const prefix = "S"; // All tracking numbers start with "S"
+    const randomNumber = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit number
+    const timestamp = Date.now().toString().slice(-6); // Use the last 6 digits of the current timestamp for uniqueness
+    return `${prefix}${randomNumber}${timestamp}`;
+  };
+  
+
 //   <thead>
 //             <tr class="header-tr">
 //               <th class="t-header">#</th>

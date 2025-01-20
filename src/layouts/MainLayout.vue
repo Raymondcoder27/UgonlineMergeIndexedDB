@@ -2,10 +2,10 @@
 import Header from "../components/Header.vue";
 import SideMenu from "../components/SideMenu.vue";
 import AppNotification from "../components/AppNotification.vue";
-import { useAuth } from "../agentadmin/auth/composables"
-import { useAccountStore } from "../agentadmin/auth/stores"
+import { useAuth } from "../agentadmindomain/auth/composables"
+import { useAccountStore } from "../agentadmindomain/auth/stores"
 import { onMounted, reactive, watch } from "vue"
-import type { TokenRefreshPayloadInterface } from "../agentadmin/auth/types"
+import type { TokenRefreshPayloadInterface } from "../agentadmindomain/auth/types"
 import { useRouter } from "vue-router"
 
 const { accessToken, credentials } = useAuth()
@@ -62,4 +62,4 @@ onMounted(() => {
 </template>
 
 <style scoped></style>
-../agentadmin/auth/composables../agentadmin/auth/stores../agentadmin/auth/types
+../agentadmindomain/auth/composables../agentadmindomain/auth/stores../agentadmindomain/auth/types
