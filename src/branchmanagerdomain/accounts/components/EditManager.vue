@@ -4,9 +4,9 @@ import { type Ref, ref, reactive, onMounted } from "vue";
 import { useAccounts } from "@/branchmanagerdomain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
-import { useBranchStore } from "@/branchmanagerdomain/branches/stores";
+import { useTillStore } from "@/branchmanagerdomain/tills/stores";
 
-const branchStore = useBranchStore();
+const store = useTillStore();
 
 const form: ManagerAccount = reactive({
   firstName: "",
@@ -14,7 +14,7 @@ const form: ManagerAccount = reactive({
   email: "",
   phone: "",
   // role: "admin",
-  branchId: null,
+  tillId: null,
 });
 
 const notify = useNotificationsStore();
@@ -40,7 +40,7 @@ const store = useAccounts();
 //   };
 //   loading.value = true;
 //   store.addBranch(payload); // Simply add the branch
-//   notify.success("Branch Created");
+//   notify.success("Till Created");
 //   emit("branchCreated");
 //   loading.value = false;
 // }
@@ -52,7 +52,7 @@ function submit() {
     email: form.email,
     phone: form.phone,
     // role: form.role,
-    branchId: form.branchId,
+    tillId: form.tillId,
   };
   loading.value = true;
   store.addManagerAccount(payload); // Simply add the branch
@@ -83,7 +83,7 @@ onMounted(() => {
   <div class="bg-white py-5">
     <p class="text-xl font-bold">Edit Manager</p>
     <p class="text-sm text-gray-500">
-      The individual responsible for overseeing branch operations, managing
+      The individual responsible for overseeing Till operations, managing
       staff, and ensuring smooth service delivery to agents and the public.
     </p>
     <form @submit.prevent="submit" class="pt-5">
@@ -153,8 +153,8 @@ onMounted(() => {
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Branch</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
-            <option value="admin">Branch Wakiso</option>
-            <option value="public">Branch Masaka</option>
+            <option value="admin">Till Wakiso</option>
+            <option value="public">Till Masaka</option>
           </select>
         </div>
       </div> -->
@@ -164,16 +164,16 @@ onMounted(() => {
           >Select Branch</label
         >
         <select
-          v-model="form.branchId"
+          v-model="form.tillId"
           class="noFocus form-element e-input w-full"
         >
-          <option :value="null">-- Select Branch --</option>
+          <option :value="null">-- Select Till --</option>
           <option
-            v-for="(branch, idx) in branchStore.branches"
+            v-for="(till, idx) in store.tills"
             :key="idx"
-            :value="branch.name"
+            :value="till.name"
           >
-            {{ branch.name }}
+            {{ till.name }}
           </option>
         </select>
       </div>
