@@ -363,7 +363,7 @@ function select(tab: string) {
           </div>
         </div>
         <div
-          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
+          :class="activeTab == 'branch7Ledger' ? 'tab-active' : 'tab'"
           @click="select('branch7Ledger')"
         >
           <div class="w-full py-2">
@@ -375,8 +375,8 @@ function select(tab: string) {
           </div>
         </div>
         <div
-          :class="activeTab == 'branch3Ledger' ? 'tab-active' : 'tab'"
-          @click="select('branch3Ledger')"
+          :class="activeTab == 'branch8Ledger' ? 'tab-active' : 'tab'"
+          @click="select('branch8Ledger')"
         >
           <div class="w-full py-2">
             <label class="p-3">Branch 8</label>
