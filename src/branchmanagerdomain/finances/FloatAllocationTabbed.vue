@@ -10,7 +10,7 @@ import type {
   IResendVerificationPayload,
   TAccountVerificationType,
 } from "./types";
-import Branch1Ledger from "@/branchmanagerdomain/finances/components/Branch1Ledger.vue";
+import Till1Ledger from "@/branchmanagerdomain/finances/components/Till1Ledger.vue";
 
 const billingStore = useBilling();
 
@@ -400,7 +400,7 @@ function select(tab: string) {
         </div> -->
       </div>
       <div class="w-10/12 py-1">
-        <Branch1Ledger v-if="activeTab == 'branch1Ledger'" />
+        <Till1Ledger v-if="activeTab == 'branch1Ledger'" />
         <!-- <ServicesStatistics v-if="activeTab == 'services'"/> -->
         <!-- <ApplicationsLineGraph v-if="activeTab == 'services'" />
       <ServiceStatusPieChart v-if="activeTab == 'serviceStatusPieChart'" />
