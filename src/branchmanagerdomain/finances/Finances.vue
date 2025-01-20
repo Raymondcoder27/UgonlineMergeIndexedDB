@@ -57,7 +57,7 @@ function select(tab: string) {
       </div>
       <div
         :class="
-          activeTab == 'transactions' ? 'w-1/12 tab-active' : 'w-1/12 tab'
+          activeTab == 'transactions' ? 'w-2/12 tab-active' : 'w-2/12 tab'
         "
         @click="select('transactions')"
       >
