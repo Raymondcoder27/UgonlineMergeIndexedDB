@@ -4,7 +4,7 @@ import { ref, type Ref } from "vue";
 // import UserAccounts from "@/branchmanagerdomain/accounts/UserAccounts.vue";
 
 import FloatLedgers from "@/branchmanagerdomain/finances/FloatLedgers.vue";
-import FloatManagement from "@/branchmanagerdomain/finances/FloatAllocation.vue";
+import FloatManagement from "@/branchmanagerdomain/finances/FloatAllocationTabbed.vue";
 import Transactions from "@/branchmanagerdomain/finances/Transactions.vue";
 // import FloatRequests from "@/branchmanagerdomain/finances/FloatRequests.vue";
 import FloatRequests from "@/branchmanagerdomain/finances/FloatRequests.vue";
