@@ -73,7 +73,7 @@ export const useBilling = defineStore("billing", () => {
         requestDate: new Date().toISOString(),
         amount: payload.amount,
         status: "pending",
-        tillId: "Till 1",
+        till: "Till 1",
         // branchId: payload.branchId, // Adjust as needed
       };
 
