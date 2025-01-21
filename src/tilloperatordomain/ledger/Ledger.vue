@@ -456,7 +456,7 @@ onMounted(() => {
                 </div>
 
                 <!-- Second Case: Manager directly assigned to branch -->
-                <div v-else-if="transaction.status === 'failed'">
+                <div v-if="transaction.status === 'failed'">
                   <!-- <td> -->
                   <label>
                     <span
@@ -468,7 +468,7 @@ onMounted(() => {
                 </div>
 
                 <!-- Third Case: Fallback, no manager assigned -->
-                <div v-else>
+                <div v-if="transaction.status === 'success'">
                   <!-- <td> -->
                   <span
                     class="text-xs rounded-md px-1 py-0.5 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
