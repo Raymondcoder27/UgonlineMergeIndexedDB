@@ -32,6 +32,22 @@ export const useBilling = defineStore("billing", () => {
   }
 
   // Fetch float ledgers from IndexedDB
+  // async function fetchFloatLedgers(filter: any) {
+  //   try {
+  //     const storedFloatLedgers = await billingDb.getAll<FloatLedger>(); // Get all float ledgers from IndexedDB
+  //     const filteredData = storedFloatLedgers.filter(item => {
+  //       // Apply filters...
+  //     });
+
+  //     const limitedData = filteredData.slice(0, filter.limit || storedFloatLedgers.length);
+  //     floatLedgers.value = limitedData;
+  //     console.log("Filtered float ledgers:", limitedData);
+  //     return limitedData;
+  //   } catch (error) {
+  //     console.error("Error fetching float ledgers:", error);
+  //   }
+  // }
+
   async function fetchFloatLedgers(filter: any) {
     try {
       const storedFloatLedgers = await billingDb.getAll<FloatLedger>(); // Get all float ledgers from IndexedDB
