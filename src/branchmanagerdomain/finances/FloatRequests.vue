@@ -375,8 +375,8 @@ onMounted(() => {
             :key="id"
           >
             <td>{{ id + 1 }}</td>
-            <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
-            <td class="text-left">{{ request.requestDate }}</td>
+            <td class="text-left">{{  convertDateTime(request.date) }}</td>
+            <!-- <td class="text-left">{{ request.requestDate }}</td> -->
             <!-- <td class="text-left">{{ request.dateRequested }}</td> -->
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.till }}</td>
