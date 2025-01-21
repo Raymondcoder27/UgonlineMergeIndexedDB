@@ -16,7 +16,7 @@ balanceStore.fetchTotalBalance();
 
 const totalBalance = balanceStore.totalBalance;
 
-const activeTab: Ref<string> = ref("floatmanagement");
+const activeTab: Ref<string> = ref("floatrequests");
 
 function select(tab: string) {
   activeTab.value = tab;
