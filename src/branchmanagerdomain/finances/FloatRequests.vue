@@ -367,6 +367,15 @@ onMounted(() => {
                 >
               </div>
 
+                <!-- edit float request amount -->
+                <span
+                  class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-blue-600 hover:text-blue-700 hover:bg-blue-200"
+                  @click="editFloatRequest(request)"
+                >
+                  <i class="fa-solid fa-edit"></i>
+                  Edit</span
+                >
+
               <!-- Second Case: Manager directly assigned to till -->
               <div v-else-if="request.status === 'rejected'">
                 <!-- <td> -->
@@ -598,6 +607,13 @@ onMounted(() => {
         </table>
       </div>
     </div>
+  </AppModal>
+
+  <AppModal v-model="editModalOpen" xl2>
+    <!-- Put here whatever makes you smile -->
+    <!-- Chances are high that you're starting with a form -->
+    <EditFloatRequestAmount @cancel="close"/>
+    <!-- That's also okay -->
   </AppModal>
 </template>
 
