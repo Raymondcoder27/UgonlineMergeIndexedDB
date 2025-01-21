@@ -1,125 +1,134 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { db } from "@/branchmanagerdomain/finances/db/db";
-import type {
-  Transaction,
-  FloatLedger,
-  BackofficeUser,
-  TillOperator,
-  FloatAllocation,
-  FloatRequest,
-} from "@/branchmanagerdomain/finances/types";
+import { billingDb } from "@/branchmanagerdomain/finances/db/billing-db"; // Import the correct database
+import type { Transaction, FloatLedger, BackofficeUser, TillOperator, FloatAllocation, FloatRequest } from "@/branchmanagerdomain/finances/types";
 import type { AllocateFloat } from "@/types";
 
 export const useBilling = defineStore("billing", () => {
   // State variables
   const transactions = ref<Transaction[]>([]);
+  const totalAmount = ref(600); // Test value
+  const totalBalance = ref(3000); // Test value
   const floatLedgers = ref<FloatLedger[]>([]);
   const backofficeUsers = ref<BackofficeUser[]>([]);
   const tillOperators = ref<TillOperator[]>([]);
   const floatAllocations = ref<FloatAllocation[]>([]);
   const floatRequests = ref<FloatRequest[]>([]);
-  const totalAmount = ref(600); // Test value
-  const totalBalance = ref(3000); // Test value
   const tillOperatorFloatBalance = ref(0);
 
-  // Generic fetch function
-  async function fetchData<T>(key: string, state: Ref<T[]>) {
-    try {
-      const data = await db.getAll<T>();
-      state.value = data;
-    } catch (error) {
-      console.error(`Error fetching ${key} from IndexedDB:`, error);
-    }
-  }
-
-  // Fetch methods
+  // Fetch data and populate state variables
   async function fetchTransactions() {
-    await fetchData("transactions", transactions);
-  }
-  async function fetchFloatLedgers() {
-    await fetchData("floatLedgers", floatLedgers);
-  }
-  async function fetchBackofficeUsers() {
-    await fetchData("backofficeUsers", backofficeUsers);
-  }
-  async function fetchTillOperators() {
-    await fetchData("tillOperators", tillOperators);
-  }
-  async function fetchFloatAllocations() {
-    await fetchData("floatAllocations", floatAllocations);
-  }
-  async function fetchFloatRequests() {
-    await fetchData("floatRequests", floatRequests);
-  }
-
-  // Generic save function
-  async function saveData<T>(key: string, state: Ref<T[]>, item: T) {
     try {
-      await db.set((item as any).id, item);
-      state.value.push(item);
+      const storedTransactions = await billingDb.getAll<Transaction>();
+      transactions.value = storedTransactions;
     } catch (error) {
-      console.error(`Error saving ${key} to IndexedDB:`, error);
+      console.error("Error fetching transactions:", error);
     }
   }
 
-  // Save methods
+  async function fetchFloatLedgers() {
+    try {
+      const storedLedgers = await billingDb.getAll<FloatLedger>();
+      floatLedgers.value = storedLedgers;
+    } catch (error) {
+      console.error("Error fetching float ledgers:", error);
+    }
+  }
+
+  async function fetchBackofficeUsers() {
+    try {
+      const storedUsers = await billingDb.getAll<BackofficeUser>();
+      backofficeUsers.value = storedUsers;
+    } catch (error) {
+      console.error("Error fetching backoffice users:", error);
+    }
+  }
+
+  async function fetchTillOperators() {
+    try {
+      const storedOperators = await billingDb.getAll<TillOperator>();
+      tillOperators.value = storedOperators;
+    } catch (error) {
+      console.error("Error fetching till operators:", error);
+    }
+  }
+
+  async function fetchFloatAllocations() {
+    try {
+      const storedAllocations = await billingDb.getAll<FloatAllocation>();
+      floatAllocations.value = storedAllocations;
+    } catch (error) {
+      console.error("Error fetching float allocations:", error);
+    }
+  }
+
+  async function fetchFloatRequests() {
+    try {
+      const storedRequests = await billingDb.getAll<FloatRequest>();
+      floatRequests.value = storedRequests;
+    } catch (error) {
+      console.error("Error fetching float requests:", error);
+    }
+  }
+
+  // Save individual data items
   async function saveTransaction(transaction: Transaction) {
-    await saveData("transaction", transactions, transaction);
-  }
-  async function saveFloatLedger(floatLedger: FloatLedger) {
-    await saveData("floatLedger", floatLedgers, floatLedger);
-  }
-  async function saveFloatRequest(floatRequest: FloatRequest) {
-    await saveData("floatRequest", floatRequests, floatRequest);
-  }
-  async function saveFloatAllocation(floatAllocation: FloatAllocation) {
-    await saveData("floatAllocation", floatAllocations, floatAllocation);
-  }
-
-  // Approve or reject float request
-  async function updateFloatRequestStatus(requestId: number, status: string) {
-    const floatRequest = floatRequests.value.find((req) => req.id === requestId);
-    if (floatRequest) {
-      floatRequest.status = status;
-      await db.set(requestId, floatRequest);
-    } else {
-      console.warn(`Float request with ID ${requestId} not found.`);
+    try {
+      await billingDb.set(transaction.id, transaction);
+      transactions.value.push(transaction);
+    } catch (error) {
+      console.error("Error saving transaction:", error);
     }
   }
 
-  async function approveFloatRequest(requestId: number) {
-    await updateFloatRequestStatus(requestId, "approved");
+  async function saveFloatLedger(floatLedger: FloatLedger) {
+    try {
+      await billingDb.set(floatLedger.id, floatLedger);
+      floatLedgers.value.push(floatLedger);
+    } catch (error) {
+      console.error("Error saving float ledger:", error);
+    }
   }
 
-  async function rejectFloatRequest(requestId: number) {
-    await updateFloatRequestStatus(requestId, "rejected");
+  async function saveFloatRequest(floatRequest: FloatRequest) {
+    try {
+      await billingDb.set(floatRequest.id, floatRequest);
+      floatRequests.value.push(floatRequest);
+    } catch (error) {
+      console.error("Error saving float request:", error);
+    }
   }
 
-  // Allocate float
-  async function allocateFloat(payload: AllocateFloat) {
-    const floatAllocation: FloatAllocation = {
-      id: floatAllocations.value.length + 1,
-      dateAssigned: new Date().toISOString(),
-      amount: payload.amount,
-      status: "Allocated",
-      till: payload.tillId,
-    };
-    await saveFloatAllocation(floatAllocation);
+  async function saveFloatAllocation(floatAllocation: FloatAllocation) {
+    try {
+      await billingDb.set(floatAllocation.id, floatAllocation);
+      floatAllocations.value.push(floatAllocation);
+    } catch (error) {
+      console.error("Error saving float allocation:", error);
+    }
   }
 
-  // Adjust float ledger
-  async function adjustFloatLedger(payload: AllocateFloat) {
-    const floatLedger: FloatLedger = {
-      id: floatLedgers.value.length + 1,
-      date: new Date().toISOString(),
-      description: payload.tillId,
-      amount: -payload.amount,
-    };
-    await saveFloatLedger(floatLedger);
+  // Manage float requests from branch manager
+  async function manageFloatRequestsFromBranchManager() {
+    try {
+      const requests = await billingDb.getAll<FloatRequest>();
+      if (requests.length === 0) {
+        console.log("No float requests found.");
+        return;
+      }
+      for (const request of requests) {
+        if (request && request.id) {
+          request.status = "processed"; // Example modification
+          await billingDb.set(request.id, request);
+          console.log(`Updated float request with ID: ${request.id}`);
+        }
+      }
+    } catch (error) {
+      console.error("Error managing float requests:", error);
+    }
   }
 
-  // Initialize store
+  // Initialize store data
   async function initializeStore() {
     await fetchTransactions();
     await fetchFloatLedgers();
@@ -131,18 +140,15 @@ export const useBilling = defineStore("billing", () => {
 
   // Return state and actions
   return {
-    // State
     transactions,
+    totalAmount,
+    totalBalance,
     floatLedgers,
     backofficeUsers,
     tillOperators,
     floatAllocations,
     floatRequests,
-    totalAmount,
-    totalBalance,
     tillOperatorFloatBalance,
-
-    // Actions
     fetchTransactions,
     fetchFloatLedgers,
     fetchBackofficeUsers,
@@ -153,10 +159,7 @@ export const useBilling = defineStore("billing", () => {
     saveFloatLedger,
     saveFloatRequest,
     saveFloatAllocation,
-    approveFloatRequest,
-    rejectFloatRequest,
-    allocateFloat,
-    adjustFloatLedger,
+    manageFloatRequestsFromBranchManager,
     initializeStore,
   };
 });
