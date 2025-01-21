@@ -425,7 +425,7 @@ onMounted(() => {
                 <!-- <td> -->
                 <!-- <label> -->
                 <span
-                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-200 hover:text-blue-700"
                 >
                   <!-- <i class="fa-solid fa-check"></i>
                   Approved</span
@@ -443,7 +443,7 @@ onMounted(() => {
                 <!-- <td> -->
                 <label>
                   <span
-                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-700"
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-200 hover:text-blue-700"
                     @click="view(request)"
                   >
                     <!-- <i class="fa-solid fa-times-square"></i>
