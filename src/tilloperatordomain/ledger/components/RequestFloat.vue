@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import type { CreateAccount } from "@/types";
+import type { FloatRequest } from "@/tilloperatordomain/types";
 import { type Ref, ref, reactive, watch } from "vue";
 import { useAccounts } from "@/tilloperatordomain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
 import { useBilling } from "@/tilloperatordomain/ledger/stores";
 import { useBalance } from "@/tilloperatordomain/balance/stores";
+import { RequestFloat } from "../types/index";
 
 const billingStore = useBilling();
 const balanceStore = useBalance();
@@ -16,13 +17,16 @@ const balanceStore = useBalance();
 //   description: "",
 // });
 
-let form: CreateAccount = reactive({
+let form: FloatRequest = reactive({
   firstName: "",
   lastName: "",
   middleName: "",
   role: "admin",
   username: "",
   phone: "",
+  amount: 0,
+  tillId: "",
+  description: "",
 });
 const notify = useNotificationsStore();
 const loading: Ref<boolean> = ref(false);
