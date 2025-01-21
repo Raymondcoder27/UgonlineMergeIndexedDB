@@ -12,6 +12,25 @@ import type {
 import moment from "moment/moment";
 import { useBalance } from "@/branchmanagerdomain/balance/stores"; // Import the balance store
 
+import EditFloatRequestAmount from "@/branchmanagerdomain/finances/components/EditFloatRequestAmount.vue";
+
+const balanceStore = useBalance();
+
+const editModalOpen: Ref<boolean> = ref(false);
+const viewModalOpen: Ref<boolean> = ref(false);
+
+
+  function editFloatRequest(floatRequest:FloatRequest) {
+  localStorage.setItem("floatRequestEdit", JSON.stringify(floatRequest))
+  editModalOpen.value = true;
+}
+function close() {
+  modalOpen.value = false;
+  viewModalOpen.value = false;
+  editModalOpen.value = false;
+}
+
+
 const balanceStore = useBalance(); // Initialize the balance store
 
 balanceStore.fetchTotalBalance(); // Decrease balance by 100
