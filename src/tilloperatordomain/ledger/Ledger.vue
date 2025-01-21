@@ -316,7 +316,7 @@ const paginatedFloatLedgersWithBalance = computed(() => {
 onMounted(() => {
   // fetchFloatLedgers();
   // fetchTransactions();
-  store.fetchFloatLedgers
+  store.fetchFloatLedgers(filter);
 });
 </script>
 
