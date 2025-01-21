@@ -74,7 +74,7 @@ export const useBilling = defineStore("billing", () => {
         amount: payload.amount,
         status: "pending",
         tillId: "Till 1",
-        branchId: payload.branchId, // Adjust as needed
+        // branchId: payload.branchId, // Adjust as needed
       };
 
       await billingDb.set(newRequest.id, newRequest); // Save to IndexedDB
