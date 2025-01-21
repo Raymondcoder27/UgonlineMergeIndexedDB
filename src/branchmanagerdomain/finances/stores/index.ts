@@ -109,15 +109,23 @@ export const useBilling = defineStore("billing", () => {
   }
 
   // Approve float request
-  async function approveFloatRequest(requestId: number) {
-    const floatRequest = floatRequests.value.find((request) => request.id === requestId);
-    if (floatRequest) {
-      floatRequest.status = "approved";
-      await db.set(floatRequest.id, floatRequest); // Update in IndexedDB
-    }
-    manageFloatRequestsFromBranchManager();
+  // async function approveFloatRequest(requestId: number) {
+  //   const floatRequest = floatRequests.value.find((request) => request.id === requestId);
+  //   if (floatRequest) {
+  //     floatRequest.status = "approved";
+  //     await db.set(floatRequest.id, floatRequest); // Update in IndexedDB
+  //   }
+  //   manageFloatRequestsFromBranchManager();
 
-  }
+  // }
+
+//   const approveFloatRequest = await billingDb.get<any>(requestId);
+// if (floatRequest) {
+//     floatRequest.status = "approved"; // Modify the float request
+//     await billingDb.set(requestId, floatRequest); // Save it back
+//     console.log(`Float request ${requestId} updated.`);
+// }
+
 
   // Reject float request
   async function rejectFloatRequest(requestId: number) {
