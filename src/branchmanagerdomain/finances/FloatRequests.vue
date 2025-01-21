@@ -473,7 +473,7 @@ onMounted(() => {
               >
 
                 <span
-                  class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-600 hover:text-white hover:bg-red-700"
+                  class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-600 hover:bg-red-200 hover:text-red-700"
                   @click="rejectFloatRequestInLocalStorage(request.id)"
                 >
                   <i class="fa-solid fa-times-square"></i>
