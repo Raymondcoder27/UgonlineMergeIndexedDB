@@ -22,9 +22,10 @@ export interface FloatRequest {
 }
 
 export interface RequestFloat {
+    id: number
     amount: number
     tillId: number
-    branch: string
+    // branch: string
     requestDate: string
     status: string
 }
