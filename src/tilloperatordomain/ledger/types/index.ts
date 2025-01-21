@@ -26,3 +26,29 @@ export interface RequestFloat {
     tillId:number
     branch:string
 }
+
+export type Transaction = {
+    // id: string;
+    id: number;
+    // branchName: string;
+    // manager: string;
+    // transactionType: string;
+    trackingNumber: string;
+    service: string;
+    provider: string;
+    till: string;
+    fee: number;
+    status: string;
+    date: string;
+    // amount: number;
+  };
+
+export interface FloatLedger {
+  // id: string;
+  id: number;
+  date: string;
+  description: string;
+  amount: number;
+  balance: number;
+  createdAt: string; 
+}

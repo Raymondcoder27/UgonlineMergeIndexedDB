@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import moment from "moment";
 import { billingDb } from "@/tilloperatordomain/db/db"; // Your IndexedDB utility
-import type { Transaction, FloatLedger, FloatRequest, RequestFloat } from "@/tilloperatordomain/billing/types";
+import type { Transaction, FloatLedger, FloatRequest, RequestFloat } from "@/tilloperatordomain/ledger/types";
 
 export const useBilling = defineStore("billing", () => {
   // State variables
