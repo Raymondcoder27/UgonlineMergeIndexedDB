@@ -31,7 +31,7 @@ let form: FloatRequest = reactive({
 const notify = useNotificationsStore();
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(["cancel", "floatAllocated"]);
-const store = useAccounts();
+// const store = useAccounts();
 // function submit() {
 //   loading.value = true
 //   store.createAccount(form)
