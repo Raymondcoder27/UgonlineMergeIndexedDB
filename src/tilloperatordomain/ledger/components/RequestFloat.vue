@@ -29,7 +29,7 @@ let form: FloatRequest = reactive({
   // description: "",
   requestDate: new Date(),
   // tillId: "till-001",
-  // status: "PENDING",
+  status: "pending",
 });
 const notify = useNotificationsStore();
 const loading: Ref<boolean> = ref(false);
