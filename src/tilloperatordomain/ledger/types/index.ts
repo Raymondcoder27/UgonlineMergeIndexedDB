@@ -25,6 +25,7 @@ export interface RequestFloat {
     id: number
     amount: number
     till: number
+    description: string
     // branch: string
     requestDate: string
     status: string
