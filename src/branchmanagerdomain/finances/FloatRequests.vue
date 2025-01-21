@@ -456,7 +456,7 @@ onMounted(() => {
                   @click="approveFloatRequest(request.id)"
                 > -->
                 <span
-                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-blue-600 hover:text-white hover:bg-blue-800"
+                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-green-600 hover:bg-green-200 hover:text-green-700"
                   @click="approveFloatRequestInLocalStorage(request.id)"
                 >
                   <i class="fa-solid fa-check"></i>
