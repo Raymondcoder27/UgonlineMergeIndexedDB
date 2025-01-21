@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import {onMounted, reactive, type Ref, ref} from "vue";
 import {useAccounts} from "@/branchmanagerdomain/accounts/stores";
 // import { useAccountStore } from "@/branchmanagerdomain/auth/stores";
