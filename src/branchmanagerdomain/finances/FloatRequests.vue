@@ -404,7 +404,7 @@ onMounted(() => {
                 </label>
                 <!-- </td> -->
               </div>
-              <div v-else>
+              <div v-if="request.status === 'pending'">
                 <!-- <td> -->
                 <label>
                   <span
