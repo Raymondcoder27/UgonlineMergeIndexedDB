@@ -96,6 +96,7 @@ export const useBilling = defineStore("billing", () => {
         amount: payload.amount,
         balance: totalBalance.value + payload.amount,
         status: "pending", // Adjust as needed
+        createdAt: new Date().toISOString(),
       };
 
       await billingDb.set(newLedger.id, newLedger); // Save to IndexedDB
