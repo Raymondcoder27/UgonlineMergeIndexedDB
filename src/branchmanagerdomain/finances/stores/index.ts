@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { billingDb } from "@/tilloperatordomain/db/db"; // Import the correct database
 import type { Transaction, FloatLedger, BackofficeUser, TillOperator, FloatAllocation, FloatRequest } from "@/branchmanagerdomain/finances/types";
-import type { AllocateFloat } from "@/types";
 
 export const useBilling = defineStore("billing", () => {
   // State variables
@@ -128,6 +127,38 @@ export const useBilling = defineStore("billing", () => {
     }
   }
 
+  // Approve a float request
+  async function approveFloatRequest(requestId: string) {
+    try {
+      const request = await billingDb.get<FloatRequest>(requestId);
+      if (!request) {
+        console.error(`Request with ID ${requestId} not found.`);
+        return;
+      }
+      request.status = "approved";
+      await billingDb.set(requestId, request);
+      console.log(`Float request with ID ${requestId} approved.`);
+    } catch (error) {
+      console.error("Error approving float request:", error);
+    }
+  }
+
+  // Reject a float request
+  async function rejectFloatRequest(requestId: string) {
+    try {
+      const request = await billingDb.get<FloatRequest>(requestId);
+      if (!request) {
+        console.error(`Request with ID ${requestId} not found.`);
+        return;
+      }
+      request.status = "rejected";
+      await billingDb.set(requestId, request);
+      console.log(`Float request with ID ${requestId} rejected.`);
+    } catch (error) {
+      console.error("Error rejecting float request:", error);
+    }
+  }
+
   // Initialize store data
   async function initializeStore() {
     await fetchTransactions();
@@ -160,6 +191,8 @@ export const useBilling = defineStore("billing", () => {
     saveFloatRequest,
     saveFloatAllocation,
     manageFloatRequestsFromBranchManager,
+    approveFloatRequest,
+    rejectFloatRequest,
     initializeStore,
   };
 });
