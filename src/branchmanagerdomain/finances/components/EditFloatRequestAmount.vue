@@ -13,23 +13,9 @@ const store = useBilling()
 const loading: Ref<boolean> = ref(false)
 const notify =useNotificationsStore()
 
-// let form: CreateFloatRequest = reactive({
-//   name: "",
-//   branch: "",
-//   amount: "",
-//   status: "",
-// //   displayName: "",
-// //   displayLogo: null,
-// //   providerType:"GOVERNMENT",
-// //   physicalAddress: "",
-// //   inquiryEmail:"",
-// //   inquiryPhoneNumber:"",
-// //   username: ""
-// })
-
 let form: FloatRequest = reactive({
   name: "",
-  branch: "",
+  till: "",
   amount: "",
   status: "",
 })
@@ -39,7 +25,7 @@ onMounted(() => {
   let data = JSON.parse(<string>localStorage.getItem("floatRequestEdit"))
 
   form.name = data.name
-  form.branch = data.branch
+  form.till = data.till
   form.amount = data.amount
   form.status = data.status
 //   form.displayName = data.displayName
@@ -106,8 +92,8 @@ function submit(){
 
       <div class="flex">
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch</label>
-          <input type="text" v-model="form.branch" class="noFocus form-element e-input w-full"
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Till</label>
+          <input type="text" v-model="form.till" class="noFocus form-element e-input w-full"
                  required />
         </div>
         <div class="cell">
