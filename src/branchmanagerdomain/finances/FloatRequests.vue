@@ -230,36 +230,44 @@ function convertDateTimeNullable(date?: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
-const approveFloatRequestInLocalStorage = (requestId: any) => {
-  const floatRequestsFromLocalStorage = JSON.parse(
-    localStorage.getItem("floatRequestToBranchManagerLocalStorage") || "[]"
-  );
-  const floatRequest = floatRequestsFromLocalStorage.find(
-    (request: any) => request.id === requestId
-  );
-  floatRequest.status = "approved";
+// const approveFloatRequestInLocalStorage = (requestId: any) => {
+//   const floatRequestsFromLocalStorage = JSON.parse(
+//     localStorage.getItem("floatRequestToBranchManagerLocalStorage") || "[]"
+//   );
+//   const floatRequest = floatRequestsFromLocalStorage.find(
+//     (request: any) => request.id === requestId
+//   );
+//   floatRequest.status = "approved";
+//   billingStore.approveFloatRequest(requestId);
+//   localStorage.setItem(
+//     "floatRequestToBranchManagerLocalStorage",
+//     JSON.stringify(floatRequestsFromLocalStorage)
+//   );
+//   console.log(`float request with id ${requestId} approved`);
+// };
+
+const approveFloatRequest = (requestId: any) => {
   billingStore.approveFloatRequest(requestId);
-  localStorage.setItem(
-    "floatRequestToBranchManagerLocalStorage",
-    JSON.stringify(floatRequestsFromLocalStorage)
-  );
-  console.log(`float request with id ${requestId} approved`);
 };
 
-const rejectFloatRequestInLocalStorage = (requestId: any) => {
-  const floatRequestsFromLocalStorage = JSON.parse(
-    localStorage.getItem("floatRequestToBranchManagerLocalStorage") || "[]"
-  );
-  const floatRequest = floatRequestsFromLocalStorage.find(
-    (request: any) => request.id === requestId
-  );
-  floatRequest.status = "rejected";
+// const rejectFloatRequestInLocalStorage = (requestId: any) => {
+//   const floatRequestsFromLocalStorage = JSON.parse(
+//     localStorage.getItem("floatRequestToBranchManagerLocalStorage") || "[]"
+//   );
+//   const floatRequest = floatRequestsFromLocalStorage.find(
+//     (request: any) => request.id === requestId
+//   );
+//   floatRequest.status = "rejected";
+//   billingStore.rejectFloatRequest(requestId);
+//   localStorage.setItem(
+//     "floatRequestToBranchManagerLocalStorage",
+//     JSON.stringify(floatRequestsFromLocalStorage)
+//   );
+//   console.log(`float request with id ${requestId} rejected`);
+// };
+
+const rejectFloatRequest = (requestId: any) => {
   billingStore.rejectFloatRequest(requestId);
-  localStorage.setItem(
-    "floatRequestToBranchManagerLocalStorage",
-    JSON.stringify(floatRequestsFromLocalStorage)
-  );
-  console.log(`float request with id ${requestId} rejected`);
 };
 
 onMounted(() => {
@@ -457,7 +465,7 @@ onMounted(() => {
                 > -->
                 <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-white bg-green-600 hover:bg-green-200 hover:text-green-700"
-                  @click="approveFloatRequestInLocalStorage(request.id)"
+                  @click="approveFloatRequest(request.id)"
                 >
                   <i class="fa-solid fa-check"></i>
                   Approve</span
@@ -474,7 +482,7 @@ onMounted(() => {
 
                 <span
                   class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-600 hover:bg-red-200 hover:text-red-700"
-                  @click="rejectFloatRequestInLocalStorage(request.id)"
+                  @click="rejectFloatRequest(request.id)"
                 >
                   <i class="fa-solid fa-times-square"></i>
                   Reject</span
