@@ -128,7 +128,7 @@ export const useBilling = defineStore("billing", () => {
   }
 
   // Approve a float request
-  async function approveFloatRequest(requestId: string) {
+  async function approveFloatRequest(requestId: number) {
     try {
       const request = await billingDb.get<FloatRequest>(requestId);
       if (!request) {
@@ -144,7 +144,7 @@ export const useBilling = defineStore("billing", () => {
   }
 
   // Reject a float request
-  async function rejectFloatRequest(requestId: string) {
+  async function rejectFloatRequest(requestId: number) {
     try {
       const request = await billingDb.get<FloatRequest>(requestId);
       if (!request) {
