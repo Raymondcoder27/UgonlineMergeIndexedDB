@@ -19,7 +19,7 @@ const totalBalance = balanceStore.totalBalance;
 // const availableFloat = balanceStore.availableFloat;
 const finalFloat = balanceStore.finalFloat;
 
-const activeTab: Ref<string> = ref("floatrequests");
+const activeTab: Ref<string> = ref("floatallocation");
 
 function select(tab: string) {
   activeTab.value = tab;
@@ -69,9 +69,9 @@ function select(tab: string) {
       </div>
       <div
         :class="
-          activeTab == 'floatmanagement' ? 'w-2/12 tab-active' : 'w-2/12 tab'
+          activeTab == 'floatallocation' ? 'w-2/12 tab-active' : 'w-2/12 tab'
         "
-        @click="select('floatmanagement')"
+        @click="select('floatallocation')"
       >
         Float Allocation
       </div>
@@ -114,8 +114,8 @@ function select(tab: string) {
         <!-- <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <UserAccounts v-if="activeTab == 'users'" /> -->
         <Transactions v-if="activeTab == 'transactions'" />
-        <!-- <FloatManagement v-if="activeTab == 'floatmanagement'" /> -->
-        <FloatAllocationTabbed v-if="activeTab == 'floatmanagement'" />
+        <!-- <FloatManagement v-if="activeTab == 'floatallocation'" /> -->
+        <FloatAllocationTabbed v-if="activeTab == 'floatallocation'" />
         <FloatLedgers v-if="activeTab == 'floatledgers'" />
         <FloatRequests v-if="activeTab == 'floatrequests'" />
       </div>
