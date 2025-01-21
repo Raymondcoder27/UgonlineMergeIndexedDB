@@ -391,8 +391,6 @@ onMounted(() => {
                 >
               </div>
 
-             
-
               <!-- Second Case: Manager directly assigned to till -->
               <div v-if="request.status === 'rejected'">
                 <!-- <td> -->
@@ -471,14 +469,14 @@ onMounted(() => {
                   Approve</span
                 >
 
-                 <!-- edit float request amount -->
-              <span
-                class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-blue-600 hover:text-blue-700 hover:bg-blue-200"
-                @click="editFloatRequest(request)"
-              >
-                <i class="fa-solid fa-edit"></i>
-                Edit</span
-              >
+                <!-- edit float request amount -->
+                <span
+                  class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-blue-600 hover:text-blue-700 hover:bg-blue-200"
+                  @click="editFloatRequest(request)"
+                >
+                  <i class="fa-solid fa-edit"></i>
+                  Edit</span
+                >
 
                 <span
                   class="text-xs rounded-md px-1 py-0.5 ml-1 font-semibold text-white bg-red-600 hover:bg-red-200 hover:text-red-700"
