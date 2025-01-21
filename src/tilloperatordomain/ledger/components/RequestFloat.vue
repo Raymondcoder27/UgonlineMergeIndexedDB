@@ -6,7 +6,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
 import { useBilling } from "@/tilloperatordomain/ledger/stores";
 import { useBalance } from "@/tilloperatordomain/balance/stores";
-import { RequestFloat } from "../types/index";
+// import { RequestFloat } from "../types/index";
 
 const billingStore = useBilling();
 const balanceStore = useBalance();
@@ -18,11 +18,11 @@ const balanceStore = useBalance();
 // });
 
 let form: FloatRequest = reactive({
-  firstName: "",
-  lastName: "",
-  middleName: "",
-  role: "admin",
-  username: "",
+  // firstName: "",
+  // lastName: "",
+  // middleName: "",
+  // role: "admin",
+  // username: "",
   phone: "",
   amount: 0,
   tillId: "",
