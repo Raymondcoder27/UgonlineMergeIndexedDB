@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { billingDb } from "@/tilloperatordomain/finances/db/db"; // Import the correct database
+import { billingDb } from "@/tilloperatordomain/db/db"; // Import the correct database
 import type { Transaction, FloatLedger, BackofficeUser, TillOperator, FloatAllocation, FloatRequest } from "@/branchmanagerdomain/finances/types";
 import type { AllocateFloat } from "@/types";
 
