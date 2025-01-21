@@ -213,53 +213,6 @@ function convertDateTimeNullable(date?: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
-// function submit() {
-//   const payload = {
-//     amount: form.amount,
-//     tillId: form.tillId,
-//   };
-
-//   console.log("Submitting payload:", payload);
-
-//   loading.value = true;
-//   store.allocateFloat(payload) // API call to allocate float
-//     // .then(() => {
-//       billingStore.adjustFloatLedger(payload); // Adjust ledger
-//       balanceStore.decreaseTotalBalance(payload.amount); // Update balance
-//       // notify.success(`Float allocated to branch: ${form.tillId}`);
-//       notify.success(`Float allocated to ${form.tillId}`);
-//       emit("floatAllocated");
-//     // })
-//     // .catch((err) => {
-//       // console.error("Error allocating float:", err);
-//       // notify.error("Failed to allocate float.");
-//     // })
-//     // .finally(() => {
-//       // loading.value = false;
-//     // });
-// }
-
-// const floatRequestsFromLocalStorage = JSON.parse(localStorage.getItem('floatRequestToBranchManagerLocalStorage') || '[]');
-
-// if (floatRequestsFromLocalStorage) {
-//   floatRequestsFromLocalStorage.value = floatRequestsFromLocalStorage;
-// }
-
-// pass in the requestId
-// const approveFloatRequest = (requestId: any) => {
-//   billingStore.approveFloatRequest(requestId);
-//   // billingStore.fetchFloatRequests();
-//   balanceStore.approveFloatRequest(requestId);
-//   billingStore.reduceFloatLedger(requestId);
-//   billingStore.allocateFloatFromRequest(requestId);
-//   console.log(`float request with id ${requestId} approved`);
-// };
-
-// const rejectFloatRequest = (requestId: any) => {
-//   billingStore.rejectFloatRequest(requestId);
-//   billingStore.fetchFloatRequests();
-//   console.log(`float request with id ${requestId} rejected`);
-// };
 
 const approveFloatRequestInLocalStorage = (requestId: any) => {
   const floatRequestsFromLocalStorage = JSON.parse(
@@ -407,27 +360,11 @@ onMounted(() => {
             <td class="text-left">
               <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">
-                <!-- <td> -->
-                <!-- <label> -->
-                <!-- <span
-                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
-                  @click="approveFloatRequest(request.id)"
-                  >
-                  <i class="fa-solid fa-check"></i>
-                  Approved</span
-                > -->
-                <!-- <span
-                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
-                  @click="approveFloatRequest(request.id)"
-                > -->
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-700 bg-green-100 border border-green-300 hover:text-green-700 hover:bg-green-200"
                 >
-                  <!-- <i class="fa-solid fa-check"></i> -->
                   Approved</span
                 >
-                <!-- </label> -->
-                <!-- </td> -->
               </div>
 
               <!-- Second Case: Manager directly assigned to till -->
@@ -518,14 +455,6 @@ onMounted(() => {
                 <!-- </td> -->
               </div>
             </td>
-
-            <!-- <td class="text-center">
-              <span class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
-                @click="open(transaction)">Approve</span>
-
-              <span class="text-xs rounded-md p-1 mr-2 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"             
-                @click="open(transaction)">Reject</span>
-            </td> -->
           </tr>
         </tbody>
       </table>
@@ -613,14 +542,6 @@ onMounted(() => {
               <td class="p-1 font-bold">ID</td>
               <td class="p-1">{{ selectedFloatRequest?.id }}</td>
             </tr>
-            <!-- <tr class="border border-gray-50">
-              <td class="p-1 font-bold">Tracking Number</td>
-              <td class="p-1">{{ selectedFloatRequest?.trackingNo }}</td>
-            </tr> -->
-            <!-- <tr class="border border-gray-50">
-              <td class="p-1 font-bold">Date</td>
-              <td class="p-1">{{ selectedFloatRequest?.dateRequested }}</td>
-            </tr> -->
             <tr class="border border-gray-50">
               <td class="p-1 font-bold">Till</td>
               <td class="p-1">{{ selectedFloatRequest?.till }}</td>
@@ -686,5 +607,3 @@ onMounted(() => {
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
 </style>
-<!-- @/agentdomain/ledger/types -->
- <!-- @/branchmanager/finances/stores@/branchmanager/balance/stores@/branchmanager/finances/types -->@/branchmanagerdomain/finances/stores/index2@/branchmanagerdomain/finances/stores/index2@/branchmanagerdomain/finances/stores/index copy
