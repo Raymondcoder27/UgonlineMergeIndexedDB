@@ -57,7 +57,7 @@ const emit = defineEmits(['cancel'])
 
 onMounted(() => {
 //   let data = JSON.parse(<string>localStorage.getItem("provider"))
-  let data = JSON.parse(<string>localStorage.getItem("backofficeAccount"))
+  let data = JSON.parse(<string>localStorage.getItem("branchManagerbackofficeAccount"))
 
   form.name = data.name
   form.firstName = data.firstName
