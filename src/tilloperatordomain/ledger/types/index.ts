@@ -54,4 +54,5 @@ export interface FloatLedger {
     amount: number;
     balance: number;
     createdAt: string;
+    status: string;
 }
