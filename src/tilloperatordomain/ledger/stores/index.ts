@@ -95,7 +95,8 @@ export const useBilling = defineStore("billing", () => {
         description: payload.description,
         amount: payload.amount,
         balance: totalBalance.value + payload.amount,
-        status: "pending", // Adjust as needed
+        // status: "pending", // Adjust as needed
+        status: payload.status,
         createdAt: new Date().toISOString(),
       };
 
