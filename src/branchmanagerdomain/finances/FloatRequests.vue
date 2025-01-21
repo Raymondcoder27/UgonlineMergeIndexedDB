@@ -11,6 +11,24 @@ import { useBalance } from "@/branchmanagerdomain/balance/stores";
 // import { FloatRequest } from "@/tilloperatordomain/ledger/types/chart";
 import { FloatRequest } from "@/branchmanagerdomain/finances/types";
 
+import EditFloatRequestAmount from "@/branchmanagerdomain/finances/components/EditFloatRequestAmount.vue";
+
+// const balanceStore = useBalance();
+
+const editModalOpen: Ref<boolean> = ref(false);
+const viewModalOpen: Ref<boolean> = ref(false);
+
+
+  function editFloatRequest(floatRequest:FloatRequest) {
+  localStorage.setItem("floatRequestEdit", JSON.stringify(floatRequest))
+  editModalOpen.value = true;
+}
+function close() {
+  modalOpen.value = false;
+  viewModalOpen.value = false;
+  editModalOpen.value = false;
+}
+
 const balanceStore = useBalance();
 
 const billingStore = useBilling();
