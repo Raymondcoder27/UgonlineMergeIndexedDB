@@ -26,7 +26,7 @@ let form: FloatRequest = reactive({
   phone: "",
   amount: 0,
   tillId: "",
-  description: "",
+  // description: "",
   requestDate: new Date(),
   // tillId: "till-001",
   // status: "PENDING",
