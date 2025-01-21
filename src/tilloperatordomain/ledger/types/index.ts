@@ -1,30 +1,31 @@
 export interface GraphData {
-   data:Statistic[]
+    data: Statistic[]
 }
 
 export interface Statistic {
-    x:string
-    y:number
+    x: string
+    y: number
 }
 
 export interface ProviderRegistrationStatistic {
-    date:string
-    providers:number
+    date: string
+    providers: number
 }
 
 export interface FloatRequest {
-    id:number
-    requestDate:string
-    amount:number
-    status:string
-    branchId:number
+    id: number
+    requestDate: string
+    amount: number
+    status: string
+    branchId: number
     tillId: string
 }
 
 export interface RequestFloat {
-    amount:number
-    tillId:number
-    branch:string
+    amount: number
+    tillId: number
+    branch: string
+    requestDate: string
 }
 
 export type Transaction = {
@@ -41,14 +42,14 @@ export type Transaction = {
     status: string;
     date: string;
     // amount: number;
-  };
+};
 
 export interface FloatLedger {
-  // id: string;
-  id: number;
-  date: string;
-  description: string;
-  amount: number;
-  balance: number;
-  createdAt: string; 
+    // id: string;
+    id: number;
+    date: string;
+    description: string;
+    amount: number;
+    balance: number;
+    createdAt: string;
 }
