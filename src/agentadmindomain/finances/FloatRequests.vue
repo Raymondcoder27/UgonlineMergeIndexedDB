@@ -17,9 +17,8 @@ const balanceStore = useBalance();
 const editModalOpen: Ref<boolean> = ref(false);
 const viewModalOpen: Ref<boolean> = ref(false);
 
-
-  function editFloatRequest(floatRequest:FloatRequest) {
-  localStorage.setItem("floatRequestEdit", JSON.stringify(floatRequest))
+function editFloatRequest(floatRequest: FloatRequest) {
+  localStorage.setItem("floatRequestEdit", JSON.stringify(floatRequest));
   editModalOpen.value = true;
 }
 function close() {
@@ -27,7 +26,6 @@ function close() {
   viewModalOpen.value = false;
   editModalOpen.value = false;
 }
-
 
 const billingStore = useBilling();
 const page = ref(1);
@@ -676,7 +674,7 @@ onMounted(() => {
   <AppModal v-model="editModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <EditFloatRequestAmount @cancel="close"/>
+    <EditFloatRequestAmount @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 </template>
